@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 /// <summary>
@@ -33,8 +34,7 @@ public class LobbyConnectScreen : UiScreen
 
     void OnConnectClicked()
     {
-        Debug.Log("Connect to lobby with code: " + lobbyCodeInput.text);
-        Debug.Log("TODO: Implement lobby connection logic");
+        SceneManager.LoadScene("Lobby");
     }
 
     void OnLobbyCodeFieldChanged(string value)

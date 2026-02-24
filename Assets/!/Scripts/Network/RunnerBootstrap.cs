@@ -12,11 +12,20 @@ using UnityEngine.SceneManagement;
 /// </summary>
 public class RunnerBootstrap : MonoBehaviour, INetworkRunnerCallbacks
 {
+    public static RunnerBootstrap Instance { get; private set; }
+
     public NetworkRunner Runner { get; private set; }
     public string SessionName { get; private set; } = "MyLobby";
 
     void Awake()
     {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
         DontDestroyOnLoad(gameObject);
 
         Runner = GetComponent<NetworkRunner>();
@@ -25,12 +34,15 @@ public class RunnerBootstrap : MonoBehaviour, INetworkRunnerCallbacks
         Runner.AddCallbacks(this);
     }
 
-    public async void StartSession(string sessionName)
+    public void SetSessionName(string sessionName)
+    {
+        SessionName = sessionName;
+    }
+
+    public async void StartSession()
     {
         if (Runner.IsRunning)
             return;
-
-        SessionName = sessionName;
 
         await Runner.StartGame(new StartGameArgs()
         {

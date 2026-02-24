@@ -2,6 +2,10 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+
+/// <summary>
+/// Represents the login screen for user authentication
+/// </summary>
 public class LogInScreen : UiScreen
 {
     [SerializeField] PlayFabAuth playFabAuth;
@@ -29,6 +33,9 @@ public class LogInScreen : UiScreen
         CanLogin();
     }
 
+    /// <summary>
+    /// Shows the login screen
+    /// </summary>
     public override void Show()
     {
         base.Show();
@@ -49,6 +56,9 @@ public class LogInScreen : UiScreen
         AllowInteractions(false);
     }
 
+    /// <summary>
+    /// Enables or disables user interaction with the login ui
+    /// </summary>
     void AllowInteractions(bool value)
     {
         loginButton.interactable = value;
@@ -57,17 +67,34 @@ public class LogInScreen : UiScreen
         usernameInput.interactable = value;
     }
 
+    /// <summary>
+    /// Reacts to a successful login, saving username, requesting user data from PlayFab, and transitioning to the lobby screen
+    /// </summary>
     void LoginSucessCallback()
     {
+        // Transition to the lobby screen on successful login
         uiManager.ShowScreen(lobbyScreen);
 
+        // Save the username for future sessions
         PlayerPrefs.SetString("username", usernameInput.text);
-        PlayerPrefs.SetString("password", passwordInput.text);
         PlayerPrefs.Save();
 
-        AllowInteractions(true);
+        // wait for character data from PlayFab to load before allowing player to continue to lobby
+        PlayFabCharacterSave.Load((data) =>
+            {
+                CharacterDataManager.Instance.Initialize(data);
+                Debug.Log("Character data loaded successfully.");
+                
+                // Re-enable interactions in case the user logs out and returns to this screen
+                AllowInteractions(true);
+            }
+        );
     }
 
+    /// <summary>
+    /// Reaction to a failed login attempt, re-enabling user interaction with the login ui
+    /// TODO: Add error message display to the user in the future
+    /// </summary>
     void LoginFailCallback()
     {
         AllowInteractions(true);
@@ -88,6 +115,9 @@ public class LogInScreen : UiScreen
         CanLogin();
     }
 
+    /// <summary>
+    /// Verifies if inputs meet the minimum requirements for a login attempt
+    /// </summary>
     void CanLogin()
     {         
         if (usernameInput.text.Length > 4 && passwordInput.text.Length >= 6)
