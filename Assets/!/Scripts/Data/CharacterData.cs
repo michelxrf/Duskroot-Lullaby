@@ -9,10 +9,20 @@ using UnityEngine;
 [Serializable]
 public class CharacterData
 {
+    public string CharacterId;
     public int Level;
     public int Experience;
-    public string CharacterId;
-    public Dictionary<string, int> Inventory = new Dictionary<string, int>();
+
+    // attributes
+    public int health;
+    public float armor;
+    public int damage;
+    public int speed;
+    public int attackSpeed;
+    public int cure;
+    public int hurt;
+
+    public List<InventoryItem> startingItens;
 }
 
 /// <summary>
@@ -24,7 +34,7 @@ public class PlayerCharactersData
 {
     public CharacterData[] Characters = new CharacterData[4];
 
-    public static PlayerCharactersData CreateDefault()
+    public static PlayerCharactersData CreateDefault(CharacterTemplate[] defaultCharacterTemplates)
     {
         var data = new PlayerCharactersData();
 
@@ -32,10 +42,18 @@ public class PlayerCharactersData
         {
             data.Characters[i] = new CharacterData
             {
-                Level = 1,
-                Experience = 0,
-                CharacterId = "Uninitialized",
-                Inventory = new Dictionary<string, int>()
+                CharacterId = defaultCharacterTemplates[i].CharacterId,
+                Level = defaultCharacterTemplates[i].Level,
+                Experience = defaultCharacterTemplates[i].Experience,
+                health = defaultCharacterTemplates[i].health,
+                armor = defaultCharacterTemplates[i].armor,
+                damage = defaultCharacterTemplates[i].damage,
+                speed = defaultCharacterTemplates[i].speed,
+                attackSpeed = defaultCharacterTemplates[i].attackSpeed,
+                cure = defaultCharacterTemplates[i].cure,
+                hurt = defaultCharacterTemplates[i].hurt,
+
+                // TODO: initialize startingItens based from the defaultCharacterTemplates
             };
         }
 

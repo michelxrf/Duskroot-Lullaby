@@ -4682,6 +4682,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c564430a29b1d5c43bb5731ba1cd7610, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterDataManager
+  _charactersTemplates:
+  - {fileID: 11400000, guid: 332803169fc1dde4c86d6418cbb01cba, type: 2}
+  - {fileID: 11400000, guid: bde61b8ce15ff124fb2859760625aa12, type: 2}
+  - {fileID: 11400000, guid: b19ca060910e0f442b91684154267cd6, type: 2}
+  - {fileID: 11400000, guid: a7330fa98db97b3488e7a8e2a68d6a05, type: 2}
 --- !u!4 &1540930961
 Transform:
   m_ObjectHideFlags: 0

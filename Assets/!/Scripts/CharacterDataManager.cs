@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 
@@ -11,8 +12,9 @@ public class CharacterDataManager : MonoBehaviour
     public PlayerCharactersData Data { get; private set; }
 
     private bool _isDirty;
+    [SerializeField] CharacterTemplate[] _charactersTemplates;
 
-    // TODO: This is a placeholder. We will need to implement a more robust leveling system in the future.
+    // placeholder for level up threshold, should be replaced by a more complex system that can be configured per character and level
     int currentLevelThreshold = 100;
 
     private void Awake()
@@ -40,7 +42,10 @@ public class CharacterDataManager : MonoBehaviour
     public void Initialize(PlayerCharactersData loadedData)
     {
         if (loadedData == null)
-            Data = PlayerCharactersData.CreateDefault();
+        {
+            Data = PlayerCharactersData.CreateDefault(_charactersTemplates);
+            PlayFabCharacterSave.Save(Data);
+        }
         else
             Data = loadedData;
 
