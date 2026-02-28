@@ -37,7 +37,7 @@ public class PlayerCharactersData
     public static PlayerCharactersData CreateDefault(CharacterTemplate[] defaultCharacterTemplates)
     {
         var data = new PlayerCharactersData();
-
+        
         for (int i = 0; i < 4; i++)
         {
             data.Characters[i] = new CharacterData

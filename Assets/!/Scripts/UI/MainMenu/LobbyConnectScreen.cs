@@ -34,6 +34,7 @@ public class LobbyConnectScreen : UiScreen
 
     void OnConnectClicked()
     {
+        RunnerBootstrap.Instance.SetSessionName(lobbyCodeInput.text);
         SceneManager.LoadScene("Lobby");
     }
 

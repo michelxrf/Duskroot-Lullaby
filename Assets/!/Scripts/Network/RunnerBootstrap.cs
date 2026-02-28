@@ -16,6 +16,13 @@ public class RunnerBootstrap : MonoBehaviour, INetworkRunnerCallbacks
 
     public NetworkRunner Runner { get; private set; }
     public string SessionName { get; private set; } = "MyLobby";
+    public int MaxPlayers { get; private set; } = 1;
+
+    // Actions
+    public Action OnConnected;
+    public Action OnPlayerConnected;
+    public Action<PlayerRef> OnPlayerDisconnected;
+    public Action OnFailedToConnect;
 
     void Awake()
     {
@@ -28,6 +35,9 @@ public class RunnerBootstrap : MonoBehaviour, INetworkRunnerCallbacks
         Instance = this;
         DontDestroyOnLoad(gameObject);
 
+        // required so that the application doesn't pause when the user tabs out of the game window
+        Application.runInBackground = true;
+
         Runner = GetComponent<NetworkRunner>();
         Runner.ProvideInput = true;
 
@@ -37,6 +47,11 @@ public class RunnerBootstrap : MonoBehaviour, INetworkRunnerCallbacks
     public void SetSessionName(string sessionName)
     {
         SessionName = sessionName;
+    }
+
+    public void SetMaxPlayers(int maxPlayers)
+    {
+        MaxPlayers = maxPlayers;
     }
 
     public async void StartSession()
@@ -49,7 +64,8 @@ public class RunnerBootstrap : MonoBehaviour, INetworkRunnerCallbacks
             GameMode = GameMode.Shared,
             SessionName = SessionName,
             Scene = SceneRef.FromIndex(SceneManager.GetActiveScene().buildIndex),
-            SceneManager = GetComponent<NetworkSceneManagerDefault>()
+            SceneManager = GetComponent<NetworkSceneManagerDefault>(),
+            PlayerCount = MaxPlayers
         });
     }
 
@@ -57,17 +73,17 @@ public class RunnerBootstrap : MonoBehaviour, INetworkRunnerCallbacks
 
     void INetworkRunnerCallbacks.OnObjectEnterAOI(NetworkRunner runner, NetworkObject obj, PlayerRef player) { }
 
-    void INetworkRunnerCallbacks.OnPlayerJoined(NetworkRunner runner, PlayerRef player) { }
+    void INetworkRunnerCallbacks.OnPlayerJoined(NetworkRunner runner, PlayerRef player) { OnPlayerConnected?.Invoke(); }
 
-    void INetworkRunnerCallbacks.OnPlayerLeft(NetworkRunner runner, PlayerRef player) { }
+    void INetworkRunnerCallbacks.OnPlayerLeft(NetworkRunner runner, PlayerRef player) { OnPlayerDisconnected?.Invoke(player); }
 
-    void INetworkRunnerCallbacks.OnShutdown(NetworkRunner runner, ShutdownReason shutdownReason) { }
+    void INetworkRunnerCallbacks.OnShutdown(NetworkRunner runner, ShutdownReason shutdownReason) { { OnFailedToConnect?.Invoke(); } }
 
-    void INetworkRunnerCallbacks.OnDisconnectedFromServer(NetworkRunner runner, NetDisconnectReason reason) { }
+    void INetworkRunnerCallbacks.OnDisconnectedFromServer(NetworkRunner runner, NetDisconnectReason reason) { OnFailedToConnect?.Invoke(); }
 
     void INetworkRunnerCallbacks.OnConnectRequest(NetworkRunner runner, NetworkRunnerCallbackArgs.ConnectRequest request, byte[] token) { }
 
-    void INetworkRunnerCallbacks.OnConnectFailed(NetworkRunner runner, NetAddress remoteAddress, NetConnectFailedReason reason) { }
+    void INetworkRunnerCallbacks.OnConnectFailed(NetworkRunner runner, NetAddress remoteAddress, NetConnectFailedReason reason) { OnFailedToConnect?.Invoke(); }
 
     void INetworkRunnerCallbacks.OnUserSimulationMessage(NetworkRunner runner, SimulationMessagePtr message) { }
 
@@ -79,7 +95,7 @@ public class RunnerBootstrap : MonoBehaviour, INetworkRunnerCallbacks
 
     void INetworkRunnerCallbacks.OnInputMissing(NetworkRunner runner, PlayerRef player, NetworkInput input) { }
 
-    void INetworkRunnerCallbacks.OnConnectedToServer(NetworkRunner runner) { }
+    void INetworkRunnerCallbacks.OnConnectedToServer(NetworkRunner runner) { OnConnected?.Invoke(); }
 
     void INetworkRunnerCallbacks.OnSessionListUpdated(NetworkRunner runner, List<SessionInfo> sessionList) { }
 

@@ -52,9 +52,25 @@ public class CharacterDataManager : MonoBehaviour
         _isDirty = false;
     }
 
+    /// <summary>
+    /// Find and return character data by index
+    /// </summary>
     public CharacterData GetCharacter(int index)
     {
         return Data.Characters[index];
+    }
+
+    /// <summary>
+    /// Find and return character data by characterId
+    /// </summary>
+    public CharacterData GetCharacter(string characterId)
+    {
+        foreach (var character in Data.Characters)
+        {
+            if (character.CharacterId == characterId)
+                return character;
+        }
+        return null;
     }
 
     public void AddExperience(int index, int xp)
