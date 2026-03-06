@@ -99,6 +99,7 @@ public class LobbySeat : NetworkBehaviour
         playerName.gameObject.SetActive(false);
         characterLevel.gameObject.SetActive(false);
         selectButton.gameObject.SetActive(showSelectButton);
+        readyIndicator.enabled = false;
     }
 
     private void ShowOccupiedSeatUI(bool isLocalPlayerSeat)
