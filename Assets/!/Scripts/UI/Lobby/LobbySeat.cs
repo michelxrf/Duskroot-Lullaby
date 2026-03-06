@@ -1,5 +1,6 @@
 using System;
 using Fusion;
+using PlayFab.MultiplayerModels;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -14,12 +15,13 @@ public class LobbySeat : NetworkBehaviour
     [SerializeField] TMP_Text playerName;
     [SerializeField] TMP_Text characterName;
     [SerializeField] TMP_Text characterLevel;
+    [SerializeField] Image readyIndicator;
     [SerializeField] Button readyButton;
     [SerializeField] Button leaveSeatButton;
     [SerializeField] Button selectButton;
 
     // Networked properties to sync state across all clients
-    [Networked] public NetworkBool IsReady { get; set; }
+    [Networked] public NetworkBool IsReady { get; set; } = false;
     [Networked] public NetworkBool IsEmpty { get; set; }
     [Networked] public PlayerRef OccupyingPlayer { get; set; }
     [Networked] public NetworkString<_32> PlayerName { get; set; }
@@ -32,6 +34,7 @@ public class LobbySeat : NetworkBehaviour
         characterName.text = characterTemplate.CharacterId;
         lobbyManager = FindFirstObjectByType<LobbyManager>();
 
+        readyIndicator.enabled = false;
         readyButton.onClick.AddListener(OnReadyClicked);
         leaveSeatButton.onClick.AddListener(OnLeaveSeatClicked);
         selectButton.onClick.AddListener(OnSelectClicked);
@@ -110,11 +113,15 @@ public class LobbySeat : NetworkBehaviour
         readyButton.gameObject.SetActive(isLocalPlayerSeat);
         leaveSeatButton.gameObject.SetActive(isLocalPlayerSeat);
         selectButton.gameObject.SetActive(false);
+
+        // Show ready indicator based on IsReady state (visible to all players)
+        readyIndicator.enabled = IsReady;
     }
 
     public void ClearSeat()
     {
         IsReady = false;
+
         IsEmpty = true;
         OccupyingPlayer = PlayerRef.None;
         PlayerName = "";
@@ -129,13 +136,21 @@ public class LobbySeat : NetworkBehaviour
         OccupyingPlayer = player;
         PlayerName = userName;
         CharacterLevel = userCharacterLevel;
+
         IsReady = false;
     }
 
     public void OnReadyClicked()
     {
+        RPC_OnReadyClicked();
+    }
+
+    [Rpc(RpcSources.All, RpcTargets.StateAuthority)]
+    public void RPC_OnReadyClicked(RpcInfo info = default)
+    {
         IsReady = !IsReady;
         OnReadyStateChanged?.Invoke();
+        Debug.Log($"Player {PlayerName} is now {(IsReady ? "Ready" : "Not Ready")}");
     }
 
     public void OnLeaveSeatClicked()
@@ -146,9 +161,6 @@ public class LobbySeat : NetworkBehaviour
     [Rpc(RpcSources.All, RpcTargets.StateAuthority)]
     public void RPC_OnLeaveSeatClicked(RpcInfo info = default)
     {
-        // Verify the RPC is from the player who occupies the seat
-        if (IsEmpty || info.Source != OccupyingPlayer) return;
-
         if (HasStateAuthority)
         {
             ClearSeat();
