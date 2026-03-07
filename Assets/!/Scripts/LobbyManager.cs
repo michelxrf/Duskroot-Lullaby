@@ -1,12 +1,24 @@
+using System.Collections;
 using Fusion;
+using TMPro;
+using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Used by LobbySeats as a reference to find other seats
 /// </summary>
 public class LobbyManager : NetworkBehaviour
 {
+    [Header("References")]
+    [SerializeField] TMP_Text countDownText;
+    [SerializeField] CanvasGroup countDownCanvas;
+    [SerializeField] SceneAsset gameplayScene;
     public LobbySeat[] lobbySeats;
+
+    [Header("Settings")]
+    [SerializeField] int countdownSeconds = 5;
 
     private void Start()
     {
@@ -17,6 +29,8 @@ public class LobbyManager : NetworkBehaviour
         {
             seat.OnReadyStateChanged += AllowGameStart;
         }
+
+        StopGameStartCountdown();
     }
 
     /// <summary>
@@ -64,10 +78,42 @@ public class LobbyManager : NetworkBehaviour
     /// </summary>
     public void AllowGameStart()
     {
-        if(!HasStateAuthority) return;
+        if(!Runner.IsSharedModeMasterClient) return;
 
         if(AreAllPlayersReady())
-            Debug.Log("All players are ready! Starting the game...");
+        {
+            StartCoroutine(StartGameCountdown(countdownSeconds));
+        }
+        else
+        {
+            StopGameStartCountdown();
+        }
+    }
+
+    IEnumerator StartGameCountdown(int seconds)
+    {
+        Debug.Log("All players are ready! Starting the game in " + seconds + " seconds...");
+        countDownText.text = seconds.ToString();
+        countDownCanvas.alpha = 1f;
+        
+        float elapsedTime = 0f;
+
+        while(elapsedTime < seconds)
+        {
+            yield return null;
+            elapsedTime += Time.deltaTime;
+            countDownText.text = Mathf.CeilToInt(seconds - elapsedTime).ToString();
+        }
+
+        Runner.LoadScene(gameplayScene.name);
+        Debug.Log("Starting the game now!");
+    }
+
+    public void StopGameStartCountdown()
+    {
+        countDownCanvas.alpha = 0f;
+        StopAllCoroutines();
+        Debug.Log("Game start countdown stopped.");
     }
 
     private void OnDestroy()
