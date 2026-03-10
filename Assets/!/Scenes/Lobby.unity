@@ -166,7 +166,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LobbyManager
   countDownText: {fileID: 1491152057}
   countDownCanvas: {fileID: 1024721410}
-  gameplayScene: {fileID: 102900000, guid: c51d42e8d7bd21e48b9f6766c81934f1, type: 3}
+  gameplaySceneName: GameplaySandbox
   lobbySeats:
   - {fileID: 400100846}
   - {fileID: 677445340}

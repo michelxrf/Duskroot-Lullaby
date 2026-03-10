@@ -5,25 +5,37 @@ using Fusion;
 /// <summary>
 /// Handles spawning a player character when a player joins the simulation.
 /// </summary>
-public class PlayerSpawner : SimulationBehaviour, ISceneLoadDone
+public class PlayerSpawner : SimulationBehaviour
 {
     public GameObject playerPrefab;
 
-    public void SceneLoadDone(in SceneLoadDoneArgs sceneInfo)
+    private void Start()
     {
-        Debug.Log("Scene load done");
-        if (Runner.IsSharedModeMasterClient)
-        {
-            SpawnPlayers(Runner);
-        }
+        RunnerBootstrap.Instance.OnSceneLoaded += SpawnPlayer;
     }
 
-    private void SpawnPlayers(NetworkRunner runner)
+    void SpawnPlayer()
     {
-        foreach (var player in runner.ActivePlayers)
+        if (playerPrefab == null)
         {
-            Debug.Log($"Spawning player for {player}");
-            Runner.Spawn(playerPrefab, new Vector3(0, 1, 0), Quaternion.identity, Runner.LocalPlayer);
+            Debug.LogError("PlayerSpawner: playerPrefab is not assigned!");
+            return;
         }
+
+        var runner = RunnerBootstrap.Instance?.Runner;
+        if (runner == null)
+        {
+            Debug.LogError("PlayerSpawner: Runner is null!");
+            return;
+        }
+
+        //var runner = RunnerBootstrap.Instance.Runner;
+        Debug.Log($"Spawning player for {runner.LocalPlayer.ToString()}");
+        runner.Spawn(playerPrefab, new Vector3(0, 1, 0), Quaternion.identity, runner.LocalPlayer);
+    }
+
+    private void OnDestroy()
+    {
+        RunnerBootstrap.Instance.OnSceneLoaded -= SpawnPlayer;
     }
 }

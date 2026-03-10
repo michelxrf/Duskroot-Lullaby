@@ -23,6 +23,8 @@ public class RunnerBootstrap : MonoBehaviour, INetworkRunnerCallbacks
     public Action OnPlayerConnected;
     public Action<PlayerRef> OnPlayerDisconnected;
     public Action OnFailedToConnect;
+    public Action OnSceneLoaded;
+    public Action<NetworkRunner, NetworkInput> OnInput;
 
     void Awake()
     {
@@ -91,7 +93,7 @@ public class RunnerBootstrap : MonoBehaviour, INetworkRunnerCallbacks
 
     void INetworkRunnerCallbacks.OnReliableDataProgress(NetworkRunner runner, PlayerRef player, ReliableKey key, float progress) { }
 
-    void INetworkRunnerCallbacks.OnInput(NetworkRunner runner, NetworkInput input) { }
+    void INetworkRunnerCallbacks.OnInput(NetworkRunner runner, NetworkInput input) { OnInput?.Invoke(runner, input); }
 
     void INetworkRunnerCallbacks.OnInputMissing(NetworkRunner runner, PlayerRef player, NetworkInput input) { }
 
@@ -103,7 +105,7 @@ public class RunnerBootstrap : MonoBehaviour, INetworkRunnerCallbacks
 
     void INetworkRunnerCallbacks.OnHostMigration(NetworkRunner runner, HostMigrationToken hostMigrationToken) { }
 
-    void INetworkRunnerCallbacks.OnSceneLoadDone(NetworkRunner runner) { }
+    void INetworkRunnerCallbacks.OnSceneLoadDone(NetworkRunner runner) { OnSceneLoaded?.Invoke(); }
 
     void INetworkRunnerCallbacks.OnSceneLoadStart(NetworkRunner runner) { }
 }

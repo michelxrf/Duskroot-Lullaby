@@ -1,10 +1,7 @@
 using System.Collections;
 using Fusion;
 using TMPro;
-using Unity.VisualScripting;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Used by LobbySeats as a reference to find other seats
@@ -14,7 +11,7 @@ public class LobbyManager : NetworkBehaviour
     [Header("References")]
     [SerializeField] TMP_Text countDownText;
     [SerializeField] CanvasGroup countDownCanvas;
-    [SerializeField] SceneAsset gameplayScene;
+    [SerializeField] string gameplaySceneName;
     public LobbySeat[] lobbySeats;
 
     [Header("Settings")]
@@ -105,7 +102,7 @@ public class LobbyManager : NetworkBehaviour
             countDownText.text = Mathf.CeilToInt(seconds - elapsedTime).ToString();
         }
 
-        Runner.LoadScene(gameplayScene.name);
+        Runner.LoadScene(gameplaySceneName);
         Debug.Log("Starting the game now!");
     }
 

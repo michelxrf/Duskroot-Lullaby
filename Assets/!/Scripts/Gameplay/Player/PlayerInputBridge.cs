@@ -26,6 +26,7 @@ public class PlayerInputBridge : MonoBehaviour
     private void Start()
     {
         GetComponent<NetworkRunner>().ProvideInput = true;
+        RunnerBootstrap.Instance.OnInput += OnFusionInput;
     }
 
     void OnEnable()
@@ -55,5 +56,10 @@ public class PlayerInputBridge : MonoBehaviour
         };
 
         input.Set(data);
+    }
+
+    private void OnDestroy()
+    {
+        RunnerBootstrap.Instance.OnInput -= OnFusionInput;
     }
 }
