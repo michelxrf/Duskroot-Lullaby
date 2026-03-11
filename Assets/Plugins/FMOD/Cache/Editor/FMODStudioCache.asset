@@ -15,38 +15,11 @@ MonoBehaviour:
   Path: Assets/BuildFmod/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639083419899667306
+  lastModified: 639088377949461205
   FileSizes:
   - Name: 
-    Value: 852
+    Value: 1048
   Exists: 1
---- !u!114 &-5785024610815229077
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/AmbienceDay
-  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
-  Path: event:/AmbienceDay
-  Guid:
-    Data1: 2141497737
-    Data2: 1102013596
-    Data3: -472968011
-    Data4: 1115447611
-  Banks:
-  - {fileID: -1224393567957252801}
-  IsStream: 1
-  Is3D: 1
-  IsOneShot: 0
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 55999
 --- !u!114 &-2002388166983340450
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,7 +35,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639083419899662299
+  lastModified: 639088377949451109
   FileSizes: []
   Exists: 1
 --- !u!114 &-1224393567957252801
@@ -80,6 +53,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/Ambiences.bank
   Name: Ambiences
   StudioPath: bank:/Ambiences
+  lastModified: 639088377949415782
   lastModified: 639083419899652300
   FileSizes: []
   Exists: 1
@@ -99,12 +73,115 @@ MonoBehaviour:
   - {fileID: -6222608089242677881}
   - {fileID: -1224393567957252801}
   - {fileID: -2002388166983340450}
+  - {fileID: 1021075846966187511}
   EditorEvents:
-  - {fileID: -5785024610815229077}
+  - {fileID: 3323755556233042380}
+  - {fileID: 7425506496691184510}
   EditorParameters: []
   MasterBanks:
   - {fileID: -2002388166983340450}
   StringsBanks:
   - {fileID: -6222608089242677881}
-  cacheTime: 639083419899667306
+  cacheTime: 639088377949678173
   cacheVersion: 131635
+--- !u!114 &1021075846966187511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/SFX.bank
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorBankRef
+  Path: Assets/BuildFmod/SFX.bank
+  Name: SFX
+  StudioPath: bank:/SFX
+  lastModified: 639088377949678173
+  FileSizes: []
+  Exists: 1
+--- !u!114 &1556228572737437409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/FootstepsPlayer/Surface
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorParamRef
+  Name: Surface
+  StudioPath: 
+  Min: 0
+  Max: 3
+  Default: 0
+  ID:
+    data1: 2784901605
+    data2: 876879491
+  Type: 2
+  IsGlobal: 0
+  Labels:
+  - Grama
+  - Terra
+  - Agua
+  - Madeira
+  Exists: 1
+--- !u!114 &3323755556233042380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Ambiences/AmbienceForestDay
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/Ambiences/AmbienceForestDay
+  Guid:
+    Data1: 113638187
+    Data2: 1186681881
+    Data3: 2080608698
+    Data4: 493468647
+  Banks:
+  - {fileID: -1224393567957252801}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 49000
+--- !u!114 &7425506496691184510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/FootstepsPlayer
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/FootstepsPlayer
+  Guid:
+    Data1: -1279637125
+    Data2: 1223962144
+    Data3: 226367628
+    Data4: 2069711762
+  Banks:
+  - {fileID: 1021075846966187511}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters:
+  - {fileID: 1556228572737437409}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
