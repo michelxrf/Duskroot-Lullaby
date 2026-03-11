@@ -521,6 +521,8 @@ GameObject:
   - component: {fileID: 7273080387052691944}
   - component: {fileID: 8205085265906393145}
   - component: {fileID: 9006578974966342434}
+  - component: {fileID: 5157547800320353703}
+  - component: {fileID: 8970150915906397238}
   m_Layer: 5
   m_Name: LobbySeat
   m_TagString: Untagged
@@ -567,12 +569,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.VerticalLayoutGroup
   m_Padding:
-    m_Left: 0
-    m_Right: 0
-    m_Top: 0
-    m_Bottom: 0
+    m_Left: 10
+    m_Right: 10
+    m_Top: 5
+    m_Bottom: 5
   m_ChildAlignment: 4
-  m_Spacing: 0
+  m_Spacing: 5
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 1
@@ -596,6 +598,7 @@ MonoBehaviour:
   playerName: {fileID: 1925018815548017346}
   characterName: {fileID: 2830378454753913824}
   characterLevel: {fileID: 8654038571853432860}
+  readyIndicator: {fileID: 8970150915906397238}
   readyButton: {fileID: 7487553095117742528}
   leaveSeatButton: {fileID: 4321440976968429494}
   selectButton: {fileID: 2817847408979740445}
@@ -627,6 +630,44 @@ MonoBehaviour:
   NetworkedBehaviours:
   - {fileID: 8205085265906393145}
   ForceRemoteRenderTimeframe: 0
+--- !u!222 &5157547800320353703
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5308546448224824787}
+  m_CullTransparentMesh: 1
+--- !u!114 &8970150915906397238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5308546448224824787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.28896716, g: 0.6509434, b: 0.24870951, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &5461729501718593888
 GameObject:
   m_ObjectHideFlags: 0
@@ -748,19 +789,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 988203122718524093}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8205085265906393145}
-        m_TargetAssemblyTypeName: LobbySeat, Assembly-CSharp
-        m_MethodName: OnReadyClicked
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &4377409155358136175
 MonoBehaviour:
   m_ObjectHideFlags: 0
