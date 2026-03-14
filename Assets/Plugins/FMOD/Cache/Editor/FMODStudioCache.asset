@@ -1,5 +1,50 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8556611719093545025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/UI.bank
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorBankRef
+  Path: Assets/BuildFmod/UI.bank
+  Name: UI
+  StudioPath: bank:/UI
+  lastModified: 639091086480682802
+  FileSizes: []
+  Exists: 1
+--- !u!114 &-7701290477457470852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: snapshot:/AmbIntern
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: snapshot:/AmbIntern
+  Guid:
+    Data1: 2033257575
+    Data2: 1172159681
+    Data3: 675775638
+    Data4: -859114397
+  Banks:
+  - {fileID: -2002388166983340450}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
 --- !u!114 &-6222608089242677881
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15,11 +60,38 @@ MonoBehaviour:
   Path: Assets/BuildFmod/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639090449758494868
+  lastModified: 639091086478956380
   FileSizes:
   - Name: 
-    Value: 1048
+    Value: 1406
   Exists: 1
+--- !u!114 &-5183009822149162905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: snapshot:/AmbForest
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: snapshot:/AmbForest
+  Guid:
+    Data1: 355669192
+    Data2: 1133246278
+    Data3: 958315710
+    Data4: 616670662
+  Banks:
+  - {fileID: -2002388166983340450}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
 --- !u!114 &-2002388166983340450
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35,7 +107,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639090449758484862
+  lastModified: 639091086478946385
   FileSizes: []
   Exists: 1
 --- !u!114 &-1224393567957252801
@@ -53,7 +125,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/Ambiences.bank
   Name: Ambiences
   StudioPath: bank:/Ambiences
-  lastModified: 639090449758454871
+  lastModified: 639091086478905987
   FileSizes: []
   Exists: 1
 --- !u!114 &11400000
@@ -73,15 +145,21 @@ MonoBehaviour:
   - {fileID: -1224393567957252801}
   - {fileID: -2002388166983340450}
   - {fileID: 1021075846966187511}
+  - {fileID: -8556611719093545025}
   EditorEvents:
   - {fileID: 3323755556233042380}
   - {fileID: 7425506496691184510}
+  - {fileID: -7701290477457470852}
+  - {fileID: -5183009822149162905}
+  - {fileID: 7555574874768163992}
+  - {fileID: 4017753336805564699}
+  - {fileID: 8166178452067298847}
   EditorParameters: []
   MasterBanks:
   - {fileID: -2002388166983340450}
   StringsBanks:
   - {fileID: -6222608089242677881}
-  cacheTime: 639090449758713483
+  cacheTime: 639091086480682802
   cacheVersion: 131635
 --- !u!114 &1021075846966187511
 MonoBehaviour:
@@ -98,7 +176,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 639090449758713483
+  lastModified: 639091086480053090
   FileSizes: []
   Exists: 1
 --- !u!114 &1556228572737437409
@@ -156,6 +234,60 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 49000
+--- !u!114 &4017753336805564699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Punch_swoosh
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/Punch_swoosh
+  Guid:
+    Data1: 1645193081
+    Data2: 1206215338
+    Data3: 249112717
+    Data4: 1609586748
+  Banks:
+  - {fileID: 1021075846966187511}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters:
+  - {fileID: 6267172118088883810}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &6267172118088883810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Punch_swoosh/Gen
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorParamRef
+  Name: Gen
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 1012620162
+    data2: 4030543169
+  Type: 2
+  IsGlobal: 0
+  Labels:
+  - Female
+  - Male
+  Exists: 1
 --- !u!114 &7425506496691184510
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -184,3 +316,57 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &7555574874768163992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Punch_Impact
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/Punch_Impact
+  Guid:
+    Data1: -764208783
+    Data2: 1154720453
+    Data3: 154903703
+    Data4: 346428431
+  Banks:
+  - {fileID: 1021075846966187511}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 682
+--- !u!114 &8166178452067298847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI/UI_Buttons
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/UI/UI_Buttons
+  Guid:
+    Data1: 1605176847
+    Data2: 1333011103
+    Data3: -1617064317
+    Data4: -1405773728
+  Banks:
+  - {fileID: -8556611719093545025}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2000
