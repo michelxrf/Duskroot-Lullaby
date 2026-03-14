@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 5146181822706071163}
   - component: {fileID: 6023994505563687755}
   - component: {fileID: 822270101518877923}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: LightHumanoid
   m_TagString: Untagged
   m_Icon: {fileID: 0}

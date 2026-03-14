@@ -12,6 +12,14 @@ PrefabInstance:
       propertyPath: hitboxCenter
       value: 
       objectReference: {fileID: 8457420982649764082}
+    - target: {fileID: 4600318904223632839, guid: 0cc26b293f5af75489e15d8df5c36eaf, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4600318904223632839, guid: 0cc26b293f5af75489e15d8df5c36eaf, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: d2fdd0a5a5554264a866b821442be410, type: 2}
     - target: {fileID: 5047941619565158737, guid: 0cc26b293f5af75489e15d8df5c36eaf, type: 3}
       propertyPath: SortKey
       value: 3625489470
@@ -116,6 +124,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LightHumanoid_Player
       objectReference: {fileID: 0}
+    - target: {fileID: 7033562567166124364, guid: 0cc26b293f5af75489e15d8df5c36eaf, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2434287546428182507, guid: 0cc26b293f5af75489e15d8df5c36eaf, type: 3}
     m_RemovedGameObjects: []
@@ -136,7 +148,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7033562567166124364, guid: 0cc26b293f5af75489e15d8df5c36eaf, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6544059506225348736}
+    - targetCorrespondingSourceObject: {fileID: 7033562567166124364, guid: 0cc26b293f5af75489e15d8df5c36eaf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4601443830248651879}
   m_SourcePrefab: {fileID: 100100000, guid: 0cc26b293f5af75489e15d8df5c36eaf, type: 3}
+--- !u!4 &599541039334494576 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1229027690815692585, guid: 0cc26b293f5af75489e15d8df5c36eaf, type: 3}
+  m_PrefabInstance: {fileID: 1828352916096618073}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1312472765307554490 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 822270101518877923, guid: 0cc26b293f5af75489e15d8df5c36eaf, type: 3}
@@ -238,10 +258,10 @@ Rigidbody:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8701982153926700821}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -253,8 +273,8 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -277,10 +297,10 @@ MonoBehaviour:
     Radius: 0.2
     Height: 1.8
     Extent: 0.002
-    ColliderLayer: 0
+    ColliderLayer: 3
     CollisionLayerMask:
       serializedVersion: 2
-      m_Bits: 1
+      m_Bits: 201
     ProxyInterpolationMode: 0
     MaxPenetrationSteps: 8
     CCDRadiusMultiplier: 0.75
@@ -295,3 +315,27 @@ MonoBehaviour:
     StepRequireGroundTarget: 0
     SnapDistance: 0.25
     SnapSpeed: 4
+--- !u!114 &4601443830248651879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8701982153926700821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b91a2afef22fe44588cae203a544432, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FootstepManager
+  footstepEvent:
+    Guid:
+      Data1: -1279637125
+      Data2: 1223962144
+      Data3: 226367628
+      Data4: 2069711762
+    Path: event:/SFX/FootstepsPlayer
+  rayOrigin: {fileID: 599541039334494576}
+  rayDistance: 1.5
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 128
