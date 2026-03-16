@@ -164,8 +164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b80ca5ced91a9142b986004531896fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LobbyManager
-  countDownText: {fileID: 1491152057}
-  countDownCanvas: {fileID: 1024721410}
+  countDownUi: {fileID: 1024721411}
   gameplaySceneName: TestAudio
   lobbySeats:
   - {fileID: 400100846}
@@ -173,6 +172,7 @@ MonoBehaviour:
   - {fileID: 290807210}
   - {fileID: 1682492233}
   countdownSeconds: 5
+  _CurrentCountdown: 0
 --- !u!114 &261922830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1867,6 +1867,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1024721409}
   - component: {fileID: 1024721410}
+  - component: {fileID: 1024721411}
   m_Layer: 5
   m_Name: Countdown
   m_TagString: Untagged
@@ -1908,6 +1909,20 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
+--- !u!114 &1024721411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1024721408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9db855169fd2944ca1e5166254a523e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CountdownToStart
+  lobbyManager: {fileID: 261922829}
+  countdownText: {fileID: 1491152057}
 --- !u!1 &1165072867
 GameObject:
   m_ObjectHideFlags: 0
