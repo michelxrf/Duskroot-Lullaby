@@ -5,6 +5,7 @@ using Fusion.Addons.SimpleKCC;
 /// <summary>
 /// Keeps track of a character's heath and handles damage and death.
 /// </summary>
+[RequireComponent(typeof(Collider))]
 public class Health : NetworkBehaviour
 {
     [SerializeField] int maxHealth = 100;

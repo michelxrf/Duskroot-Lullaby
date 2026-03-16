@@ -9,13 +9,14 @@ using UnityEngine;
 public class LobbyManager : NetworkBehaviour
 {
     [Header("References")]
-    [SerializeField] TMP_Text countDownText;
-    [SerializeField] CanvasGroup countDownCanvas;
+    [SerializeField] CountdownToStart countDownUi;
     [SerializeField] string gameplaySceneName;
     public LobbySeat[] lobbySeats;
 
     [Header("Settings")]
     [SerializeField] int countdownSeconds = 5;
+
+    [Networked] public int CurrentCountdown { get; private set; }
 
     private void Start()
     {
@@ -26,8 +27,6 @@ public class LobbyManager : NetworkBehaviour
         {
             seat.OnReadyStateChanged += AllowGameStart;
         }
-
-        StopGameStartCountdown();
     }
 
     /// <summary>
@@ -90,8 +89,7 @@ public class LobbyManager : NetworkBehaviour
     IEnumerator StartGameCountdown(int seconds)
     {
         Debug.Log("All players are ready! Starting the game in " + seconds + " seconds...");
-        countDownText.text = seconds.ToString();
-        countDownCanvas.alpha = 1f;
+        countDownUi.Show();
         
         float elapsedTime = 0f;
 
@@ -99,7 +97,7 @@ public class LobbyManager : NetworkBehaviour
         {
             yield return null;
             elapsedTime += Time.deltaTime;
-            countDownText.text = Mathf.CeilToInt(seconds - elapsedTime).ToString();
+            CurrentCountdown = Mathf.CeilToInt(seconds - elapsedTime);
         }
 
         Runner.LoadScene(gameplaySceneName);
@@ -108,7 +106,7 @@ public class LobbyManager : NetworkBehaviour
 
     public void StopGameStartCountdown()
     {
-        countDownCanvas.alpha = 0f;
+        countDownUi.Hide();
         StopAllCoroutines();
         Debug.Log("Game start countdown stopped.");
     }
