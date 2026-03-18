@@ -14,12 +14,8 @@ PrefabInstance:
       objectReference: {fileID: 8457420982649764082}
     - target: {fileID: 4600318904223632839, guid: 0cc26b293f5af75489e15d8df5c36eaf, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4600318904223632839, guid: 0cc26b293f5af75489e15d8df5c36eaf, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 13400000, guid: d2fdd0a5a5554264a866b821442be410, type: 2}
     - target: {fileID: 5047941619565158737, guid: 0cc26b293f5af75489e15d8df5c36eaf, type: 3}
       propertyPath: SortKey
       value: 3625489470
