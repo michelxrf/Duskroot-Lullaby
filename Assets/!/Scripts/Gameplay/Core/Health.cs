@@ -9,9 +9,10 @@ using Fusion.Addons.SimpleKCC;
 public class Health : NetworkBehaviour
 {
     [SerializeField] int maxHealth = 100;
-    
+
     [Networked, OnChangedRender(nameof(OnHealthChanged))]
     int CurrentHealth { get; set; }
+    int oldHealth { get; set; }
 
     Animator animator;
 
@@ -19,8 +20,12 @@ public class Health : NetworkBehaviour
     public override void Spawned()
     {
         if(HasStateAuthority)
+        {
+            oldHealth = maxHealth;
             CurrentHealth = maxHealth;
+        }
 
+        
         animator = GetComponentInChildren<Animator>();
     }
 
@@ -31,7 +36,7 @@ public class Health : NetworkBehaviour
     [Rpc(RpcSources.All, RpcTargets.StateAuthority)]
     public void RPCTakeDamage(int damage)
     {
-        CurrentHealth -= damage;
+        CurrentHealth = Mathf.Clamp(CurrentHealth - (damage), 0, maxHealth);
     }
 
     void OnHealthChanged()
@@ -40,11 +45,17 @@ public class Health : NetworkBehaviour
         {
             Die();
         }
-        else
+        else if (CurrentHealth > oldHealth)
         {
-            animator.SetTrigger("Hit");
-            Debug.Log($"Health: {CurrentHealth}/{maxHealth}");
+            // Health increased 
         }
+        else if (CurrentHealth < oldHealth)
+        {
+            // Health decreased
+            animator.SetTrigger("Hit");
+        }
+
+        oldHealth = CurrentHealth;
     }
 
     /// <summary>
