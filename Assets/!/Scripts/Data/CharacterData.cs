@@ -22,6 +22,7 @@ public class CharacterData
     public int cure;
     public int hurt;
 
+    public WeaponData weapon;
     public List<InventoryItem> startingItens;
 }
 
@@ -52,6 +53,7 @@ public class PlayerCharactersData
                 attackSpeed = defaultCharacterTemplates[i].attackSpeed,
                 cure = defaultCharacterTemplates[i].cure,
                 hurt = defaultCharacterTemplates[i].hurt,
+                weapon = defaultCharacterTemplates[i].weapon,
 
                 // TODO: initialize startingItens based from the defaultCharacterTemplates
             };
