@@ -45,6 +45,12 @@ namespace CombatSystem
         {
             if (!HasStateAuthority) return;
 
+            RPC_PlayAttackAnimation();
+        }
+
+        [Rpc(RpcSources.InputAuthority, RpcTargets.All)]
+        void RPC_PlayAttackAnimation()
+        {
             animator.SetTrigger("Attack");
         }
 
