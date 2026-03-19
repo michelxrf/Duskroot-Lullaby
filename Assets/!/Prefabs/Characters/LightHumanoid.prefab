@@ -47,6 +47,7 @@ GameObject:
   - component: {fileID: 5146181822706071163}
   - component: {fileID: 6023994505563687755}
   - component: {fileID: 822270101518877923}
+  - component: {fileID: 3625786806687871027}
   m_Layer: 3
   m_Name: LightHumanoid
   m_TagString: Untagged
@@ -198,6 +199,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fff2fe38089f8bd429faccb2df80ad5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3625786806687871027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7033562567166124364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2049319a3146d7b459640f56b2fb8906, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DamageAudioPlayer
+  damageEvent:
+    Guid:
+      Data1: -764208783
+      Data2: 1154720453
+      Data3: 154903703
+      Data4: 346428431
+    Path: event:/SFX/Punch_Impact
 --- !u!1001 &7271657771418572288
 PrefabInstance:
   m_ObjectHideFlags: 0
