@@ -16,6 +16,7 @@ public class CharacterDataManager : MonoBehaviour
 
     // placeholder for level up threshold, should be replaced by a more complex system that can be configured per character and level
     int currentLevelThreshold = 100;
+    public string localPlayerCharacterId = string.Empty;
 
     private void Awake()
     {
@@ -50,6 +51,17 @@ public class CharacterDataManager : MonoBehaviour
             Data = loadedData;
 
         _isDirty = false;
+    }
+
+    public void SetLocalCharacterId(string characterId)
+    {
+        localPlayerCharacterId = characterId;
+    }
+
+    public CharacterData GetCurrentPlayerCharacter()
+    {
+        Debug.Log($"Getting current player character with ID: {localPlayerCharacterId}");
+        return GetCharacter(localPlayerCharacterId);
     }
 
     /// <summary>

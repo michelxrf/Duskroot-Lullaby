@@ -10,10 +10,13 @@ public class CharacterLook : NetworkBehaviour
 {
     SimpleKCC characterController;
     MonoBehaviour controller;
+    Animator animator;
+    Vector3 lookingAt;
 
     public override void Spawned()
     {
         characterController = GetComponent<SimpleKCC>();
+        animator = GetComponent<Animator>();
     }
 
     public override void FixedUpdateNetwork()
@@ -24,15 +27,13 @@ public class CharacterLook : NetworkBehaviour
         {
             if (data.Aim)
             {
-                Debug.Log($"{gameObject.name} is aiming.");
-
                 Vector2 mousePos = Mouse.current.position.ReadValue();
                 Ray ray = Camera.main.ScreenPointToRay(mousePos);
                 if (Physics.Raycast(ray, out RaycastHit hitInfo))
                 {
-                    Vector3 targetPoint = hitInfo.point;
+                    lookingAt = hitInfo.point;
                     TakeControl(this);
-                    RotateTo(targetPoint - transform.position, this);
+                    RotateTo(lookingAt - transform.position, this);
                 }
             }
             else
@@ -42,13 +43,25 @@ public class CharacterLook : NetworkBehaviour
         }
     }
 
-    public void TakeControl(MonoBehaviour controller)
+    public bool IsAiming()
     {
+        return controller != null;
+    }
+
+    public Vector3 GetLookingTarget()
+    {
+        return lookingAt;
+    }
+
+    void TakeControl(MonoBehaviour controller)
+    {
+        animator.SetBool("IsAiming", true);
         this.controller = controller;
     }
 
-    public void ReleaseControl()
+    void ReleaseControl()
     {
+        animator.SetBool("IsAiming", false);
         controller = null;
     }
 
@@ -59,24 +72,5 @@ public class CharacterLook : NetworkBehaviour
 
         float yaw = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
         characterController.SetLookRotation(new Vector2(0f, yaw));
-    }
-
-    public void AimAtTarget(Vector3 target)
-    {
-        if (!HasStateAuthority) return;
-
-        TakeControl(this);
-        // TODO: animation set
-        RotateTo(target - transform.position, this);
-        Debug.Log($"{gameObject.name} is aiming toward: {target}");
-    }
-
-    public void StopAiming()
-    {
-        if (!HasStateAuthority) return;
-
-        ReleaseControl();
-        // TODO: animation reset
-        Debug.Log("Stopped aiming.");
     }
 }

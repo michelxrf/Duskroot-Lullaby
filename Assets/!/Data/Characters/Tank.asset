@@ -22,4 +22,5 @@ MonoBehaviour:
   attackSpeed: 0
   cure: 0
   hurt: 0
+  weapon: {fileID: 11400000, guid: 2faf737cde59b99419b72bb0dda834f2, type: 2}
   startingItens: []

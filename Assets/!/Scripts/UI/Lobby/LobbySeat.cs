@@ -133,6 +133,7 @@ public class LobbySeat : NetworkBehaviour
 
     private void AssignPlayer(PlayerRef player, int userCharacterLevel, string userName)
     {
+        CharacterDataManager.Instance.SetLocalCharacterId(characterTemplate.CharacterId);
         IsEmpty = false;
         OccupyingPlayer = player;
         PlayerName = userName;

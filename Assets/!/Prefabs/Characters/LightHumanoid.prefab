@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1165486067817930759
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4089039397996426295}
+  m_Layer: 3
+  m_Name: HitboxCenter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4089039397996426295
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1165486067817930759}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.221, z: 0.537}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5970795231973887828}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7033562567166124364
 GameObject:
   m_ObjectHideFlags: 0
@@ -13,7 +44,6 @@ GameObject:
   - component: {fileID: 2434287546428182507}
   - component: {fileID: 5047941619565158737}
   - component: {fileID: 8841144572992706993}
-  - component: {fileID: 971663012653907499}
   - component: {fileID: 5146181822706071163}
   - component: {fileID: 6023994505563687755}
   - component: {fileID: 822270101518877923}
@@ -39,6 +69,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7160907344445026795}
+  - {fileID: 4089039397996426295}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &4600318904223632839
@@ -100,7 +131,6 @@ MonoBehaviour:
   NetworkedBehaviours:
   - {fileID: 2434287546428182507}
   - {fileID: 8841144572992706993}
-  - {fileID: 971663012653907499}
   - {fileID: 6023994505563687755}
   - {fileID: 822270101518877923}
   ForceRemoteRenderTimeframe: 0
@@ -117,21 +147,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
---- !u!114 &971663012653907499
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7033562567166124364}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3382bf404cdfe5d46bed8ff4a0fc6588, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damageAmount: 25
-  hitboxCenter: {fileID: 0}
-  hitboxRadius: 0.5
 --- !u!95 &5146181822706071163
 Animator:
   serializedVersion: 7

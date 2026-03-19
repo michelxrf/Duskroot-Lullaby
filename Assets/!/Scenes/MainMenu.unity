@@ -4798,6 +4798,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: bde61b8ce15ff124fb2859760625aa12, type: 2}
   - {fileID: 11400000, guid: b19ca060910e0f442b91684154267cd6, type: 2}
   - {fileID: 11400000, guid: a7330fa98db97b3488e7a8e2a68d6a05, type: 2}
+  localPlayerCharacterId: 
 --- !u!4 &1540930961
 Transform:
   m_ObjectHideFlags: 0
