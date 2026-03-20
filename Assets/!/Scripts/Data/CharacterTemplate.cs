@@ -18,7 +18,6 @@ public class CharacterTemplate : ScriptableObject
     public int cure;
     public int hurt;
 
-    // character
+    // inventory
     public WeaponData weapon;
-    public InventoryItem[] startingItens;
 }

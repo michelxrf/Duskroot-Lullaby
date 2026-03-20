@@ -82,7 +82,7 @@ public class LogInScreen : UiScreen
         // wait for character data from PlayFab to load before allowing player to continue to lobby
         PlayFabCharacterSave.Load((data) =>
             {
-                CharacterDataManager.Instance.Initialize(data);
+                CharacterDataManager.Instance.Initialize(data != null ? new PlayerCharactersData(data) : null );
                 Debug.Log("Character data loaded successfully.");
                 
                 // Re-enable interactions in case the user logs out and returns to this screen

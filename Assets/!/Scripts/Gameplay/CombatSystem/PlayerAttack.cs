@@ -14,8 +14,8 @@ namespace CombatSystem
         [SerializeField] Transform rightHand;
         [SerializeField] Transform leftHand;
         
-        CharacterData characterData;
-        WeaponData currentWeapon;
+        public CharacterData characterData;
+        public WeaponData currentWeapon;
         CharacterLook characterLook;
         Animator animator;
         GameObject equippedWeaponModel;

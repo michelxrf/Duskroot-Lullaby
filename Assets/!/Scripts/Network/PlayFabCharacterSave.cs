@@ -13,7 +13,7 @@ public static class PlayFabCharacterSave
 
     public static void Save(PlayerCharactersData data)
     {
-        string json = JsonUtility.ToJson(data);
+        string json = JsonUtility.ToJson(new PlayerCharactersDataDTO(data));
 
         var request = new UpdateUserDataRequest
         {
@@ -28,7 +28,7 @@ public static class PlayFabCharacterSave
             error => Debug.LogError(error.GenerateErrorReport()));
     }
 
-    public static void Load(System.Action<PlayerCharactersData> onLoaded)
+    public static void Load(System.Action<PlayerCharactersDataDTO> onLoaded)
     {
         var request = new GetUserDataRequest();
 
@@ -38,7 +38,7 @@ public static class PlayFabCharacterSave
                 if (result.Data != null && result.Data.ContainsKey("PLAYER_CHARACTERS"))
                 {
                     string json = result.Data["PLAYER_CHARACTERS"].Value;
-                    var data = JsonUtility.FromJson<PlayerCharactersData>(json);
+                    var data = JsonUtility.FromJson<PlayerCharactersDataDTO>(json);
                     onLoaded?.Invoke(data);
                 }
                 else

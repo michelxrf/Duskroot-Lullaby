@@ -44,7 +44,7 @@ public class CharacterDataManager : MonoBehaviour
     {
         if (loadedData == null)
         {
-            Data = PlayerCharactersData.CreateDefault(_charactersTemplates);
+            Data = new PlayerCharactersData(_charactersTemplates);
             PlayFabCharacterSave.Save(Data);
         }
         else
