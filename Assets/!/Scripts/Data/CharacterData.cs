@@ -36,8 +36,7 @@ public class CharacterData
         attackSpeed = dataDTO.attackSpeed;
         cure = dataDTO.cure;
         hurt = dataDTO.hurt;
-
-        weapon = Resources.Load<WeaponData>($"Assets/!/Data/Weapons/{dataDTO.weapon}");
+        weapon = Resources.Load<WeaponData>($"Data/Weapons/{dataDTO.weapon}");
     }
 
     public CharacterData() { }

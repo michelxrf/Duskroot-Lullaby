@@ -60,7 +60,6 @@ public class CharacterDataManager : MonoBehaviour
 
     public CharacterData GetCurrentPlayerCharacter()
     {
-        Debug.Log($"Getting current player character with ID: {localPlayerCharacterId}");
         return GetCharacter(localPlayerCharacterId);
     }
 

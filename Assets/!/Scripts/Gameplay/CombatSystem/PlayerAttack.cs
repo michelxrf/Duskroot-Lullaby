@@ -1,7 +1,8 @@
-using UnityEngine;
-using UnityEngine.InputSystem;
 using Fusion;
 using TMPro;
+using Unity.VisualScripting;
+using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace CombatSystem
 {
@@ -16,6 +17,7 @@ namespace CombatSystem
         
         public CharacterData characterData;
         public WeaponData currentWeapon;
+        public WeaponBehavior weaponBehavior;
         CharacterLook characterLook;
         Animator animator;
         GameObject equippedWeaponModel;
@@ -40,7 +42,6 @@ namespace CombatSystem
         {
             animator = GetComponentInChildren<Animator>();
             characterLook = GetComponent<CharacterLook>();
-            Debug.Log("Equipping weapon: " + CharacterDataManager.Instance.GetCurrentPlayerCharacter().weapon.name);
             EquipWeapon(CharacterDataManager.Instance.GetCurrentPlayerCharacter().weapon);
         }
 
@@ -59,7 +60,9 @@ namespace CombatSystem
             }
 
             animator.runtimeAnimatorController = currentWeapon.animationController;
-            currentWeapon.Initialize(hitboxCenter, animator, gameObject);
+
+            weaponBehavior = WeaponBehaviorFactory.CreateBehavior(currentWeapon.behavior, gameObject);
+            weaponBehavior.Initialize(hitboxCenter, animator, gameObject, currentWeapon);
             RPC_PlayEquipAnimation();
             //TODO: play SFX
         }
@@ -74,12 +77,12 @@ namespace CombatSystem
         [Rpc(RpcSources.InputAuthority, RpcTargets.All)]
         void RPC_ExecuteAttack()
         {
-            currentWeapon.Execute();
+            weaponBehavior.Execute();
         }
 
         public void ImpactFrame()
         {
-            currentWeapon.ImpactFrame();
+            weaponBehavior.ImpactFrame();
         }
     }
 }
