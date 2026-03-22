@@ -5,6 +5,10 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Represents a single seat in the game lobby.
+/// Manages player selection, readiness status, and character information display for that seat.
+/// </summary>
 public class LobbySeat : NetworkBehaviour
 {
     [SerializeField] CharacterTemplate characterTemplate;
@@ -27,6 +31,9 @@ public class LobbySeat : NetworkBehaviour
     [Networked] public NetworkString<_32> PlayerName { get; set; }
     [Networked] public int CharacterLevel { get; set; }
 
+    /// <summary>
+    /// Event triggered when the ready state of this seat changes.
+    /// </summary>
     public Action OnReadyStateChanged;
 
     private void Start()
@@ -179,7 +186,7 @@ public class LobbySeat : NetworkBehaviour
         // Get local player data
         CharacterData localCharacterData = CharacterDataManager.Instance.GetCharacter(characterTemplate.CharacterId);
         string localPlayerName = PlayerPrefs.GetString("username");
-        int localCharacterLevel = localCharacterData != null ? localCharacterData.Level : 1;
+        int localCharacterLevel = localCharacterData != null ? localCharacterData.level : 1;
 
         RPC_OnSelectClicked(localPlayerName, localCharacterLevel);
     }

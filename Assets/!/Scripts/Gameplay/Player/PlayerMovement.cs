@@ -10,7 +10,6 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : NetworkBehaviour
 {
     [Header("Movement Settings")]
-    [SerializeField] float maxSpeed = 5f;
     [SerializeField] float walkSpeedPercentage = 0.3f;
     [SerializeField] float acceleration = 1f;
     [SerializeField] float deceleration = 2f;
@@ -19,6 +18,7 @@ public class PlayerMovement : NetworkBehaviour
     Animator animator;
     CharacterLook rotateCharacter;
 
+    float maxSpeed = 5f;
     Vector3 moveDirection;
     Vector3 velocity;
 
@@ -31,6 +31,9 @@ public class PlayerMovement : NetworkBehaviour
 
     public override void Spawned()
     {
+        UpdateSpeed();
+        CharacterDataManager.Instance.OnLevelUp += UpdateSpeed;
+
         characterController = GetComponent<SimpleKCC>();
         animator = GetComponentInChildren<Animator>();
         rotateCharacter = GetComponent<CharacterLook>();
@@ -70,6 +73,17 @@ public class PlayerMovement : NetworkBehaviour
 
         // Update animator parameters based on networked velocity
         animator.SetFloat("Speed", NetworkVelocity.magnitude / maxSpeed);
+    }
+
+    void UpdateSpeed()
+    {
+        if (HasStateAuthority)
+            maxSpeed = CharacterDataManager.Instance.GetCurrentPlayerCharacter().speed;
+    }
+
+    private void OnDestroy()
+    {
+        CharacterDataManager.Instance.OnLevelUp -= UpdateSpeed;
     }
 
 }

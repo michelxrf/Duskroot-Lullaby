@@ -80,6 +80,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LightHumanoid_Bot
       objectReference: {fileID: 0}
+    - target: {fileID: 8841144572992706993, guid: 0cc26b293f5af75489e15d8df5c36eaf, type: 3}
+      propertyPath: maxHealth
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -90,6 +94,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7033562567166124364, guid: 0cc26b293f5af75489e15d8df5c36eaf, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1432370402961702996}
+    - targetCorrespondingSourceObject: {fileID: 7033562567166124364, guid: 0cc26b293f5af75489e15d8df5c36eaf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5906176709717003731}
   m_SourcePrefab: {fileID: 100100000, guid: 0cc26b293f5af75489e15d8df5c36eaf, type: 3}
 --- !u!1 &6503976530456963996 stripped
 GameObject:
@@ -131,3 +138,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+--- !u!114 &5906176709717003731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6503976530456963996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: daa3013d3817e824b89b519b755cbf8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Reward
+  experience: 50

@@ -2,11 +2,19 @@ using UnityEngine;
 
 namespace CombatSystem
 {
+    /// <summary>
+    /// Utility class containing static helper functions for combat operations.
+    /// </summary>
     public static class CombatFuncs
     {
         /// <summary>
-        /// Callback for animation event to perform hit detection.
+        /// Performs hit detection in a sphere around the hitbox center.
+        /// Applies damage to all valid targets hit by the attack.
+        /// This is typically called at the impact frame of an attack animation.
         /// </summary>
+        /// <param name="hitboxCenter">The center position of the attack hitbox</param>
+        /// <param name="caster">The character performing the attack (to ignore self)</param>
+        /// <param name="weapon">The weapon data containing damage and hitbox radius information</param>
         static public void CastHitBox(Transform hitboxCenter, GameObject caster, WeaponData weapon)
         {
             Collider[] hits = Physics.OverlapSphere(hitboxCenter.position, weapon.hitboxRadius);
@@ -19,7 +27,7 @@ namespace CombatSystem
                 Health healthComponent = hit.GetComponent<Health>();
                 if (healthComponent == null) continue;
 
-                healthComponent.RPCTakeDamage(weapon.baseDamage);
+                healthComponent.RPC_TakeDamage(weapon.baseDamage + CharacterDataManager.Instance.GetCurrentPlayerCharacter().damage);
             }
         }
     }

@@ -9,9 +9,10 @@ using UnityEngine;
 [Serializable]
 public class CharacterData
 {
-    public string CharacterId;
-    public int Level;
-    public int Experience;
+    public string characterId;
+    public int level;
+    public int experience;
+    public int experienceToNextLevel;
 
     // attributes
     public int health;
@@ -20,22 +21,21 @@ public class CharacterData
     public int speed;
     public int attackSpeed;
     public int cure;
-    public int hurt;
 
     public WeaponData weapon;
 
     public CharacterData(CharacterDataDTO dataDTO)
     {
-        CharacterId = dataDTO.CharacterId;
-        Level = dataDTO.Level;
-        Experience = dataDTO.Experience;
+        characterId = dataDTO.characterId;
+        level = dataDTO.level;
+        experience = dataDTO.experience;
         health = dataDTO.health;
         armor = dataDTO.armor;
         damage = dataDTO.damage;
         speed = dataDTO.speed;
         attackSpeed = dataDTO.attackSpeed;
         cure = dataDTO.cure;
-        hurt = dataDTO.hurt;
+        experienceToNextLevel = dataDTO.experienceToNextLevel;
         weapon = Resources.Load<WeaponData>($"Data/Weapons/{dataDTO.weapon}");
     }
 
@@ -45,9 +45,10 @@ public class CharacterData
 [Serializable]
 public class CharacterDataDTO
 {
-    public string CharacterId;
-    public int Level;
-    public int Experience;
+    public string characterId;
+    public int level;
+    public int experience;
+    public int experienceToNextLevel;
 
     // attributes
     public int health;
@@ -62,17 +63,17 @@ public class CharacterDataDTO
 
     public CharacterDataDTO(CharacterData characterData)
     {
-        CharacterId = characterData.CharacterId;
-        Level = characterData.Level;
-        Experience = characterData.Experience;
+        characterId = characterData.characterId;
+        level = characterData.level;
+        experience = characterData.experience;
         health = characterData.health;
         armor = characterData.armor;
         damage = characterData.damage;
         speed = characterData.speed;
         attackSpeed = characterData.attackSpeed;
         cure = characterData.cure;
-        hurt = characterData.hurt;
         weapon = characterData.weapon.name;
+        experienceToNextLevel = characterData.experienceToNextLevel;
     }
 }
 
@@ -92,18 +93,17 @@ public class PlayerCharactersData
         {
             Characters[i] = new CharacterData
             {
-                CharacterId = defaultCharacterTemplates[i].CharacterId,
-                Level = defaultCharacterTemplates[i].Level,
-                Experience = defaultCharacterTemplates[i].Experience,
+                characterId = defaultCharacterTemplates[i].CharacterId,
+                level = defaultCharacterTemplates[i].Level,
+                experience = defaultCharacterTemplates[i].Experience,
                 health = defaultCharacterTemplates[i].health,
                 armor = defaultCharacterTemplates[i].armor,
                 damage = defaultCharacterTemplates[i].damage,
                 speed = defaultCharacterTemplates[i].speed,
                 attackSpeed = defaultCharacterTemplates[i].attackSpeed,
                 cure = defaultCharacterTemplates[i].cure,
-                hurt = defaultCharacterTemplates[i].hurt,
                 weapon = defaultCharacterTemplates[i].weapon,
-
+                experienceToNextLevel = defaultCharacterTemplates[i].ExperienceToNextLevel
                 // TODO: initialize startingItens based from the defaultCharacterTemplates
             };
         }

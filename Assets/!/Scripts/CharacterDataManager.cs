@@ -1,3 +1,4 @@
+using System;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -17,6 +18,9 @@ public class CharacterDataManager : MonoBehaviour
     // placeholder for level up threshold, should be replaced by a more complex system that can be configured per character and level
     int currentLevelThreshold = 100;
     public string localPlayerCharacterId = string.Empty;
+
+    public Action OnLevelUp;
+    public Action<int> OnExpChanged;
 
     private void Awake()
     {
@@ -78,24 +82,21 @@ public class CharacterDataManager : MonoBehaviour
     {
         foreach (var character in Data.Characters)
         {
-            if (character.CharacterId == characterId)
+            if (character.characterId == characterId)
                 return character;
         }
         return null;
     }
 
-    public void AddExperience(int index, int xp)
+    public void AddExperience(int xp)
     {
-        var character = Data.Characters[index];
+        var character = GetCurrentPlayerCharacter();
 
-        character.Experience += xp;
+        character.experience += xp;
+        if(character.experience >= character.experienceToNextLevel)
+            LevelUp(character);
 
-        while (character.Experience >= currentLevelThreshold)
-        {
-            character.Experience -= currentLevelThreshold;
-            character.Level++;
-            currentLevelThreshold *= 2; // Example: each level requires double the XP of the previous level
-        }
+        OnExpChanged?.Invoke(character.experience);
 
         _isDirty = true;
     }
@@ -125,5 +126,26 @@ public class CharacterDataManager : MonoBehaviour
         PlayFabCharacterSave.Save(Data);
 
         _isDirty = false;
+    }
+
+    void LevelUp(CharacterData characterData)
+    {
+        Debug.Log(characterData.characterId + " leveled up! New level: " + (characterData.level + 1));
+
+        characterData.level++;
+        characterData.experience = 0;
+        characterData.experienceToNextLevel *= 2;
+        characterData.health += 2;
+        characterData.armor += 0.02f;
+        characterData.damage += 1;
+        characterData.speed += 1;
+
+        OnLevelUp?.Invoke();
+    }
+
+    public Sprite GetCharacterPortrait(string character)
+    {
+        int index = Array.FindIndex(_charactersTemplates, template => template.CharacterId == character);
+        return _charactersTemplates[index].characterPortrait;
     }
 }

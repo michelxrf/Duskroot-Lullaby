@@ -1,6 +1,8 @@
 using UnityEngine;
 using Fusion;
 using Fusion.Addons.SimpleKCC;
+using System.Collections;
+using System;
 
 
 namespace CombatSystem
@@ -12,10 +14,13 @@ namespace CombatSystem
     public class Health : NetworkBehaviour
     {
         [SerializeField] int maxHealth = 100;
+        [SerializeField] float destroyCorpseAfterSeconds = 20f;
 
-        [Networked, OnChangedRender(nameof(OnHealthChanged))]
-        int CurrentHealth { get; set; }
+        [Networked, OnChangedRender(nameof(OnHealthChangedRender))]
+        public int CurrentHealth { get; private set; }
         int oldHealth { get; set; }
+
+        public Action<int> OnHealthChanged;
 
         Animator animator;
 
@@ -24,10 +29,13 @@ namespace CombatSystem
         {
             if (HasStateAuthority)
             {
+                // TODO: Separate player and enemy health initialization.
+                if (GetComponent<PlayerAttack>() != null)
+                    maxHealth = CharacterDataManager.Instance.GetCurrentPlayerCharacter().health;
+
                 oldHealth = maxHealth;
                 CurrentHealth = maxHealth;
             }
-
 
             animator = GetComponentInChildren<Animator>();
         }
@@ -37,12 +45,13 @@ namespace CombatSystem
         /// </summary>
         /// <param name="damage"></param>
         [Rpc(RpcSources.All, RpcTargets.StateAuthority)]
-        public void RPCTakeDamage(int damage)
+        public void RPC_TakeDamage(int damage)
         {
             CurrentHealth = Mathf.Clamp(CurrentHealth - (damage), 0, maxHealth);
+            Debug.Log($"{gameObject.name} took {oldHealth - CurrentHealth} damage. Current health: {CurrentHealth}/{maxHealth}");
         }
 
-        void OnHealthChanged()
+        void OnHealthChangedRender()
         {
             if (CurrentHealth <= 0)
             {
@@ -66,8 +75,6 @@ namespace CombatSystem
         /// </summary>
         void Die()
         {
-            Debug.Log("Object has died.");
-
             // disable character     
             gameObject.DisableAllComponents<Collider>();
             gameObject.DisableComponent<SimpleKCC>();
@@ -79,9 +86,25 @@ namespace CombatSystem
             // Disable AI controls
             // TODO
 
+            RPC_AddExperience();
             animator.SetTrigger("Die");
+
+            if(HasStateAuthority)
+                StartCoroutine(DestroyAfterDeathAnimation());
         }
 
+        [Rpc(RpcSources.All, RpcTargets.StateAuthority)]
+        void RPC_AddExperience()
+        {
+            GetComponent<Reward>()?.ApplyReward();
+        }
+
+        IEnumerator DestroyAfterDeathAnimation()
+        {
+            // Wait for the death animation to finish before destroying the object
+            yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length + destroyCorpseAfterSeconds);
+            Runner.Despawn(Object);
+        }
 
     }
 }

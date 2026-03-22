@@ -19,4 +19,4 @@ MonoBehaviour:
   hitboxRadius: 0.5
   vfxPrefab: {fileID: 0}
   rigthHanded: 1
-  behavior: Unarmed
+  behavior: Melee

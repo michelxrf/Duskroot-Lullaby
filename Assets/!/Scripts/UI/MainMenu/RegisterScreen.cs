@@ -2,6 +2,10 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Represents the registration/signup screen for creating new user accounts.
+/// Handles user account creation with PlayFab authentication.
+/// </summary>
 public class RegisterScreen : UiScreen
 {
     [SerializeField] PlayFabAuth playFabAuth;
@@ -31,6 +35,9 @@ public class RegisterScreen : UiScreen
         CanRegister();
     }
 
+    /// <summary>
+    /// Shows the registration screen and clears all input fields.
+    /// </summary>
     public override void Show()
     {
         base.Show();
@@ -40,6 +47,10 @@ public class RegisterScreen : UiScreen
         confirmPasswordInput.text = "";
     }
 
+    /// <summary>
+    /// Enables or disables user interaction with the register screen UI elements.
+    /// </summary>
+    /// <param name="value">True to enable interaction, false to disable</param>
     void AllowInteractions(bool value)
     {
         registerButton.interactable = value;
@@ -49,10 +60,17 @@ public class RegisterScreen : UiScreen
         confirmPasswordInput.interactable = value;
     }
 
+    /// <summary>
+    /// Handles the back button click to return to the login screen.
+    /// </summary>
     void OnBackClicked()
     {
         uiManager.ShowScreen(loginScreen);
     }
+
+    /// <summary>
+    /// Handles the register button click to submit account creation.
+    /// </summary>
     void OnRegisterClicked()
     {
         playFabAuth.Register(usernameInput.text, passwordInput.text, RegisterSuccessCallback, RegisterFailCallback);
@@ -60,6 +78,10 @@ public class RegisterScreen : UiScreen
         AllowInteractions(false);
     }
 
+    /// <summary>
+    /// Callback for successful account registration.
+    /// Saves credentials and transitions to the login screen.
+    /// </summary>
     void RegisterSuccessCallback()
     {
         AllowInteractions(true);
@@ -70,11 +92,19 @@ public class RegisterScreen : UiScreen
         uiManager.ShowScreen(loginScreen);
     }
 
+    /// <summary>
+    /// Callback for failed account registration.
+    /// Re-enables UI for another registration attempt.
+    /// </summary>
     void RegisterFailCallback()
     {
         AllowInteractions(true);
     }
 
+    /// <summary>
+    /// Handles username input field changes and validates registration eligibility.
+    /// </summary>
+    /// <param name="value">The new username value</param>
     void OnUsernameFieldChange(string value)
     {
         CanRegister();

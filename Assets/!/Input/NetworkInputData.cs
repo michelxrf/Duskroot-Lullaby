@@ -10,4 +10,7 @@ public struct NetworkInputData : INetworkInput
     public bool Aim;
     public bool Walk;
     public bool Attack;
+    public bool Skill1;
+    public bool Skill2;
+    public bool Interact;
 }
