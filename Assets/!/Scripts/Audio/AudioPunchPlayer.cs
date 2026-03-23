@@ -3,9 +3,9 @@ using FMODUnity;
 using FMOD.Studio;
 
 
-public class PunchPlayer : MonoBehaviour
+public class AudioPunchPlayer : MonoBehaviour
 {
-    public enum Gender { Female, Male }
+    public enum Gender { Woman, Man, Girl, Boy }
 
     [Header("Person")]
     public Gender gender;
@@ -13,7 +13,7 @@ public class PunchPlayer : MonoBehaviour
     [Header("FMOD")]
     [SerializeField] private EventReference punchEvent;
 
-    public void PlayPlayPunch()
+    public void PlayPunch()
     {
         EventInstance punchInstance = RuntimeManager.CreateInstance(punchEvent);
         punchInstance.setParameterByName("Gen", (float)gender);

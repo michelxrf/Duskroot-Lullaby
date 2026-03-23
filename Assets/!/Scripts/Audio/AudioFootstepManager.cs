@@ -2,24 +2,16 @@ using UnityEngine;
 using FMODUnity;
 using FMOD.Studio;
 
-/// <summary>
-/// Manages footstep sound effects based on terrain surface type.
-/// Detects the surface the character is walking on and plays appropriate audio.
-/// </summary>
-public class FootstepManager : MonoBehaviour
+public class AudioFootstepManager : MonoBehaviour
 {
     [Header("FMOD")]
-    /// <summary>FMOD event reference for footstep sounds</summary>
     public EventReference footstepEvent;
 
     [Header("Raycast")]
-    /// <summary>Transform position from which to raycast for surface detection</summary>
     public Transform rayOrigin;
 
-    /// <summary>Distance of the raycast to detect ground surface</summary>
     public float rayDistance = 1.5f;
 
-    /// <summary>Layer mask for identifying ground layers</summary>
     public LayerMask groundLayer;
 
     Terrain terrain;
@@ -30,7 +22,6 @@ public class FootstepManager : MonoBehaviour
     int alphamapHeight;
     int numTextures;
 
-    /// <summary>Enum representing different terrain surface types</summary>
     enum SurfaceType
     {
         Terra = 0,

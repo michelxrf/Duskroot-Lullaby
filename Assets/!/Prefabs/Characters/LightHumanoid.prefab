@@ -48,6 +48,7 @@ GameObject:
   - component: {fileID: 6023994505563687755}
   - component: {fileID: 822270101518877923}
   - component: {fileID: 3625786806687871027}
+  - component: {fileID: -3898083174918665811}
   m_Layer: 3
   m_Name: LightHumanoid
   m_TagString: Untagged
@@ -147,6 +148,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  destroyCorpseAfterSeconds: 20
+  _CurrentHealth: 0
 --- !u!95 &5146181822706071163
 Animator:
   serializedVersion: 7
@@ -218,6 +221,26 @@ MonoBehaviour:
       Data3: 154903703
       Data4: 346428431
     Path: event:/SFX/Punch_Impact
+--- !u!114 &-3898083174918665811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7033562567166124364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f004d86a7ac3f004983b758a5df4c431, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AudioDeathPlayer
+  gender: 3
+  deathEvent:
+    Guid:
+      Data1: -789608865
+      Data2: 1220442040
+      Data3: -922568019
+      Data4: -1111894341
+    Path: event:/SFX/Death
 --- !u!1001 &7271657771418572288
 PrefabInstance:
   m_ObjectHideFlags: 0
