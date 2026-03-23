@@ -16,6 +16,9 @@ public class HudInitializer : NetworkBehaviour
     {
         base.Spawned();
 
-        FindFirstObjectByType<PlayersBar>().Initialize(CharacterDataManager.Instance.GetCurrentPlayerCharacter(), GetComponent<Health>());
+        PlayersBar playerBar = FindFirstObjectByType<PlayersBar>();
+        
+        if (playerBar != null )
+            playerBar.Initialize(CharacterDataManager.Instance.GetCurrentPlayerCharacter(), GetComponent<Health>());
     }
 }
