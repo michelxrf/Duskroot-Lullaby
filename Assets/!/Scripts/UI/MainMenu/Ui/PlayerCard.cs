@@ -1,6 +1,7 @@
 using CombatSystem;
 using TMPro;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 using UnityEngine.UI;
 
 /// <summary>
@@ -16,8 +17,12 @@ public class PlayerCard : MonoBehaviour
     [SerializeField] Image characterPortrait;
     [SerializeField] Image deadIcon;
     [SerializeField] Image highlight;
+    [SerializeField] TMP_Text characterName;
+    [SerializeField] TMP_Text level;
 
     string characterId;
+    CharacterData characterData;
+    Health health;
 
     int maxHealth;
     int maxExp;
@@ -32,16 +37,20 @@ public class PlayerCard : MonoBehaviour
     {
         deadIcon.gameObject.SetActive(false);
         characterPortrait.sprite = CharacterDataManager.Instance.GetCharacterPortrait(character.characterId);
+        health = healthComp;
 
-        characterId = character.characterId;
+        characterData = character;
         maxExp = character.experienceToNextLevel;
-        maxHealth = character.health;
 
-        highlight.gameObject.SetActive(characterId == CharacterDataManager.Instance.localPlayerCharacterId);
+        highlight.gameObject.SetActive(characterData.characterId == CharacterDataManager.Instance.localPlayerCharacterId);
 
         healthComp.OnHealthChanged += (int value) => UpdateHealth(value);
         CharacterDataManager.Instance.OnExpChanged += UpdateExperience;
+        CharacterDataManager.Instance.OnLevelUp += () => UpdateHealth(health.CurrentHealth);
+        CharacterDataManager.Instance.OnLevelUp += () => UpdateLevel(characterData.level);
 
+        characterName.text = characterData.characterId;
+        UpdateLevel(characterData.level);
         UpdateHealth(healthComp.CurrentHealth);
         UpdateExperience(character.experience);
     }
@@ -52,8 +61,8 @@ public class PlayerCard : MonoBehaviour
     /// <param name="currentHealth">The current health value</param>
     public void UpdateHealth(int currentHealth)
     {
-        healthBarFill.fillAmount = (float)currentHealth / maxHealth;
-        healthBarLabel.text = $"{currentHealth}/{maxHealth}";
+        healthBarFill.fillAmount = (float)currentHealth / characterData.health;
+        healthBarLabel.text = $"{currentHealth}/{characterData.health}";
     }
 
     /// <summary>
@@ -62,8 +71,13 @@ public class PlayerCard : MonoBehaviour
     /// <param name="currentExp">The current experience value</param>
     public void UpdateExperience(int currentExp)
     {
-        expBarFill.fillAmount = (float)currentExp / maxExp;
-        expBarLabel.text = $"{currentExp}/{maxExp}";
+        expBarFill.fillAmount = (float)currentExp / characterData.experienceToNextLevel;
+        expBarLabel.text = $"{currentExp}/{characterData.experienceToNextLevel}";
+    }
+
+    public void UpdateLevel(int newLevel)
+    {
+        level.text = $"Lvl: {newLevel}";
     }
 
     /// <summary>
