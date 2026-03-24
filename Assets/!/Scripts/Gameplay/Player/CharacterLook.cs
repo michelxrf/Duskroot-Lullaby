@@ -29,9 +29,10 @@ public class CharacterLook : NetworkBehaviour
             {
                 Vector2 mousePos = Mouse.current.position.ReadValue();
                 Ray ray = Camera.main.ScreenPointToRay(mousePos);
-                if (Physics.Raycast(ray, out RaycastHit hitInfo))
+                if (Physics.Raycast(ray, out RaycastHit hitInfo, Mathf.Infinity, -1, QueryTriggerInteraction.Ignore))
                 {
                     lookingAt = hitInfo.point;
+                    Debug.DrawLine(ray.origin, hitInfo.point, Color.red, 1f);
                     TakeControl(this);
                     RotateTo(lookingAt - transform.position, this);
                 }

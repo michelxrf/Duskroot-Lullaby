@@ -295,10 +295,10 @@ MonoBehaviour:
     Radius: 0.2
     Height: 1.8
     Extent: 0.002
-    ColliderLayer: 3
+    ColliderLayer: 0
     CollisionLayerMask:
       serializedVersion: 2
-      m_Bits: 201
+      m_Bits: 713
     ProxyInterpolationMode: 0
     MaxPenetrationSteps: 8
     CCDRadiusMultiplier: 0.75

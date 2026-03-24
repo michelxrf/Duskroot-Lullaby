@@ -48,7 +48,7 @@ GameObject:
   - component: {fileID: 6023994505563687755}
   - component: {fileID: 822270101518877923}
   - component: {fileID: 3625786806687871027}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: LightHumanoid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -147,6 +147,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  destroyCorpseAfterSeconds: 20
+  _CurrentHealth: 0
 --- !u!95 &5146181822706071163
 Animator:
   serializedVersion: 7
