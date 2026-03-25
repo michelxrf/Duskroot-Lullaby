@@ -111,7 +111,6 @@ namespace CombatSystem
             weaponBehavior = WeaponBehaviorFactory.CreateBehavior(currentWeapon.behavior, gameObject);
             weaponBehavior.Initialize(hitboxCenter, animator, gameObject, currentWeapon);
             RPC_PlayEquipAnimation();
-            //TODO: play SFX
         }
 
         /// <summary>

@@ -15,8 +15,6 @@ public class StateMachine : NetworkBehaviour
         currentState = newState;
         if (currentState != null)
             currentState.Enter();
-
-        Debug.Log("State changed to: " + currentState.GetType().Name);
     }
 
     public override void Spawned()
