@@ -17,7 +17,15 @@ namespace CombatSystem
         /// <param name="weapon">The weapon data containing damage and hitbox radius information</param>
         static public void CastHitBox(Transform hitboxCenter, GameObject caster, WeaponData weapon)
         {
-            Collider[] hits = Physics.OverlapSphere(hitboxCenter.position, weapon.hitboxRadius);
+            int layerMask;
+
+
+            if (caster.layer == LayerMask.NameToLayer("Player"))
+                layerMask = LayerMask.GetMask("Monster", "Player"); // Player damage both monsters and other players (friendly fire)
+            else
+                layerMask = LayerMask.GetMask("Player"); // Monsters only damage players
+
+            Collider[] hits = Physics.OverlapSphere(hitboxCenter.position, weapon.hitboxRadius, layerMask);
 
             foreach (var hit in hits)
             {
@@ -27,7 +35,7 @@ namespace CombatSystem
                 Health healthComponent = hit.GetComponent<Health>();
                 if (healthComponent == null) continue;
 
-                healthComponent.RPC_TakeDamage(weapon.baseDamage + CharacterDataManager.Instance.GetCurrentPlayerCharacter().damage);
+                healthComponent.RPC_TakeDamage(weapon.baseDamage + CharacterDataManager.Instance.GetCurrentPlayerCharacter().damage, weapon.weaponAudioType);
             }
         }
     }

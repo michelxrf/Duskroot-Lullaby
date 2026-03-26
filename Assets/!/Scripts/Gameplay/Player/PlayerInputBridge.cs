@@ -13,6 +13,7 @@ public class PlayerInputBridge : MonoBehaviour
     InputAction walkAction;
     InputAction attackAction;
     InputAction aimAction;
+    InputAction interactAciton;
 
     private void Awake()
     {
@@ -21,6 +22,7 @@ public class PlayerInputBridge : MonoBehaviour
         walkAction = playerInput.actions["Walk"];
         attackAction = playerInput.actions["Attack"];
         aimAction = playerInput.actions["Aim"];
+        interactAciton = playerInput.actions["Interact"];
     }
 
     private void Start()
@@ -35,6 +37,7 @@ public class PlayerInputBridge : MonoBehaviour
         walkAction.Enable();
         attackAction.Enable();
         aimAction.Enable();
+        interactAciton.Enable();
     }
 
     void OnDisable()
@@ -43,6 +46,7 @@ public class PlayerInputBridge : MonoBehaviour
         walkAction.Disable();
         attackAction.Disable();
         aimAction.Disable();
+        interactAciton.Disable();
     }
 
     public void OnFusionInput(NetworkRunner runner, NetworkInput input)
@@ -52,7 +56,8 @@ public class PlayerInputBridge : MonoBehaviour
             Move = moveAction.ReadValue<Vector2>(),
             Walk = walkAction.ReadValue<float>() > 0f,
             Attack = attackAction.IsPressed(),
-            Aim = aimAction.IsPressed()
+            Aim = aimAction.IsPressed(),
+            Interact = interactAciton.IsPressed()
         };
 
         input.Set(data);

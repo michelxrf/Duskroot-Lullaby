@@ -27,4 +27,9 @@ public class WeaponData : ScriptableObject
 
     /// <summary>The name of the weapon behavior implementation to use (e.g., "Melee")</summary>
     public string behavior;
+
+    /// <summary>
+    /// Used by audio system to determine which sound effects to play when this weapon hits a target.
+    /// </summary>
+    public string weaponAudioType = "unarmed";
 }

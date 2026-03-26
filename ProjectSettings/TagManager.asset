@@ -17,11 +17,11 @@ TagManager:
   - UI
   - Trees
   - Ground
-  - 
-  - 
-  - 
-  - 
-  - 
+  - MobVision
+  - Monster
+  - MonsterHitBox
+  - PlayerHitBox
+  - InteractionZone
   - 
   - 
   - 

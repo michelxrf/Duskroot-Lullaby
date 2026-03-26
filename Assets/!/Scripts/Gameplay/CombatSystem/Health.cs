@@ -3,6 +3,7 @@ using Fusion;
 using Fusion.Addons.SimpleKCC;
 using System.Collections;
 using System;
+using UnityEngine.AI;
 
 
 namespace CombatSystem
@@ -11,6 +12,7 @@ namespace CombatSystem
     /// Keeps track of a character's heath and handles damage and death.
     /// </summary>
     [RequireComponent(typeof(Collider))]
+    [RequireComponent(typeof(AudioHitNotifier))]
     public class Health : NetworkBehaviour
     {
         [SerializeField] int maxHealth = 100;
@@ -19,6 +21,10 @@ namespace CombatSystem
         [Networked, OnChangedRender(nameof(OnHealthChangedRender))]
         public int CurrentHealth { get; private set; }
         int oldHealth { get; set; }
+
+        [Header("Audio")]
+        AudioHitNotifier audioHit;
+        [SerializeField] string characterType;
 
         public Action<int> OnHealthChanged;
 
@@ -31,13 +37,19 @@ namespace CombatSystem
             {
                 // TODO: Separate player and enemy health initialization.
                 if (GetComponent<PlayerAttack>() != null)
+                {
                     maxHealth = CharacterDataManager.Instance.GetCurrentPlayerCharacter().health;
+                    characterType = CharacterDataManager.Instance.GetCurrentPlayerCharacter().characterId;
+                }
 
                 oldHealth = maxHealth;
                 CurrentHealth = maxHealth;
             }
 
             animator = GetComponentInChildren<Animator>();
+
+            audioHit = GetComponent<AudioHitNotifier>();
+            audioHit.SetCharacterType(characterType);
         }
 
         /// <summary>
@@ -45,9 +57,10 @@ namespace CombatSystem
         /// </summary>
         /// <param name="damage"></param>
         [Rpc(RpcSources.All, RpcTargets.StateAuthority)]
-        public void RPC_TakeDamage(int damage)
+        public void RPC_TakeDamage(int damage, string weaponType)
         {
             CurrentHealth = Mathf.Clamp(CurrentHealth - (damage), 0, maxHealth);
+            audioHit.NotifyHit(weaponType);
             Debug.Log($"{gameObject.name} took {oldHealth - CurrentHealth} damage. Current health: {CurrentHealth}/{maxHealth}");
         }
 
@@ -84,7 +97,11 @@ namespace CombatSystem
             gameObject.DisableComponent<PlayerMovement>();
 
             // Disable AI controls
-            // TODO
+            NavMeshAgent agent = GetComponent<NavMeshAgent>();
+            if(agent != null)
+                agent.isStopped = true;
+            
+            gameObject.DisableAllComponents<StateMachine>();
 
             RPC_AddExperience();
             animator.SetTrigger("Die");

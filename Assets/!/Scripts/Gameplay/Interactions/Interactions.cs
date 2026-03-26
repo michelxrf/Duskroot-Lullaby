@@ -1,0 +1,167 @@
+using System.Collections;
+using System.Collections.Generic;
+using Fusion;
+using TMPro;
+using UnityEngine;
+
+/// <summary>
+/// Manages NPC interactions and dialogue (bark) sequences in a networked environment.
+/// Handles displaying tooltips when players are in range, activating bark sequences,
+/// and managing audio playback for dialogue.
+/// </summary>
+[RequireComponent(typeof(AudioSource))]
+public class Interactions : NetworkBehaviour
+{
+    [Header("References")]
+    /// <summary>Tooltip UI element displayed when a player is in interaction range.</summary>
+    [SerializeField] GameObject interactionTooltip;
+    /// <summary>UI balloon/panel that displays dialogue text during bark sequences.</summary>
+    [SerializeField] GameObject BarkBalloon;
+    /// <summary>TextMeshPro text component for displaying bark dialogue text.</summary>
+    [SerializeField] TMP_Text barkTextField;
+    /// <summary>Array of bark dialogue sequences to play when activated.</summary>
+    [SerializeField] Bark[] barks;
+
+    [Header("Settings")]
+    /// <summary>Radius of the sphere collider for detecting nearby players.</summary>
+    [SerializeField] float interactionRange = 3f;
+    /// <summary>If true, the interaction disables itself after playing once.</summary>
+    [SerializeField] bool singleActivation = false;
+    /// <summary>Reference to an alternative Interactions component to switch to after interaction.</summary>
+    [SerializeField] Interactions changeToAfterInteraction;
+    /// <summary>Delay in seconds between successive barks in a sequence.</summary>
+    [SerializeField] float delayBetweenBarks = 1f;
+
+    /// <summary>Networked flag indicating whether a bark sequence is currently playing.</summary>
+    [Networked] bool isInteracting { get; set; }
+    /// <summary>Number of players currently within the interaction range.</summary>
+    int playersInRange;
+    /// <summary>Audio source component for playing bark audio clips.</summary>
+    AudioSource audioSource;
+    /// <summary>Flag to ensure initialization only occurs after the object has spawned on the network.</summary>
+    bool hasSpawned = false;
+
+    /// <summary>
+    /// Called when the object spawns on the network. Initializes interaction range,
+    /// audio source, and UI elements.
+    /// </summary>
+    public override void Spawned()
+    {
+        base.Spawned();
+        hasSpawned = true;
+
+        playersInRange = 0;
+        isInteracting = false;
+
+        audioSource = GetComponent<AudioSource>();
+        GetComponent<SphereCollider>().radius = interactionRange;
+
+        BarkBalloon.SetActive(false);
+        interactionTooltip.SetActive(false);
+    }
+
+    /// <summary>
+    /// Called when a player enters the interaction trigger zone.
+    /// Increments player count and notifies the player of the interaction area.
+    /// </summary>
+    private void OnTriggerEnter(Collider other)
+    {
+        playersInRange++;
+        other.GetComponent<PlayerInteractor>()?.EnteredInteractionArea(this);
+    }
+
+    /// <summary>
+    /// Called when a player exits the interaction trigger zone.
+    /// Decrements player count and notifies the player they've left the interaction area.
+    /// </summary>
+    private void OnTriggerExit(Collider other)
+    {
+        playersInRange--;
+        other.GetComponent<PlayerInteractor>()?.LeftInteractionArea();
+    }
+
+    /// <summary>
+    /// Determines whether the interaction tooltip should be visible.
+    /// Shows tooltip if a player is in range and no bark sequence is currently playing.
+    /// </summary>
+    void CanInteract()
+    {
+        if (!hasSpawned)
+            return;
+
+        if (!isInteracting && playersInRange >= 1)
+        {
+            interactionTooltip.SetActive(true);
+        }
+        else
+        {
+            interactionTooltip.SetActive(false);
+        }
+    }
+
+    /// <summary>
+    /// Called every frame to update the visibility of the interaction tooltip.
+    /// </summary>
+    private void Update()
+    {
+        CanInteract();
+    }
+
+    /// <summary>
+    /// RPC method to initiate a bark dialogue sequence.
+    /// Validates that a player is present, no sequence is already playing, and barks exist.
+    /// Synchronizes the bark sequence across all clients.
+    /// </summary>
+    [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
+    public void RPC_ActivateBark()
+    {
+        Debug.Log("RPC_ActivateBark called");
+
+        if (playersInRange < 1 || isInteracting || barks.Length == 0)
+            return;
+
+        Debug.Log("Activating Bark Sequence");
+
+        isInteracting = true;
+        interactionTooltip.SetActive(false);
+        BarkBalloon.SetActive(true);
+        StartCoroutine(PlayBarkSequence());
+    }
+
+    /// <summary>
+    /// Coroutine that plays through the bark sequence.
+    /// Displays text and plays audio for each bark, with delays between them.
+    /// Hides the dialogue balloon and marks interaction as complete when finished.
+    /// </summary>
+    IEnumerator PlayBarkSequence()
+    {
+        for (int i = 0; i < barks.Length; i++)
+        {
+            Bark bark = barks[i];
+            barkTextField.text = bark.text;
+
+            if (bark.audio != null)
+            {
+                Debug.Log($"Playing audio for bark {i}: {bark.audio.name}");
+                // TODO: Modify to work with FMOD instead of Unity AudioSource
+                audioSource.PlayOneShot(bark.audio);
+                yield return new WaitForSeconds(bark.audio.length + delayBetweenBarks);
+            }
+            else
+            {
+                yield return new WaitForSeconds(delayBetweenBarks);
+            }
+        }
+
+        BarkBalloon.SetActive(false);
+        isInteracting = false;
+
+        // Disable this interaction if it's configured for single use
+        if (singleActivation)
+        {
+            enabled = false;
+        }
+
+        Debug.Log("Bark Sequence Completed");
+    }
+}

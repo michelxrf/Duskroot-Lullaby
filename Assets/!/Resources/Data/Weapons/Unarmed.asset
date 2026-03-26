@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Unarmed
   m_EditorClassIdentifier: Assembly-CSharp::WeaponData
   baseDamage: 25
-  cooldownTimeSeconds: 1
   animationController: {fileID: 9100000, guid: a7f2e02577517c941be39277a11d1f9e, type: 2}
   weaponModel: {fileID: 0}
   hitboxRadius: 0.5
   vfxPrefab: {fileID: 0}
   rigthHanded: 1
   behavior: Melee
+  weaponAudioType: Unarmed
