@@ -50,6 +50,7 @@ GameObject:
   - component: {fileID: 6638255729586236107}
   - component: {fileID: 3625786806687871027}
   - component: {fileID: 6667767756867655756}
+  - component: {fileID: -5101391689730037859}
   m_Layer: 0
   m_Name: LightHumanoid
   m_TagString: Untagged
@@ -257,6 +258,30 @@ MonoBehaviour:
       Data3: -922568019
       Data4: -1111894341
     Path: event:/SFX/Death
+--- !u!114 &-5101391689730037859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7033562567166124364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b91a2afef22fe44588cae203a544432, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FootstepManager
+  footstepEvent:
+    Guid:
+      Data1: -1279637125
+      Data2: 1223962144
+      Data3: 226367628
+      Data4: 2069711762
+    Path: event:/SFX/FootstepsPlayer
+  rayOrigin: {fileID: 599541039334494576, guid: 44aead61798061f46bead76133ca2c96, type: 3}
+  rayDistance: 0.5
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!1001 &7271657771418572288
 PrefabInstance:
   m_ObjectHideFlags: 0
