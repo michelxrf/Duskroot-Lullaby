@@ -7,6 +7,8 @@ using UnityEditor.IMGUI.Controls;
 using UnityEngine;
 using System.IO;
 
+#pragma warning disable CS0618 // Type or member is obsolete
+
 namespace FMODUnity
 {
     public class EventBrowser : EditorWindow, ISerializationCallbackReceiver
@@ -99,7 +101,7 @@ namespace FMODUnity
             treeView.Reload();
         }
 
-        private class TreeView : UnityEditor.IMGUI.Controls.TreeView
+private class TreeView : UnityEditor.IMGUI.Controls.TreeView
         {
             private static readonly Texture2D folderOpenIcon = EditorUtils.LoadImage("FolderIconOpen.png");
             private static readonly Texture2D folderClosedIcon = EditorUtils.LoadImage("FolderIconClosed.png");

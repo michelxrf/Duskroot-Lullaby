@@ -1,4 +1,6 @@
-﻿using System;
+﻿#pragma warning disable CS0618 // Type or member is obsolete
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
@@ -979,24 +981,24 @@ Assets/Plugins/FMOD/**/Info.plist text eol=lf";
         }
     }
 
-    public class SimpleTreeView : TreeView
-    {
+public class SimpleTreeView : TreeView
+{
         private const float BodyHeight = 200;
 
-        public SimpleTreeView(TreeViewState state) : base(state)
-        {
+public SimpleTreeView(TreeViewState state) : base(state)
+{
             Reload();
             Repaint();
             ExpandAll();
         }
 
-        protected override bool CanMultiSelect(TreeViewItem item)
-        {
+protected override bool CanMultiSelect(TreeViewItem item)
+{
             return false;
         }
 
-        protected override bool CanChangeExpandedState(TreeViewItem item)
-        {
+protected override bool CanChangeExpandedState(TreeViewItem item)
+{
             return !(item is AudioSourceItem);
         }
 
@@ -1169,3 +1171,4 @@ Assets/Plugins/FMOD/**/Info.plist text eol=lf";
         }
     }
 }
+#pragma warning restore CS0618 // Type or member is obsolete

@@ -8,6 +8,7 @@ using UnityEngine;
 
 namespace FMODUnity
 {
+#pragma warning disable CS0618 // Type or member is obsolete
     public class FileReorganizer : EditorWindow, ISerializationCallbackReceiver
     {
         public const string ReorganizerMenuItemPath = "FMOD/Reorganize Plugin Files";
@@ -1373,4 +1374,5 @@ namespace FMODUnity
             yield return task.statusText;
         }
     }
+#pragma warning restore CS0618 // Type or member is obsolete
 }
