@@ -31,7 +31,8 @@ public class PlayerSpawner : SimulationBehaviour
 
         //var runner = RunnerBootstrap.Instance.Runner;
         Debug.Log($"Spawning player for {runner.LocalPlayer.ToString()}");
-        runner.Spawn(playerPrefab, new Vector3(0, 1, 0), Quaternion.identity, runner.LocalPlayer);
+       // runner.Spawn(playerPrefab, new Vector3(0, 1, 0), Quaternion.identity, runner.LocalPlayer);
+        runner.Spawn(playerPrefab,transform.position, Quaternion.identity, runner.LocalPlayer);
     }
 
     private void OnDestroy()

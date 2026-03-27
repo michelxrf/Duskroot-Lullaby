@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 1439603208813202615}
   - component: {fileID: 2618180078766244626}
   - component: {fileID: 266085804396066776}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PT_Fruit_Tree_01_dead_cut
-  m_TagString: Untagged
+  m_TagString: Tree
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

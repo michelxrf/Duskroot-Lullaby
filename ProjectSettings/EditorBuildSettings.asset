@@ -17,6 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/!/Scenes/TestAudio.unity
     guid: ff8d11ada5994a94b886d087e937f8fd
+  - enabled: 1
+    path: Assets/!/Scenes/RefugioPirralhos.unity
+    guid: 99c377f10d2bef74fab76f65c4b75a8d
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

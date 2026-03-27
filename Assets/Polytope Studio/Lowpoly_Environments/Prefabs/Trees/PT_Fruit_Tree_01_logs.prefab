@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 4371144052285426531}
   - component: {fileID: 794524481623672006}
   - component: {fileID: 3234218433630908428}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PT_Fruit_Tree_01_logs
-  m_TagString: Untagged
+  m_TagString: Tree
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

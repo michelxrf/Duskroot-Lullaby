@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 4131062105692079671}
   - component: {fileID: 1079633060130294162}
   - component: {fileID: 2963183586251210072}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PT_Pine_Tree_03_dead_cut
-  m_TagString: Untagged
+  m_TagString: Tree
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1988025617893250342}
   - component: {fileID: 6759055787200995927}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PT_Fruit_Tree_01_dead
-  m_TagString: Untagged
+  m_TagString: Tree
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -73,7 +73,7 @@ GameObject:
   - component: {fileID: 1799755330681518831}
   - component: {fileID: 3631142874527198405}
   - component: {fileID: 4772830539911952586}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PT_Fruit_Tree_01_dead_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -163,7 +163,7 @@ GameObject:
   - component: {fileID: 7117508975715571117}
   - component: {fileID: 4919535853178116811}
   - component: {fileID: 4520285889721809477}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PT_Fruit_Tree_01_dead_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -253,7 +253,7 @@ GameObject:
   - component: {fileID: 355686686542058714}
   - component: {fileID: 7275367467134081096}
   - component: {fileID: 1814185510865685987}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PT_Fruit_Tree_01_dead_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}

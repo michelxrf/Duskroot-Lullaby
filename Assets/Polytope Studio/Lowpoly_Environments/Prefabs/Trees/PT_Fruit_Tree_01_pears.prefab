@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5059894960139709570}
   m_Layer: 6
   m_Name: PT_Fruit_Tree_01_pears
-  m_TagString: Untagged
+  m_TagString: Tree
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -50,15 +50,15 @@ LODGroup:
   m_AnimateCrossFading: 0
   m_LastLODIsBillboard: 0
   m_LODs:
-  - screenRelativeHeight: 0.23942734
+  - screenRelativeHeight: 0.22410522
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 7532243803686030394}
-  - screenRelativeHeight: 0.19359106
+  - screenRelativeHeight: 0.17058945
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 2352935628247011077}
-  - screenRelativeHeight: 0.1498551
+  - screenRelativeHeight: 0.13487564
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 8580298009914301585}
@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 6095404779158058549}
   - component: {fileID: 1584039189104781334}
   - component: {fileID: 8580298009914301585}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PT_Fruit_Tree_01_pears_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -188,7 +188,7 @@ GameObject:
   - component: {fileID: 3396174388722069082}
   - component: {fileID: 3651040237905038081}
   - component: {fileID: 7532243803686030394}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PT_Fruit_Tree_01_pears_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -279,7 +279,7 @@ GameObject:
   - component: {fileID: 9181186186337446699}
   - component: {fileID: 31858204375945324}
   - component: {fileID: 2352935628247011077}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PT_Fruit_Tree_01_pears_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

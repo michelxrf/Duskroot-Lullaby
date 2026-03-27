@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 7622724856221292152}
   - component: {fileID: 6802265350786472413}
   - component: {fileID: 8755691476161375511}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PT_Fruit_Tree_01_stump
-  m_TagString: Untagged
+  m_TagString: Tree
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 528506774677081659}
   - component: {fileID: 3529266890537746846}
   - component: {fileID: 1665925868165018964}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PT_Fruit_Tree_01_green_cut
-  m_TagString: Untagged
+  m_TagString: Tree
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

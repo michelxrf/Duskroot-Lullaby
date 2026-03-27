@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 2311925644611836766}
   - component: {fileID: 1709757669461153019}
   - component: {fileID: 3485417514373718065}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PT_Pine_Tree_03_stump
-  m_TagString: Untagged
+  m_TagString: Tree
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
