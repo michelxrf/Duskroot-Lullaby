@@ -1,5 +1,7 @@
 using UnityEngine;
 
+#pragma warning disable CS0618
+
 namespace PlayFab.Internal
 {
     //public to be accessible by Unity engine
@@ -56,3 +58,5 @@ namespace PlayFab.Internal
         protected virtual void Initialize() { }
     }
 }
+
+#pragma warning restore CS0618
