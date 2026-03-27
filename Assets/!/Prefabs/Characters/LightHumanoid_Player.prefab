@@ -36,6 +36,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4600318904223632839, guid: 0cc26b293f5af75489e15d8df5c36eaf, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: d2fdd0a5a5554264a866b821442be410, type: 2}
     - target: {fileID: 5047941619565158737, guid: 0cc26b293f5af75489e15d8df5c36eaf, type: 3}
       propertyPath: SortKey
       value: 3625489470
@@ -376,7 +380,7 @@ MonoBehaviour:
       Data4: 2069711762
     Path: event:/SFX/FootstepsPlayer
   rayOrigin: {fileID: 599541039334494576}
-  rayDistance: 1.5
+  rayDistance: 0.5
   groundLayer:
     serializedVersion: 2
     m_Bits: 128
