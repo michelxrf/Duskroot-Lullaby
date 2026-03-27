@@ -19,7 +19,7 @@ namespace CombatSystem
         [SerializeField] float destroyCorpseAfterSeconds = 20f;
 
         [Networked, OnChangedRender(nameof(OnHealthChangedRender))]
-        public int CurrentHealth { get; private set; }
+        [HideInInspector] public int CurrentHealth { get; private set; }
         int oldHealth { get; set; }
 
         [Header("Audio")]

@@ -9,6 +9,8 @@ using System;
 using System.Linq;
 using System.Text.RegularExpressions;
 
+#pragma warning disable CS0618, CS0619
+
 namespace FMODUnity
 {
     [CustomEditor(typeof(Settings))]

@@ -13,6 +13,8 @@ using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
 #endif
 
+#pragma warning disable 0618
+
 namespace FMODUnity
 {
     public class EventReferenceUpdater : EditorWindow
@@ -403,9 +405,7 @@ namespace FMODUnity
 
                 if (hasOwnEvent)
                 {
-#pragma warning disable 0618 // Suppress warnings about using the obsolete StudioEventEmitter.Event field
                     if (!string.IsNullOrEmpty(emitter.Event))
-#pragma warning restore 0618
                     {
                         if (emitter.EventReference.IsNull)
                         {
@@ -487,9 +487,7 @@ namespace FMODUnity
                 yield return updateTask;
             }
 
-#pragma warning disable 0618 // Suppress warnings about using the obsolete FMODEventPlayable.eventName field
             if (!string.IsNullOrEmpty(playable.eventName))
-#pragma warning restore 0618
             {
                 if (playable.EventReference.IsNull)
                 {
@@ -503,12 +501,10 @@ namespace FMODUnity
         }
 #endif
 
-#pragma warning disable 0618 // Suppress a warning about using the obsolete EventRefAttribute class
         private static bool IsEventRef(FieldInfo field)
         {
             return field.FieldType == typeof(string) && EditorUtils.HasAttribute<EventRefAttribute>(field);
         }
-#pragma warning restore 0618
 
         private static T GetCustomAttribute<T>(FieldInfo field)
             where T : Attribute
@@ -567,12 +563,10 @@ namespace FMODUnity
             }
 
             // Handle conflicts where multiple [EventRef] fields have the same migration target
-#pragma warning disable 0618 // Suppress a warning about using the obsolete EventRefAttribute class
             IGrouping<string, FieldInfo>[] conflictingGroups = oldFields
                 .GroupBy(f => GetCustomAttribute<EventRefAttribute>(f).MigrateTo)
                 .Where(g => !string.IsNullOrEmpty(g.Key) && g.Count() > 1)
                 .ToArray();
-#pragma warning restore 0618
 
             foreach (IGrouping<string, FieldInfo> group in conflictingGroups)
             {
@@ -585,7 +579,6 @@ namespace FMODUnity
             }
 
             // Handle [EventRef] fields with MigrateTo set
-#pragma warning disable 0618 // Suppress a warning about using the obsolete EventRefAttribute class
             for (int i = 0; i < oldFields.Count; )
             {
                 FieldInfo oldField = oldFields[i];
@@ -625,7 +618,6 @@ namespace FMODUnity
                     ++i;
                 }
             }
-#pragma warning restore 0618
 
             // Auto-migrate if there is a single old field that hasn't been handled already,
             // and there is a single new field
@@ -864,8 +856,6 @@ namespace FMODUnity
 
             public bool HasExecuted { get; private set; }
 
-            // Suppress warnings about using the obsolete StudioEventEmitter.Event and FMODEventPlayable.eventName fields
-#pragma warning disable 0618
             public static Task ClearEvent(StudioEventEmitter emitter)
             {
                 return new Task()
@@ -915,7 +905,6 @@ namespace FMODUnity
                     Data = new string[] { emitter.Event },
                 };
             }
-#pragma warning restore 0618
 
             public static Task RemoveEventRefField(string subObjectPath, string value, string fieldName, string targetType)
             {
@@ -1015,10 +1004,6 @@ namespace FMODUnity
             static Task()
             {
                 Implementations = new Delegates[(int)Type.Count];
-
-                // Suppress warnings about using the obsolete StudioEventEmitter.Event
-                // and FMODEventPlayable.eventName fields
-#pragma warning disable 0618
 
                 Implement(Type.EmitterClearEvent,
                     Description: (data) => {
@@ -1459,7 +1444,6 @@ namespace FMODUnity
                     Execute: null
                 );
 
-#pragma warning restore 0618
             }
 
             public override string ToString()
@@ -2478,4 +2462,5 @@ namespace FMODUnity
             }
         }
     }
+#pragma warning restore 0618
 }
