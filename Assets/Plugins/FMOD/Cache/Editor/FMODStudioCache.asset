@@ -42,9 +42,36 @@ MonoBehaviour:
   Path: Assets/BuildFmod/UI.bank
   Name: UI
   StudioPath: bank:/UI
-  lastModified: 639102045507616453
+  lastModified: 639105094110866873
   FileSizes: []
   Exists: 1
+--- !u!114 &-8367727226860854883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: 
+  Guid:
+    Data1: -1985167529
+    Data2: 1235946840
+    Data3: 1487073924
+    Data4: 758552372
+  Banks:
+  - {fileID: 0}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 16000
 --- !u!114 &-8223440571746194192
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115,10 +142,10 @@ MonoBehaviour:
   Path: Assets/BuildFmod/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639102045506807171
+  lastModified: 639105094109825221
   FileSizes:
   - Name: 
-    Value: 1618
+    Value: 1876
   Exists: 1
 --- !u!114 &-5183009822149162905
 MonoBehaviour:
@@ -190,7 +217,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639102045506792123
+  lastModified: 639105094109804899
   FileSizes: []
   Exists: 1
 --- !u!114 &-1951550172158635668
@@ -235,7 +262,25 @@ MonoBehaviour:
   Path: Assets/BuildFmod/Ambiences.bank
   Name: Ambiences
   StudioPath: bank:/Ambiences
-  lastModified: 639102045506545661
+  lastModified: 639105094109544515
+  FileSizes: []
+  Exists: 1
+--- !u!114 &-616154530178873512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/MUS.bank
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorBankRef
+  Path: Assets/BuildFmod/MUS.bank
+  Name: MUS
+  StudioPath: bank:/MUS
+  lastModified: 639105094110026707
   FileSizes: []
   Exists: 1
 --- !u!114 &11400000
@@ -256,6 +301,7 @@ MonoBehaviour:
   - {fileID: -2002388166983340450}
   - {fileID: 1021075846966187511}
   - {fileID: -8556611719093545025}
+  - {fileID: -616154530178873512}
   EditorEvents:
   - {fileID: 3323755556233042380}
   - {fileID: 7425506496691184510}
@@ -269,12 +315,16 @@ MonoBehaviour:
   - {fileID: 3641857422849568512}
   - {fileID: -1951550172158635668}
   - {fileID: -8736607560796876607}
+  - {fileID: 3136610375521564757}
+  - {fileID: -8367727226860854883}
+  - {fileID: 5788953721454137293}
+  - {fileID: 7403273570795346291}
   EditorParameters: []
   MasterBanks:
   - {fileID: -2002388166983340450}
   StringsBanks:
   - {fileID: -6222608089242677881}
-  cacheTime: 639102045507616453
+  cacheTime: 639105094110866873
   cacheVersion: 131635
 --- !u!114 &1021075846966187511
 MonoBehaviour:
@@ -291,7 +341,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 639102045507410599
+  lastModified: 639105094110643585
   FileSizes: []
   Exists: 1
 --- !u!114 &1556228572737437409
@@ -322,6 +372,57 @@ MonoBehaviour:
   - Agua
   - Madeira
   Exists: 1
+--- !u!114 &2944480976292360903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Mus_Level1_A9/Proximity
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorParamRef
+  Name: Proximity
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 3448823593
+    data2: 1089370920
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &3136610375521564757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/MUS/Mus_menu
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/MUS/Mus_menu
+  Guid:
+    Data1: -411476805
+    Data2: 1082014466
+    Data3: -627725160
+    Data4: -534111969
+  Banks:
+  - {fileID: -616154530178873512}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 98736
 --- !u!114 &3323755556233042380
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -432,6 +533,34 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &5788953721454137293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/MUS/Mus_Level1_A9
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/MUS/Mus_Level1_A9
+  Guid:
+    Data1: 542457920
+    Data2: 1227203758
+    Data3: -1323155788
+    Data4: 1778938253
+  Banks:
+  - {fileID: -616154530178873512}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 2944480976292360903}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 32000
 --- !u!114 &6267172118088883810
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -460,6 +589,33 @@ MonoBehaviour:
   - Girl
   - Boy
   Exists: 1
+--- !u!114 &7403273570795346291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/MUS/Mus_Level1_A1
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/MUS/Mus_Level1_A1
+  Guid:
+    Data1: -1985167529
+    Data2: 1235946840
+    Data3: 1487073924
+    Data4: 758552372
+  Banks:
+  - {fileID: -616154530178873512}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 16000
 --- !u!114 &7425506496691184510
 MonoBehaviour:
   m_ObjectHideFlags: 0
