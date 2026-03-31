@@ -100,6 +100,10 @@ public class LobbyManager : NetworkBehaviour
             CurrentCountdown = Mathf.CeilToInt(seconds - elapsedTime);
         }
 
+        // Prevent player from joining after game has started
+        Runner.SessionInfo.IsVisible = false;
+        Runner.SessionInfo.IsOpen = false;
+
         Runner.LoadScene(gameplaySceneName);
         Debug.Log("Starting the game now!");
     }

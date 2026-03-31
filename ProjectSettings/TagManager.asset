@@ -22,8 +22,8 @@ TagManager:
   - MonsterHitBox
   - PlayerHitBox
   - InteractionZone
-  - 
-  - 
+  - CameraFader
+  - FaddableObjects
   - 
   - 
   - 

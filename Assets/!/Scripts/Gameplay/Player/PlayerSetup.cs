@@ -19,4 +19,12 @@ public class PlayerSetup : NetworkBehaviour
             playerCamera.GetComponent<FlyCamera>().target = transform;
         }
     }
+
+    /// <summary>
+    /// True when this player instance is controlled by the local client, false otherwise.
+    /// </summary>
+    public bool IsLocalPlayer()
+    {
+        return HasStateAuthority;
+    }
 }

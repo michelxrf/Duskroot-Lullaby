@@ -80,7 +80,6 @@ public class CharacterDataDTO
 
 /// <summary>
 /// Data structure to handle all characters of a single user
-/// TODO: add an initialization that create a set of actual character for the new user, instead of just uninitialized characters
 /// </summary>
 [Serializable]
 public class PlayerCharactersData

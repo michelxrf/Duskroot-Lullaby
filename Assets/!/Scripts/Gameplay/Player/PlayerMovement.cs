@@ -85,5 +85,4 @@ public class PlayerMovement : NetworkBehaviour
     {
         CharacterDataManager.Instance.OnLevelUp -= UpdateSpeed;
     }
-
 }
