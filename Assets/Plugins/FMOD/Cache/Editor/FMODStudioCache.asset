@@ -42,7 +42,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/UI.bank
   Name: UI
   StudioPath: bank:/UI
-  lastModified: 639105094110866873
+  lastModified: 639105737485144394
   FileSizes: []
   Exists: 1
 --- !u!114 &-8367727226860854883
@@ -127,6 +127,33 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 0
+--- !u!114 &-7056830837066519644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Fly/Fly_impact
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/Fly/Fly_impact
+  Guid:
+    Data1: 845256744
+    Data2: 1118025065
+    Data3: -341207144
+    Data4: -1855019747
+  Banks:
+  - {fileID: 1021075846966187511}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 160
 --- !u!114 &-6222608089242677881
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -142,10 +169,10 @@ MonoBehaviour:
   Path: Assets/BuildFmod/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639105094109825221
+  lastModified: 639105737478561481
   FileSizes:
   - Name: 
-    Value: 1876
+    Value: 2148
   Exists: 1
 --- !u!114 &-5183009822149162905
 MonoBehaviour:
@@ -217,7 +244,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639105094109804899
+  lastModified: 639105737478551560
   FileSizes: []
   Exists: 1
 --- !u!114 &-1951550172158635668
@@ -262,9 +289,36 @@ MonoBehaviour:
   Path: Assets/BuildFmod/Ambiences.bank
   Name: Ambiences
   StudioPath: bank:/Ambiences
-  lastModified: 639105094109544515
+  lastModified: 639105737478315847
   FileSizes: []
   Exists: 1
+--- !u!114 &-889159557125566879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Fly/Fly_Death
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/Fly/Fly_Death
+  Guid:
+    Data1: 1825697297
+    Data2: 1335140311
+    Data3: 1341998983
+    Data4: -1030170687
+  Banks:
+  - {fileID: 1021075846966187511}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 933
 --- !u!114 &-616154530178873512
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -280,7 +334,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/MUS.bank
   Name: MUS
   StudioPath: bank:/MUS
-  lastModified: 639105094110026707
+  lastModified: 639105737480922661
   FileSizes: []
   Exists: 1
 --- !u!114 &11400000
@@ -319,12 +373,17 @@ MonoBehaviour:
   - {fileID: -8367727226860854883}
   - {fileID: 5788953721454137293}
   - {fileID: 7403273570795346291}
+  - {fileID: 2941361990646585875}
+  - {fileID: -889159557125566879}
+  - {fileID: -7056830837066519644}
+  - {fileID: 8768538206319130929}
+  - {fileID: 7187516529545839429}
   EditorParameters: []
   MasterBanks:
   - {fileID: -2002388166983340450}
   StringsBanks:
   - {fileID: -6222608089242677881}
-  cacheTime: 639105094110866873
+  cacheTime: 639105737485144394
   cacheVersion: 131635
 --- !u!114 &1021075846966187511
 MonoBehaviour:
@@ -341,7 +400,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 639105094110643585
+  lastModified: 639105737484813297
   FileSizes: []
   Exists: 1
 --- !u!114 &1556228572737437409
@@ -372,6 +431,33 @@ MonoBehaviour:
   - Agua
   - Madeira
   Exists: 1
+--- !u!114 &2941361990646585875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Fly/Fly_Body_Fall
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/Fly/Fly_Body_Fall
+  Guid:
+    Data1: 1580154638
+    Data2: 1244016715
+    Data3: -1549876608
+    Data4: 1066902834
+  Banks:
+  - {fileID: 1021075846966187511}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 994
 --- !u!114 &2944480976292360903
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -589,6 +675,33 @@ MonoBehaviour:
   - Girl
   - Boy
   Exists: 1
+--- !u!114 &7187516529545839429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Fly/Fly_idle
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/Fly/Fly_idle
+  Guid:
+    Data1: -1224199066
+    Data2: 1108809810
+    Data3: -980918390
+    Data4: 1014191095
+  Banks:
+  - {fileID: 1021075846966187511}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 14000
 --- !u!114 &7403273570795346291
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -615,7 +728,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 16000
+  Length: 13333
 --- !u!114 &7425506496691184510
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -698,3 +811,30 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 2000
+--- !u!114 &8768538206319130929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Human_Body_Fall
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/Human_Body_Fall
+  Guid:
+    Data1: -498954140
+    Data2: 1284668193
+    Data3: -953830741
+    Data4: -1284928228
+  Banks:
+  - {fileID: 1021075846966187511}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 810
