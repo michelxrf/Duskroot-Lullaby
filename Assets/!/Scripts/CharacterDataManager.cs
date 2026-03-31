@@ -14,9 +14,6 @@ public class CharacterDataManager : MonoBehaviour
 
     private bool _isDirty;
     [SerializeField] CharacterTemplate[] _charactersTemplates;
-
-    // placeholder for level up threshold, should be replaced by a more complex system that can be configured per character and level
-    int currentLevelThreshold = 100;
     public string localPlayerCharacterId = string.Empty;
 
     public Action OnLevelUp;
@@ -92,13 +89,27 @@ public class CharacterDataManager : MonoBehaviour
     {
         var character = GetCurrentPlayerCharacter();
 
-        character.experience += xp;
+        character.experience += xp / RunnerBootstrap.Instance.Runner.SessionInfo.PlayerCount;
         if(character.experience >= character.experienceToNextLevel)
             LevelUp(character);
 
         OnExpChanged?.Invoke(character.experience);
 
         _isDirty = true;
+    }
+    void LevelUp(CharacterData characterData)
+    {
+        Debug.Log(characterData.characterId + " leveled up! New level: " + (characterData.level + 1));
+
+        characterData.level++;
+        characterData.experience = 0;
+        characterData.experienceToNextLevel *= 2;
+        characterData.health += 2;
+        characterData.armor += 0.02f;
+        characterData.damage += 1;
+        characterData.speed += 1;
+
+        OnLevelUp?.Invoke();
     }
 
     public void AddItem(int index, string itemId)
@@ -126,21 +137,6 @@ public class CharacterDataManager : MonoBehaviour
         PlayFabCharacterSave.Save(Data);
 
         _isDirty = false;
-    }
-
-    void LevelUp(CharacterData characterData)
-    {
-        Debug.Log(characterData.characterId + " leveled up! New level: " + (characterData.level + 1));
-
-        characterData.level++;
-        characterData.experience = 0;
-        characterData.experienceToNextLevel *= 2;
-        characterData.health += 2;
-        characterData.armor += 0.02f;
-        characterData.damage += 1;
-        characterData.speed += 1;
-
-        OnLevelUp?.Invoke();
     }
 
     public Sprite GetCharacterPortrait(string character)
