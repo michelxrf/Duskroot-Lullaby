@@ -11,11 +11,12 @@ public class MusArea9 : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        //PlayerSetup otherPlayer = other.GetComponent<PlayerSetup>();
-        //if (otherPlayer != null) return;
+        PlayerSetup otherPlayer = other.GetComponent<PlayerSetup>();
+        if (otherPlayer == null) return;
 
-        if (other.CompareTag("Player") && !isPlayerInside)
-        {
+        //if (other.CompareTag("Player") && otherPlayer.IsLocalPlayer() && !isPlayerInside)
+        if (otherPlayer.IsLocalPlayer() && !isPlayerInside)
+            {
             isPlayerInside = true;
 
             musicInstance = RuntimeManager.CreateInstance(musicEvent);
@@ -25,7 +26,10 @@ public class MusArea9 : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player") && isPlayerInside)
+        PlayerSetup otherPlayer = other.GetComponent<PlayerSetup>();
+        if (otherPlayer == null) return;
+        if (otherPlayer.IsLocalPlayer() && isPlayerInside)
+        //if (other.CompareTag("Player") && otherPlayer.IsLocalPlayer() && isPlayerInside)
         {
             isPlayerInside = false;
 
