@@ -42,7 +42,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/UI.bank
   Name: UI
   StudioPath: bank:/UI
-  lastModified: 639105885581624605
+  lastModified: 639106401472811410
   FileSizes: []
   Exists: 1
 --- !u!114 &-8367727226860854883
@@ -169,10 +169,10 @@ MonoBehaviour:
   Path: Assets/BuildFmod/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639105885578384503
+  lastModified: 639106401468929487
   FileSizes:
   - Name: 
-    Value: 2148
+    Value: 2330
   Exists: 1
 --- !u!114 &-5183009822149162905
 MonoBehaviour:
@@ -244,7 +244,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639105885578368401
+  lastModified: 639106401468909094
   FileSizes: []
   Exists: 1
 --- !u!114 &-1951550172158635668
@@ -289,7 +289,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/Ambiences.bank
   Name: Ambiences
   StudioPath: bank:/Ambiences
-  lastModified: 639105885578117943
+  lastModified: 639106401468642658
   FileSizes: []
   Exists: 1
 --- !u!114 &-889159557125566879
@@ -334,7 +334,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/MUS.bank
   Name: MUS
   StudioPath: bank:/MUS
-  lastModified: 639105885578860381
+  lastModified: 639106401469515454
   FileSizes: []
   Exists: 1
 --- !u!114 &11400000
@@ -356,6 +356,7 @@ MonoBehaviour:
   - {fileID: 1021075846966187511}
   - {fileID: -8556611719093545025}
   - {fileID: -616154530178873512}
+  - {fileID: 6036602874811187708}
   EditorEvents:
   - {fileID: 3323755556233042380}
   - {fileID: 7425506496691184510}
@@ -378,12 +379,13 @@ MonoBehaviour:
   - {fileID: -7056830837066519644}
   - {fileID: 8768538206319130929}
   - {fileID: 7187516529545839429}
+  - {fileID: 5457631662647093695}
   EditorParameters: []
   MasterBanks:
   - {fileID: -2002388166983340450}
   StringsBanks:
   - {fileID: -6222608089242677881}
-  cacheTime: 639105885581624605
+  cacheTime: 639106401473748042
   cacheVersion: 131635
 --- !u!114 &1021075846966187511
 MonoBehaviour:
@@ -400,7 +402,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 639105885581290345
+  lastModified: 639106401472480442
   FileSizes: []
   Exists: 1
 --- !u!114 &1556228572737437409
@@ -509,6 +511,30 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 98736
+--- !u!114 &3281415959014277708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/NPC_1_Barks/BarkNumber
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorParamRef
+  Name: BarkNumber
+  StudioPath: 
+  Min: 1
+  Max: 3
+  Default: 1
+  ID:
+    data1: 2634863878
+    data2: 185629843
+  Type: 1
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
 --- !u!114 &3323755556233042380
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -619,6 +645,34 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &5457631662647093695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Interactions/NPC_1_Barks
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/Interactions/NPC_1_Barks
+  Guid:
+    Data1: 1767800009
+    Data2: 1313403610
+    Data3: -164397160
+    Data4: 1942560842
+  Banks:
+  - {fileID: 6036602874811187708}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 1
+  Parameters:
+  - {fileID: 3281415959014277708}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &5788953721454137293
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -647,6 +701,24 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 32000
+--- !u!114 &6036602874811187708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Interactions.bank
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorBankRef
+  Path: Assets/BuildFmod/Interactions.bank
+  Name: Interactions
+  StudioPath: bank:/Interactions
+  lastModified: 639106401473748042
+  FileSizes: []
+  Exists: 1
 --- !u!114 &6267172118088883810
 MonoBehaviour:
   m_ObjectHideFlags: 0

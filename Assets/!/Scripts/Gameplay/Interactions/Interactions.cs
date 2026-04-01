@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using Fusion;
 using TMPro;
 using UnityEngine;
@@ -9,7 +8,8 @@ using UnityEngine;
 /// Handles displaying tooltips when players are in range, activating bark sequences,
 /// and managing audio playback for dialogue.
 /// </summary>
-[RequireComponent(typeof(AudioSource))]
+/// 
+//[RequireComponent(typeof(AudioSource))]
 public class Interactions : NetworkBehaviour
 {
     [Header("References")]
@@ -21,6 +21,7 @@ public class Interactions : NetworkBehaviour
     [SerializeField] TMP_Text barkTextField;
     /// <summary>Array of bark dialogue sequences to play when activated.</summary>
     [SerializeField] Bark[] barks;
+    [SerializeField] private FMODUnity.EventReference barkEvent;
 
     [Header("Settings")]
     /// <summary>Radius of the sphere collider for detecting nearby players.</summary>
@@ -53,7 +54,7 @@ public class Interactions : NetworkBehaviour
         playersInRange = 0;
         isInteracting = false;
 
-        audioSource = GetComponent<AudioSource>();
+        //audioSource = GetComponent<AudioSource>();
         GetComponent<SphereCollider>().radius = interactionRange;
 
         BarkBalloon.SetActive(false);
@@ -139,17 +140,36 @@ public class Interactions : NetworkBehaviour
         {
             Bark bark = barks[i];
             barkTextField.text = bark.text;
+            //Alterei aqui (Neto)
+            //if (bark.audio != null)
+            //{
+            //    Debug.Log($"Playing audio for bark {i}: {bark.audio.name}");
+            // TODO: Modify to work with FMOD instead of Unity AudioSource
+            //audioSource.PlayOneShot(bark.audio);
+            //yield return new WaitForSeconds(bark.audio.length + delayBetweenBarks);
+            // }
+            // else
+            // {
+            //     yield return new WaitForSeconds(delayBetweenBarks);
+            //}
+            if(!barkEvent.IsNull)
+{
+                Debug.Log($"Playing FMOD audio for bark {i}");
 
-            if (bark.audio != null)
-            {
-                Debug.Log($"Playing audio for bark {i}: {bark.audio.name}");
-                // TODO: Modify to work with FMOD instead of Unity AudioSource
-                audioSource.PlayOneShot(bark.audio);
-                yield return new WaitForSeconds(bark.audio.length + delayBetweenBarks);
-            }
-            else
-            {
-                yield return new WaitForSeconds(delayBetweenBarks);
+                var instance = FMODUnity.RuntimeManager.CreateInstance(barkEvent);
+                instance.setParameterByName("BarkNumber", bark.barkNumber); // escolhe qual fala (1 a 3 para esse teste)
+                instance.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(transform)); //Usado para setar o local onde o som será emitido (3D)
+                instance.start();
+
+                // duração
+                instance.getDescription(out FMOD.Studio.EventDescription desc);
+                desc.getLength(out int length);
+
+                float duration = length / 1000f;
+
+                yield return new WaitForSeconds(duration + delayBetweenBarks);
+
+                instance.release();
             }
         }
 
