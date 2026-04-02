@@ -140,18 +140,7 @@ public class Interactions : NetworkBehaviour
         {
             Bark bark = barks[i];
             barkTextField.text = bark.text;
-            //Alterei aqui (Neto)
-            //if (bark.audio != null)
-            //{
-            //    Debug.Log($"Playing audio for bark {i}: {bark.audio.name}");
-            // TODO: Modify to work with FMOD instead of Unity AudioSource
-            //audioSource.PlayOneShot(bark.audio);
-            //yield return new WaitForSeconds(bark.audio.length + delayBetweenBarks);
-            // }
-            // else
-            // {
-            //     yield return new WaitForSeconds(delayBetweenBarks);
-            //}
+
             if(!barkEvent.IsNull)
 {
                 Debug.Log($"Playing FMOD audio for bark {i}");
@@ -165,7 +154,9 @@ public class Interactions : NetworkBehaviour
                 instance.getDescription(out FMOD.Studio.EventDescription desc);
                 desc.getLength(out int length);
 
+                Debug.Log($"Audio length in ms: {length}");
                 float duration = length / 1000f;
+                Debug.Log($"Audio duration: {duration} seconds");
 
                 yield return new WaitForSeconds(duration + delayBetweenBarks);
 

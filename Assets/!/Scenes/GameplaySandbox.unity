@@ -1158,11 +1158,30 @@ PrefabInstance:
       propertyPath: SortKey
       value: 739106080
       objectReference: {fileID: 0}
+    - target: {fileID: 7469987039590310117, guid: fb2b2ff6da2b2ca4d9f3a07a77e49524, type: 3}
+      propertyPath: NetworkedBehaviours.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7469987039590310117, guid: fb2b2ff6da2b2ca4d9f3a07a77e49524, type: 3}
+      propertyPath: 'NetworkedBehaviours.Array.data[3]'
+      value: 
+      objectReference: {fileID: 3464696151304310706}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb2b2ff6da2b2ca4d9f3a07a77e49524, type: 3}
+--- !u!114 &3464696151304310706 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8556566152342545359, guid: fb2b2ff6da2b2ca4d9f3a07a77e49524, type: 3}
+  m_PrefabInstance: {fileID: 3464696151304310705}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a0deb079dc52424da3493a63c9f986c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FSM_Mosquito_Patrol
 --- !u!1001 &6680689636164917366
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1216,6 +1235,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6696838434664942794, guid: 4988d98877646694483fa6fbef3bd2ce, type: 3}
+      propertyPath: barkEvent.Path
+      value: event:/Interactions/NPC_1_Barks
+      objectReference: {fileID: 0}
+    - target: {fileID: 6696838434664942794, guid: 4988d98877646694483fa6fbef3bd2ce, type: 3}
       propertyPath: barks.Array.size
       value: 3
       objectReference: {fileID: 0}
@@ -1231,6 +1254,22 @@ PrefabInstance:
       propertyPath: 'barks.Array.data[2]'
       value: 
       objectReference: {fileID: 11400000, guid: 351282a70a56fe2419cef0fc7210d9d4, type: 2}
+    - target: {fileID: 6696838434664942794, guid: 4988d98877646694483fa6fbef3bd2ce, type: 3}
+      propertyPath: barkEvent.Guid.Data1
+      value: 1767800009
+      objectReference: {fileID: 0}
+    - target: {fileID: 6696838434664942794, guid: 4988d98877646694483fa6fbef3bd2ce, type: 3}
+      propertyPath: barkEvent.Guid.Data2
+      value: 1313403610
+      objectReference: {fileID: 0}
+    - target: {fileID: 6696838434664942794, guid: 4988d98877646694483fa6fbef3bd2ce, type: 3}
+      propertyPath: barkEvent.Guid.Data3
+      value: -164397160
+      objectReference: {fileID: 0}
+    - target: {fileID: 6696838434664942794, guid: 4988d98877646694483fa6fbef3bd2ce, type: 3}
+      propertyPath: barkEvent.Guid.Data4
+      value: 1942560842
+      objectReference: {fileID: 0}
     - target: {fileID: 7345706801918351265, guid: 4988d98877646694483fa6fbef3bd2ce, type: 3}
       propertyPath: m_Name
       value: Interaction
@@ -1239,7 +1278,8 @@ PrefabInstance:
       propertyPath: rolloffMode
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 9204505102632078009, guid: 4988d98877646694483fa6fbef3bd2ce, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

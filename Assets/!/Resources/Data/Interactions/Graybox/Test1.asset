@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Test1
   m_EditorClassIdentifier: Assembly-CSharp::Bark
   text: This is the first.
-  audio: {fileID: 8300000, guid: a2ffbbec1908a0b4ab366429020eb53a, type: 3}
+  barkNumber: 1
