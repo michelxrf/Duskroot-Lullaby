@@ -1,12 +1,8 @@
 using UnityEngine;
-using FMODUnity;
-using FMOD.Studio;
 
-public class MusArea9 : MonoBehaviour
+public class MusAreaSelector : MonoBehaviour
 {
-    [SerializeField] private EventReference musicEvent;
-
-    private EventInstance musicInstance;
+    [SerializeField] private int musicParam = 1;
     private bool isPlayerInside = false;
 
     private void OnTriggerEnter(Collider other)
@@ -18,9 +14,7 @@ public class MusArea9 : MonoBehaviour
         if (otherPlayer.IsLocalPlayer() && !isPlayerInside)
             {
             isPlayerInside = true;
-
-            musicInstance = RuntimeManager.CreateInstance(musicEvent);
-            musicInstance.start();
+            MusLevel1.instance.SetLevelMusicParameter(musicParam);
         }
     }
 
@@ -32,9 +26,8 @@ public class MusArea9 : MonoBehaviour
         //if (other.CompareTag("Player") && otherPlayer.IsLocalPlayer() && isPlayerInside)
         {
             isPlayerInside = false;
+            MusLevel1.instance.SetLevelMusicParameter(1);
 
-            musicInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-            musicInstance.release();
         }
     }
 }

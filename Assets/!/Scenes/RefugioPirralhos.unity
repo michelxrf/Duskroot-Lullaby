@@ -14,7 +14,7 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 10
-  m_Fog: 1
+  m_Fog: 0
   m_FogColor: {r: 0.33041117, g: 0.4245283, b: 0.34862307, a: 1}
   m_FogMode: 3
   m_FogDensity: 0.014
@@ -3620,13 +3620,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7474e8969c412748ba5530e1b08e9e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MusArea9
-  musicEvent:
-    Guid:
-      Data1: 542457920
-      Data2: 1227203758
-      Data3: -1323155788
-      Data4: 1778938253
-    Path: event:/MUS/Mus_Level1_A9
+  musicParam: 3
 --- !u!1001 &651564223
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5972,11 +5966,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MusLevel1
   musicEvent:
     Guid:
-      Data1: -1985167529
-      Data2: 1235946840
-      Data3: 1487073924
-      Data4: 758552372
-    Path: event:/MUS/Mus_Level1_A1
+      Data1: -1701735700
+      Data2: 1146737146
+      Data3: 129257914
+      Data4: 2002844308
+    Path: event:/MUS/Mus_Level1
 --- !u!1 &1052110100
 GameObject:
   m_ObjectHideFlags: 0
@@ -7028,6 +7022,75 @@ Transform:
   - {fileID: 609709427}
   m_Father: {fileID: 1052110101}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1209870669
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1209870670}
+  - component: {fileID: 1209870671}
+  - component: {fileID: 1209870672}
+  m_Layer: 0
+  m_Name: AreaBossTeste
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1209870670
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1209870669}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 76.6, y: 0, z: 71.6}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1878596496}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &1209870671
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1209870669}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 25.903534
+  m_Height: 51.807068
+  m_Direction: 1
+  m_Center: {x: -0.4118805, y: 0, z: 0}
+--- !u!114 &1209870672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1209870669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7474e8969c412748ba5530e1b08e9e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MusAreaSelector
+  musicParam: 2
 --- !u!1001 &1216153330
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9470,6 +9533,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1209870670}
   - {fileID: 256649808}
   - {fileID: 1044002822}
   - {fileID: 641346005}
