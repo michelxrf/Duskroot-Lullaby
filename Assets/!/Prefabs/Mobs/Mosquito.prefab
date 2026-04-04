@@ -100,8 +100,10 @@ GameObject:
   - component: {fileID: 6794254922064648346}
   - component: {fileID: 3337596116530339721}
   - component: {fileID: 2238671343640418505}
-  - component: {fileID: 8556566152342545359}
-  m_Layer: 0
+  - component: {fileID: 8304208478616237356}
+  - component: {fileID: 4026518505526609455}
+  - component: {fileID: 6017142588764089412}
+  m_Layer: 9
   m_Name: Mosquito
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -147,7 +149,9 @@ MonoBehaviour:
   - {fileID: 6794254922064648346}
   - {fileID: 3337596116530339721}
   - {fileID: 2238671343640418505}
-  - {fileID: 8556566152342545359}
+  - {fileID: 8304208478616237356}
+  - {fileID: 4026518505526609455}
+  - {fileID: 6017142588764089412}
   - {fileID: 5089315297502495701}
   ForceRemoteRenderTimeframe: 0
 --- !u!136 &2426909115120015145
@@ -234,7 +238,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 845cf58a3ec234a43842cba72e04c64e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StateMachine
-  initialState: {fileID: 8556566152342545359}
+  initialState: {fileID: 6017142588764089412}
 --- !u!114 &3337596116530339721
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -247,6 +251,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0148e2e55d649e14ebd9e34b6615804e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CombatSystem.Health
+  armor: 0
   maxHealth: 25
   destroyCorpseAfterSeconds: 20
   _CurrentHealth: 0
@@ -268,7 +273,37 @@ MonoBehaviour:
   SyncParent: 0
   _autoAOIOverride: 1
   DisableSharedModeInterpolation: 0
---- !u!114 &8556566152342545359
+--- !u!114 &8304208478616237356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3635576507670607524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a820c7446fd3d52488bc966943fcf3bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FSM_Mosquito_Attack
+  hitboxCenter: {fileID: 4327498707814086362}
+  stateAfterAttack: {fileID: 4026518505526609455}
+  weaponData: {fileID: 11400000, guid: 035ceef6726b9334a80ecbf2c5a863a8, type: 2}
+--- !u!114 &4026518505526609455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3635576507670607524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b85ef26018a37e4b919621e55cf5fad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FSM_Mosquito_Hunt
+  attackRange: 0.05
+  stateOnPlayerLost: {fileID: 6017142588764089412}
+  stateOnPlayerReached: {fileID: 8304208478616237356}
+--- !u!114 &6017142588764089412
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -281,9 +316,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FSM_Mosquito_Patrol
   patrolCenter: {x: 0, y: 0, z: 0}
-  patrolRange: 0
+  patrolRange: 7
   stoppingDistance: 0.1
-  stateOnPlayerFound: {fileID: 0}
+  stateOnPlayerFound: {fileID: 4026518505526609455}
 --- !u!1 &7942009079716714325
 GameObject:
   m_ObjectHideFlags: 0
@@ -440,10 +475,30 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 61258325561811606, guid: dadecae318be19749ac4fbd62bd9a632, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7420156324355047243}
   m_SourcePrefab: {fileID: 100100000, guid: dadecae318be19749ac4fbd62bd9a632, type: 3}
 --- !u!4 &1448079764171973436 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 833854997431449644, guid: dadecae318be19749ac4fbd62bd9a632, type: 3}
   m_PrefabInstance: {fileID: 2272891110826384144}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2257231895439260038 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 61258325561811606, guid: dadecae318be19749ac4fbd62bd9a632, type: 3}
+  m_PrefabInstance: {fileID: 2272891110826384144}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7420156324355047243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2257231895439260038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61c5cfc5abc92ab4c9a6af9073aa9dcf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AnimationEventBridge

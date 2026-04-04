@@ -6,15 +6,20 @@ public class StateMachine : NetworkBehaviour
 {
     [SerializeField] State initialState;
     State currentState;
+    bool isChangingStates = false;
 
     public void ChangeState(State newState)
     {
+        isChangingStates = true;
+
         if (currentState != null)
             currentState.Exit();
 
         currentState = newState;
         if (currentState != null)
             currentState.Enter();
+
+        isChangingStates = false;
     }
 
     public override void Spawned()
@@ -28,6 +33,7 @@ public class StateMachine : NetworkBehaviour
     {
         if (!HasStateAuthority) return;
 
-        currentState.Process();
+        if(!isChangingStates)
+            currentState.Process();
     }
 }

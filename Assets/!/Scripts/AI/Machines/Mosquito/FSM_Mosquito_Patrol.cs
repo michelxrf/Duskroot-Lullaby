@@ -25,10 +25,12 @@ public class FSM_Mosquito_Patrol : State
         navAgent = GetComponent<NavMeshAgent>();
         visionCollider = GetComponentInChildren<VisionCollider>();
         animator = GetComponentInChildren<Animator>();
+        stateMachine = GetComponent<StateMachine>();
 
-        if(patrolCenter == null)
+        if (patrolCenter == null)
         {
             patrolCenter = transform.position;
+            Debug.LogWarning("Patrol center not set for " + gameObject.name + ". Defaulting to current position.");
         }
     }
 
@@ -44,7 +46,6 @@ public class FSM_Mosquito_Patrol : State
 
     public override void Exit()
     {
-        navAgent.isStopped = true;
     }
 
     public override void Process()

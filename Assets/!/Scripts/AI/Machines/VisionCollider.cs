@@ -3,7 +3,7 @@ using Fusion;
 using System;
 using NUnit.Framework;
 using System.Collections.Generic;
-
+using CombatSystem;
 
 /// <summary>
 /// Used by AI to detect player within a range
@@ -23,6 +23,12 @@ public class VisionCollider : NetworkBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (!HasStateAuthority) return;
+
+        Debug.Log("Player entered vision collider");
+
+        // ignore dead players
+        if (other.transform.GetComponent<Health>().IsDead())
+            return;
 
         playersInRange.Add(other.transform);
         OnPlayerEntered?.Invoke(other.transform);

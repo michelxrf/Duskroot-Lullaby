@@ -29,8 +29,8 @@ namespace CombatSystem
         [SerializeField] Transform rightHand;
         [SerializeField] Transform leftHand;
         [SerializeField] InputButton assignedButton;
+        [SerializeField] WeaponData defaultWeapon;
 
-        WeaponData defaultWeapon;
         WeaponData currentWeapon;
         WeaponBehavior weaponBehavior;
         CharacterLook characterLook;
@@ -94,6 +94,7 @@ namespace CombatSystem
             {
                 Debug.LogWarning("No weapon assigned, equipping default weapon.");
                 EquipWeapon(defaultWeapon);
+                return;
             }
 
             currentWeapon = newWeapon;
