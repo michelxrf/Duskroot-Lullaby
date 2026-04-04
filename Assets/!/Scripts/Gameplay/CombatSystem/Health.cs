@@ -15,6 +15,7 @@ namespace CombatSystem
     [RequireComponent(typeof(AudioHitNotifier))]
     public class Health : NetworkBehaviour
     {
+        [SerializeField] int armor = 0;
         [SerializeField] int maxHealth = 100;
         [SerializeField] float destroyCorpseAfterSeconds = 20f;
 
@@ -59,9 +60,9 @@ namespace CombatSystem
         [Rpc(RpcSources.All, RpcTargets.StateAuthority)]
         public void RPC_TakeDamage(int damage, string weaponType)
         {
-            CurrentHealth = Mathf.Clamp(CurrentHealth - (damage), 0, maxHealth);
+            CurrentHealth = Mathf.Clamp(CurrentHealth - (damage * (100 - armor)/100), 0, maxHealth);
             audioHit.NotifyHit(weaponType);
-            Debug.Log($"{gameObject.name} took {oldHealth - CurrentHealth} damage. Current health: {CurrentHealth}/{maxHealth}");
+            Debug.Log($"{gameObject.name} received ({damage} - {damage - damage * (100 - armor) / 100}) . Current health: {CurrentHealth}/{maxHealth}");
         }
 
         void OnHealthChangedRender()
@@ -97,11 +98,11 @@ namespace CombatSystem
             gameObject.DisableComponent<PlayerMovement>();
 
             // Disable AI controls
+            gameObject.DisableAllComponents<StateMachine>();
+
             NavMeshAgent agent = GetComponent<NavMeshAgent>();
             if(agent != null)
-                agent.isStopped = true;
-            
-            gameObject.DisableAllComponents<StateMachine>();
+                agent.isStopped = true;            
 
             RPC_AddExperience();
             animator.SetTrigger("Die");
@@ -123,6 +124,10 @@ namespace CombatSystem
             Runner.Despawn(Object);
         }
 
+        public bool IsDead()
+        {
+            return CurrentHealth <= 0;
+        }
     }
 }
 

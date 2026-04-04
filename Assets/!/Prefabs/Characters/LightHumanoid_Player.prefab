@@ -378,6 +378,7 @@ MonoBehaviour:
   rightHand: {fileID: 8457420982649764082}
   leftHand: {fileID: 2034739734327351643}
   assignedButton: 0
+  defaultWeapon: {fileID: 11400000, guid: 2faf737cde59b99419b72bb0dda834f2, type: 2}
 --- !u!114 &455992388528418610
 MonoBehaviour:
   m_ObjectHideFlags: 0
