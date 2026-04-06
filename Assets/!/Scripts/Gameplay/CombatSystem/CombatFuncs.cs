@@ -1,4 +1,5 @@
 using UnityEngine;
+using ProgressionSystem;
 
 namespace CombatSystem
 {
@@ -35,7 +36,14 @@ namespace CombatSystem
                 Health healthComponent = hit.GetComponent<Health>();
                 if (healthComponent == null) continue;
 
-                healthComponent.RPC_TakeDamage(weapon.baseDamage + CharacterDataManager.Instance.GetCurrentPlayerCharacter().damage, weapon.weaponAudioType);
+                if (caster.GetComponent<PlayerSetup>() != null)
+                {
+                    healthComponent.RPC_TakeDamage(weapon.baseDamage + CharacterDataManager.Instance.GetCurrentPlayerCharacter().damage, weapon.weaponAudioType);
+                }
+                else
+                {
+                    healthComponent.RPC_TakeDamage(caster.GetComponent<EnemySetup>().GetEnemyData().damage, weapon.weaponAudioType);
+                }
             }
         }
     }

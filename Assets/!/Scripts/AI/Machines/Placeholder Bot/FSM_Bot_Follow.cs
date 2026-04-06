@@ -23,6 +23,7 @@ public class FSM_Bot_Follow : State
 
     public override void Enter()
     {
+        agent.speed = GetComponent<EnemySetup>().GetEnemyData().speed;
         vision.OnPlayerLeft += LostPlayer;
         vision.OnPlayerEntered += StartTimer;
     }

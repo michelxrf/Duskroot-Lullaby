@@ -8,6 +8,7 @@ using UnityEngine;
 public class PlayerSetup : NetworkBehaviour
 {
     Camera playerCamera;
+    [Networked] public string characterId { get => default; set { } }
 
     public override void Spawned()
     {
@@ -17,6 +18,7 @@ public class PlayerSetup : NetworkBehaviour
         {
             playerCamera = Camera.main;
             playerCamera.GetComponent<FlyCamera>().target = transform;
+            characterId = CharacterDataManager.Instance.GetCurrentPlayerCharacter().characterId;
         }
     }
 
@@ -26,5 +28,10 @@ public class PlayerSetup : NetworkBehaviour
     public bool IsLocalPlayer()
     {
         return HasStateAuthority;
+    }
+
+    public string GetCharacterId()
+    {
+        return characterId;
     }
 }

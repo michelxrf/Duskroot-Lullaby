@@ -5,7 +5,7 @@ using Fusion;
 public class StateMachine : NetworkBehaviour
 {
     [SerializeField] State initialState;
-    State currentState;
+    public State currentState;
     bool isChangingStates = false;
 
     public void ChangeState(State newState)

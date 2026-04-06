@@ -24,8 +24,6 @@ public class VisionCollider : NetworkBehaviour
     {
         if (!HasStateAuthority) return;
 
-        Debug.Log("Player entered vision collider");
-
         // ignore dead players
         if (other.transform.GetComponent<Health>().IsDead())
             return;

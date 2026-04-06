@@ -1,6 +1,7 @@
 using System;
 using Unity.VisualScripting;
 using UnityEngine;
+using ProgressionSystem;
 
 
 /// <summary>
@@ -91,25 +92,15 @@ public class CharacterDataManager : MonoBehaviour
 
         character.experience += xp / RunnerBootstrap.Instance.Runner.SessionInfo.PlayerCount;
         if(character.experience >= character.experienceToNextLevel)
-            LevelUp(character);
+        {
+            ExperienceCalculator.LevelUpCharacter(character, character.level + 1);
+            Data.Characters[Array.FindIndex(Data.Characters, c => c.characterId == character.characterId)] = character;
+            OnLevelUp?.Invoke();
+        }
 
         OnExpChanged?.Invoke(character.experience);
 
         _isDirty = true;
-    }
-    void LevelUp(CharacterData characterData)
-    {
-        Debug.Log(characterData.characterId + " leveled up! New level: " + (characterData.level + 1));
-
-        characterData.level++;
-        characterData.experience = 0;
-        characterData.experienceToNextLevel *= 2;
-        characterData.health += 2;
-        characterData.armor += 0.02f;
-        characterData.damage += 1;
-        characterData.speed += 1;
-
-        OnLevelUp?.Invoke();
     }
 
     public void AddItem(int index, string itemId)

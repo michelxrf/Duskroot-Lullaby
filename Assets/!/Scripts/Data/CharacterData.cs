@@ -36,7 +36,7 @@ public class CharacterData
         attackSpeed = dataDTO.attackSpeed;
         cure = dataDTO.cure;
         experienceToNextLevel = dataDTO.experienceToNextLevel;
-        weapon = Resources.Load<WeaponData>($"Data/Weapons/{dataDTO.weapon}");
+        weapon = Resources.Load<WeaponData>($"Data/Weapons/Player/{dataDTO.weapon}");
     }
 
     public CharacterData() { }

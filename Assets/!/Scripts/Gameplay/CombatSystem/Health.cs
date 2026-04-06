@@ -4,6 +4,7 @@ using Fusion.Addons.SimpleKCC;
 using System.Collections;
 using System;
 using UnityEngine.AI;
+using ProgressionSystem;
 
 
 namespace CombatSystem
@@ -36,11 +37,29 @@ namespace CombatSystem
         {
             if (HasStateAuthority)
             {
-                // TODO: Separate player and enemy health initialization.
+                // player Init
                 if (GetComponent<PlayerAttack>() != null)
                 {
                     maxHealth = CharacterDataManager.Instance.GetCurrentPlayerCharacter().health;
                     characterType = CharacterDataManager.Instance.GetCurrentPlayerCharacter().characterId;
+                }
+
+                // enemy Init
+                if (GetComponent<EnemySetup>() != null)
+                {
+                    if(GetComponent<EnemySetup>().IsInitialized())
+                    {
+                        maxHealth = GetComponent<EnemySetup>().GetEnemyData().health;
+                        characterType = GetComponent<EnemySetup>().GetEnemyData().CharacterId;
+                    }
+                    else
+                    {
+                        GetComponent<EnemySetup>().OnInit += () =>
+                        {
+                            maxHealth = GetComponent<EnemySetup>().GetEnemyData().health;
+                            characterType = GetComponent<EnemySetup>().GetEnemyData().CharacterId;
+                        };
+                    }
                 }
 
                 oldHealth = maxHealth;
@@ -62,7 +81,7 @@ namespace CombatSystem
         {
             CurrentHealth = Mathf.Clamp(CurrentHealth - (damage * (100 - armor)/100), 0, maxHealth);
             audioHit.NotifyHit(weaponType);
-            Debug.Log($"{gameObject.name} received ({damage} - {damage - damage * (100 - armor) / 100}) . Current health: {CurrentHealth}/{maxHealth}");
+            OnHealthChanged?.Invoke(CurrentHealth);
         }
 
         void OnHealthChangedRender()
@@ -96,6 +115,7 @@ namespace CombatSystem
             // Disbable player controls
             gameObject.DisableComponent<PlayerAttack>();
             gameObject.DisableComponent<PlayerMovement>();
+            gameObject.DisableAllComponents<CharacterLook>();
 
             // Disable AI controls
             gameObject.DisableAllComponents<StateMachine>();
@@ -111,6 +131,10 @@ namespace CombatSystem
                 StartCoroutine(DestroyAfterDeathAnimation());
         }
 
+
+        /// <summary>
+        /// TODO: move out of health
+        /// </summary>
         [Rpc(RpcSources.All, RpcTargets.StateAuthority)]
         void RPC_AddExperience()
         {

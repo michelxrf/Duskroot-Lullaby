@@ -12,6 +12,7 @@ public class FSM_Mosquito_Attack : State
 
     Animator animator;
     NavMeshAgent navAgent;
+    VisionCollider visionCollider;
 
     Transform target;
 
@@ -19,6 +20,7 @@ public class FSM_Mosquito_Attack : State
     {
         navAgent = GetComponent<NavMeshAgent>();
         animator = GetComponentInChildren<Animator>();
+        visionCollider = GetComponentInChildren<VisionCollider>();
         stateMachine = GetComponent<StateMachine>();
 
     }
@@ -27,7 +29,12 @@ public class FSM_Mosquito_Attack : State
     {
         navAgent.isStopped = true;
 
-        
+        target = visionCollider.GetClosestPlayer();
+
+        // Rotate only around Y axis by keeping target at same height
+        Vector3 targetPos = new Vector3(target.position.x, transform.position.y, target.position.z);
+        transform.LookAt(targetPos);
+
         animator.SetTrigger("Attack");
     }
 

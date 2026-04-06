@@ -290,6 +290,67 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51bde7aa294b9ce4383276bb9957b2f2, type: 3}
+--- !u!1001 &687365217
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3635576507670607524, guid: fb2b2ff6da2b2ca4d9f3a07a77e49524, type: 3}
+      propertyPath: m_Name
+      value: Mosquito (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5579394250124113433, guid: fb2b2ff6da2b2ca4d9f3a07a77e49524, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -16.79381
+      objectReference: {fileID: 0}
+    - target: {fileID: 5579394250124113433, guid: fb2b2ff6da2b2ca4d9f3a07a77e49524, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.0000009767037
+      objectReference: {fileID: 0}
+    - target: {fileID: 5579394250124113433, guid: fb2b2ff6da2b2ca4d9f3a07a77e49524, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.6385733
+      objectReference: {fileID: 0}
+    - target: {fileID: 5579394250124113433, guid: fb2b2ff6da2b2ca4d9f3a07a77e49524, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5579394250124113433, guid: fb2b2ff6da2b2ca4d9f3a07a77e49524, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5579394250124113433, guid: fb2b2ff6da2b2ca4d9f3a07a77e49524, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5579394250124113433, guid: fb2b2ff6da2b2ca4d9f3a07a77e49524, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5579394250124113433, guid: fb2b2ff6da2b2ca4d9f3a07a77e49524, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5579394250124113433, guid: fb2b2ff6da2b2ca4d9f3a07a77e49524, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5579394250124113433, guid: fb2b2ff6da2b2ca4d9f3a07a77e49524, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7469987039590310117, guid: fb2b2ff6da2b2ca4d9f3a07a77e49524, type: 3}
+      propertyPath: SortKey
+      value: 4127351193
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: fb2b2ff6da2b2ca4d9f3a07a77e49524, type: 3}
 --- !u!1 &882065402
 GameObject:
   m_ObjectHideFlags: 0
@@ -1246,30 +1307,6 @@ PrefabInstance:
       propertyPath: SortKey
       value: 739106080
       objectReference: {fileID: 0}
-    - target: {fileID: 7469987039590310117, guid: fb2b2ff6da2b2ca4d9f3a07a77e49524, type: 3}
-      propertyPath: NetworkedBehaviours.Array.size
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 7469987039590310117, guid: fb2b2ff6da2b2ca4d9f3a07a77e49524, type: 3}
-      propertyPath: 'NetworkedBehaviours.Array.data[3]'
-      value: 
-      objectReference: {fileID: 3464696151304310712}
-    - target: {fileID: 7469987039590310117, guid: fb2b2ff6da2b2ca4d9f3a07a77e49524, type: 3}
-      propertyPath: 'NetworkedBehaviours.Array.data[4]'
-      value: 
-      objectReference: {fileID: 3464696151304310711}
-    - target: {fileID: 7469987039590310117, guid: fb2b2ff6da2b2ca4d9f3a07a77e49524, type: 3}
-      propertyPath: 'NetworkedBehaviours.Array.data[5]'
-      value: 
-      objectReference: {fileID: 3464696151304310710}
-    - target: {fileID: 7469987039590310117, guid: fb2b2ff6da2b2ca4d9f3a07a77e49524, type: 3}
-      propertyPath: 'NetworkedBehaviours.Array.data[6]'
-      value: 
-      objectReference: {fileID: 3464696151304310709}
-    - target: {fileID: 8304190551286223810, guid: fb2b2ff6da2b2ca4d9f3a07a77e49524, type: 3}
-      propertyPath: m_Radius
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 8827460808178338310, guid: fb2b2ff6da2b2ca4d9f3a07a77e49524, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 3.1722355
@@ -1287,50 +1324,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb2b2ff6da2b2ca4d9f3a07a77e49524, type: 3}
---- !u!114 &3464696151304310709 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5089315297502495701, guid: fb2b2ff6da2b2ca4d9f3a07a77e49524, type: 3}
-  m_PrefabInstance: {fileID: 3464696151304310705}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5d1462581fabd54f93353f1c5ef3465, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::VisionCollider
---- !u!114 &3464696151304310710 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6017142588764089412, guid: fb2b2ff6da2b2ca4d9f3a07a77e49524, type: 3}
-  m_PrefabInstance: {fileID: 3464696151304310705}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a0deb079dc52424da3493a63c9f986c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::FSM_Mosquito_Patrol
---- !u!114 &3464696151304310711 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4026518505526609455, guid: fb2b2ff6da2b2ca4d9f3a07a77e49524, type: 3}
-  m_PrefabInstance: {fileID: 3464696151304310705}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b85ef26018a37e4b919621e55cf5fad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::FSM_Mosquito_Hunt
---- !u!114 &3464696151304310712 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8304208478616237356, guid: fb2b2ff6da2b2ca4d9f3a07a77e49524, type: 3}
-  m_PrefabInstance: {fileID: 3464696151304310705}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a820c7446fd3d52488bc966943fcf3bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::FSM_Mosquito_Attack
 --- !u!1001 &6680689636164917366
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1450,3 +1443,4 @@ SceneRoots:
   - {fileID: 1025291499}
   - {fileID: 6680689636164917366}
   - {fileID: 3464696151304310705}
+  - {fileID: 687365217}

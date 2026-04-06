@@ -6,6 +6,7 @@ public class FSM_Mosquito_Hunt : State
     [SerializeField] float attackRange = .02f;
     [SerializeField] State stateOnPlayerLost;
     [SerializeField] State stateOnPlayerReached;
+    [SerializeField] float rotationSpeed = 60f;
 
     Animator animator;
     VisionCollider visionCollider;
@@ -31,6 +32,7 @@ public class FSM_Mosquito_Hunt : State
     {
         UpdateTargetLocation();
         animator.SetFloat("Speed", navAgent.velocity.magnitude);
+        RotateTowardPathNode();
     }
 
     void UpdateTargetLocation()
@@ -56,8 +58,18 @@ public class FSM_Mosquito_Hunt : State
         }
     }
 
+    void RotateTowardPathNode()
+    {
+        if (navAgent.hasPath && navAgent.path.corners.Length > 1)
+        {
+            Vector3 directionToNextCorner = (navAgent.path.corners[1] - transform.position).normalized;
+            Quaternion targetRotation = Quaternion.LookRotation(directionToNextCorner);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
+        }
+    }
+
     public override void Enter()
     {
-        
+        navAgent.isStopped = false;
     }
 }

@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d225f011258c5d446bfde6711a9f6020, type: 3}
+  m_Name: Mosquito
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyTemplate
+  CharacterId: Mosquito
+  Level: 1
+  health: 50
+  armor: 0
+  damage: 10
+  speed: 5
+  attackSpeed: 1
+  cure: 1
+  weapon: {fileID: 11400000, guid: 035ceef6726b9334a80ecbf2c5a863a8, type: 2}
+  healthUpgradePerLevel: 5
+  armorUpgradePerLevel: 3
+  damageUpgradePerLevel: 3
+  speedUpgradePerLevel: 1
+  attackSpeedUpgradePerLevel: 1
+  cureUpgradePerLevel: 1
+  experienceReward: 10
+  experienceRewardUpgradePerLevel: 2

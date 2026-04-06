@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d225f011258c5d446bfde6711a9f6020, type: 3}
+  m_Name: Bot
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyTemplate
+  CharacterId: Bot
+  Level: 1
+  health: 100
+  armor: 20
+  damage: 5
+  speed: 1
+  attackSpeed: 1
+  cure: 1
+  weapon: {fileID: 11400000, guid: 2faf737cde59b99419b72bb0dda834f2, type: 2}
+  healthUpgradePerLevel: 1
+  armorUpgradePerLevel: 1
+  damageUpgradePerLevel: 11
+  speedUpgradePerLevel: 1
+  attackSpeedUpgradePerLevel: 1
+  cureUpgradePerLevel: 1
+  experienceReward: 1
+  experienceRewardUpgradePerLevel: 1

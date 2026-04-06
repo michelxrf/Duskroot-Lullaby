@@ -12,11 +12,14 @@ public class FSM_Mosquito_Patrol : State
     [SerializeField] float patrolRange = 5f;
     [SerializeField] float stoppingDistance = .1f;
     [SerializeField] State stateOnPlayerFound;
+    [SerializeField] float rotationSpeed = 60f;
 
     Animator animator;
     VisionCollider visionCollider;
     NavMeshAgent navAgent;
-    
+    EnemySetup enemySetup;
+    EnemyData enemyData;
+
     Vector3 patrolDestination;
     float distanceToDestination;
 
@@ -26,6 +29,9 @@ public class FSM_Mosquito_Patrol : State
         visionCollider = GetComponentInChildren<VisionCollider>();
         animator = GetComponentInChildren<Animator>();
         stateMachine = GetComponent<StateMachine>();
+        enemySetup = GetComponent<EnemySetup>();
+
+        navAgent.updateRotation = false;
 
         if (patrolCenter == null)
         {
@@ -36,6 +42,15 @@ public class FSM_Mosquito_Patrol : State
 
     public override void Enter()
     {
+        if (!enemySetup.IsInitialized())
+        {
+            enemySetup.OnInit += () =>
+            {
+                enemyData = enemySetup.GetEnemyData();
+                navAgent.speed = enemyData.speed;
+            };
+        }
+
         patrolDestination = GetNewPatrolDestination();
 
         navAgent.stoppingDistance = stoppingDistance;
@@ -48,6 +63,16 @@ public class FSM_Mosquito_Patrol : State
     {
     }
 
+    void RotateTowardPathNode()
+    {
+        if (navAgent.hasPath && navAgent.path.corners.Length > 1)
+        {
+            Vector3 directionToNextCorner = (navAgent.path.corners[1] - transform.position).normalized;
+            Quaternion targetRotation = Quaternion.LookRotation(directionToNextCorner);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
+        }
+    }
+
     public override void Process()
     {
         if (IsDestinationReached())
@@ -56,6 +81,7 @@ public class FSM_Mosquito_Patrol : State
             navAgent.SetDestination(patrolDestination);
         }
 
+        RotateTowardPathNode();
         animator.SetFloat("Speed", navAgent.velocity.magnitude);
     }
 
