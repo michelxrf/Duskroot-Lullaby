@@ -9,6 +9,7 @@ public class PlayerSetup : NetworkBehaviour
 {
     Camera playerCamera;
     [Networked] public string characterId { get => default; set { } }
+    [Networked] public string currentWeapon { get => default; set { } }
 
     public override void Spawned()
     {
@@ -33,5 +34,15 @@ public class PlayerSetup : NetworkBehaviour
     public string GetCharacterId()
     {
         return characterId;
+    }
+
+    public string GetCurrentWeapon()
+    {
+        return currentWeapon;
+    }
+
+    public void SetCurrentWeapon(string weaponName)
+    {
+        currentWeapon = weaponName;
     }
 }

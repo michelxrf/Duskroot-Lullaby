@@ -42,4 +42,10 @@ public class EnemySetup : NetworkBehaviour
     {
         return enemyData.CharacterId;
     }
+
+    public string GetCurrentWeapon()
+    {
+        return enemyData.weapon.weaponAudioType;
+    }
+
 }
