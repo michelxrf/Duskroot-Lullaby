@@ -149,17 +149,14 @@ public class Interactions : NetworkBehaviour
                 instance.setParameterByName("BarkNumber", bark.barkNumber); // escolhe qual fala (1 a 3 para esse teste)
                 instance.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(transform)); //Usado para setar o local onde o som será emitido (3D)
                 instance.start();
-
-                // duração
-                instance.getDescription(out FMOD.Studio.EventDescription desc);
-                desc.getLength(out int length);
-
-                Debug.Log($"Audio length in ms: {length}");
-                float duration = length / 1000f;
-                Debug.Log($"Audio duration: {duration} seconds");
-
-                yield return new WaitForSeconds(duration + delayBetweenBarks);
-
+                FMOD.Studio.PLAYBACK_STATE state;
+                do
+                {
+                    instance.getPlaybackState(out state);
+                    yield return null;
+                }
+                while (state != FMOD.Studio.PLAYBACK_STATE.STOPPED);
+                yield return new WaitForSeconds(delayBetweenBarks);
                 instance.release();
             }
         }
