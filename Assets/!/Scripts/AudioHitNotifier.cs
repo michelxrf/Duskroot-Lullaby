@@ -51,5 +51,6 @@ public enum WEAPONTYPES
     Club,
     Blade,
     Magic,
-    Projectile
+    Projectile,
+    Fly
 }

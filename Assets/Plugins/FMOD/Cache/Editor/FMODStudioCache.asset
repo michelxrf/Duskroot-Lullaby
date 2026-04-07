@@ -42,7 +42,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/UI.bank
   Name: UI
   StudioPath: bank:/UI
-  lastModified: 639110725967439962
+  lastModified: 639111533734399626
   FileSizes: []
   Exists: 1
 --- !u!114 &-8367727226860854883
@@ -154,6 +154,32 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 160
+--- !u!114 &-6595885757678924360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Punch_Impact/Impact_type
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorParamRef
+  Name: Impact_type
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 104126966
+    data2: 1299862587
+  Type: 2
+  IsGlobal: 0
+  Labels:
+  - Melee
+  - Fly
+  Exists: 1
 --- !u!114 &-6222608089242677881
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,10 +195,10 @@ MonoBehaviour:
   Path: Assets/BuildFmod/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639110725966889980
+  lastModified: 639111533730839804
   FileSizes:
   - Name: 
-    Value: 2284
+    Value: 2326
   Exists: 1
 --- !u!114 &-5183009822149162905
 MonoBehaviour:
@@ -296,7 +322,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639110725966794980
+  lastModified: 639111533730829726
   FileSizes: []
   Exists: 1
 --- !u!114 &-1951550172158635668
@@ -341,7 +367,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/Ambiences.bank
   Name: Ambiences
   StudioPath: bank:/Ambiences
-  lastModified: 639110725966009992
+  lastModified: 639111533730297906
   FileSizes: []
   Exists: 1
 --- !u!114 &-889159557125566879
@@ -386,7 +412,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/MUS.bank
   Name: MUS
   StudioPath: bank:/MUS
-  lastModified: 639110725966530000
+  lastModified: 639111533731604104
   FileSizes: []
   Exists: 1
 --- !u!114 &11400000
@@ -436,7 +462,7 @@ MonoBehaviour:
   - {fileID: -2002388166983340450}
   StringsBanks:
   - {fileID: -6222608089242677881}
-  cacheTime: 639110725967439962
+  cacheTime: 639111533734399626
   cacheVersion: 131635
 --- !u!114 &1021075846966187511
 MonoBehaviour:
@@ -453,7 +479,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 639110725967339970
+  lastModified: 639111533734074174
   FileSizes: []
   Exists: 1
 --- !u!114 &1458336319262921463
@@ -750,7 +776,7 @@ MonoBehaviour:
   Parameters:
   - {fileID: 3281415959014277708}
   MinDistance: 1
-  MaxDistance: 20
+  MaxDistance: 30
   Length: 0
 --- !u!114 &6036602874811187708
 MonoBehaviour:
@@ -767,7 +793,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/Interactions.bank
   Name: Interactions
   StudioPath: bank:/Interactions
-  lastModified: 639106643513107155
+  lastModified: 639111533730588204
   FileSizes: []
   Exists: 1
 --- !u!114 &6267172118088883810
@@ -876,10 +902,11 @@ MonoBehaviour:
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
-  Parameters: []
+  Parameters:
+  - {fileID: -6595885757678924360}
   MinDistance: 1
   MaxDistance: 20
-  Length: 682
+  Length: 0
 --- !u!114 &8166178452067298847
 MonoBehaviour:
   m_ObjectHideFlags: 0
