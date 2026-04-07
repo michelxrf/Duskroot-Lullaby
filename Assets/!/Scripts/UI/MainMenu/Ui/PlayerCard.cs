@@ -23,9 +23,6 @@ public class PlayerCard : MonoBehaviour
     string characterId;
     Health health;
 
-    int maxHealth;
-    int maxExp;
-
     /// <summary>
     /// Initializes the player card with character data and health component.
     /// Sets up event listeners for health and experience changes.
@@ -46,7 +43,7 @@ public class PlayerCard : MonoBehaviour
         healthComp.OnHealthChanged += (int value) => UpdateHealth(value);
         CharacterDataManager.Instance.OnExpChanged += UpdateExperience;
         CharacterDataManager.Instance.OnLevelUp += () => UpdateHealth(health.CurrentHealth);
-        CharacterDataManager.Instance.OnLevelUp += () => UpdateLevel(character.level);
+        CharacterDataManager.Instance.OnLevelUp += () => UpdateLevel(CharacterDataManager.Instance.GetCharacter(characterId).level);
 
         characterName.text = character.characterId;
         UpdateLevel(character.level);
