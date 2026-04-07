@@ -14,13 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CharacterTemplate
   CharacterId: Mage
   Level: 1
-  Experience: 0
-  ExperienceToNextLevel: 250
   health: 20
-  armor: 0.1
+  armor: 0
   damage: 10
   speed: 10
   attackSpeed: 6
   cure: 3
   weapon: {fileID: 11400000, guid: 2faf737cde59b99419b72bb0dda834f2, type: 2}
+  healthUpgradePerLevel: 2
+  armorUpgradePerLevel: 2
+  damageUpgradePerLevel: 1
+  speedUpgradePerLevel: 1
+  attackSpeedUpgradePerLevel: 0
+  cureUpgradePerLevel: 0
+  Experience: 0
   characterPortrait: {fileID: 21300000, guid: 25eb9d13a7015374ead62776505fa31f, type: 3}

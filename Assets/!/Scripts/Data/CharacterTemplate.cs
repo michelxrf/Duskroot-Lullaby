@@ -9,7 +9,5 @@ using UnityEngine;
 public class CharacterTemplate : EntityTemplate
 {
     public int Experience;
-    public int ExperienceToNextLevel;
-    public float experienceRequirementMultiplier;
     public Sprite characterPortrait;
 }

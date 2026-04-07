@@ -21,7 +21,6 @@ public class PlayerCard : MonoBehaviour
     [SerializeField] TMP_Text level;
 
     string characterId;
-    CharacterData characterData;
     Health health;
 
     int maxHealth;
@@ -39,18 +38,18 @@ public class PlayerCard : MonoBehaviour
         characterPortrait.sprite = CharacterDataManager.Instance.GetCharacterPortrait(character.characterId);
         health = healthComp;
 
-        characterData = character;
+        characterId = character.characterId;
         maxExp = character.experienceToNextLevel;
 
-        highlight.gameObject.SetActive(characterData.characterId == CharacterDataManager.Instance.localPlayerCharacterId);
+        highlight.gameObject.SetActive(character.characterId == CharacterDataManager.Instance.localPlayerCharacterId);
 
         healthComp.OnHealthChanged += (int value) => UpdateHealth(value);
         CharacterDataManager.Instance.OnExpChanged += UpdateExperience;
         CharacterDataManager.Instance.OnLevelUp += () => UpdateHealth(health.CurrentHealth);
-        CharacterDataManager.Instance.OnLevelUp += () => UpdateLevel(characterData.level);
+        CharacterDataManager.Instance.OnLevelUp += () => UpdateLevel(character.level);
 
-        characterName.text = characterData.characterId;
-        UpdateLevel(characterData.level);
+        characterName.text = character.characterId;
+        UpdateLevel(character.level);
         UpdateHealth(healthComp.CurrentHealth);
         UpdateExperience(character.experience);
     }
@@ -61,6 +60,8 @@ public class PlayerCard : MonoBehaviour
     /// <param name="currentHealth">The current health value</param>
     public void UpdateHealth(int currentHealth)
     {
+        CharacterData characterData = CharacterDataManager.Instance.GetCharacter(characterId);
+
         healthBarFill.fillAmount = (float)currentHealth / characterData.health;
         healthBarLabel.text = $"{currentHealth}/{characterData.health}";
     }
@@ -71,6 +72,8 @@ public class PlayerCard : MonoBehaviour
     /// <param name="currentExp">The current experience value</param>
     public void UpdateExperience(int currentExp)
     {
+        CharacterData characterData = CharacterDataManager.Instance.GetCharacter(characterId);
+
         expBarFill.fillAmount = (float)currentExp / characterData.experienceToNextLevel;
         expBarLabel.text = $"{currentExp}/{characterData.experienceToNextLevel}";
     }

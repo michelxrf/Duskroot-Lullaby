@@ -603,14 +603,17 @@ MonoBehaviour:
   interactionTooltip: {fileID: 832636079171086515}
   BarkBalloon: {fileID: 6759340973608045612}
   barkTextField: {fileID: 3004534396181314529}
-  barks: []
+  barks:
+  - {fileID: 11400000, guid: 087f6b1cf65c691419ea593e4a597ae8, type: 2}
+  - {fileID: 11400000, guid: 740a81dc727c3d049a6e834e5f20537a, type: 2}
+  - {fileID: 11400000, guid: 351282a70a56fe2419cef0fc7210d9d4, type: 2}
   barkEvent:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: 1767800009
+      Data2: 1313403610
+      Data3: -164397160
+      Data4: 1942560842
+    Path: event:/Interactions/NPC_1_Barks
   interactionRange: 3
   singleActivation: 0
   changeToAfterInteraction: {fileID: 0}

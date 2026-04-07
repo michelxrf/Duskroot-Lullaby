@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 
 namespace ProgressionSystem
 {
@@ -7,7 +8,7 @@ namespace ProgressionSystem
     /// </summary>
     public static class ExperienceCalculator
     {
-        const string pathToEntityTemplates = "Data/";
+        const string pathToEntityTemplates = "Data";
 
         /// <summary>
         /// Returns the adjusted CharacterData for a character based on their current level
@@ -29,17 +30,18 @@ namespace ProgressionSystem
             CharacterData upgradedCharacterData = new CharacterData
             {
                 characterId = characterData.characterId,
-                level = newLevel,
-                experience = characterData.experience,
+                experience = 0,
                 weapon = characterData.weapon,
 
-                experienceToNextLevel = Mathf.FloorToInt(characterTemplate.ExperienceToNextLevel + characterTemplate.experienceRequirementMultiplier * (characterData.level - 1)),
-                health = characterTemplate.health + (characterTemplate.healthUpgradePerLevel * (characterData.level - 1)),
-                armor = characterTemplate.armor + (characterTemplate.armorUpgradePerLevel * (characterData.level - 1)),
-                damage = characterTemplate.damage + (characterTemplate.damageUpgradePerLevel * (characterData.level - 1)),
-                speed = characterTemplate.speed + (characterTemplate.speedUpgradePerLevel * (characterData.level - 1)),
-                attackSpeed = characterTemplate.attackSpeed + (characterTemplate.attackSpeedUpgradePerLevel * (characterData.level - 1)),
-                cure = characterTemplate.cure + (characterTemplate.cureUpgradePerLevel * (characterData.level - 1))
+                experienceToNextLevel = Mathf.FloorToInt(100 * Mathf.Pow(2, (characterData.level))),
+                health = characterTemplate.health + (characterTemplate.healthUpgradePerLevel * (characterData.level)),
+                armor = characterTemplate.armor + (characterTemplate.armorUpgradePerLevel * (characterData.level)),
+                damage = characterTemplate.damage + (characterTemplate.damageUpgradePerLevel * (characterData.level)),
+                speed = characterTemplate.speed + (characterTemplate.speedUpgradePerLevel * (characterData.level)),
+                attackSpeed = characterTemplate.attackSpeed + (characterTemplate.attackSpeedUpgradePerLevel * (characterData.level)),
+                cure = characterTemplate.cure + (characterTemplate.cureUpgradePerLevel * (characterData.level)),
+                
+                level = newLevel
             };
 
             return upgradedCharacterData;

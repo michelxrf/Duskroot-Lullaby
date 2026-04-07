@@ -102,7 +102,7 @@ public class PlayerCharactersData
                 attackSpeed = defaultCharacterTemplates[i].attackSpeed,
                 cure = defaultCharacterTemplates[i].cure,
                 weapon = defaultCharacterTemplates[i].weapon,
-                experienceToNextLevel = defaultCharacterTemplates[i].ExperienceToNextLevel
+                experienceToNextLevel = 100
                 // TODO: initialize startingItens based from the defaultCharacterTemplates
             };
         }
