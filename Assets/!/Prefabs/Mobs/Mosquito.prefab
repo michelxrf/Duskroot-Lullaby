@@ -1,88 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1172987504926809790
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4717280509761505799}
-  - component: {fileID: 3293793675481792891}
-  - component: {fileID: 1886234565243553402}
-  m_Layer: 0
-  m_Name: Audio
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4717280509761505799
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1172987504926809790}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.189, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 5579394250124113433}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3293793675481792891
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1172987504926809790}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioEventEmitter
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: -1224199066
-      Data2: 1108809810
-      Data3: -980918390
-      Data4: 1014191095
-    Path: event:/SFX/Fly/Fly_idle
-  Event: 
-  EventPlayTrigger: 1
-  EventStopTrigger: 2
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  NonRigidbodyVelocity: 0
-  Params: []
-  OverrideAttenuation: 1
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 15
---- !u!114 &1886234565243553402
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1172987504926809790}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88690717ab5e3cd49b06624ffd40d27c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AudioDeathFly
-  deathFlyEvent:
-    Guid:
-      Data1: 1825697297
-      Data2: 1335140311
-      Data3: 1341998983
-      Data4: -1030170687
-    Path: event:/SFX/Fly/Fly_Death
 --- !u!1 &3635576507670607524
 GameObject:
   m_ObjectHideFlags: 0
@@ -127,7 +44,6 @@ Transform:
   - {fileID: 1448079764171973436}
   - {fileID: 8495179281752908961}
   - {fileID: 4327498707814086362}
-  - {fileID: 4717280509761505799}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7469987039590310117
@@ -498,6 +414,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 61258325561811606, guid: dadecae318be19749ac4fbd62bd9a632, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7420156324355047243}
+    - targetCorrespondingSourceObject: {fileID: 61258325561811606, guid: dadecae318be19749ac4fbd62bd9a632, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3724838412073258501}
   m_SourcePrefab: {fileID: 100100000, guid: dadecae318be19749ac4fbd62bd9a632, type: 3}
 --- !u!4 &1448079764171973436 stripped
 Transform:
@@ -521,3 +440,43 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61c5cfc5abc92ab4c9a6af9073aa9dcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AnimationEventBridge
+--- !u!114 &3724838412073258501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2257231895439260038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38390d10ead9e20419b989330b30484a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AudioFlyManager
+  idleFlyEvent:
+    Guid:
+      Data1: -1224199066
+      Data2: 1108809810
+      Data3: -980918390
+      Data4: 1014191095
+    Path: event:/SFX/Fly/Fly_idle
+  damageFlyEvent:
+    Guid:
+      Data1: 845256744
+      Data2: 1118025065
+      Data3: -341207144
+      Data4: -1855019747
+    Path: event:/SFX/Fly/Fly_impact
+  fallFlyEvent:
+    Guid:
+      Data1: 1580154638
+      Data2: 1244016715
+      Data3: -1549876608
+      Data4: 1066902834
+    Path: event:/SFX/Fly/Fly_Body_Fall
+  dieFlyEvent:
+    Guid:
+      Data1: 1825697297
+      Data2: 1335140311
+      Data3: 1341998983
+      Data4: -1030170687
+    Path: event:/SFX/Fly/Fly_Death
