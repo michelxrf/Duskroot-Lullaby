@@ -8,7 +8,7 @@ using UnityEngine.AI;
 /// </summary>
 public class FSM_Mosquito_Patrol : State
 {
-    [SerializeField] Vector3 patrolCenter;
+    [SerializeField] Transform patrolAnchor;
     [SerializeField] float patrolRange = 5f;
     [SerializeField] float stoppingDistance = .1f;
     [SerializeField] State stateOnPlayerFound;
@@ -20,6 +20,7 @@ public class FSM_Mosquito_Patrol : State
     EnemySetup enemySetup;
     EnemyData enemyData;
 
+    Vector3 patrolCenter;
     Vector3 patrolDestination;
     float distanceToDestination;
 
@@ -37,6 +38,10 @@ public class FSM_Mosquito_Patrol : State
         {
             patrolCenter = transform.position;
             Debug.LogWarning("Patrol center not set for " + gameObject.name + ". Defaulting to current position.");
+        }
+        else
+        {
+            patrolCenter = patrolAnchor.position;
         }
     }
 

@@ -17,7 +17,7 @@ MonoBehaviour:
   health: 50
   armor: 0
   damage: 10
-  speed: 5
+  speed: 10
   attackSpeed: 1
   cure: 1
   weapon: {fileID: 11400000, guid: 035ceef6726b9334a80ecbf2c5a863a8, type: 2}
@@ -27,5 +27,5 @@ MonoBehaviour:
   speedUpgradePerLevel: 1
   attackSpeedUpgradePerLevel: 1
   cureUpgradePerLevel: 1
-  experienceReward: 10
+  experienceReward: 40
   experienceRewardUpgradePerLevel: 2

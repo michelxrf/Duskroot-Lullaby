@@ -319,7 +319,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FSM_Mosquito_Patrol
   patrolCenter: {x: 0, y: 0, z: 0}
-  patrolRange: 7
+  patrolRange: 15
   stoppingDistance: 0.1
   stateOnPlayerFound: {fileID: 4026518505526609455}
   rotationSpeed: 30
@@ -390,7 +390,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 5
+  m_Radius: 9
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &5089315297502495701
 MonoBehaviour:
