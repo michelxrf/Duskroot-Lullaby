@@ -56,6 +56,17 @@ public class LobbyManager : NetworkBehaviour
             if (!seat.IsEmpty && !seat.IsReady)
                 return false;
         }
+
+        int countReadyPlayers = 0;
+        foreach (var seat in lobbySeats)
+        {
+            if (seat.IsReady)
+                countReadyPlayers++;
+        }
+
+        if (Runner.SessionInfo.PlayerCount != countReadyPlayers)
+            return false;
+
         return true;
     }
 
@@ -74,8 +85,6 @@ public class LobbyManager : NetworkBehaviour
     /// </summary>
     public void AllowGameStart()
     {
-        if(!Runner.IsSharedModeMasterClient) return;
-
         if(AreAllPlayersReady())
         {
             StartCoroutine(StartGameCountdown(countdownSeconds));
@@ -100,6 +109,12 @@ public class LobbyManager : NetworkBehaviour
             CurrentCountdown = Mathf.CeilToInt(seconds - elapsedTime);
         }
 
+        StartGame();
+    }
+
+    private void StartGame()
+    {
+        if (!Runner.IsSharedModeMasterClient) return;
         // Prevent player from joining after game has started
         Runner.SessionInfo.IsVisible = false;
         Runner.SessionInfo.IsOpen = false;

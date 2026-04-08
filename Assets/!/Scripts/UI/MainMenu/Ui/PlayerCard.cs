@@ -36,7 +36,6 @@ public class PlayerCard : MonoBehaviour
         health = healthComp;
 
         characterId = character.characterId;
-        maxExp = character.experienceToNextLevel;
 
         highlight.gameObject.SetActive(character.characterId == CharacterDataManager.Instance.localPlayerCharacterId);
 

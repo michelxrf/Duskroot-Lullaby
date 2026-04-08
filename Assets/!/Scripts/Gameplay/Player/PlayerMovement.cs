@@ -23,20 +23,22 @@ public class PlayerMovement : NetworkBehaviour
     Vector3 velocity;
 
     [Networked] Vector3 NetworkVelocity { get; set; }
-    [Networked] bool NetworkIsWalking { get; set; }
 
     bool isWalking = false;
 
     // -- Initialization --
 
-    public override void Spawned()
+    private void Start()
     {
-        UpdateSpeed();
-        CharacterDataManager.Instance.OnLevelUp += UpdateSpeed;
-
         characterController = GetComponent<SimpleKCC>();
         animator = GetComponentInChildren<Animator>();
         rotateCharacter = GetComponent<CharacterLook>();
+    }
+
+    public override void Spawned()
+    {
+        CharacterDataManager.Instance.OnLevelUp += UpdateSpeed;
+        UpdateSpeed();
     }
 
     // -- Simulation --
@@ -45,6 +47,10 @@ public class PlayerMovement : NetworkBehaviour
     {
         // Only the State Authority (owner) should handle movement
         if (!HasStateAuthority)
+            return;
+
+        // Ensure components are initialized
+        if (characterController == null || animator == null || rotateCharacter == null)
             return;
 
         // Get input data from the network
@@ -69,7 +75,7 @@ public class PlayerMovement : NetworkBehaviour
 
         // Update networked properties
         NetworkVelocity = velocity;
-        NetworkIsWalking = isWalking;
+
 
         // Update animator parameters based on networked velocity
         animator.SetFloat("Speed", NetworkVelocity.magnitude / maxSpeed);

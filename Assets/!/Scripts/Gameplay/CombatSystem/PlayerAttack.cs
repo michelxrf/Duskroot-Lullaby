@@ -127,7 +127,7 @@ namespace CombatSystem
         /// <summary>
         /// RPC to execute the current weapon's attack across all network clients.
         /// </summary>
-        [Rpc(RpcSources.InputAuthority, RpcTargets.All)]
+        [Rpc(RpcSources.InputAuthority, RpcTargets.StateAuthority)]
         void RPC_ExecuteAttack()
         {
             weaponBehavior.Execute();

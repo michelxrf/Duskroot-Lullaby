@@ -140,7 +140,7 @@ public class LobbySeat : NetworkBehaviour
 
     private void AssignPlayer(PlayerRef player, int userCharacterLevel, string userName)
     {
-        CharacterDataManager.Instance.SetLocalCharacterId(characterTemplate.CharacterId);
+        Debug.Log($"Player assigned {characterTemplate.CharacterId}");
         IsEmpty = false;
         OccupyingPlayer = player;
         PlayerName = userName;
@@ -159,7 +159,6 @@ public class LobbySeat : NetworkBehaviour
     {
         IsReady = !IsReady;
         OnReadyStateChanged?.Invoke();
-        Debug.Log($"Player {PlayerName} is now {(IsReady ? "Ready" : "Not Ready")}");
     }
 
     public void OnLeaveSeatClicked()
@@ -189,6 +188,7 @@ public class LobbySeat : NetworkBehaviour
         int localCharacterLevel = localCharacterData != null ? localCharacterData.level : 1;
 
         RPC_OnSelectClicked(localPlayerName, localCharacterLevel);
+        CharacterDataManager.Instance.SetLocalCharacterId(characterTemplate.CharacterId);
     }
 
     [Rpc(RpcSources.All, RpcTargets.StateAuthority)]
@@ -198,13 +198,12 @@ public class LobbySeat : NetworkBehaviour
 
         PlayerRef player = info.Source;
 
-        // Check if player already has a seat
-        if (HasPlayerAlreadySelectedSeat(player)) return;
+        Debug.Log(HasPlayerAlreadySelectedSeat(player));
 
-        if (HasStateAuthority)
-        {
-            AssignPlayer(player, characterLevel, userName);
-        }
+        // Check if player already has a seat (redundant check, preventing networked issues)
+        if (HasPlayerAlreadySelectedSeat(player)) return;
+        
+        AssignPlayer(player, characterLevel, userName);
     }
 
     private bool HasPlayerAlreadySelectedSeat(PlayerRef player)

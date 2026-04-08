@@ -14,7 +14,8 @@ public class HudInitializer : NetworkBehaviour
     /// </summary>
     public override void Spawned()
     {
-        base.Spawned();
+        if(!HasStateAuthority)
+            return;
 
         PlayersBar playerBar = FindFirstObjectByType<PlayersBar>();
         
