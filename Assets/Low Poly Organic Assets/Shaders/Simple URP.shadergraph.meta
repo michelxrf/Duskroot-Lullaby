@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 10571af191c7d43e7b668cbc10cf18fa
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 625f186215c104763be7675aa2d941aa, type: 3}
+AssetOrigin:
+  serializedVersion: 1
+  productId: 217438
+  packageName: Low Poly Organic Assets
+  packageVersion: 1.0
+  assetPath: Assets/Low Poly Organic Assets/Shaders/Simple URP.shadergraph
+  uploadId: 491407
