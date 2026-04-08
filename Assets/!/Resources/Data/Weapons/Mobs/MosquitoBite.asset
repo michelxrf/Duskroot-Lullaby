@@ -19,4 +19,4 @@ MonoBehaviour:
   vfxPrefab: {fileID: 0}
   rigthHanded: 1
   behavior: 
-  weaponAudioType: unarmed
+  weaponAudioType: Fly
