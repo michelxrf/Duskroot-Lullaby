@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: cc37da5f31b834fa68a28aaa160d7488
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures: []
+  nonModifiableTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 217438
+  packageName: Low Poly Organic Assets
+  packageVersion: 1.0
+  assetPath: Assets/Low Poly Organic Assets/Shaders/Simple.shader
+  uploadId: 491407
