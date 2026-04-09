@@ -42,6 +42,8 @@ namespace CombatSystem
                 {
                     maxHealth = CharacterDataManager.Instance.GetCurrentPlayerCharacter().health;
                     characterType = CharacterDataManager.Instance.GetCurrentPlayerCharacter().characterId;
+
+                    CharacterDataManager.Instance.OnLevelUp += () => {maxHealth = CharacterDataManager.Instance.GetCurrentPlayerCharacter().health;};
                 }
 
                 // enemy Init
@@ -129,6 +131,25 @@ namespace CombatSystem
 
             if(HasStateAuthority)
                 StartCoroutine(DestroyAfterDeathAnimation());
+        }
+
+
+        /// <summary>
+        /// Used to heal character
+        /// </summary>
+        /// <param name="amount"></param>
+        public void Heal(int amount)
+        {
+            if (IsDead())
+                return;
+
+            animator.SetTrigger("Heal");
+            // TODO: add audio
+            // TODO: play VFX
+
+            maxHealth = CharacterDataManager.Instance.GetCurrentPlayerCharacter().health;
+            CurrentHealth = Mathf.Clamp(CurrentHealth + amount, 0, maxHealth);
+            OnHealthChanged?.Invoke(CurrentHealth);
         }
 
 
