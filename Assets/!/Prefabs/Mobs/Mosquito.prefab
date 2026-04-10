@@ -252,8 +252,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2923576468b730940965cbea29560f5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Knockback
-  KNOCKBACK_DURATION: 0.3
-  KNOCKBACK_FORCE_MULTIPLIER: 30
+  knockbackDuration: 0.25
 --- !u!54 &-5734590776713396921
 Rigidbody:
   m_ObjectHideFlags: 0

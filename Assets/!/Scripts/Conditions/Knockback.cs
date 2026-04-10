@@ -11,8 +11,8 @@ using Fusion.Addons.SimpleKCC;
 /// </summary>
 public class Knockback : NetworkBehaviour
 {
-    [SerializeField] float KNOCKBACK_DURATION = .25f;
-    [SerializeField] float KNOCKBACK_FORCE_MULTIPLIER = 10f; // adjust damage multiplier to balance knockback strength
+    [SerializeField] float knockbackDuration = .25f;
+    [SerializeField] static float forceMultiplier = .2f; // static: will adjust for everyone
 
     float knockbackTimer = 0f;
     Vector3 direction;
@@ -40,17 +40,18 @@ public class Knockback : NetworkBehaviour
         }
     }
 
-    public void RPC_ApplyKnockback(Vector3 p_direction, int damage)
+    [Rpc(RpcSources.All, RpcTargets.StateAuthority)]
+    public void RPC_ApplyKnockback(Vector3 p_direction, int knockbackForce)
     {
-        force = damage * (KNOCKBACK_FORCE_MULTIPLIER / KNOCKBACK_DURATION);
+        force = knockbackForce * forceMultiplier;
         direction = p_direction;
-        knockbackTimer = KNOCKBACK_DURATION;
+        knockbackTimer = knockbackDuration;
         EnableMovement(false);
     }
 
     public override void FixedUpdateNetwork()
     {
-        if(!HasInputAuthority) return;
+        if (!HasStateAuthority) return;
 
         if (knockbackTimer <= 0f)
         {
@@ -58,8 +59,8 @@ public class Knockback : NetworkBehaviour
         }
         else
         {
-            knockbackTimer -= Runner.DeltaTime;
-            GetComponent<SimpleKCC>()?.Move(direction * force * Runner.DeltaTime);
+            knockbackTimer -= Time.deltaTime;
+            transform.position += direction * force * Runner.DeltaTime;
         }
     }
 
@@ -73,6 +74,7 @@ public class Knockback : NetworkBehaviour
         }
         else if (entityType == EntityType.Enemy)
         {
+            //GetComponent<SimpleKCC>().enabled = !newState;
             GetComponent<NavMeshAgent>().enabled = newState;
             GetComponent<StateMachine>().enabled = newState;
         }
