@@ -28,6 +28,7 @@ public class FSM_Mosquito_Attack : State
     public override void Enter()
     {
         navAgent.isStopped = true;
+        GetComponent<Health>().OnHit += AttackInterrupted;
 
         target = visionCollider.GetClosestPlayer();
 
@@ -40,7 +41,7 @@ public class FSM_Mosquito_Attack : State
 
     public override void Exit()
     {
-        
+        GetComponent<Health>().OnHit -= AttackInterrupted;
     }
 
     public override void Process()
@@ -51,6 +52,11 @@ public class FSM_Mosquito_Attack : State
     void ImpactFrame()
     {
         CombatFuncs.CastHitBox(hitboxCenter, gameObject, weaponData);
+        stateMachine.ChangeState(stateAfterAttack);
+    }
+
+    void AttackInterrupted()
+    {
         stateMachine.ChangeState(stateAfterAttack);
     }
 }

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyTemplate
   CharacterId: Mosquito
   Level: 1
-  health: 50
+  health: 500
   armor: 0
   damage: 10
   speed: 10

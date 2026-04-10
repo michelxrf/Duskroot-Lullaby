@@ -25,8 +25,12 @@ public class VisionCollider : NetworkBehaviour
         if (!HasStateAuthority) return;
 
         // ignore dead players
-        if (other.transform.GetComponent<Health>().IsDead())
+        Health health = other.transform.GetComponent<Health>();
+        if (health == null) return;
+        if (health.IsDead())
             return;
+
+        health.OnDied += TargetDied;
 
         playersInRange.Add(other.transform);
         OnPlayerEntered?.Invoke(other.transform);
@@ -36,6 +40,7 @@ public class VisionCollider : NetworkBehaviour
     {
         if (!HasStateAuthority) return;
 
+        other.GetComponent<Health>().OnDied -= TargetDied;
         playersInRange.Remove(other.transform);
         OnPlayerLeft?.Invoke();
     }
@@ -59,5 +64,19 @@ public class VisionCollider : NetworkBehaviour
             }
         }
         return closestPlayer;
+    }
+
+    void TargetDied()
+    {
+        foreach (var player in playersInRange)
+        {
+            if (player.GetComponent<Health>().IsDead())
+            {
+                playersInRange.Remove(player);
+                break;
+            }
+        }
+
+        OnPlayerLeft?.Invoke();
     }
 }

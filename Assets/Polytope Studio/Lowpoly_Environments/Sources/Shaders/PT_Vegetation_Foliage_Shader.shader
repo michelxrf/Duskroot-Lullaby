@@ -1078,7 +1078,7 @@ Shader "Polytope Studio/PT_Vegetation_Foliage_Shader"
 				g.yz = a0.yz * x12.xz + h.yz * x12.yw;
 				return 130.0 * dot( m, g );
 			}
-			
+
 
 			float3 _LightDirection;
 			float3 _LightPosition;

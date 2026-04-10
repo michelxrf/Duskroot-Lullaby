@@ -29,6 +29,8 @@ namespace CombatSystem
         [SerializeField] string characterType;
 
         public Action<int> OnHealthChanged;
+        public Action OnHit;
+        public Action OnDied;
 
         Animator animator;
 
@@ -42,6 +44,8 @@ namespace CombatSystem
                 {
                     maxHealth = CharacterDataManager.Instance.GetCurrentPlayerCharacter().health;
                     characterType = CharacterDataManager.Instance.GetCurrentPlayerCharacter().characterId;
+
+                    CharacterDataManager.Instance.OnLevelUp += () => {maxHealth = CharacterDataManager.Instance.GetCurrentPlayerCharacter().health;};
                 }
 
                 // enemy Init
@@ -58,6 +62,8 @@ namespace CombatSystem
                         {
                             maxHealth = GetComponent<EnemySetup>().GetEnemyData().health;
                             characterType = GetComponent<EnemySetup>().GetEnemyData().CharacterId;
+                            oldHealth = maxHealth;
+                            CurrentHealth = maxHealth;
                         };
                     }
                 }
@@ -81,6 +87,7 @@ namespace CombatSystem
         {
             CurrentHealth = Mathf.Clamp(CurrentHealth - (damage * (100 - armor)/100), 0, maxHealth);
             audioHit.NotifyHit(weaponType);
+            OnHit?.Invoke();
             OnHealthChanged?.Invoke(CurrentHealth);
         }
 
@@ -108,27 +115,51 @@ namespace CombatSystem
         /// </summary>
         void Die()
         {
-            // disable character     
-            gameObject.DisableAllComponents<Collider>();
-            gameObject.DisableComponent<SimpleKCC>();
-
             // Disbable player controls
-            gameObject.DisableComponent<PlayerAttack>();
-            gameObject.DisableComponent<PlayerMovement>();
-            gameObject.DisableAllComponents<CharacterLook>();
+            if(GetComponent<PlayerSetup>() != null)
+            {
+                GetComponent<PlayerAttack>().enabled = false;
+                GetComponent<PlayerMovement>().enabled = false;
+                GetComponent<CharacterLook>().enabled = false;
+                RPC_AddExperience();
+            }
 
             // Disable AI controls
-            gameObject.DisableAllComponents<StateMachine>();
+            if (GetComponent<EnemySetup>() != null)
+            {
+                gameObject.DisableAllComponents<StateMachine>();
+                NavMeshAgent agent = GetComponent<NavMeshAgent>();
 
-            NavMeshAgent agent = GetComponent<NavMeshAgent>();
-            if(agent != null)
-                agent.isStopped = true;            
+                if (agent != null)
+                    agent.isStopped = true;
+            }
 
-            RPC_AddExperience();
             animator.SetTrigger("Die");
+            GetComponent<Knockback>().enabled = false;
 
-            if(HasStateAuthority)
+            if (HasStateAuthority)
                 StartCoroutine(DestroyAfterDeathAnimation());
+
+            OnDied?.Invoke();
+        }
+
+
+        /// <summary>
+        /// Used to heal character
+        /// </summary>
+        /// <param name="amount"></param>
+        public void Heal(int amount)
+        {
+            if (IsDead())
+                return;
+
+            animator.SetTrigger("Heal");
+            // TODO: add audio
+            // TODO: play VFX
+
+            maxHealth = CharacterDataManager.Instance.GetCurrentPlayerCharacter().health;
+            CurrentHealth = Mathf.Clamp(CurrentHealth + amount, 0, maxHealth);
+            OnHealthChanged?.Invoke(CurrentHealth);
         }
 
 
