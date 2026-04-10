@@ -20,7 +20,6 @@ public class FSM_Mosquito_Patrol : State
     EnemySetup enemySetup;
     EnemyData enemyData;
 
-    Vector3 patrolCenter;
     Vector3 patrolDestination;
     float distanceToDestination;
 
@@ -34,14 +33,10 @@ public class FSM_Mosquito_Patrol : State
 
         navAgent.updateRotation = false;
 
-        if (patrolCenter == null)
+        if (patrolAnchor == null)
         {
-            patrolCenter = transform.position;
-            Debug.LogWarning("Patrol center not set for " + gameObject.name + ". Defaulting to current position.");
-        }
-        else
-        {
-            patrolCenter = patrolAnchor.position;
+            patrolAnchor = transform;
+            Debug.LogWarning("Patrol anchor not set for " + gameObject.name + ". Defaulting to current position.");
         }
     }
 
@@ -93,13 +88,13 @@ public class FSM_Mosquito_Patrol : State
     Vector3 GetNewPatrolDestination()
     {
         Vector2 randomPoint = Random.insideUnitCircle * patrolRange;
-        Vector3 destination = patrolCenter + new Vector3(randomPoint.x, 0, randomPoint.y);
+        Vector3 destination = patrolAnchor.position + new Vector3(randomPoint.x, 0, randomPoint.y);
         NavMeshHit hit;
         if (NavMesh.SamplePosition(destination, out hit, patrolRange, NavMesh.AllAreas))
         {
             return hit.position;
         }
-        return patrolCenter; // Fallback to center if no valid point found
+        return patrolAnchor.position; // Fallback to center if no valid point found
     }
 
     bool IsDestinationReached()

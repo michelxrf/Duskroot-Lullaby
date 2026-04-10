@@ -25,7 +25,9 @@ public class VisionCollider : NetworkBehaviour
         if (!HasStateAuthority) return;
 
         // ignore dead players
-        if (other.transform.GetComponent<Health>().IsDead())
+        Health health = other.transform.GetComponent<Health>();
+        if (health == null) return;
+        if (health.IsDead())
             return;
 
         playersInRange.Add(other.transform);

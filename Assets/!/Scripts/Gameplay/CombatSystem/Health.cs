@@ -29,6 +29,7 @@ namespace CombatSystem
         [SerializeField] string characterType;
 
         public Action<int> OnHealthChanged;
+        public Action OnDied;
 
         Animator animator;
 
@@ -110,27 +111,32 @@ namespace CombatSystem
         /// </summary>
         void Die()
         {
-            // disable character     
-            gameObject.DisableAllComponents<Collider>();
-            gameObject.DisableComponent<SimpleKCC>();
-
             // Disbable player controls
-            gameObject.DisableComponent<PlayerAttack>();
-            gameObject.DisableComponent<PlayerMovement>();
-            gameObject.DisableAllComponents<CharacterLook>();
+            if(GetComponent<PlayerSetup>() != null)
+            {
+                GetComponent<PlayerAttack>().enabled = false;
+                GetComponent<PlayerMovement>().enabled = false;
+                GetComponent<CharacterLook>().enabled = false;
+                RPC_AddExperience();
+            }
 
             // Disable AI controls
-            gameObject.DisableAllComponents<StateMachine>();
+            if (GetComponent<EnemySetup>() != null)
+            {
+                gameObject.DisableAllComponents<StateMachine>();
+                NavMeshAgent agent = GetComponent<NavMeshAgent>();
 
-            NavMeshAgent agent = GetComponent<NavMeshAgent>();
-            if(agent != null)
-                agent.isStopped = true;            
+                if (agent != null)
+                    agent.isStopped = true;
+            }
 
-            RPC_AddExperience();
             animator.SetTrigger("Die");
+            GetComponent<Knockback>().enabled = false;
 
-            if(HasStateAuthority)
+            if (HasStateAuthority)
                 StartCoroutine(DestroyAfterDeathAnimation());
+
+            OnDied?.Invoke();
         }
 
 

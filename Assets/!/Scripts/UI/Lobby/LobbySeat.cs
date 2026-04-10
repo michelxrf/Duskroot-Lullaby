@@ -140,7 +140,6 @@ public class LobbySeat : NetworkBehaviour
 
     private void AssignPlayer(PlayerRef player, int userCharacterLevel, string userName)
     {
-        Debug.Log($"Player assigned {characterTemplate.CharacterId}");
         IsEmpty = false;
         OccupyingPlayer = player;
         PlayerName = userName;
@@ -197,8 +196,6 @@ public class LobbySeat : NetworkBehaviour
         if (!IsEmpty) return; // redundant check, preventing networked issues
 
         PlayerRef player = info.Source;
-
-        Debug.Log(HasPlayerAlreadySelectedSeat(player));
 
         // Check if player already has a seat (redundant check, preventing networked issues)
         if (HasPlayerAlreadySelectedSeat(player)) return;
