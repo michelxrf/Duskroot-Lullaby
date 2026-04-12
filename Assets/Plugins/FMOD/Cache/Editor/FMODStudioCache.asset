@@ -42,7 +42,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/UI.bank
   Name: UI
   StudioPath: bank:/UI
-  lastModified: 639111533734399626
+  lastModified: 639115382551084626
   FileSizes: []
   Exists: 1
 --- !u!114 &-8367727226860854883
@@ -195,7 +195,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639111533730839804
+  lastModified: 639115382548008216
   FileSizes:
   - Name: 
     Value: 2326
@@ -348,7 +348,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639111533730829726
+  lastModified: 639115382547983189
   FileSizes: []
   Exists: 1
 --- !u!114 &-1951550172158635668
@@ -393,7 +393,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/Ambiences.bank
   Name: Ambiences
   StudioPath: bank:/Ambiences
-  lastModified: 639111533730297906
+  lastModified: 639115382547479867
   FileSizes: []
   Exists: 1
 --- !u!114 &-889159557125566879
@@ -438,7 +438,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/MUS.bank
   Name: MUS
   StudioPath: bank:/MUS
-  lastModified: 639111533731604104
+  lastModified: 639115382548540668
   FileSizes: []
   Exists: 1
 --- !u!114 &11400000
@@ -488,7 +488,7 @@ MonoBehaviour:
   - {fileID: -2002388166983340450}
   StringsBanks:
   - {fileID: -6222608089242677881}
-  cacheTime: 639111533734399626
+  cacheTime: 639115382551084626
   cacheVersion: 131635
 --- !u!114 &1021075846966187511
 MonoBehaviour:
@@ -505,7 +505,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 639111533734074174
+  lastModified: 639115382550784327
   FileSizes: []
   Exists: 1
 --- !u!114 &1458336319262921463
@@ -551,8 +551,8 @@ MonoBehaviour:
   Name: Surface
   StudioPath: 
   Min: 0
-  Max: 3
-  Default: 1
+  Max: 4
+  Default: 0
   ID:
     data1: 2784901605
     data2: 876879491
@@ -563,6 +563,7 @@ MonoBehaviour:
   - Grama
   - Agua
   - Madeira
+  - Carpet
   Exists: 1
 --- !u!114 &1819522834677911229
 MonoBehaviour:
@@ -819,7 +820,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/Interactions.bank
   Name: Interactions
   StudioPath: bank:/Interactions
-  lastModified: 639111533730588204
+  lastModified: 639115382547737853
   FileSizes: []
   Exists: 1
 --- !u!114 &6267172118088883810
