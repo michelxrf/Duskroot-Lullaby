@@ -29,6 +29,7 @@ namespace CombatSystem
         [SerializeField] string characterType;
 
         public Action<int> OnHealthChanged;
+        public Action OnHit;
         public Action OnDied;
 
         Animator animator;
@@ -61,6 +62,8 @@ namespace CombatSystem
                         {
                             maxHealth = GetComponent<EnemySetup>().GetEnemyData().health;
                             characterType = GetComponent<EnemySetup>().GetEnemyData().CharacterId;
+                            oldHealth = maxHealth;
+                            CurrentHealth = maxHealth;
                         };
                     }
                 }
@@ -84,6 +87,7 @@ namespace CombatSystem
         {
             CurrentHealth = Mathf.Clamp(CurrentHealth - (damage * (100 - armor)/100), 0, maxHealth);
             audioHit.NotifyHit(weaponType);
+            OnHit?.Invoke();
             OnHealthChanged?.Invoke(CurrentHealth);
         }
 

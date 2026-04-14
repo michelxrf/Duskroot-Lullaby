@@ -22,7 +22,6 @@ GameObject:
   - component: {fileID: 8367322475855923346}
   - component: {fileID: 5870140261930592508}
   - component: {fileID: -5734590776713396921}
-  - component: {fileID: -2357779659566190075}
   m_Layer: 9
   m_Name: Mosquito
   m_TagString: Untagged
@@ -72,7 +71,6 @@ MonoBehaviour:
   - {fileID: 6017142588764089412}
   - {fileID: 8367322475855923346}
   - {fileID: 5870140261930592508}
-  - {fileID: -2357779659566190075}
   - {fileID: 5089315297502495701}
   ForceRemoteRenderTimeframe: 0
 --- !u!136 &2426909115120015145
@@ -252,8 +250,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2923576468b730940965cbea29560f5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Knockback
-  KNOCKBACK_DURATION: 0.3
-  KNOCKBACK_FORCE_MULTIPLIER: 30
+  knockbackDuration: 0.25
 --- !u!54 &-5734590776713396921
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -281,43 +278,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &-2357779659566190075
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3635576507670607524}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -1869825851, guid: 977dbcf975465374990f471e1497f563, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Fusion.Addons.SimpleKCC.dll::Fusion.Addons.SimpleKCC.SimpleKCC
-  _stateAuthorityChangeErrorCorrectionDelta: 0
-  _settings:
-    Shape: 1
-    IsTrigger: 0
-    Radius: 0.35
-    Height: 1.8
-    Extent: 0.035
-    ColliderLayer: 0
-    CollisionLayerMask:
-      serializedVersion: 2
-      m_Bits: 1
-    ProxyInterpolationMode: 0
-    MaxPenetrationSteps: 8
-    CCDRadiusMultiplier: 0.75
-    AntiJitterDistance: {x: 0.025, y: 0.01}
-    CompressNetworkPosition: 0
-    ForcePredictedLookRotation: 0
-    StepHeight: 0.5
-    StepDepth: 0.2
-    StepSpeed: 1
-    StepMinPushBack: 0.5
-    StepGroundCheckRadiusScale: 0.5
-    StepRequireGroundTarget: 0
-    SnapDistance: 0.25
-    SnapSpeed: 4
 --- !u!1 &7942009079716714325
 GameObject:
   m_ObjectHideFlags: 0
