@@ -16,66 +16,33 @@ namespace CombatSystem
     [RequireComponent(typeof(AudioHitNotifier))]
     public class Health : NetworkBehaviour
     {
-        [SerializeField] int armor = 0;
-        [SerializeField] int maxHealth = 100;
-        [SerializeField] float destroyCorpseAfterSeconds = 20f;
+        [SerializeField] protected int armor = 0;
+        [SerializeField] protected int maxHealth = 100;
+        [SerializeField] protected float destroyCorpseAfterSeconds = 20f;
 
         [Networked, OnChangedRender(nameof(OnHealthChangedRender))]
-        [HideInInspector] public int CurrentHealth { get; private set; }
-        int oldHealth { get; set; }
+        [HideInInspector] public int CurrentHealth { get; protected set; }
+        protected int oldHealth { get; set; }
 
         [Header("Audio")]
         AudioHitNotifier audioHit;
-        [SerializeField] string characterType;
+        [SerializeField] protected string characterType;
 
         public Action<int> OnHealthChanged;
         public Action OnHit;
         public Action OnDied;
 
-        Animator animator;
+        protected Animator animator;
 
 
         public override void Spawned()
         {
-            if (HasStateAuthority)
-            {
-                // player Init
-                if (GetComponent<PlayerAttack>() != null)
-                {
-                    maxHealth = CharacterDataManager.Instance.GetCurrentPlayerCharacter().health;
-                    characterType = CharacterDataManager.Instance.GetCurrentPlayerCharacter().characterId;
-
-                    CharacterDataManager.Instance.OnLevelUp += () => {maxHealth = CharacterDataManager.Instance.GetCurrentPlayerCharacter().health;};
-                }
-
-                // enemy Init
-                if (GetComponent<EnemySetup>() != null)
-                {
-                    if(GetComponent<EnemySetup>().IsInitialized())
-                    {
-                        maxHealth = GetComponent<EnemySetup>().GetEnemyData().health;
-                        characterType = GetComponent<EnemySetup>().GetEnemyData().CharacterId;
-                    }
-                    else
-                    {
-                        GetComponent<EnemySetup>().OnInit += () =>
-                        {
-                            maxHealth = GetComponent<EnemySetup>().GetEnemyData().health;
-                            characterType = GetComponent<EnemySetup>().GetEnemyData().CharacterId;
-                            oldHealth = maxHealth;
-                            CurrentHealth = maxHealth;
-                        };
-                    }
-                }
-
-                oldHealth = maxHealth;
-                CurrentHealth = maxHealth;
-            }
-
             animator = GetComponentInChildren<Animator>();
-
             audioHit = GetComponent<AudioHitNotifier>();
             audioHit.SetCharacterType(characterType);
+
+            if (!HasStateAuthority)
+                return;
         }
 
         /// <summary>
@@ -85,6 +52,12 @@ namespace CombatSystem
         [Rpc(RpcSources.All, RpcTargets.StateAuthority)]
         public void RPC_TakeDamage(int damage, string weaponType)
         {
+            if (damage < 0)
+            {
+                damage = 0;
+                Debug.LogWarning("Damage cannot be negative. Setting damage to 0. Use Heal() to increase health.");
+            }
+
             CurrentHealth = Mathf.Clamp(CurrentHealth - (damage * (100 - armor)/100), 0, maxHealth);
             audioHit.NotifyHit(weaponType);
             OnHit?.Invoke();
@@ -104,7 +77,7 @@ namespace CombatSystem
             else if (CurrentHealth < oldHealth)
             {
                 // Health decreased
-                animator.SetTrigger("Hit");
+                animator?.SetTrigger("Hit");
             }
 
             oldHealth = CurrentHealth;
@@ -113,49 +86,37 @@ namespace CombatSystem
         /// <summary>
         /// Processes the object's death.
         /// </summary>
-        void Die()
+        protected virtual void Die()
         {
-            // Disbable player controls
-            if(GetComponent<PlayerSetup>() != null)
-            {
-                GetComponent<PlayerAttack>().enabled = false;
-                GetComponent<PlayerMovement>().enabled = false;
-                GetComponent<CharacterLook>().enabled = false;
-                RPC_AddExperience();
-            }
-
-            // Disable AI controls
-            if (GetComponent<EnemySetup>() != null)
-            {
-                gameObject.DisableAllComponents<StateMachine>();
-                NavMeshAgent agent = GetComponent<NavMeshAgent>();
-
-                if (agent != null)
-                    agent.isStopped = true;
-            }
-
-            animator.SetTrigger("Die");
-            GetComponent<Knockback>().enabled = false;
+            animator?.SetTrigger("Die");
+            Knockback knockback = GetComponent<Knockback>();
+            if (knockback != null)
+                knockback.enabled = false;
 
             if (HasStateAuthority)
                 StartCoroutine(DestroyAfterDeathAnimation());
 
+            RPC_ApplyRewards();
             OnDied?.Invoke();
         }
-
 
         /// <summary>
         /// Used to heal character
         /// </summary>
         /// <param name="amount"></param>
-        public void Heal(int amount)
+        [Rpc(RpcSources.All, RpcTargets.StateAuthority)]
+        public void RPC_Heal(int amount)
         {
             if (IsDead())
                 return;
 
-            animator.SetTrigger("Heal");
-            // TODO: add audio
-            // TODO: play VFX
+            if (amount < 0)
+            {
+                amount = 0;
+                Debug.LogWarning("Heal amount cannot be negative. Setting heal amount to 0.");
+            }
+
+            animator?.SetTrigger("Heal");
 
             maxHealth = CharacterDataManager.Instance.GetCurrentPlayerCharacter().health;
             CurrentHealth = Mathf.Clamp(CurrentHealth + amount, 0, maxHealth);
@@ -167,7 +128,7 @@ namespace CombatSystem
         /// TODO: move out of health
         /// </summary>
         [Rpc(RpcSources.All, RpcTargets.StateAuthority)]
-        void RPC_AddExperience()
+        void RPC_ApplyRewards()
         {
             GetComponent<Reward>()?.ApplyReward();
         }
@@ -175,7 +136,10 @@ namespace CombatSystem
         IEnumerator DestroyAfterDeathAnimation()
         {
             // Wait for the death animation to finish before destroying the object
-            yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length + destroyCorpseAfterSeconds);
+            if(animator != null)
+                yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length + destroyCorpseAfterSeconds);
+            else
+                yield return new WaitForSeconds(destroyCorpseAfterSeconds);
             Runner.Despawn(Object);
         }
 

@@ -22,7 +22,7 @@ namespace CombatSystem
 
 
             if (caster.layer == LayerMask.NameToLayer("Player"))
-                layerMask = LayerMask.GetMask("Monster", "Player"); // Player damage both monsters and other players (friendly fire)
+                layerMask = LayerMask.GetMask("Monster", "Player", "DestructableProp"); // Player damage both monsters and other players (friendly fire)
             else
                 layerMask = LayerMask.GetMask("Player"); // Monsters only damage players
 

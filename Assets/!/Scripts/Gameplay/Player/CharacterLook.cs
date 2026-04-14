@@ -12,7 +12,6 @@ public class CharacterLook : NetworkBehaviour
     MonoBehaviour controller;
     Animator animator;
     Vector3 lookingAt;
-    PlayerMovement playerMovement;
 
     public override void Spawned()
     {
@@ -34,6 +33,7 @@ public class CharacterLook : NetworkBehaviour
                 if (Physics.Raycast(ray, out RaycastHit hitInfo, Mathf.Infinity, layerMask, QueryTriggerInteraction.Ignore))
                 {
                     lookingAt = hitInfo.point;
+                    Debug.DrawLine(ray.origin, hitInfo.point, Color.red, 1f);
                     TakeControl(this);
                     RotateTo(lookingAt - transform.position, this);
 

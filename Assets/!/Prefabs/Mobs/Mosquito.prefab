@@ -15,13 +15,13 @@ GameObject:
   - component: {fileID: 6326783560357027439}
   - component: {fileID: 5415663800088759005}
   - component: {fileID: 6794254922064648346}
-  - component: {fileID: 3337596116530339721}
   - component: {fileID: 8304208478616237356}
   - component: {fileID: 4026518505526609455}
   - component: {fileID: 6017142588764089412}
   - component: {fileID: 8367322475855923346}
   - component: {fileID: 5870140261930592508}
   - component: {fileID: -5734590776713396921}
+  - component: {fileID: 8732259594142312251}
   m_Layer: 9
   m_Name: Mosquito
   m_TagString: Untagged
@@ -65,12 +65,12 @@ MonoBehaviour:
   NestedObjects: []
   NetworkedBehaviours:
   - {fileID: 6794254922064648346}
-  - {fileID: 3337596116530339721}
   - {fileID: 8304208478616237356}
   - {fileID: 4026518505526609455}
   - {fileID: 6017142588764089412}
   - {fileID: 8367322475855923346}
   - {fileID: 5870140261930592508}
+  - {fileID: 8732259594142312251}
   - {fileID: 5089315297502495701}
   ForceRemoteRenderTimeframe: 0
 --- !u!136 &2426909115120015145
@@ -158,23 +158,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::StateMachine
   initialState: {fileID: 6017142588764089412}
   currentState: {fileID: 0}
---- !u!114 &3337596116530339721
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3635576507670607524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0148e2e55d649e14ebd9e34b6615804e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CombatSystem.Health
-  armor: 0
-  maxHealth: 25
-  destroyCorpseAfterSeconds: 20
-  _CurrentHealth: 0
-  characterType: MrBox
 --- !u!114 &8304208478616237356
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -278,6 +261,23 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &8732259594142312251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3635576507670607524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8d7966fc5ff7e54da75b11d421c3b11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CombatSystem.EnemyHealth
+  armor: 0
+  maxHealth: 100
+  destroyCorpseAfterSeconds: 20
+  _CurrentHealth: 0
+  characterType: 
 --- !u!1 &7942009079716714325
 GameObject:
   m_ObjectHideFlags: 0

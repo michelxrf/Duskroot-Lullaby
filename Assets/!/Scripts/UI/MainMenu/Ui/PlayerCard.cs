@@ -21,7 +21,7 @@ public class PlayerCard : MonoBehaviour
     [SerializeField] TMP_Text level;
 
     string characterId;
-    Health health;
+    PlayerHealth health;
 
     /// <summary>
     /// Initializes the player card with character data and health component.
@@ -29,7 +29,7 @@ public class PlayerCard : MonoBehaviour
     /// </summary>
     /// <param name="character">The character data to display</param>
     /// <param name="healthComp">The health component to listen to for health changes</param>
-    public void Initialize(CharacterData character, Health healthComp)
+    public void Initialize(CharacterData character, PlayerHealth healthComp)
     {
         deadIcon.gameObject.SetActive(false);
         characterPortrait.sprite = CharacterDataManager.Instance.GetCharacterPortrait(character.characterId);
@@ -39,14 +39,14 @@ public class PlayerCard : MonoBehaviour
 
         highlight.gameObject.SetActive(character.characterId == CharacterDataManager.Instance.localPlayerCharacterId);
 
-        healthComp.OnHealthChanged += (int value) => UpdateHealth(value);
+        health.OnHealthChanged += (int value) => UpdateHealth(value);
         CharacterDataManager.Instance.OnExpChanged += UpdateExperience;
         CharacterDataManager.Instance.OnLevelUp += () => UpdateHealth(health.CurrentHealth);
         CharacterDataManager.Instance.OnLevelUp += () => UpdateLevel(CharacterDataManager.Instance.GetCharacter(characterId).level);
 
         characterName.text = character.characterId;
         UpdateLevel(character.level);
-        UpdateHealth(healthComp.CurrentHealth);
+        UpdateHealth(health.CurrentHealth);
         UpdateExperience(character.experience);
     }
 
