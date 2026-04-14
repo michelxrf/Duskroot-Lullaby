@@ -23,7 +23,7 @@ public class FSM_Mosquito_Patrol : State
     Vector3 patrolDestination;
     float distanceToDestination;
 
-    private void Start()
+    public override void Spawned()
     {
         navAgent = GetComponent<NavMeshAgent>();
         visionCollider = GetComponentInChildren<VisionCollider>();
@@ -32,14 +32,8 @@ public class FSM_Mosquito_Patrol : State
         enemySetup = GetComponent<EnemySetup>();
 
         navAgent.updateRotation = false;
-
-        if (patrolAnchor == null)
-        {
-            patrolAnchor = transform;
-            Debug.LogWarning("Patrol anchor not set for " + gameObject.name + ". Defaulting to current position.");
-        }
     }
-
+    
     public override void Enter()
     {
         if (!enemySetup.IsInitialized())
@@ -63,7 +57,7 @@ public class FSM_Mosquito_Patrol : State
     {
     }
 
-    void RotateTowardPathNode()
+void RotateTowardPathNode()
     {
         if (navAgent.hasPath && navAgent.path.corners.Length > 1)
         {
@@ -87,6 +81,19 @@ public class FSM_Mosquito_Patrol : State
 
     Vector3 GetNewPatrolDestination()
     {
+        if (patrolAnchor == null)
+        {
+            patrolAnchor = transform.parent;
+            if (patrolAnchor == null)
+            {
+                GameObject anchorObj = new GameObject(gameObject.name + "_PatrolAnchor");
+                anchorObj.transform.position = transform.position;
+                patrolAnchor = anchorObj.transform;
+
+                Debug.LogWarning("Patrol anchor not set for " + gameObject.name + ". Defaulting to current position.");
+            }
+        }
+
         Vector2 randomPoint = Random.insideUnitCircle * patrolRange;
         Vector3 destination = patrolAnchor.position + new Vector3(randomPoint.x, 0, randomPoint.y);
         NavMeshHit hit;

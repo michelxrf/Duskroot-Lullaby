@@ -64,6 +64,7 @@ MonoBehaviour:
   Flags: 262145
   NestedObjects: []
   NetworkedBehaviours:
+  - {fileID: 5415663800088759005}
   - {fileID: 6794254922064648346}
   - {fileID: 8304208478616237356}
   - {fileID: 4026518505526609455}
@@ -144,6 +145,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: daa3013d3817e824b89b519b755cbf8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Reward
+  experienceAmount: 0
+  dropItens: []
+  dropRates: []
+  chanceToDropItem: 0.1
 --- !u!114 &6794254922064648346
 MonoBehaviour:
   m_ObjectHideFlags: 0

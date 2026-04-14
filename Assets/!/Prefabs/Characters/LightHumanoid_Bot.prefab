@@ -14,7 +14,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5047941619565158737, guid: 0cc26b293f5af75489e15d8df5c36eaf, type: 3}
       propertyPath: NetworkedBehaviours.Array.size
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5047941619565158737, guid: 0cc26b293f5af75489e15d8df5c36eaf, type: 3}
       propertyPath: 'NetworkedBehaviours.Array.data[1]'
@@ -27,25 +27,29 @@ PrefabInstance:
     - target: {fileID: 5047941619565158737, guid: 0cc26b293f5af75489e15d8df5c36eaf, type: 3}
       propertyPath: 'NetworkedBehaviours.Array.data[3]'
       value: 
-      objectReference: {fileID: 3151497275131926294}
+      objectReference: {fileID: 5906176709717003731}
     - target: {fileID: 5047941619565158737, guid: 0cc26b293f5af75489e15d8df5c36eaf, type: 3}
       propertyPath: 'NetworkedBehaviours.Array.data[4]'
       value: 
-      objectReference: {fileID: 7456411200255855668}
+      objectReference: {fileID: 3151497275131926294}
     - target: {fileID: 5047941619565158737, guid: 0cc26b293f5af75489e15d8df5c36eaf, type: 3}
       propertyPath: 'NetworkedBehaviours.Array.data[5]'
       value: 
-      objectReference: {fileID: 8099195809151737342}
+      objectReference: {fileID: 7456411200255855668}
     - target: {fileID: 5047941619565158737, guid: 0cc26b293f5af75489e15d8df5c36eaf, type: 3}
       propertyPath: 'NetworkedBehaviours.Array.data[6]'
       value: 
-      objectReference: {fileID: -2151370580711781579}
+      objectReference: {fileID: 8099195809151737342}
     - target: {fileID: 5047941619565158737, guid: 0cc26b293f5af75489e15d8df5c36eaf, type: 3}
       propertyPath: 'NetworkedBehaviours.Array.data[7]'
       value: 
-      objectReference: {fileID: 6628833363980273083}
+      objectReference: {fileID: -2151370580711781579}
     - target: {fileID: 5047941619565158737, guid: 0cc26b293f5af75489e15d8df5c36eaf, type: 3}
       propertyPath: 'NetworkedBehaviours.Array.data[8]'
+      value: 
+      objectReference: {fileID: 6628833363980273083}
+    - target: {fileID: 5047941619565158737, guid: 0cc26b293f5af75489e15d8df5c36eaf, type: 3}
+      propertyPath: 'NetworkedBehaviours.Array.data[9]'
       value: 
       objectReference: {fileID: 301206560497394463}
     - target: {fileID: 5970795231973887828, guid: 0cc26b293f5af75489e15d8df5c36eaf, type: 3}
@@ -200,6 +204,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: daa3013d3817e824b89b519b755cbf8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Reward
+  experienceAmount: 0
+  dropItens: []
+  dropRates: []
+  chanceToDropItem: 0.1
 --- !u!114 &3151497275131926294
 MonoBehaviour:
   m_ObjectHideFlags: 0

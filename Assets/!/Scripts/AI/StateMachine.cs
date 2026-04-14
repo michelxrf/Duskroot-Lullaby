@@ -26,7 +26,16 @@ public class StateMachine : NetworkBehaviour
     {
         if (!HasStateAuthority) return;
 
-        ChangeState(initialState);
+        EnemySetup enemySetup = GetComponent<EnemySetup>();
+
+        if (enemySetup.IsInitialized())
+        {
+            ChangeState(initialState);
+        }
+        else
+        {
+            enemySetup.OnInit += () => ChangeState(initialState);
+        }
     }
 
     public override void FixedUpdateNetwork()
