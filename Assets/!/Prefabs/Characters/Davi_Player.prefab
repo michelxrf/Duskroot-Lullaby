@@ -88,13 +88,21 @@ PrefabInstance:
       propertyPath: 'NetworkedBehaviours.Array.data[9]'
       value: 
       objectReference: {fileID: -3158198725332826894}
+    - target: {fileID: 5146181822706071163, guid: 0cc26b293f5af75489e15d8df5c36eaf, type: 3}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 9000000, guid: 64c545c6e2bcd1e48991c7160038c7a2, type: 3}
+    - target: {fileID: 5146181822706071163, guid: 0cc26b293f5af75489e15d8df5c36eaf, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: a26c97a8d1f88f348a66f41aee8a6002, type: 2}
     - target: {fileID: 5970795231973887828, guid: 0cc26b293f5af75489e15d8df5c36eaf, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.6527773
       objectReference: {fileID: 0}
     - target: {fileID: 5970795231973887828, guid: 0cc26b293f5af75489e15d8df5c36eaf, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.00000023841858
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5970795231973887828, guid: 0cc26b293f5af75489e15d8df5c36eaf, type: 3}
       propertyPath: m_LocalPosition.z
@@ -426,7 +434,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 64c545c6e2bcd1e48991c7160038c7a2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.96132976
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 64c545c6e2bcd1e48991c7160038c7a2, type: 3}
       propertyPath: m_LocalPosition.z
