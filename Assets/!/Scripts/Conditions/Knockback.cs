@@ -12,7 +12,7 @@ using Fusion.Addons.SimpleKCC;
 public class Knockback : NetworkBehaviour
 {
     [SerializeField] float knockbackDuration = .25f;
-    const float forceMultiplier = .2f; // static: will adjust for everyone
+    const float forceMultiplier = .5f;
 
     float knockbackTimer = 0f;
     Vector3 direction;
@@ -61,7 +61,6 @@ public class Knockback : NetworkBehaviour
         }
         else
         {
-            Debug.Log($"{gameObject.name} is being knocked back with force of {force} toward {direction}");
             knockbackTimer -= Time.deltaTime;
 
             if (entityType == EntityType.Player && characterController != null)
