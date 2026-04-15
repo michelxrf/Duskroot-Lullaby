@@ -10,6 +10,7 @@ public class PlayerSetup : NetworkBehaviour
     Camera playerCamera;
     [Networked] public string characterId { get => default; set { } }
     [Networked] public string currentWeapon { get => default; set { } }
+    [SerializeField] GameObject characterModel;
 
     public override void Spawned()
     {
@@ -20,7 +21,20 @@ public class PlayerSetup : NetworkBehaviour
             playerCamera = Camera.main;
             playerCamera.GetComponent<FlyCamera>().target = transform;
             characterId = CharacterDataManager.Instance.GetCurrentPlayerCharacter().characterId;
+            
+            // loads character skin
+            RPC_LoadCharacterModel();
         }
+    }
+
+    [Rpc(RpcSources.All, RpcTargets.StateAuthority)]
+    public void RPC_LoadCharacterModel()
+    {
+        characterModel = CharacterDataManager.Instance.GetCharacterModel(characterId);
+        if (characterModel == null)
+            return;
+
+        Instantiate(characterModel, transform);
     }
 
     /// <summary>
