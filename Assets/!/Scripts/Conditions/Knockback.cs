@@ -74,7 +74,6 @@ public class Knockback : NetworkBehaviour
         }
         else if (entityType == EntityType.Enemy)
         {
-            //GetComponent<SimpleKCC>().enabled = !newState;
             GetComponent<NavMeshAgent>().enabled = newState;
             GetComponent<StateMachine>().enabled = newState;
         }
