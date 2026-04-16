@@ -2916,7 +2916,6 @@ GameObject:
   m_Component:
   - component: {fileID: 551033162}
   - component: {fileID: 551033161}
-  - component: {fileID: 551033160}
   m_Layer: 0
   m_Name: Audios
   m_TagString: Untagged
@@ -2924,37 +2923,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &551033160
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 551033159}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioEventEmitter
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: 355669192
-      Data2: 1133246278
-      Data3: 958315710
-      Data4: 616670662
-    Path: snapshot:/AmbForest
-  Event: 
-  EventPlayTrigger: 1
-  EventStopTrigger: 2
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  NonRigidbodyVelocity: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 0
-  OverrideMaxDistance: 0
 --- !u!114 &551033161
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2999,10 +2967,12 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1880421295}
   - {fileID: 935808311}
   - {fileID: 1463121079}
   - {fileID: 1358234950}
   - {fileID: 1905799180}
+  - {fileID: 932593465}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &554905411
@@ -5188,6 +5158,86 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4475344858264224785, guid: 665130a7381a1734ea4b022f3a1d132d, type: 3}
   m_PrefabInstance: {fileID: 866370419}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &932593464
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 932593465}
+  - component: {fileID: 932593467}
+  - component: {fileID: 932593466}
+  m_Layer: 0
+  m_Name: AreaCasa
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &932593465
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 932593464}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 7, y: 0, z: 12.8}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 551033162}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &932593466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 932593464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7acbcc710c361764dbb0303974508877, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SnapshotTrigger
+  interiorSnapshot:
+    Guid:
+      Data1: 2033257575
+      Data2: 1172159681
+      Data3: 675775638
+      Data4: -859114397
+    Path: snapshot:/AmbIntern
+  exteriorSnapshot:
+    Guid:
+      Data1: 355669192
+      Data2: 1133246278
+      Data3: 958315710
+      Data4: 616670662
+    Path: snapshot:/AmbForest
+--- !u!65 &932593467
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 932593464}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 24, y: 6, z: 41}
+  m_Center: {x: -1, y: 2.5, z: 4.5}
 --- !u!1 &935808310
 GameObject:
   m_ObjectHideFlags: 0
@@ -5228,7 +5278,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 935808310}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c7474e8969c412748ba5530e1b08e9e6, type: 3}
   m_Name: 
@@ -5251,7 +5301,7 @@ CapsuleCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 25.903534
   m_Height: 51.807068
@@ -8324,7 +8374,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1358234950
 Transform:
   m_ObjectHideFlags: 0
@@ -8354,11 +8404,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MusLevel1
   musicEvent:
     Guid:
-      Data1: -1701735700
-      Data2: 1146737146
-      Data3: 129257914
-      Data4: 2002844308
-    Path: event:/MUS/Mus_Level1
+      Data1: -2142337213
+      Data2: 1304375185
+      Data3: -7238739
+      Data4: 841783408
+    Path: event:/MUS/Mus_level2
 --- !u!1001 &1373767072
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11314,6 +11364,86 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1041458350986111159, guid: e0d3afaab0571164d9130c4655df9513, type: 3}
   m_PrefabInstance: {fileID: 1875240803}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1880421294
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1880421295}
+  - component: {fileID: 1880421297}
+  - component: {fileID: 1880421296}
+  m_Layer: 0
+  m_Name: gramophone_area
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1880421295
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1880421294}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2.2199993, y: 0.96200013, z: 7.711}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 551033162}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1880421296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1880421294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce68aa1ffac2f3642bc146352d2742ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GramophoneController
+  gramophoneEvent:
+    Guid:
+      Data1: -261433115
+      Data2: 1256235653
+      Data3: 1567216532
+      Data4: -481367743
+    Path: event:/SFX/Gramophone
+  music2DEvent:
+    Guid:
+      Data1: -2142337213
+      Data2: 1304375185
+      Data3: -7238739
+      Data4: 841783408
+    Path: event:/MUS/Mus_level2
+--- !u!65 &1880421297
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1880421294}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 3.18, y: 2.62, z: 2.0100002}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1904431456
 PrefabInstance:
   m_ObjectHideFlags: 0
