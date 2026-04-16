@@ -10,4 +10,5 @@ public class CharacterTemplate : EntityTemplate
 {
     public int Experience;
     public Sprite characterPortrait;
+    public GameObject characterModel;
 }
