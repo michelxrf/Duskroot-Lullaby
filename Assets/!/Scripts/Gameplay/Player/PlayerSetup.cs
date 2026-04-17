@@ -1,4 +1,5 @@
 using Fusion;
+using Unity.Cinemachine;
 using UnityEngine;
 
 
@@ -18,13 +19,21 @@ public class PlayerSetup : NetworkBehaviour
 
         if (HasStateAuthority)
         {
-            playerCamera = Camera.main;
-            playerCamera.GetComponent<FlyCamera>().target = transform;
+            SetUpCinemachine();
             characterId = CharacterDataManager.Instance.GetCurrentPlayerCharacter().characterId;
-            
+
             // loads character skin
             RPC_LoadCharacterModel();
         }
+    }
+
+    /// <summary>
+    /// [OBSOLETE] Initializes simple camera folloing player
+    /// </summary>
+    private void SetupFlyCamera()
+    {
+        playerCamera = Camera.main;
+        playerCamera.GetComponent<FlyCamera>().target = transform;
     }
 
     [Rpc(RpcSources.All, RpcTargets.StateAuthority)]
@@ -35,6 +44,25 @@ public class PlayerSetup : NetworkBehaviour
             return;
 
         Instantiate(characterModel, transform);
+    }
+
+
+    /// <summary>
+    /// Configures the Cinemachine virtual camera to follow and look at the current object's transform.
+    /// </summary>
+    void SetUpCinemachine()
+    {
+        // Set up Cinemachine virtual camera to follow the player
+        Camera camera = Camera.main;
+        camera.transform.rotation = Quaternion.Euler(45f, 0f, 0f);
+
+        CinemachineCamera cinemachineVirtualCamera = FindFirstObjectByType<CinemachineCamera>();
+        if (cinemachineVirtualCamera != null)
+        {
+            cinemachineVirtualCamera.Follow = transform;
+            cinemachineVirtualCamera.LookAt = transform;
+            cinemachineVirtualCamera.GetComponent<CinemachineFollow>().FollowOffset = new Vector3(0f, 10f, -10f);
+        }
     }
 
     /// <summary>

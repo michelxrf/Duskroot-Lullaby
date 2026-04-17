@@ -40,11 +40,20 @@ namespace CombatSystem
             // Disable AI controls
             if (GetComponent<EnemySetup>() != null)
             {
-                gameObject.DisableAllComponents<StateMachine>();
+                StateMachine stateMachine = GetComponent<StateMachine>();
                 NavMeshAgent agent = GetComponent<NavMeshAgent>();
+                VisionCollider visionCollider = GetComponentInChildren<VisionCollider>();
 
+                if (stateMachine != null)
+                    stateMachine.enabled = false;
                 if (agent != null)
+                {
                     agent.isStopped = true;
+                    agent.enabled = false;
+                }
+                if (visionCollider != null)
+                    visionCollider.enabled = false;
+                
             }
             
             base.Die();

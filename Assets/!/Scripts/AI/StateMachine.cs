@@ -45,4 +45,22 @@ public class StateMachine : NetworkBehaviour
         if(!isChangingStates)
             currentState.Process();
     }
+
+    private void OnDisable()
+    {
+        State[] states = GetComponents<State>();
+        foreach (var state in states)
+        {
+            state.enabled = false;
+        }
+    }
+
+    private void OnEnable()
+    {
+        State[] states = GetComponents<State>();
+        foreach (var state in states)
+        {
+            state.enabled = true;
+        }
+    }
 }

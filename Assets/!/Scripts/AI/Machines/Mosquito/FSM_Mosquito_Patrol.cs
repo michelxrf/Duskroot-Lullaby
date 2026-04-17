@@ -114,4 +114,9 @@ void RotateTowardPathNode()
     {
         stateMachine.ChangeState(stateOnPlayerFound);
     }
+
+    private void OnDisable()
+    {
+        visionCollider.OnPlayerEntered -= PlayerFound;
+    }
 }

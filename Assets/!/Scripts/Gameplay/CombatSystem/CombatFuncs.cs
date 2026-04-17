@@ -43,9 +43,9 @@ namespace CombatSystem
                     totalDamage = weapon.baseDamage + CharacterDataManager.Instance.GetCurrentPlayerCharacter().damage;
                     healthComponent.RPC_TakeDamage(totalDamage, weapon.weaponAudioType);
                 }
-                else if(caster.GetComponent<PlayerSetup>() != null)
+                else if(caster.GetComponent<EnemySetup>() != null)
                 {
-                    totalDamage = caster.GetComponent<EnemySetup>().GetEnemyData().damage;
+                    totalDamage = caster.GetComponent<EnemySetup>().GetEnemyData().damage + weapon.baseDamage;
                     healthComponent.RPC_TakeDamage(totalDamage, weapon.weaponAudioType);
                 }
                 else if (caster.GetComponent<Projectile>() != null)
