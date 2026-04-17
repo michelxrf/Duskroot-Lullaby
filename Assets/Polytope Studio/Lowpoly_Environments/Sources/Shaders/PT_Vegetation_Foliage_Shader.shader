@@ -6,6 +6,7 @@ Shader "Polytope Studio/PT_Vegetation_Foliage_Shader"
 	{
 		[HideInInspector] _EmissionColor("Emission Color", Color) = (1,1,1,1)
 		[HideInInspector] _AlphaCutoff("Alpha Cutoff ", Range(0, 1)) = 0.5
+		_OcclusionAlpha("Occlusion Alpha", Range(0, 1)) = 1 //Inportaante para o efeito Occlusion
 		[NoScaleOffset]_BaseTexture("Base Texture", 2D) = "white" {}
 		[Toggle]_CUSTOMCOLORSTINTING("CUSTOM COLORS  TINTING", Float) = 0
 		[HDR]_TopColor("Top Color", Color) = (0,0.2178235,1,1)
@@ -324,6 +325,7 @@ Shader "Polytope Studio/PT_Vegetation_Foliage_Shader"
 
 			CBUFFER_START(UnityPerMaterial)
 			float4 _GroundColor;
+			float _OcclusionAlpha;
 			float4 _TopColor;
 			float _WindMovement;
 			float _WindDensity;
@@ -668,7 +670,7 @@ Shader "Polytope Studio/PT_Vegetation_Foliage_Shader"
 				float Metallic = 0;
 				float Smoothness = _Smoothness;
 				float Occlusion = 1;
-				float Alpha = ALPHACUTOFF496;
+				float Alpha = ALPHACUTOFF496 * _OcclusionAlpha;
 				float AlphaClipThreshold = 1.0;
 				float AlphaClipThresholdShadow = 0.5;
 				float3 BakedGI = 0;
@@ -687,7 +689,7 @@ Shader "Polytope Studio/PT_Vegetation_Foliage_Shader"
 				#endif
 
 				#ifdef _ALPHATEST_ON
-					clip(Alpha - AlphaClipThreshold);
+					clip(Alpha - (AlphaClipThreshold * _OcclusionAlpha));
 				#endif
 
 				InputData inputData = (InputData)0;
@@ -1264,7 +1266,7 @@ Shader "Polytope Studio/PT_Vegetation_Foliage_Shader"
 				
 
 				float Alpha = ALPHACUTOFF496;
-				float AlphaClipThreshold = 1.0;
+				float AlphaClipThreshold = 1;
 				float AlphaClipThresholdShadow = 0.5;
 
 				#ifdef ASE_DEPTH_WRITE_ON
