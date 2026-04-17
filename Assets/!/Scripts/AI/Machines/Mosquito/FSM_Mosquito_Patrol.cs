@@ -117,6 +117,9 @@ void RotateTowardPathNode()
 
     private void OnDisable()
     {
+
+        if(!HasStateAuthority) return; 
+        
         visionCollider.OnPlayerEntered -= PlayerFound;
     }
 }
