@@ -9,6 +9,8 @@ public class GramophoneController : MonoBehaviour
     [Header("FMOD Events")]
     [SerializeField] private EventReference gramophoneEvent; // 3D
     [SerializeField] private EventReference music2DEvent;    // 2D
+    [SerializeField] private GameObject cameraGramophone;
+    [SerializeField] GameObject interactionTooltip;
 
     private EventInstance gramophoneInstance;
     private EventInstance music2DInstance;
@@ -28,7 +30,7 @@ public class GramophoneController : MonoBehaviour
         MusicManager.instance.StopMusic();
         gramophoneInstance = RuntimeManager.CreateInstance(gramophoneEvent);
         RuntimeManager.AttachInstanceToGameObject(gramophoneInstance, transform);
-
+        interactionTooltip.SetActive(false);
     }
 
     private void Update()
@@ -111,17 +113,25 @@ public class GramophoneController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!other.CompareTag("Player")) return;
-
+        //if (!other.CompareTag("Player")) return;
+        PlayerSetup otherPlayer = other.GetComponent<PlayerSetup>();
+        if (otherPlayer == null) return;
+        if (!otherPlayer.IsLocalPlayer()) return;
+        if (interactionTooltip != null) interactionTooltip.SetActive(true);
+        if (cameraGramophone!=null) cameraGramophone.SetActive(true);
         playerInside = true;
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (!other.CompareTag("Player")) return;
+        //if (!other.CompareTag("Player")) return;
+        PlayerSetup otherPlayer = other.GetComponent<PlayerSetup>();
+        if (otherPlayer == null) return;
+        if (!otherPlayer.IsLocalPlayer()) return;
+        if(interactionTooltip!=null) interactionTooltip.SetActive(false);
 
         playerInside = false;
-
+        if (cameraGramophone != null) cameraGramophone.SetActive(false);
         if (currentState == State.GramophoneLoop)
         {
             StopGramophoneAndStart2D();
