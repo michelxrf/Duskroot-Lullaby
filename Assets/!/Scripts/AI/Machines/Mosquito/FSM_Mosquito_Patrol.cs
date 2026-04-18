@@ -30,8 +30,6 @@ public class FSM_Mosquito_Patrol : State
         animator = GetComponentInChildren<Animator>();
         stateMachine = GetComponent<StateMachine>();
         enemySetup = GetComponent<EnemySetup>();
-
-        navAgent.updateRotation = false;
     }
     
     public override void Enter()
@@ -69,6 +67,8 @@ void RotateTowardPathNode()
 
     public override void Process()
     {
+        if(!HasStateAuthority) return;
+
         if (IsDestinationReached())
         {
             patrolDestination = GetNewPatrolDestination();
@@ -117,6 +117,9 @@ void RotateTowardPathNode()
 
     private void OnDisable()
     {
+
+        if(!HasStateAuthority) return; 
+        
         visionCollider.OnPlayerEntered -= PlayerFound;
     }
 }

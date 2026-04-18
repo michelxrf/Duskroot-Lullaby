@@ -22,7 +22,6 @@ public class FSM_Mosquito_Attack : State
         animator = GetComponentInChildren<Animator>();
         visionCollider = GetComponentInChildren<VisionCollider>();
         stateMachine = GetComponent<StateMachine>();
-
     }
 
     public override void Enter()

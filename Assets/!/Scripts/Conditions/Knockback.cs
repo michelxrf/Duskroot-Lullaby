@@ -48,6 +48,8 @@ public class Knockback : NetworkBehaviour
         force = knockbackForce * forceMultiplier;
         direction = p_direction;
         knockbackTimer = knockbackDuration;
+
+
         EnableMovement(false);
     }
 
@@ -61,7 +63,7 @@ public class Knockback : NetworkBehaviour
         }
         else
         {
-            knockbackTimer -= Time.deltaTime;
+            knockbackTimer -= Runner.DeltaTime;
 
             if (entityType == EntityType.Player && characterController != null)
             {
@@ -76,6 +78,8 @@ public class Knockback : NetworkBehaviour
 
     void EnableMovement(bool newState)
     {
+        if(!HasStateAuthority) return;
+
         if (entityType == EntityType.Player)
         {
             GetComponent<PlayerMovement>().enabled = newState;
