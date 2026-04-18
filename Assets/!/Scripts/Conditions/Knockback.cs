@@ -49,6 +49,7 @@ public class Knockback : NetworkBehaviour
         direction = p_direction;
         knockbackTimer = knockbackDuration;
 
+
         EnableMovement(false);
     }
 
@@ -62,7 +63,7 @@ public class Knockback : NetworkBehaviour
         }
         else
         {
-            knockbackTimer -= Time.deltaTime;
+            knockbackTimer -= Runner.DeltaTime;
 
             if (entityType == EntityType.Player && characterController != null)
             {

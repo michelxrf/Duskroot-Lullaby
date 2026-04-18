@@ -1,10 +1,12 @@
 using UnityEngine;
 using Fusion;
+using UnityEngine.AI;
 
 
 public class StateMachine : NetworkBehaviour
 {
     [SerializeField] State initialState;
+
     public State currentState;
     bool isChangingStates = false;
 
@@ -24,9 +26,20 @@ public class StateMachine : NetworkBehaviour
         isChangingStates = false;
     }
 
+    void DisableNavAgent()
+    {
+        NavMeshAgent navAgent = GetComponent<NavMeshAgent>();
+        if (navAgent != null)
+            navAgent.enabled = false;
+    }
+
     public override void Spawned()
     {
-        if (!HasStateAuthority) return;
+        if (!HasStateAuthority)
+        {
+            DisableNavAgent();
+            return;
+        }
 
         EnemySetup enemySetup = GetComponent<EnemySetup>();
 
