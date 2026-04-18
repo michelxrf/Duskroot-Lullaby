@@ -9,6 +9,7 @@ using UnityEngine;
 public class PlayerSetup : NetworkBehaviour
 {
     Camera playerCamera;
+    [SerializeField] Quaternion cameraRotation = Quaternion.Euler(45f, 0f, 0f);
     [Networked] public string characterId { get => default; set { } }
     [Networked] public string currentWeapon { get => default; set { } }
     [SerializeField] GameObject characterModel;
@@ -54,7 +55,6 @@ public class PlayerSetup : NetworkBehaviour
     {
         // Set up Cinemachine virtual camera to follow the player
         Camera camera = Camera.main;
-        camera.transform.rotation = Quaternion.Euler(45f, 0f, 0f);
 
         CinemachineCamera cinemachineVirtualCamera = FindFirstObjectByType<CinemachineCamera>();
         if (cinemachineVirtualCamera != null)
@@ -63,6 +63,7 @@ public class PlayerSetup : NetworkBehaviour
             cinemachineVirtualCamera.LookAt = transform;
             cinemachineVirtualCamera.GetComponent<CinemachineFollow>().FollowOffset = new Vector3(0f, 10f, -10f);
         }
+        camera.transform.parent.transform.rotation = cameraRotation;
     }
 
     /// <summary>

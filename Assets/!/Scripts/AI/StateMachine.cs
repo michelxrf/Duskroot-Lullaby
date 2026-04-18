@@ -10,6 +10,8 @@ public class StateMachine : NetworkBehaviour
 
     public void ChangeState(State newState)
     {
+        if(!HasStateAuthority) return;
+
         isChangingStates = true;
 
         if (currentState != null)
@@ -48,6 +50,8 @@ public class StateMachine : NetworkBehaviour
 
     private void OnDisable()
     {
+        if(!HasStateAuthority) return;
+
         State[] states = GetComponents<State>();
         foreach (var state in states)
         {
@@ -57,6 +61,8 @@ public class StateMachine : NetworkBehaviour
 
     private void OnEnable()
     {
+        if(!HasStateAuthority) return;
+
         State[] states = GetComponents<State>();
         foreach (var state in states)
         {
