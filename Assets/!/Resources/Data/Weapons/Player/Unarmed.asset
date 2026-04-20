@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WeaponData
   baseDamage: 25
   knockbackForce: 10
-  animationController: {fileID: 9100000, guid: a26c97a8d1f88f348a66f41aee8a6002, type: 2}
+  animationController: {fileID: 9100000, guid: 8b073340a3fefa2468b60b0bbe2326d2, type: 2}
   weaponModel: {fileID: 0}
   hitboxRadius: 0.5
   vfxPrefab: {fileID: 0}
