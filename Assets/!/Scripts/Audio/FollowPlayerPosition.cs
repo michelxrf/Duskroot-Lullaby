@@ -27,7 +27,7 @@ public class FollowPlayerPosition : MonoBehaviour
 
     void FindLocalPlayer()
     {
-        PlayerSetup[] players = FindObjectsOfType<PlayerSetup>();
+        PlayerSetup[] players = FindObjectsByType<PlayerSetup>(FindObjectsSortMode.None);
         Debug.Log("Procurando player");
         foreach (var player in players)
         {
