@@ -136,6 +136,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""DebugRevive"",
+                    ""type"": ""Button"",
+                    ""id"": ""ff1a26b3-39d3-4862-bf11-f91774b420e2"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -303,6 +312,17 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e01d3a41-5873-4fcf-86eb-9f332bb7434c"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""DebugRevive"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -316,6 +336,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_InGame_Walk = m_InGame.FindAction("Walk", throwIfNotFound: true);
         m_InGame_Attack = m_InGame.FindAction("Attack", throwIfNotFound: true);
         m_InGame_Interact = m_InGame.FindAction("Interact", throwIfNotFound: true);
+        m_InGame_DebugRevive = m_InGame.FindAction("DebugRevive", throwIfNotFound: true);
     }
 
     ~@PlayerControls()
@@ -401,6 +422,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_InGame_Walk;
     private readonly InputAction m_InGame_Attack;
     private readonly InputAction m_InGame_Interact;
+    private readonly InputAction m_InGame_DebugRevive;
     /// <summary>
     /// Provides access to input actions defined in input action map "InGame".
     /// </summary>
@@ -432,6 +454,10 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "InGame/Interact".
         /// </summary>
         public InputAction @Interact => m_Wrapper.m_InGame_Interact;
+        /// <summary>
+        /// Provides access to the underlying input action "InGame/DebugRevive".
+        /// </summary>
+        public InputAction @DebugRevive => m_Wrapper.m_InGame_DebugRevive;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -473,6 +499,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Interact.started += instance.OnInteract;
             @Interact.performed += instance.OnInteract;
             @Interact.canceled += instance.OnInteract;
+            @DebugRevive.started += instance.OnDebugRevive;
+            @DebugRevive.performed += instance.OnDebugRevive;
+            @DebugRevive.canceled += instance.OnDebugRevive;
         }
 
         /// <summary>
@@ -499,6 +528,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Interact.started -= instance.OnInteract;
             @Interact.performed -= instance.OnInteract;
             @Interact.canceled -= instance.OnInteract;
+            @DebugRevive.started -= instance.OnDebugRevive;
+            @DebugRevive.performed -= instance.OnDebugRevive;
+            @DebugRevive.canceled -= instance.OnDebugRevive;
         }
 
         /// <summary>
@@ -574,5 +606,12 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnInteract(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "DebugRevive" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnDebugRevive(InputAction.CallbackContext context);
     }
 }

@@ -18,14 +18,14 @@ public class HealingItem : NetworkBehaviour
         if (!other.CompareTag("Player"))
             return;
 
-        Health health = other.GetComponent<Health>();
+        PlayerHealth health = other.GetComponent<PlayerHealth>();
         
         if (health.IsDead())
             return;
 
         if(health.CurrentHealth < CharacterDataManager.Instance.GetCurrentPlayerCharacter().health)
         {
-            health.Heal(healAmount);
+            health.RPC_Heal(healAmount);
             Runner.Despawn(Object);
         }
     }

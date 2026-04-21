@@ -195,10 +195,10 @@ MonoBehaviour:
   Path: Assets/BuildFmod/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639120477393384866
+  lastModified: 639118952269183841
   FileSizes:
   - Name: 
-    Value: 2326
+    Value: 2462
   Exists: 1
 --- !u!114 &-5585231732702700504
 MonoBehaviour:
@@ -253,6 +253,33 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 0
+--- !u!114 &-5015670364790179929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/MUS/Mus_level2
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/MUS/Mus_level2
+  Guid:
+    Data1: -2142337213
+    Data2: 1304375185
+    Data3: -7238739
+    Data4: 841783408
+  Banks:
+  - {fileID: -616154530178873512}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 151200
 --- !u!114 &-4945841372647693218
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -291,7 +318,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/Mus_Level1/Mus_Level1
+  m_Name: parameter:/Mus_level1/Mus_Level1
   m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorParamRef
   Name: Mus_Level1
   StudioPath: 
@@ -301,6 +328,30 @@ MonoBehaviour:
   ID:
     data1: 1473038682
     data2: 1634633765
+  Type: 1
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &-3422907614288222506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Gramophone/Gramophone
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorParamRef
+  Name: Gramophone
+  StudioPath: 
+  Min: 0
+  Max: 3
+  Default: 0
+  ID:
+    data1: 4247071842
+    data2: 784528516
   Type: 1
   IsGlobal: 0
   Labels: []
@@ -348,7 +399,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639120477393374862
+  lastModified: 639118952269093837
   FileSizes: []
   Exists: 1
 --- !u!114 &-1951550172158635668
@@ -438,7 +489,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/MUS.bank
   Name: MUS
   StudioPath: bank:/MUS
-  lastModified: 639120477393019794
+  lastModified: 639118952268833835
   FileSizes: []
   Exists: 1
 --- !u!114 &11400000
@@ -483,12 +534,14 @@ MonoBehaviour:
   - {fileID: 7187516529545839429}
   - {fileID: 5457631662647093695}
   - {fileID: 1458336319262921463}
+  - {fileID: -5015670364790179929}
+  - {fileID: 8916736406095576479}
   EditorParameters: []
   MasterBanks:
   - {fileID: -2002388166983340450}
   StringsBanks:
   - {fileID: -6222608089242677881}
-  cacheTime: 639120477393789746
+  cacheTime: 639118952269753845
   cacheVersion: 131635
 --- !u!114 &1021075846966187511
 MonoBehaviour:
@@ -505,7 +558,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 639120477393789746
+  lastModified: 639118952269753845
   FileSizes: []
   Exists: 1
 --- !u!114 &1458336319262921463
@@ -518,9 +571,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/MUS/Mus_Level1
+  m_Name: event:/MUS/Mus_level1
   m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
-  Path: event:/MUS/Mus_Level1
+  Path: event:/MUS/Mus_level1
   Guid:
     Data1: -1701735700
     Data2: 1146737146
@@ -551,8 +604,8 @@ MonoBehaviour:
   Name: Surface
   StudioPath: 
   Min: 0
-  Max: 3
-  Default: 1
+  Max: 4
+  Default: 0
   ID:
     data1: 2784901605
     data2: 876879491
@@ -563,6 +616,7 @@ MonoBehaviour:
   - Grama
   - Agua
   - Madeira
+  - Carpet
   Exists: 1
 --- !u!114 &1819522834677911229
 MonoBehaviour:
@@ -987,3 +1041,31 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 810
+--- !u!114 &8916736406095576479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Gramophone
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/Gramophone
+  Guid:
+    Data1: -261433115
+    Data2: 1256235653
+    Data3: 1567216532
+    Data4: -481367743
+  Banks:
+  - {fileID: 1021075846966187511}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 0
+  Parameters:
+  - {fileID: -3422907614288222506}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 160688

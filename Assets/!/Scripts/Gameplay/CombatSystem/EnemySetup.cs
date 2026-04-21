@@ -2,6 +2,7 @@ using UnityEngine;
 using Fusion;
 using ProgressionSystem;
 using System;
+using UnityEngine.AI;
 
 public class EnemySetup : NetworkBehaviour
 {
@@ -22,6 +23,7 @@ public class EnemySetup : NetworkBehaviour
 
             enemyData = ExperienceCalculator.LevelUpEnemy(enemyTemplate, level);
             enemyData.CharacterId = enemyTemplate.CharacterId;
+            GetComponent<NavMeshAgent>().speed = enemyData.speed;
 
             isInitialized = true;
             OnInit?.Invoke();
