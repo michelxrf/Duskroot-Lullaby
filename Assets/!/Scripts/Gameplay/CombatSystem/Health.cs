@@ -25,7 +25,7 @@ namespace CombatSystem
         protected int oldHealth { get; set; }
 
         [Header("Audio")]
-        AudioHitNotifier audioHit;
+        protected AudioHitNotifier audioHit;
         [SerializeField] protected string characterType;
 
         public Action<int> OnHealthChanged;
@@ -39,7 +39,6 @@ namespace CombatSystem
         {
             animator = GetComponentInChildren<Animator>();
             audioHit = GetComponent<AudioHitNotifier>();
-            audioHit.SetCharacterType(characterType);
 
             if (!HasStateAuthority)
                 return;
