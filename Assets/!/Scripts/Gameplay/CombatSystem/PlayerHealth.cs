@@ -18,6 +18,7 @@ namespace CombatSystem
                 CharacterDataManager.Instance.OnLevelUp += () => { maxHealth = CharacterDataManager.Instance.GetCurrentPlayerCharacter().health; };
             }
 
+            audioHit.SetCharacterType(characterType);
             oldHealth = maxHealth;
             CurrentHealth = maxHealth;
             OnHealthChanged?.Invoke(CurrentHealth);

@@ -25,14 +25,19 @@ namespace CombatSystem
                     {
                         maxHealth = GetComponent<EnemySetup>().GetEnemyData().health;
                         characterType = GetComponent<EnemySetup>().GetEnemyData().CharacterId;
+                        audioHit.SetCharacterType(characterType);
                         oldHealth = maxHealth;
                         CurrentHealth = maxHealth;
+                        OnHealthChanged?.Invoke(CurrentHealth);
                     };
                 }
             }
 
+            audioHit.SetCharacterType(characterType);
             oldHealth = maxHealth;
             CurrentHealth = maxHealth;
+
+            OnHealthChanged?.Invoke(CurrentHealth);
         }
 
         protected override void Die()

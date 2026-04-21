@@ -9,8 +9,11 @@ namespace CombatSystem
         {
             base.Spawned();
 
+            audioHit.SetCharacterType(characterType);
             oldHealth = maxHealth;
             CurrentHealth = maxHealth;
+
+            OnHealthChanged?.Invoke(CurrentHealth);
         }
 
         protected override void Die()
