@@ -1,11 +1,12 @@
 using UnityEngine;
 using System.Collections;
+using Fusion;
 
 /// <summary>
 /// Abstract base class for weapon behavior implementations.
 /// Defines the interface and common functionality for all weapon types.
 /// </summary>
-public class WeaponBehavior : MonoBehaviour
+public class WeaponBehavior : NetworkBehaviour
 {
     protected Animator animator;
     protected GameObject owner;

@@ -16,7 +16,8 @@ namespace CombatSystem
         Skill2,
         Interact,
         Aim,
-        Walk
+        Walk,
+        DebugRevive
     }
 
     /// <summary>

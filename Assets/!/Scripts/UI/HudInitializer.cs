@@ -20,6 +20,6 @@ public class HudInitializer : NetworkBehaviour
         PlayersBar playerBar = FindFirstObjectByType<PlayersBar>();
         
         if (playerBar != null )
-            playerBar.Initialize(CharacterDataManager.Instance.GetCurrentPlayerCharacter(), GetComponent<Health>());
+            playerBar.Initialize(CharacterDataManager.Instance.GetCurrentPlayerCharacter(), GetComponent<PlayerHealth>());
     }
 }

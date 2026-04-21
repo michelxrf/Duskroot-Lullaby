@@ -60,6 +60,9 @@ public class PlayerMovement : NetworkBehaviour
             isWalking = data.Walk;
         }
 
+        if (rotateCharacter.IsAiming())
+            isWalking = true;
+
         // Determine the speed limit based on whether the player is walking
         float speedLimit = isWalking ? maxSpeed * walkSpeedPercentage : maxSpeed;
 
@@ -91,4 +94,5 @@ public class PlayerMovement : NetworkBehaviour
     {
         CharacterDataManager.Instance.OnLevelUp -= UpdateSpeed;
     }
+
 }
