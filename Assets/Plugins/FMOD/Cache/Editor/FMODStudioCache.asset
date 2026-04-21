@@ -42,7 +42,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/UI.bank
   Name: UI
   StudioPath: bank:/UI
-  lastModified: 639113676262184998
+  lastModified: 639114472436197538
   FileSizes: []
   Exists: 1
 --- !u!114 &-8367727226860854883
@@ -444,7 +444,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/Ambiences.bank
   Name: Ambiences
   StudioPath: bank:/Ambiences
-  lastModified: 639113676259275016
+  lastModified: 639114472434753513
   FileSizes: []
   Exists: 1
 --- !u!114 &-889159557125566879
@@ -873,7 +873,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/Interactions.bank
   Name: Interactions
   StudioPath: bank:/Interactions
-  lastModified: 639113676259484963
+  lastModified: 639114472434783528
   FileSizes: []
   Exists: 1
 --- !u!114 &6267172118088883810
