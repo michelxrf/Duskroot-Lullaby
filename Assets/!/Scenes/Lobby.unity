@@ -165,7 +165,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LobbyManager
   countDownUi: {fileID: 1024721411}
-  gameplaySceneName: RefugioPirralhos
+  gameplaySceneName: House
   lobbySeats:
   - {fileID: 400100846}
   - {fileID: 677445340}
