@@ -6,6 +6,9 @@ namespace CombatSystem
 {
     public class PlayerHealth : Health
     {
+        [Header("References")]
+        [SerializeField] GameObject playerVisual;
+
         MatchStateManager matchStateManager;
 
         public override void Spawned()
@@ -31,13 +34,17 @@ namespace CombatSystem
         protected override void Die()
         {
             PlayerState(false);
+            SetVisualVisible(false);
 
             animator?.SetTrigger("Die");
             Knockback knockback = GetComponent<Knockback>();
             if (knockback != null)
                 knockback.enabled = false;
 
-            if (matchStateManager != null)
+            if (matchStateManager == null)
+                matchStateManager = FindFirstObjectByType<MatchStateManager>();
+
+            if (HasStateAuthority && matchStateManager != null)
                 matchStateManager.NotifyPlayerDeath(this, transform.position);
 
             OnDied?.Invoke();
@@ -46,14 +53,31 @@ namespace CombatSystem
         [Rpc(RpcSources.All, RpcTargets.StateAuthority)]
         public void RPC_Revive()
         {
+            RPC_PlayReviveVisuals();
+            CurrentHealth = maxHealth / 4;
+        }
+
+        [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
+        void RPC_PlayReviveVisuals()
+        {
+            animator?.ResetTrigger("Die");
             animator?.SetTrigger("Revive");
+
             Knockback knockback = GetComponent<Knockback>();
             if (knockback != null)
                 knockback.enabled = true;
 
             PlayerState(true);
-            
-            CurrentHealth = maxHealth / 4;
+            SetVisualVisible(true);
+        }
+
+        public override void Render()
+        {
+            base.Render();
+
+            // Keep character visual state in sync for every client.
+            bool isDead = IsDead();
+            SetVisualVisible(!isDead);
         }
 
         public PlayerRef GetPlayerRef()
@@ -85,6 +109,14 @@ namespace CombatSystem
             GetComponent<PlayerAttack>().enabled = value;
             GetComponent<PlayerMovement>().enabled = value;
             GetComponent<CharacterLook>().enabled = value;
+        }
+
+        void SetVisualVisible(bool value)
+        {
+            if (playerVisual == null)
+                return;
+
+            playerVisual.SetActive(value);
         }
     }
 

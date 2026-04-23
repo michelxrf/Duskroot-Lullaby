@@ -1,3 +1,4 @@
+using CombatSystem;
 using Fusion;
 using UnityEngine;
 
@@ -13,6 +14,9 @@ public class ReviveTombstone : NetworkBehaviour
     [Networked] public PlayerRef DeadPlayer { get; private set; }
     [Networked] public int ReviveProgress { get; private set; }
     [Networked] public NetworkBool IsCompleted { get; private set; }
+    [Networked] Vector3 NetworkSpawnPosition { get; set; }
+    public int RequiredButtonPresses => requiredButtonPresses;
+    public float InteractionRadius => interactionRadius;
 
     MatchStateManager matchStateManager;
     SphereCollider interactionTrigger;
@@ -26,9 +30,13 @@ public class ReviveTombstone : NetworkBehaviour
             interactionTrigger.isTrigger = true;
             interactionTrigger.radius = interactionRadius;
         }
+
+        // Enforce deterministic position across peers even when the prefab has no network transform component.
+        if (NetworkSpawnPosition != Vector3.zero)
+            transform.position = NetworkSpawnPosition;
     }
 
-    public void Initialize(PlayerRef deadPlayer)
+    public void Initialize(PlayerRef deadPlayer, Vector3 spawnPosition)
     {
         if (!HasStateAuthority)
             return;
@@ -36,6 +44,8 @@ public class ReviveTombstone : NetworkBehaviour
         DeadPlayer = deadPlayer;
         ReviveProgress = 0;
         IsCompleted = false;
+        NetworkSpawnPosition = spawnPosition;
+        transform.position = spawnPosition;
     }
 
     public void TryInteract()
@@ -76,12 +86,22 @@ public class ReviveTombstone : NetworkBehaviour
 
     bool IsReviverInsideRange(PlayerRef reviver)
     {
-        NetworkObject reviverObject = Runner.GetPlayerObject(reviver);
-        if (reviverObject == null)
+        var playerHealths = FindObjectsByType<PlayerHealth>(FindObjectsSortMode.None);
+        PlayerHealth reviverHealth = null;
+        foreach (var health in playerHealths)
+        {
+            if (health.GetPlayerRef() == reviver)
+            {
+                reviverHealth = health;
+                break;
+            }
+        }
+
+        if (reviverHealth == null)
             return false;
 
         float maxDistance = interactionRadius + 0.3f;
-        float sqrDistance = (reviverObject.transform.position - transform.position).sqrMagnitude;
+        float sqrDistance = (reviverHealth.transform.position - transform.position).sqrMagnitude;
         return sqrDistance <= maxDistance * maxDistance;
     }
 
@@ -93,5 +113,13 @@ public class ReviveTombstone : NetworkBehaviour
     void OnTriggerExit(Collider other)
     {
         other.GetComponent<PlayerInteractor>()?.LeftReviveArea(this);
+    }
+
+    public override void Render()
+    {
+        base.Render();
+
+        if (NetworkSpawnPosition != Vector3.zero)
+            transform.position = NetworkSpawnPosition;
     }
 }

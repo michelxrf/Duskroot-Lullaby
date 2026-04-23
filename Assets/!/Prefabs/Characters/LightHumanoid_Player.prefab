@@ -273,6 +273,11 @@ MonoBehaviour:
   m_Script: {fileID: 506319458, guid: e725a070cec140c4caffb81624c8c787, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &8175417252241007880 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7506225036849703761, guid: 0cc26b293f5af75489e15d8df5c36eaf, type: 3}
+  m_PrefabInstance: {fileID: 1828352916096618073}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8457420982649764082 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7782597122376545963, guid: 0cc26b293f5af75489e15d8df5c36eaf, type: 3}
@@ -310,6 +315,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f940b2c193ff9e41916484d20c3016a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraRotation: {x: 0.38268346, y: 0, z: 0, w: 0.9238795}
   characterModel: {fileID: 0}
   _characterId: 
   _currentWeapon: 
@@ -468,6 +474,7 @@ MonoBehaviour:
   destroyCorpseAfterSeconds: 20
   _CurrentHealth: 0
   characterType: 
+  playerVisual: {fileID: 8175417252241007880}
 --- !u!1001 &5603213965701606199
 PrefabInstance:
   m_ObjectHideFlags: 0

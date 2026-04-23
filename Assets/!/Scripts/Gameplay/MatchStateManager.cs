@@ -128,7 +128,7 @@ public class MatchStateManager : NetworkBehaviour
 
         ReviveTombstone tombstone = tombstoneObject.GetComponent<ReviveTombstone>();
         if (tombstone != null)
-            tombstone.Initialize(deadPlayer);
+            tombstone.Initialize(deadPlayer, deathPosition);
 
         tombstonesByPlayer[deadPlayer] = tombstoneObject;
     }
@@ -187,12 +187,17 @@ public class MatchStateManager : NetworkBehaviour
     bool TryGetPlayerHealth(PlayerRef playerRef, out PlayerHealth playerHealth)
     {
         playerHealth = null;
-        NetworkObject playerObject = Runner.GetPlayerObject(playerRef);
-        if (playerObject == null)
-            return false;
+        var players = FindObjectsByType<PlayerHealth>(FindObjectsSortMode.None);
+        foreach (var health in players)
+        {
+            if (health.GetPlayerRef() != playerRef)
+                continue;
 
-        playerHealth = playerObject.GetComponent<PlayerHealth>();
-        return playerHealth != null;
+            playerHealth = health;
+            return true;
+        }
+
+        return false;
     }
 
     /// <summary>
