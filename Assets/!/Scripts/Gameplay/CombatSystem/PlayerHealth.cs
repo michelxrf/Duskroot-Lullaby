@@ -1,13 +1,17 @@
 using CombatSystem;
+using Fusion;
 using UnityEngine;
 
 namespace CombatSystem
 {
     public class PlayerHealth : Health
     {
+        MatchStateManager matchStateManager;
+
         public override void Spawned()
         {
             base.Spawned();
+            matchStateManager = FindFirstObjectByType<MatchStateManager>();
 
             // player Init
             if (GetComponent<PlayerAttack>() != null)
@@ -26,20 +30,38 @@ namespace CombatSystem
 
         protected override void Die()
         {
-            GetComponent<PlayerAttack>().enabled = false;
-            GetComponent<PlayerMovement>().enabled = false;
-            GetComponent<CharacterLook>().enabled = false;
+            PlayerState(false);
 
-            base.Die();
+            animator?.SetTrigger("Die");
+            Knockback knockback = GetComponent<Knockback>();
+            if (knockback != null)
+                knockback.enabled = false;
+
+            if (matchStateManager != null)
+                matchStateManager.NotifyPlayerDeath(this, transform.position);
+
+            OnDied?.Invoke();
         }
 
+        [Rpc(RpcSources.All, RpcTargets.StateAuthority)]
         public void RPC_Revive()
         {
-            GetComponent<PlayerAttack>().enabled = true;
-            GetComponent<PlayerMovement>().enabled = true;
-            GetComponent<CharacterLook>().enabled = true;
+            animator?.SetTrigger("Revive");
+            Knockback knockback = GetComponent<Knockback>();
+            if (knockback != null)
+                knockback.enabled = true;
+
+            PlayerState(true);
             
             CurrentHealth = maxHealth / 4;
+        }
+
+        public PlayerRef GetPlayerRef()
+        {
+            if (Object == null || !Object.IsValid)
+                return PlayerRef.None;
+
+            return Object.InputAuthority;
         }
 
         public override void FixedUpdateNetwork()
@@ -56,6 +78,13 @@ namespace CombatSystem
                     }
                 }
             }
+        }
+
+        private void PlayerState(bool value)
+        {
+            GetComponent<PlayerAttack>().enabled = value;
+            GetComponent<PlayerMovement>().enabled = value;
+            GetComponent<CharacterLook>().enabled = value;
         }
     }
 
