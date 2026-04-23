@@ -11,6 +11,7 @@ public class LobbyConnectScreen : UiScreen
     [Header("UI Elements")]
     [SerializeField] Button connectButton;
     [SerializeField] Button backButton;
+    [SerializeField] Button configButton;
     [SerializeField] TMP_InputField lobbyCodeInput;
 
     [Header("Other Screens")]
@@ -23,6 +24,7 @@ public class LobbyConnectScreen : UiScreen
         connectButton.onClick.AddListener(OnConnectClicked);
         backButton.onClick.AddListener(OnBackClicked);
         lobbyCodeInput.onValueChanged.AddListener(OnLobbyCodeFieldChanged);
+        configButton.onClick.AddListener(OnConfigClicked);
 
         CanConnect();
     }
@@ -47,4 +49,10 @@ public class LobbyConnectScreen : UiScreen
     {
         connectButton.interactable = !string.IsNullOrEmpty(lobbyCodeInput.text);
     }
+
+    void OnConfigClicked()
+    {
+        SceneManager.LoadScene("Config");
+    }
+
 }
