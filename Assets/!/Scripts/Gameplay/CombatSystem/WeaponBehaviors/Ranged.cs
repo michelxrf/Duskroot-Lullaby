@@ -5,7 +5,6 @@ public class Ranged : WeaponBehavior
     public override void Execute()
     {
         base.Execute();
-        animator.SetTrigger("Attack");
     }
 
     public override void ImpactFrame()

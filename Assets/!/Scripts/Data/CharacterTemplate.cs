@@ -8,6 +8,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Character Template", menuName = "Scriptable Objects/Character Template")]
 public class CharacterTemplate : EntityTemplate
 {
+    public Avatar characterAvatar;
     public int Experience;
     public Sprite characterPortrait;
     public GameObject characterModel;

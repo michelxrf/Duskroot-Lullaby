@@ -21,4 +21,5 @@ MonoBehaviour:
   rigthHanded: 1
   behavior: Melee
   projectilePrefab: {fileID: 0}
+  weaponModelName: LongSword
   weaponAudioType: unarmed

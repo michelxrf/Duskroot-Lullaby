@@ -14,11 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WeaponData
   baseDamage: 5
   knockbackForce: 5
-  animationController: {fileID: 9100000, guid: a7f2e02577517c941be39277a11d1f9e, type: 2}
+  animationController: {fileID: 9100000, guid: 8b073340a3fefa2468b60b0bbe2326d2, type: 2}
   weaponModel: {fileID: 0}
   hitboxRadius: 0.1
   vfxPrefab: {fileID: 0}
   rigthHanded: 0
   behavior: Ranged
   projectilePrefab: {fileID: 7150761404812699573, guid: d99204c4c624e5c4c9d6a9f87df2e59c, type: 3}
+  weaponModelName: Slingshot
   weaponAudioType: unarmed

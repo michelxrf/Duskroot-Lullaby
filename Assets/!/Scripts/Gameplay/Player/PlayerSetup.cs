@@ -12,7 +12,8 @@ public class PlayerSetup : NetworkBehaviour
     [SerializeField] Quaternion cameraRotation = Quaternion.Euler(45f, 0f, 0f);
     [Networked] public string characterId { get => default; set { } }
     [Networked] public string currentWeapon { get => default; set { } }
-    [SerializeField] GameObject characterModel;
+    
+    [SerializeField] GameObject[] characterModels;
 
     public override void Spawned()
     {
@@ -37,14 +38,15 @@ public class PlayerSetup : NetworkBehaviour
         playerCamera.GetComponent<FlyCamera>().target = transform;
     }
 
-    [Rpc(RpcSources.All, RpcTargets.StateAuthority)]
+    [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
     public void RPC_LoadCharacterModel()
     {
-        characterModel = CharacterDataManager.Instance.GetCharacterModel(characterId);
-        if (characterModel == null)
-            return;
-
-        Instantiate(characterModel, transform);
+        foreach (var model in characterModels)
+        {
+            model.SetActive(model.name == characterId);
+        }
+        
+        GetComponent<Animator>().avatar = CharacterDataManager.Instance.GetCharacterAvatar(characterId);
     }
 
 

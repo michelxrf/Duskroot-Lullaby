@@ -27,16 +27,16 @@ namespace CombatSystem
     public class PlayerAttack : NetworkBehaviour
     {
         [SerializeField] Transform hitboxCenter;
-        [SerializeField] Transform rightHand;
-        [SerializeField] Transform leftHand;
         [SerializeField] InputButton assignedButton;
         [SerializeField] WeaponData defaultWeapon;
+
+        [SerializeField] GameObject[] weaponModels;
 
         WeaponData currentWeapon;
         WeaponBehavior weaponBehavior;
         CharacterLook characterLook;
         Animator animator;
-        GameObject equippedWeaponModel;
+
         bool lastAttack = false; // to make it so attack only triggers on button down
 
         public override void FixedUpdateNetwork()
@@ -80,7 +80,7 @@ namespace CombatSystem
             animator = GetComponentInChildren<Animator>();
             characterLook = GetComponent<CharacterLook>();
 
-            if(HasInputAuthority)
+            if(HasStateAuthority)
                 EquipWeapon(CharacterDataManager.Instance.GetCurrentPlayerCharacter().weapon);
         }
 
@@ -99,14 +99,8 @@ namespace CombatSystem
             }
 
             currentWeapon = newWeapon;
-            if (equippedWeaponModel != null)
-                Destroy(equippedWeaponModel);
 
-            if (currentWeapon.weaponModel != null)
-            {
-                Transform hand = newWeapon.rigthHanded ? rightHand : leftHand;
-                GameObject model = Instantiate(currentWeapon.weaponModel, hand);
-            }
+            RPC_UpdateWeaponModel();
 
             animator.runtimeAnimatorController = currentWeapon.animationController;
 
@@ -119,16 +113,36 @@ namespace CombatSystem
         /// <summary>
         /// RPC to play the weapon equip animation across all network clients.
         /// </summary>
-        [Rpc(RpcSources.InputAuthority, RpcTargets.All)]
+        [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
         void RPC_PlayEquipAnimation()
         {
             animator.SetTrigger("Equip");
         }
 
         /// <summary>
+        /// RPC to update the weapon model across all network clients.
+        /// </summary>
+        [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
+        void RPC_UpdateWeaponModel()
+        {
+            foreach (var model in weaponModels)
+            {
+                if(currentWeapon == null)
+                {
+                    model.SetActive(false);
+                }
+                else
+                {
+                    model.SetActive(model.name == currentWeapon.weaponModelName);
+                }
+                
+            }
+        }
+
+        /// <summary>
         /// RPC to execute the current weapon's attack across all network clients.
         /// </summary>
-        [Rpc(RpcSources.InputAuthority, RpcTargets.StateAuthority)]
+        [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
         void RPC_ExecuteAttack()
         {
             weaponBehavior.Execute();

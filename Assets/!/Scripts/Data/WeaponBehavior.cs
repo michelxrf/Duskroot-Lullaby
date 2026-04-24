@@ -22,6 +22,7 @@ public class WeaponBehavior : NetworkBehaviour
     {
         if (isOnCooldown) return;
 
+        animator?.SetTrigger("Attack");
         StartCoroutine(StartCooldown(1/(CharacterDataManager.Instance.GetCurrentPlayerCharacter().attackSpeed)));
     }
 

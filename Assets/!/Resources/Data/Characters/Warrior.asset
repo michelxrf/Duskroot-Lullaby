@@ -27,6 +27,7 @@ MonoBehaviour:
   speedUpgradePerLevel: 1
   attackSpeedUpgradePerLevel: 0
   cureUpgradePerLevel: 0
+  characterAvatar: {fileID: 9000000, guid: 64c545c6e2bcd1e48991c7160038c7a2, type: 3}
   Experience: 0
   characterPortrait: {fileID: 21300000, guid: cf6e1dab68a0d254a8c9d5ed438b7187, type: 3}
   characterModel: {fileID: 0}
