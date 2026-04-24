@@ -15,8 +15,12 @@ public class PlayerSetup : NetworkBehaviour
     
     [SerializeField] GameObject[] characterModels;
 
+    Animator animator;
+
     public override void Spawned()
     {
+        animator = GetComponent<Animator>();
+
         Debug.Log("Player Spawned");
 
         if (HasStateAuthority)
@@ -29,15 +33,6 @@ public class PlayerSetup : NetworkBehaviour
         }
     }
 
-    /// <summary>
-    /// [OBSOLETE] Initializes simple camera folloing player
-    /// </summary>
-    private void SetupFlyCamera()
-    {
-        playerCamera = Camera.main;
-        playerCamera.GetComponent<FlyCamera>().target = transform;
-    }
-
     [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
     public void RPC_LoadCharacterModel()
     {
@@ -46,7 +41,7 @@ public class PlayerSetup : NetworkBehaviour
             model.SetActive(model.name == characterId);
         }
         
-        GetComponent<Animator>().avatar = CharacterDataManager.Instance.GetCharacterAvatar(characterId);
+        animator.avatar = CharacterDataManager.Instance.GetCharacterAvatar(characterId);
     }
 
 

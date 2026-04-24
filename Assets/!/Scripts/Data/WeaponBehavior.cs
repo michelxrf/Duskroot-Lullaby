@@ -14,6 +14,11 @@ public class WeaponBehavior : NetworkBehaviour
     protected WeaponData weaponData;
     protected bool isOnCooldown = false;
 
+    public override void Spawned()
+    {
+        animator = GetComponent<Animator>();
+    }
+
     /// <summary>
     /// Executes the weapon's attack action if not on cooldown.
     /// Automatically handles cooldown management based on attack speed.
@@ -32,6 +37,7 @@ public class WeaponBehavior : NetworkBehaviour
     /// </summary>
     public virtual void ImpactFrame()
     {
+        if(!HasStateAuthority) return;
     }
 
     /// <summary>

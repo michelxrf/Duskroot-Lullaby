@@ -80,8 +80,7 @@ namespace CombatSystem
             animator = GetComponentInChildren<Animator>();
             characterLook = GetComponent<CharacterLook>();
 
-            if(HasStateAuthority)
-                EquipWeapon(CharacterDataManager.Instance.GetCurrentPlayerCharacter().weapon);
+            EquipWeapon(CharacterDataManager.Instance.GetCurrentPlayerCharacter().weapon);
         }
 
         /// <summary>
@@ -100,13 +99,16 @@ namespace CombatSystem
 
             currentWeapon = newWeapon;
 
-            RPC_UpdateWeaponModel();
+            if(HasStateAuthority)
+            {
+                // Initialize weapon behavior on state authority
+                weaponBehavior = WeaponBehaviorFactory.CreateBehavior(currentWeapon.behavior, gameObject);
+                weaponBehavior.Initialize(hitboxCenter, animator, gameObject, currentWeapon);
 
-            animator.runtimeAnimatorController = currentWeapon.animationController;
+                RPC_EquipWeaponSync(currentWeapon.name);
+                RPC_PlayEquipAnimation();
+            }
 
-            weaponBehavior = WeaponBehaviorFactory.CreateBehavior(currentWeapon.behavior, gameObject);
-            weaponBehavior.Initialize(hitboxCenter, animator, gameObject, currentWeapon);
-            RPC_PlayEquipAnimation();
             GetComponent<PlayerSetup>().SetCurrentWeapon(currentWeapon.name);
         }
 
@@ -116,26 +118,37 @@ namespace CombatSystem
         [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
         void RPC_PlayEquipAnimation()
         {
-            animator.SetTrigger("Equip");
+            animator?.SetTrigger("Equip");
         }
 
         /// <summary>
-        /// RPC to update the weapon model across all network clients.
+        /// RPC to synchronize weapon equipping across all network clients.
         /// </summary>
         [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
-        void RPC_UpdateWeaponModel()
+        void RPC_EquipWeaponSync(string weaponName)
         {
+            WeaponData syncedWeapon = currentWeapon;
+
+            // Non-authority clients need to load the weapon data by name
+            if (!HasStateAuthority)
+            {
+                syncedWeapon = Resources.Load<WeaponData>($"Data/Weapons/Player/{weaponName}");
+                if (syncedWeapon == null)
+                {
+                    return;
+                }
+                currentWeapon = syncedWeapon;
+
+                // Initialize weapon behavior on non-authority clients with the synced weapon
+                weaponBehavior = WeaponBehaviorFactory.CreateBehavior(currentWeapon.behavior, gameObject);
+                weaponBehavior.Initialize(hitboxCenter, animator, gameObject, currentWeapon);
+            }
+
+            animator.runtimeAnimatorController = syncedWeapon.animationController;
+
             foreach (var model in weaponModels)
             {
-                if(currentWeapon == null)
-                {
-                    model.SetActive(false);
-                }
-                else
-                {
-                    model.SetActive(model.name == currentWeapon.weaponModelName);
-                }
-                
+                model.SetActive(model.name == syncedWeapon.weaponModelName);
             }
         }
 
@@ -145,7 +158,7 @@ namespace CombatSystem
         [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
         void RPC_ExecuteAttack()
         {
-            weaponBehavior.Execute();
+            weaponBehavior.Execute();            
         }
     }
 }
