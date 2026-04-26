@@ -3315,7 +3315,7 @@ PrefabInstance:
     - target: {fileID: -5101391689730037859, guid: 0cc26b293f5af75489e15d8df5c36eaf, type: 3}
       propertyPath: rayOrigin
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 7059798531045431466}
     - target: {fileID: -3898083174918665811, guid: 0cc26b293f5af75489e15d8df5c36eaf, type: 3}
       propertyPath: deathEvent.Path
       value: event:/SFX/Death
