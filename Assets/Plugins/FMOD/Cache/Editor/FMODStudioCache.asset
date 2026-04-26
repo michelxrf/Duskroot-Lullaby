@@ -42,7 +42,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/UI.bank
   Name: UI
   StudioPath: bank:/UI
-  lastModified: 639125587493368473
+  lastModified: 639128055667094434
   FileSizes: []
   Exists: 1
 --- !u!114 &-8367727226860854883
@@ -195,10 +195,10 @@ MonoBehaviour:
   Path: Assets/BuildFmod/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639125587492037019
+  lastModified: 639128055664018862
   FileSizes:
   - Name: 
-    Value: 2550
+    Value: 2714
   Exists: 1
 --- !u!114 &-5585231732702700504
 MonoBehaviour:
@@ -399,7 +399,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639125587492016924
+  lastModified: 639128055663998865
   FileSizes: []
   Exists: 1
 --- !u!114 &-1951550172158635668
@@ -444,7 +444,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/Ambiences.bank
   Name: Ambiences
   StudioPath: bank:/Ambiences
-  lastModified: 639125587491544317
+  lastModified: 639128055663511833
   FileSizes: []
   Exists: 1
 --- !u!114 &-889159557125566879
@@ -489,7 +489,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/MUS.bank
   Name: MUS
   StudioPath: bank:/MUS
-  lastModified: 639125587492442698
+  lastModified: 639128055664550929
   FileSizes: []
   Exists: 1
 --- !u!114 &11400000
@@ -536,12 +536,15 @@ MonoBehaviour:
   - {fileID: 1458336319262921463}
   - {fileID: -5015670364790179929}
   - {fileID: 8916736406095576479}
+  - {fileID: 4566672056501454486}
+  - {fileID: 7083311882893442645}
+  - {fileID: 5670318433886368901}
   EditorParameters: []
   MasterBanks:
   - {fileID: -2002388166983340450}
   StringsBanks:
   - {fileID: -6222608089242677881}
-  cacheTime: 639125587493368473
+  cacheTime: 639128055667094434
   cacheVersion: 131635
 --- !u!114 &1021075846966187511
 MonoBehaviour:
@@ -558,7 +561,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 639125587493126431
+  lastModified: 639128055666820263
   FileSizes: []
   Exists: 1
 --- !u!114 &1458336319262921463
@@ -830,6 +833,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &4566672056501454486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/CutSceneLevel1/MagicDesapear
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/CutSceneLevel1/MagicDesapear
+  Guid:
+    Data1: 76866580
+    Data2: 1167062654
+    Data3: 1675693442
+    Data4: 435072224
+  Banks:
+  - {fileID: 1021075846966187511}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 4500
 --- !u!114 &5457631662647093695
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -858,6 +888,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 30
   Length: 0
+--- !u!114 &5670318433886368901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/CutSceneLevel1/MagneticStone
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/CutSceneLevel1/MagneticStone
+  Guid:
+    Data1: 1689827321
+    Data2: 1293383774
+    Data3: -1064430410
+    Data4: -572505011
+  Banks:
+  - {fileID: 1021075846966187511}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 27900
 --- !u!114 &6036602874811187708
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -873,7 +930,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/Interactions.bank
   Name: Interactions
   StudioPath: bank:/Interactions
-  lastModified: 639125587491746343
+  lastModified: 639128055663757595
   FileSizes: []
   Exists: 1
 --- !u!114 &6267172118088883810
@@ -904,6 +961,33 @@ MonoBehaviour:
   - Girl
   - Boy
   Exists: 1
+--- !u!114 &7083311882893442645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/CutSceneLevel1/GateLevel1
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/CutSceneLevel1/GateLevel1
+  Guid:
+    Data1: 656683798
+    Data2: 1169038058
+    Data3: 2116797086
+    Data4: 128311715
+  Banks:
+  - {fileID: 1021075846966187511}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 5382
 --- !u!114 &7187516529545839429
 MonoBehaviour:
   m_ObjectHideFlags: 0
