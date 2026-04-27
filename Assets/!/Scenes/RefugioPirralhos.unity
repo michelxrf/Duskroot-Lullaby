@@ -3018,7 +3018,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 262748255061967793, guid: 6e0afd1962596c249a5fd0a7a29773b2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1735342886}
   m_SourcePrefab: {fileID: 100100000, guid: 6e0afd1962596c249a5fd0a7a29773b2, type: 3}
 --- !u!114 &293508425 stripped
 MonoBehaviour:
@@ -8548,6 +8551,8 @@ PlayableDirector:
     value: {fileID: 1544782187}
   - key: {fileID: -2797725299906792771, guid: b2322d1c4601dd048bc3181544baf37a, type: 2}
     value: {fileID: 361828880}
+  - key: {fileID: -1534521097022298101, guid: b2322d1c4601dd048bc3181544baf37a, type: 2}
+    value: {fileID: 1735342886}
   m_ExposedReferences:
     m_References:
     - 89fdc2d744dcaa1478a21697815190ac: {fileID: 2123118715}
@@ -15947,6 +15952,67 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5579394250124113433, guid: fb2b2ff6da2b2ca4d9f3a07a77e49524, type: 3}
   m_PrefabInstance: {fileID: 1729840368}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1735342883 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 262748255061967793, guid: 6e0afd1962596c249a5fd0a7a29773b2, type: 3}
+  m_PrefabInstance: {fileID: 293508424}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1735342885 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3587860634696901118, guid: 6e0afd1962596c249a5fd0a7a29773b2, type: 3}
+  m_PrefabInstance: {fileID: 293508424}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1735342883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e6fc0ea0b83b59459b0164768b8d8cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FollowPlayerPosition
+--- !u!114 &1735342886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1735342883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Timeline::UnityEngine.Timeline.SignalReceiver
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: e2361522034777d42ad95011defbd20c, type: 2}
+    - {fileID: 11400000, guid: 89f34613d29a69441931f700268e6879, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1735342885}
+          m_TargetAssemblyTypeName: FollowPlayerPosition, Assembly-CSharp
+          m_MethodName: EnterCutscene
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1735342885}
+          m_TargetAssemblyTypeName: FollowPlayerPosition, Assembly-CSharp
+          m_MethodName: ExitCutscene
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1001 &1737518527
 PrefabInstance:
   m_ObjectHideFlags: 0
