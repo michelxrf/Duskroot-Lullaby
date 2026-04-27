@@ -5623,7 +5623,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6544059506225348736, guid: ab127aaace8d88a4f8821f3ec28ece1e, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6788459901955520546, guid: ab127aaace8d88a4f8821f3ec28ece1e, type: 3}
       propertyPath: m_ApplyRootMotion
