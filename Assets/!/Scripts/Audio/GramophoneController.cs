@@ -7,13 +7,13 @@ using UnityEngine.InputSystem;
 public class GramophoneController : MonoBehaviour
 {
     [Header("FMOD Events")]
-    [SerializeField] private EventReference gramophoneEvent; // 3D
-    [SerializeField] private EventReference music2DEvent;    // 2D
+    [SerializeField] private EventReference gramophoneOff; //desliga Gramofone
+    [SerializeField] private EventReference musicGramophone;    // 2D
     [SerializeField] private GameObject cameraGramophone;
     [SerializeField] GameObject interactionTooltip;
 
-    private EventInstance gramophoneInstance;
-    private EventInstance music2DInstance;
+    private EventInstance musicInstance;
+    private EventInstance gramophoneOffInstance;
 
     private bool playerInside = false;
 
@@ -28,8 +28,14 @@ public class GramophoneController : MonoBehaviour
     private void Start()
     {
         MusicManager.instance.StopMusic();
-        gramophoneInstance = RuntimeManager.CreateInstance(gramophoneEvent);
-        RuntimeManager.AttachInstanceToGameObject(gramophoneInstance, transform);
+        musicInstance = RuntimeManager.CreateInstance(musicGramophone);
+        RuntimeManager.AttachInstanceToGameObject(musicInstance, transform);
+
+        gramophoneOffInstance = RuntimeManager.CreateInstance(gramophoneOff);
+        RuntimeManager.AttachInstanceToGameObject(gramophoneOffInstance, transform);
+        
+        currentState = State.Off;
+
         interactionTooltip.SetActive(false);
     }
 
@@ -61,54 +67,35 @@ public class GramophoneController : MonoBehaviour
     private void StartGramophoneLoop()
     {
 
-        gramophoneInstance.setParameterByName("Gramophone", 0);
-        gramophoneInstance.start();
+        musicInstance.setParameterByName("radioEffect", 1);
+        musicInstance.start();
 
         currentState = State.GramophoneLoop;
     }
 
     private void StopGramophoneAndStart2D()
     {
-        StartCoroutine(WaitForGramophoneToStop());
-    }
-
-    private IEnumerator WaitForGramophoneToStop()
-    {
-        if (gramophoneInstance.isValid())
-        {
-            gramophoneInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-
-            PLAYBACK_STATE state;
-
-            do
-            {
-                gramophoneInstance.getPlaybackState(out state);
-                yield return null;
-            }
-            while (state != PLAYBACK_STATE.STOPPED);
-
-            //gramophoneInstance.release();
-        }
-        music2DInstance = RuntimeManager.CreateInstance(music2DEvent);
-        music2DInstance.start();
-
+        musicInstance.setParameterByName("radioEffect", 0);
         currentState = State.Music2DLoop;
     }
+
     private void StopMusic2DAndPlayTurnOff()
     {
-        if (music2DInstance.isValid())
+        if (musicInstance.isValid())
         {
-            music2DInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-            music2DInstance.release();
+            musicInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+            //musicInstance.release();
         }
+        PlayTurnOff();
+        
+    }
 
-        //gramophoneInstance = RuntimeManager.CreateInstance(gramophoneEvent);
-        //RuntimeManager.AttachInstanceToGameObject(gramophoneInstance, transform);
-
-        gramophoneInstance.setParameterByName("Gramophone", 2);
-        gramophoneInstance.start();
-
+    private void PlayTurnOff()
+    {
+        musicInstance.setParameterByName("radioEffect", 1);
+        gramophoneOffInstance.start();
         currentState = State.Off;
+
     }
 
     private void OnTriggerEnter(Collider other)
@@ -140,16 +127,16 @@ public class GramophoneController : MonoBehaviour
     
     private void OnDestroy()
     {
-        if (gramophoneInstance.isValid())
+        if (gramophoneOffInstance.isValid())
         {
-            gramophoneInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
-            gramophoneInstance.release();
+            gramophoneOffInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+            gramophoneOffInstance.release();
         }
 
-        if (music2DInstance.isValid())
+        if (musicInstance.isValid())
         {
-            music2DInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
-            music2DInstance.release();
+            musicInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+            musicInstance.release();
         }
     }
 }
