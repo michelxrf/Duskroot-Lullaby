@@ -69,7 +69,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/UI.bank
   Name: UI
   StudioPath: bank:/UI
-  lastModified: 639128210036750164
+  lastModified: 639128374402246349
   FileSizes: []
   Exists: 1
 --- !u!114 &-8367727226860854883
@@ -222,10 +222,10 @@ MonoBehaviour:
   Path: Assets/BuildFmod/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639128210032801630
+  lastModified: 639128374400940633
   FileSizes:
   - Name: 
-    Value: 2760
+    Value: 2848
   Exists: 1
 --- !u!114 &-5585231732702700504
 MonoBehaviour:
@@ -383,6 +383,33 @@ MonoBehaviour:
   IsGlobal: 0
   Labels: []
   Exists: 1
+--- !u!114 &-3110766018347598689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/CutSceneLevel1/GateLevel1_R
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/CutSceneLevel1/GateLevel1_R
+  Guid:
+    Data1: -1023120701
+    Data2: 1135475041
+    Data3: 858725786
+    Data4: 1808874834
+  Banks:
+  - {fileID: 1021075846966187511}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 5381
 --- !u!114 &-2860029886560960806
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -426,7 +453,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639128210032781582
+  lastModified: 639128374400915671
   FileSizes: []
   Exists: 1
 --- !u!114 &-1951550172158635668
@@ -471,7 +498,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/Ambiences.bank
   Name: Ambiences
   StudioPath: bank:/Ambiences
-  lastModified: 639128210032225164
+  lastModified: 639128374400471882
   FileSizes: []
   Exists: 1
 --- !u!114 &-889159557125566879
@@ -516,7 +543,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/MUS.bank
   Name: MUS
   StudioPath: bank:/MUS
-  lastModified: 639128210033595414
+  lastModified: 639128374401337466
   FileSizes: []
   Exists: 1
 --- !u!114 &11400000
@@ -567,12 +594,14 @@ MonoBehaviour:
   - {fileID: 7083311882893442645}
   - {fileID: 5670318433886368901}
   - {fileID: -8838129313477245937}
+  - {fileID: 1236411300488214019}
+  - {fileID: -3110766018347598689}
   EditorParameters: []
   MasterBanks:
   - {fileID: -2002388166983340450}
   StringsBanks:
   - {fileID: -6222608089242677881}
-  cacheTime: 639128210036750164
+  cacheTime: 639128374402246349
   cacheVersion: 131635
 --- !u!114 &1021075846966187511
 MonoBehaviour:
@@ -589,9 +618,36 @@ MonoBehaviour:
   Path: Assets/BuildFmod/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 639128210036249288
+  lastModified: 639128374402030721
   FileSizes: []
   Exists: 1
+--- !u!114 &1236411300488214019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/CutSceneLevel1/GateLevel1_L
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/CutSceneLevel1/GateLevel1_L
+  Guid:
+    Data1: 1189695516
+    Data2: 1251825231
+    Data3: 1647909259
+    Data4: 1198132117
+  Banks:
+  - {fileID: 1021075846966187511}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 5382
 --- !u!114 &1458336319262921463
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -886,7 +942,7 @@ MonoBehaviour:
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
-  MaxDistance: 20
+  MaxDistance: 40
   Length: 4500
 --- !u!114 &5457631662647093695
 MonoBehaviour:
@@ -958,7 +1014,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/Interactions.bank
   Name: Interactions
   StudioPath: bank:/Interactions
-  lastModified: 639128210032530934
+  lastModified: 639128374400683175
   FileSizes: []
   Exists: 1
 --- !u!114 &6267172118088883810
