@@ -69,7 +69,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/UI.bank
   Name: UI
   StudioPath: bank:/UI
-  lastModified: 639128374402246349
+  lastModified: 639128987097376728
   FileSizes: []
   Exists: 1
 --- !u!114 &-8367727226860854883
@@ -99,6 +99,30 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 16000
+--- !u!114 &-8330409402843811573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Mus_level2_v2/radioEffect
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorParamRef
+  Name: radioEffect
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 1
+  ID:
+    data1: 2208433534
+    data2: 4266129935
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
 --- !u!114 &-8223440571746194192
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -222,10 +246,10 @@ MonoBehaviour:
   Path: Assets/BuildFmod/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639128374400940633
+  lastModified: 639128987093423684
   FileSizes:
   - Name: 
-    Value: 2848
+    Value: 2980
   Exists: 1
 --- !u!114 &-5585231732702700504
 MonoBehaviour:
@@ -438,6 +462,34 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-2676139526915791825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/MUS/Mus_level2_v2
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/MUS/Mus_level2_v2
+  Guid:
+    Data1: 1650927536
+    Data2: 1248170273
+    Data3: -527158632
+    Data4: -243100716
+  Banks:
+  - {fileID: -616154530178873512}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: -8330409402843811573}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 153600
 --- !u!114 &-2002388166983340450
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -453,7 +505,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639128374400915671
+  lastModified: 639128987093413611
   FileSizes: []
   Exists: 1
 --- !u!114 &-1951550172158635668
@@ -498,7 +550,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/Ambiences.bank
   Name: Ambiences
   StudioPath: bank:/Ambiences
-  lastModified: 639128374400471882
+  lastModified: 639128987092778780
   FileSizes: []
   Exists: 1
 --- !u!114 &-889159557125566879
@@ -543,7 +595,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/MUS.bank
   Name: MUS
   StudioPath: bank:/MUS
-  lastModified: 639128374401337466
+  lastModified: 639128987094265735
   FileSizes: []
   Exists: 1
 --- !u!114 &11400000
@@ -596,12 +648,14 @@ MonoBehaviour:
   - {fileID: -8838129313477245937}
   - {fileID: 1236411300488214019}
   - {fileID: -3110766018347598689}
+  - {fileID: -2676139526915791825}
+  - {fileID: 6316104198674887649}
   EditorParameters: []
   MasterBanks:
   - {fileID: -2002388166983340450}
   StringsBanks:
   - {fileID: -6222608089242677881}
-  cacheTime: 639128374402246349
+  cacheTime: 639128987097376728
   cacheVersion: 131635
 --- !u!114 &1021075846966187511
 MonoBehaviour:
@@ -618,7 +672,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 639128374402030721
+  lastModified: 639128987097038524
   FileSizes: []
   Exists: 1
 --- !u!114 &1236411300488214019
@@ -1014,7 +1068,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/Interactions.bank
   Name: Interactions
   StudioPath: bank:/Interactions
-  lastModified: 639128374400683175
+  lastModified: 639128987093137392
   FileSizes: []
   Exists: 1
 --- !u!114 &6267172118088883810
@@ -1045,6 +1099,33 @@ MonoBehaviour:
   - Girl
   - Boy
   Exists: 1
+--- !u!114 &6316104198674887649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Gramophone_Off
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/Gramophone_Off
+  Guid:
+    Data1: -140897557
+    Data2: 1339364545
+    Data3: 1380818851
+    Data4: 1829885202
+  Banks:
+  - {fileID: 1021075846966187511}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 488
 --- !u!114 &7083311882893442645
 MonoBehaviour:
   m_ObjectHideFlags: 0

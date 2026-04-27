@@ -26944,20 +26944,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce68aa1ffac2f3642bc146352d2742ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GramophoneController
-  gramophoneEvent:
+  gramophoneOff:
     Guid:
-      Data1: -261433115
-      Data2: 1256235653
-      Data3: 1567216532
-      Data4: -481367743
-    Path: event:/SFX/Gramophone
-  music2DEvent:
+      Data1: -140897557
+      Data2: 1339364545
+      Data3: 1380818851
+      Data4: 1829885202
+    Path: event:/SFX/Gramophone_Off
+  musicGramophone:
     Guid:
-      Data1: -2142337213
-      Data2: 1304375185
-      Data3: -7238739
-      Data4: 841783408
-    Path: event:/MUS/Mus_level2
+      Data1: 1650927536
+      Data2: 1248170273
+      Data3: -527158632
+      Data4: -243100716
+    Path: event:/MUS/Mus_level2_v2
   cameraGramophone: {fileID: 1069668022}
   interactionTooltip: {fileID: 660097573}
 --- !u!65 &1880421297
