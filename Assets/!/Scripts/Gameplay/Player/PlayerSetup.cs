@@ -1,3 +1,4 @@
+using CombatSystem;
 using Fusion;
 using Unity.Cinemachine;
 using UnityEngine;
@@ -84,5 +85,19 @@ public class PlayerSetup : NetworkBehaviour
     public void SetCurrentWeapon(string weaponName)
     {
         currentWeapon = weaponName;
+    }
+
+    public void EnablePlayerControls(bool newState)
+    {
+        RPC_EnablePlayer(newState);
+    }
+
+    [Rpc(RpcSources.All, RpcTargets.StateAuthority)]
+    public void RPC_EnablePlayer(bool newState)
+    {
+        GetComponent<PlayerMovement>().enabled = newState;
+        GetComponent<PlayerAttack>().enabled = newState;
+        GetComponent<CharacterLook>().enabled = newState;
+        GetComponent<PlayerInteractor>().enabled = newState;
     }
 }
