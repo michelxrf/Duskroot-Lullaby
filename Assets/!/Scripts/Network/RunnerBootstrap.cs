@@ -71,6 +71,12 @@ public class RunnerBootstrap : MonoBehaviour, INetworkRunnerCallbacks
         });
     }
 
+    public void LoadScene(string sceneName)
+    {
+        if(Runner.IsSharedModeMasterClient)
+            Runner.LoadScene(sceneName);
+    }
+
     void INetworkRunnerCallbacks.OnObjectExitAOI(NetworkRunner runner, NetworkObject obj, PlayerRef player) { }
 
     void INetworkRunnerCallbacks.OnObjectEnterAOI(NetworkRunner runner, NetworkObject obj, PlayerRef player) { }

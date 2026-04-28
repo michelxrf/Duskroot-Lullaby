@@ -2,47 +2,74 @@ using UnityEngine;
 
 public class FollowPlayerPosition : MonoBehaviour
 {
-    private Transform target;
-    private bool rotationInitialized = false;
+    private Transform playerTarget;
+    private Camera mainCamera;
 
-    [Header("Offset do Listener")]
+    [Header("Offset Gameplay")]
     public Vector3 offset = new Vector3(0, 1.6f, 0);
 
-    void Update()
+    private bool isInCutscene = false;
+
+    void LateUpdate()
     {
-        if (target == null)
+        if (mainCamera == null)
+            mainCamera = Camera.main;
+
+        if (isInCutscene)
+        {
+            FollowCamera();
+        }
+        else
+        {
+            FollowPlayer();
+        }
+    }
+
+    void FollowPlayer()
+    {
+        if (playerTarget == null)
         {
             FindLocalPlayer();
             return;
         }
 
-        transform.position = target.position + offset;
+        transform.position = playerTarget.position + offset;
 
-        if (!rotationInitialized)
+        if (mainCamera != null)
         {
-            transform.rotation = target.rotation;
-            rotationInitialized = true;
+            transform.rotation = mainCamera.transform.rotation;
         }
+    }
+
+    void FollowCamera()
+    {
+        if (mainCamera == null) return;
+
+        transform.position = mainCamera.transform.position;
+        transform.rotation = mainCamera.transform.rotation;
     }
 
     void FindLocalPlayer()
     {
         PlayerSetup[] players = FindObjectsByType<PlayerSetup>(FindObjectsSortMode.None);
-        Debug.Log("Procurando player");
+
         foreach (var player in players)
         {
             if (player.IsLocalPlayer())
             {
-                target = player.transform;
+                playerTarget = player.transform;
                 break;
             }
         }
     }
 
-    public void SetTarget(Transform newTarget)
+    public void EnterCutscene()
     {
-        target = newTarget;
-        transform.rotation = newTarget.rotation;
-        rotationInitialized = true;
+        isInCutscene = true;
+    }
+
+    public void ExitCutscene()
+    {
+        isInCutscene = false;
     }
 }

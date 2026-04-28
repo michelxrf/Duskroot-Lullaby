@@ -85,6 +85,7 @@ public class Knockback : NetworkBehaviour
             GetComponent<PlayerMovement>().enabled = newState;
             GetComponent<PlayerAttack>().enabled = newState;
             GetComponent<CharacterLook>().enabled = newState;
+            GetComponent<PlayerInteractor>().enabled = newState;
         }
         else if (entityType == EntityType.Enemy)
         {

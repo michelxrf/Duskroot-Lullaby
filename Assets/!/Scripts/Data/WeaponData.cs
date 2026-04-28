@@ -16,6 +16,7 @@ public class WeaponData : ScriptableObject
     public bool rigthHanded = true;
     public string behavior;
     public GameObject projectilePrefab;
+    public string weaponModelName;
 
     public string weaponAudioType = "unarmed";
 }
