@@ -10747,6 +10747,8 @@ PlayableDirector:
     value: {fileID: 1735342886}
   - key: {fileID: -5925910704734043583, guid: b2322d1c4601dd048bc3181544baf37a, type: 2}
     value: {fileID: 408187843}
+  - key: {fileID: -7465710671869769614, guid: b2322d1c4601dd048bc3181544baf37a, type: 2}
+    value: {fileID: 1342134314}
   m_ExposedReferences:
     m_References:
     - 89fdc2d744dcaa1478a21697815190ac: {fileID: 2123118715}
@@ -10763,6 +10765,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1342134316}
   - {fileID: 2123118714}
   - {fileID: 1692913604}
   - {fileID: 589398427}
@@ -15514,6 +15517,81 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6302772272124599505, guid: 8b2f7789077f69f458e3919626d6ea22, type: 3}
   m_PrefabInstance: {fileID: 1298822883}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1342134313
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1342134316}
+  - component: {fileID: 1342134315}
+  - component: {fileID: 1342134314}
+  m_Layer: 0
+  m_Name: EnableAllPlayers
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1342134314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1342134313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Timeline::UnityEngine.Timeline.SignalReceiver
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: d6b2ce3cfadd6274ab7c417f2ef15bfe, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1342134315}
+          m_TargetAssemblyTypeName: EnableAllPlayers, Assembly-CSharp
+          m_MethodName: EnableAll
+          m_Mode: 6
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &1342134315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1342134313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7447e36eaff86ad4c8436d85d0293b95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnableAllPlayers
+--- !u!4 &1342134316
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1342134313}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 13.20661, y: 6.52273, z: 87.36362}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 746512501}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1345364588 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1852576806548013000, guid: 64c545c6e2bcd1e48991c7160038c7a2, type: 3}
