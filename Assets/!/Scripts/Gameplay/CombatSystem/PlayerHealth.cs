@@ -1,13 +1,20 @@
 using CombatSystem;
+using Fusion;
 using UnityEngine;
 
 namespace CombatSystem
 {
     public class PlayerHealth : Health
     {
+        [Header("References")]
+        [SerializeField] GameObject playerVisual;
+
+        MatchStateManager matchStateManager;
+
         public override void Spawned()
         {
             base.Spawned();
+            matchStateManager = FindFirstObjectByType<MatchStateManager>();
 
             // player Init
             if (GetComponent<PlayerAttack>() != null)
@@ -26,20 +33,59 @@ namespace CombatSystem
 
         protected override void Die()
         {
-            GetComponent<PlayerAttack>().enabled = false;
-            GetComponent<PlayerMovement>().enabled = false;
-            GetComponent<CharacterLook>().enabled = false;
+            PlayerState(false);
+            SetVisualVisible(false);
 
-            base.Die();
+            animator?.SetTrigger("Die");
+            Knockback knockback = GetComponent<Knockback>();
+            if (knockback != null)
+                knockback.enabled = false;
+
+            if (matchStateManager == null)
+                matchStateManager = FindFirstObjectByType<MatchStateManager>();
+
+            if (HasStateAuthority && matchStateManager != null)
+                matchStateManager.NotifyPlayerDeath(this, transform.position);
+
+            OnDied?.Invoke();
         }
 
+        [Rpc(RpcSources.All, RpcTargets.StateAuthority)]
         public void RPC_Revive()
         {
-            GetComponent<PlayerAttack>().enabled = true;
-            GetComponent<PlayerMovement>().enabled = true;
-            GetComponent<CharacterLook>().enabled = true;
-            
+            RPC_PlayReviveVisuals();
             CurrentHealth = maxHealth / 4;
+        }
+
+        [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
+        void RPC_PlayReviveVisuals()
+        {
+            animator?.ResetTrigger("Die");
+            animator?.SetTrigger("Revive");
+
+            Knockback knockback = GetComponent<Knockback>();
+            if (knockback != null)
+                knockback.enabled = true;
+
+            PlayerState(true);
+            SetVisualVisible(true);
+        }
+
+        public override void Render()
+        {
+            base.Render();
+
+            // Keep character visual state in sync for every client.
+            bool isDead = IsDead();
+            SetVisualVisible(!isDead);
+        }
+
+        public PlayerRef GetPlayerRef()
+        {
+            if (Object == null || !Object.IsValid)
+                return PlayerRef.None;
+
+            return Object.InputAuthority;
         }
 
         public override void FixedUpdateNetwork()
@@ -56,6 +102,21 @@ namespace CombatSystem
                     }
                 }
             }
+        }
+
+        private void PlayerState(bool value)
+        {
+            GetComponent<PlayerAttack>().enabled = value;
+            GetComponent<PlayerMovement>().enabled = value;
+            GetComponent<CharacterLook>().enabled = value;
+        }
+
+        void SetVisualVisible(bool value)
+        {
+            if (playerVisual == null)
+                return;
+
+            playerVisual.SetActive(value);
         }
     }
 
