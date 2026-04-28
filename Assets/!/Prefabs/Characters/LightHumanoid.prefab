@@ -43,7 +43,6 @@ GameObject:
   - component: {fileID: 4600318904223632839}
   - component: {fileID: 2434287546428182507}
   - component: {fileID: 5047941619565158737}
-  - component: {fileID: 8841144572992706993}
   - component: {fileID: 5146181822706071163}
   - component: {fileID: 6023994505563687755}
   - component: {fileID: 822270101518877923}
@@ -134,26 +133,9 @@ MonoBehaviour:
   NestedObjects: []
   NetworkedBehaviours:
   - {fileID: 2434287546428182507}
-  - {fileID: 8841144572992706993}
   - {fileID: 6023994505563687755}
   - {fileID: 822270101518877923}
   ForceRemoteRenderTimeframe: 0
---- !u!114 &8841144572992706993
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7033562567166124364}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0148e2e55d649e14ebd9e34b6615804e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  destroyCorpseAfterSeconds: 20
-  _CurrentHealth: 0
-  characterType: 
 --- !u!95 &5146181822706071163
 Animator:
   serializedVersion: 7

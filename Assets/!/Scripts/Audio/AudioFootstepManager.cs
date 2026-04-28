@@ -27,7 +27,8 @@ public class AudioFootstepManager : MonoBehaviour
         Terra = 0,
         Grama = 1,
         Agua = 2,
-        Madeira = 3
+        Madeira = 3,
+        Carpet = 4
     }
 
     void Start()
@@ -74,10 +75,18 @@ public class AudioFootstepManager : MonoBehaviour
                 //Debug.Log("Terrain=" + GetTerrainTextureIndex(hit.point));
                 switch (textureIndex)
                 {
-                    case 0: return SurfaceType.Terra;
-                    case 1: return SurfaceType.Grama;
+                    case 0:
+                        //Debug.Log("terra");
+                        return SurfaceType.Terra;
+                    case 1:
+                        //Debug.Log("grama");
+                        return SurfaceType.Grama;
                     case 2: return SurfaceType.Agua;
-                    default: return SurfaceType.Grama;
+                    case 3: return SurfaceType.Madeira; 
+                    case 4: return SurfaceType.Carpet;
+                    default:
+                        //Debug.Log("default:grama");
+                        return SurfaceType.Grama;
                 }
             }
             else
@@ -86,10 +95,15 @@ public class AudioFootstepManager : MonoBehaviour
                 switch (hit.collider.tag)
                 {
                     case "Wood":
+                        //Debug.Log("Wood");
                         return SurfaceType.Madeira;
 
                     case "Water":
                         return SurfaceType.Agua;
+
+                    case "Carpet":
+                        //Debug.Log("Carpet");
+                        return SurfaceType.Carpet;
 
                     case "Ground":
                         return SurfaceType.Terra;

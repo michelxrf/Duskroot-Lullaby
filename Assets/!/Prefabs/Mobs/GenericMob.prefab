@@ -156,6 +156,7 @@ MonoBehaviour:
   Flags: 262145
   NestedObjects: []
   NetworkedBehaviours:
+  - {fileID: 6342174959456078684}
   - {fileID: 4880483843552604366}
   - {fileID: 7335472991312050460}
   - {fileID: 486131595494059013}
@@ -232,7 +233,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: daa3013d3817e824b89b519b755cbf8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Reward
-  experience: 1
+  experienceAmount: 0
+  dropItens: []
+  dropRates: []
+  chanceToDropItem: 0.1
 --- !u!114 &4880483843552604366
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -246,6 +250,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StateMachine
   initialState: {fileID: 0}
+  currentState: {fileID: 0}
 --- !u!114 &7335472991312050460
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -258,6 +263,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0148e2e55d649e14ebd9e34b6615804e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CombatSystem.Health
+  armor: 0
   maxHealth: 25
   destroyCorpseAfterSeconds: 20
   _CurrentHealth: 0

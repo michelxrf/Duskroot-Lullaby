@@ -12,7 +12,7 @@ using Fusion.Addons.SimpleKCC;
 public class Knockback : NetworkBehaviour
 {
     [SerializeField] float knockbackDuration = .25f;
-    [SerializeField] static float forceMultiplier = .2f; // static: will adjust for everyone
+    const float forceMultiplier = .5f;
 
     float knockbackTimer = 0f;
     Vector3 direction;
@@ -24,11 +24,13 @@ public class Knockback : NetworkBehaviour
         Enemy
     }
     EntityType entityType;
+    SimpleKCC characterController;
     public override void Spawned()
     {
         if (GetComponent<PlayerSetup>() != null)
         {
             entityType = EntityType.Player;
+            characterController = GetComponent<SimpleKCC>();
         }
         else if (GetComponent<EnemySetup>() != null)
         {
@@ -46,6 +48,8 @@ public class Knockback : NetworkBehaviour
         force = knockbackForce * forceMultiplier;
         direction = p_direction;
         knockbackTimer = knockbackDuration;
+
+
         EnableMovement(false);
     }
 
@@ -59,22 +63,32 @@ public class Knockback : NetworkBehaviour
         }
         else
         {
-            knockbackTimer -= Time.deltaTime;
-            transform.position += direction * force * Runner.DeltaTime;
+            knockbackTimer -= Runner.DeltaTime;
+
+            if (entityType == EntityType.Player && characterController != null)
+            {
+                characterController.Move(direction * force);
+            }
+            else
+            {
+                transform.position += direction * force * Runner.DeltaTime;
+            }
         }
     }
 
     void EnableMovement(bool newState)
     {
+        if(!HasStateAuthority) return;
+
         if (entityType == EntityType.Player)
         {
             GetComponent<PlayerMovement>().enabled = newState;
             GetComponent<PlayerAttack>().enabled = newState;
             GetComponent<CharacterLook>().enabled = newState;
+            GetComponent<PlayerInteractor>().enabled = newState;
         }
         else if (entityType == EntityType.Enemy)
         {
-            //GetComponent<SimpleKCC>().enabled = !newState;
             GetComponent<NavMeshAgent>().enabled = newState;
             GetComponent<StateMachine>().enabled = newState;
         }

@@ -14,7 +14,6 @@ public class Melee : WeaponBehavior
     public override void Execute()
     {
         base.Execute();
-        animator.SetTrigger("Attack");
     }
 
     /// <summary>

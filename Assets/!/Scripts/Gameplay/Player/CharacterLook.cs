@@ -36,6 +36,7 @@ public class CharacterLook : NetworkBehaviour
                     Debug.DrawLine(ray.origin, hitInfo.point, Color.red, 1f);
                     TakeControl(this);
                     RotateTo(lookingAt - transform.position, this);
+
                 }
             }
             else

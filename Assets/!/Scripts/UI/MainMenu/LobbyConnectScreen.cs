@@ -47,4 +47,5 @@ public class LobbyConnectScreen : UiScreen
     {
         connectButton.interactable = !string.IsNullOrEmpty(lobbyCodeInput.text);
     }
+
 }
