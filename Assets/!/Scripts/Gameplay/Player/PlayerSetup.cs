@@ -2,6 +2,7 @@ using CombatSystem;
 using Fusion;
 using Unity.Cinemachine;
 using UnityEngine;
+using System.Collections.Generic;
 
 
 /// <summary>
@@ -17,6 +18,8 @@ public class PlayerSetup : NetworkBehaviour
     [SerializeField] GameObject[] characterModels;
 
     Animator animator;
+
+    Dictionary<Renderer, bool> rendererStates = new Dictionary<Renderer, bool>();
 
     public override void Spawned()
     {
@@ -99,5 +102,42 @@ public class PlayerSetup : NetworkBehaviour
         GetComponent<PlayerAttack>().enabled = newState;
         GetComponent<CharacterLook>().enabled = newState;
         GetComponent<PlayerInteractor>().enabled = newState;
+        GetComponent<Knockback>().enabled = newState;
+        GetComponent<Animator>().enabled = newState;
+
+        if (newState)
+            RestorePlayerVisuals();
+        else HidePlayerVisuals();
+    }
+
+    void HidePlayerVisuals()
+    {
+        rendererStates.Clear();
+
+        SkinnedMeshRenderer[] skinnedMeshRenderers = GetComponentsInChildren<SkinnedMeshRenderer>();
+        foreach (SkinnedMeshRenderer renderer in skinnedMeshRenderers)
+        {
+            rendererStates[renderer] = renderer.enabled;
+            renderer.enabled = false;
+        }
+
+        MeshRenderer[] meshRenderers = GetComponentsInChildren<MeshRenderer>();
+        foreach (MeshRenderer renderer in meshRenderers)
+        {
+            rendererStates[renderer] = renderer.enabled;
+            renderer.enabled = false;
+        }
+    }
+
+    void RestorePlayerVisuals()
+    {
+        if (rendererStates.Count == 0)
+            return;
+
+        foreach (var rendererState in rendererStates)
+        {
+            rendererState.Key.enabled = rendererState.Value;
+        }
+        rendererStates.Clear();
     }
 }
