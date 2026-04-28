@@ -12948,7 +12948,7 @@ MonoBehaviour:
       Data2: 1146737146
       Data3: 129257914
       Data4: 2002844308
-    Path: event:/MUS/Mus_Level1
+    Path: event:/MUS/Mus_Level1/Mus_Level1
 --- !u!1 &1052110100
 GameObject:
   m_ObjectHideFlags: 0
@@ -17070,7 +17070,7 @@ MonoBehaviour:
       Data2: 1232056961
       Data3: -2002816594
       Data4: -1021394949
-    Path: event:/MUS/Mus_CutsceneLevel1
+    Path: event:/MUS/Mus_Level1/Mus_CutsceneLevel1
   Event: 
   EventPlayTrigger: 0
   EventStopTrigger: 0

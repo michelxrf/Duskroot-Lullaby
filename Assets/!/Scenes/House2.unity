@@ -11165,7 +11165,7 @@ MonoBehaviour:
       Data2: 1304375185
       Data3: -7238739
       Data4: 841783408
-    Path: event:/MUS/Mus_level2
+    Path: event:/MUS/Mus_Level2/Mus_level2
 --- !u!1001 &1373767072
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14958,20 +14958,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce68aa1ffac2f3642bc146352d2742ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GramophoneController
-  gramophoneEvent:
+  gramophoneOff:
     Guid:
-      Data1: -261433115
-      Data2: 1256235653
-      Data3: 1567216532
-      Data4: -481367743
-    Path: event:/SFX/Gramophone
-  music2DEvent:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  musicGramophone:
     Guid:
-      Data1: -2142337213
-      Data2: 1304375185
-      Data3: -7238739
-      Data4: 841783408
-    Path: event:/MUS/Mus_level2
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
   cameraGramophone: {fileID: 1069668022}
   interactionTooltip: {fileID: 660097573}
 --- !u!65 &1880421297
