@@ -95,7 +95,7 @@ public class PlayerSetup : NetworkBehaviour
         RPC_EnablePlayer(newState);
     }
 
-    [Rpc(RpcSources.All, RpcTargets.StateAuthority)]
+    [Rpc(RpcSources.All, RpcTargets.All)]
     public void RPC_EnablePlayer(bool newState)
     {
         GetComponent<PlayerMovement>().enabled = newState;

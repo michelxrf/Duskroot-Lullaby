@@ -48,7 +48,8 @@ namespace CombatSystem
                 bool isButtonPressed = GetButtonInput(data, assignedButton);
                 if (isButtonPressed && !lastAttack)
                 {
-                    RPC_ExecuteAttack();
+                    weaponBehavior.Execute();
+                    RPC_PlayAttackAnim();
                 }
 
                 lastAttack = isButtonPressed;
@@ -101,6 +102,13 @@ namespace CombatSystem
 
             if(HasStateAuthority)
             {
+                // disbable existing weapon behavior if any before initializing the new one
+                WeaponBehavior[] existingBehaviors = GetComponents<WeaponBehavior>();
+                foreach (var behavior in existingBehaviors)
+                {
+                    Destroy(behavior);
+                }
+
                 // Initialize weapon behavior on state authority
                 weaponBehavior = WeaponBehaviorFactory.CreateBehavior(currentWeapon.behavior, gameObject);
                 weaponBehavior.Initialize(hitboxCenter, animator, gameObject, currentWeapon);
@@ -128,7 +136,7 @@ namespace CombatSystem
         void RPC_EquipWeaponSync(string weaponName)
         {
             WeaponData syncedWeapon = currentWeapon;
-
+            
             // Non-authority clients need to load the weapon data by name
             if (!HasStateAuthority)
             {
@@ -138,10 +146,6 @@ namespace CombatSystem
                     return;
                 }
                 currentWeapon = syncedWeapon;
-
-                // Initialize weapon behavior on non-authority clients with the synced weapon
-                weaponBehavior = WeaponBehaviorFactory.CreateBehavior(currentWeapon.behavior, gameObject);
-                weaponBehavior.Initialize(hitboxCenter, animator, gameObject, currentWeapon);
             }
 
             animator.runtimeAnimatorController = syncedWeapon.animationController;
@@ -158,7 +162,13 @@ namespace CombatSystem
         [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
         void RPC_ExecuteAttack()
         {
-            weaponBehavior.Execute();            
+            weaponBehavior.Execute();
+        }
+
+        [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
+        public void RPC_PlayAttackAnim()
+        {
+            animator?.SetTrigger("Attack");
         }
     }
 }
