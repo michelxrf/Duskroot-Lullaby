@@ -72,10 +72,6 @@ namespace CombatSystem
         public override void Render()
         {
             base.Render();
-
-            // Keep character visual state in sync for every client.
-            bool isDead = IsDead();
-            SetVisualVisible(!isDead);
         }
 
         public PlayerRef GetPlayerRef()
