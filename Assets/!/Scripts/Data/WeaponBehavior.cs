@@ -1,17 +1,23 @@
 using UnityEngine;
 using System.Collections;
+using Fusion;
 
 /// <summary>
 /// Abstract base class for weapon behavior implementations.
 /// Defines the interface and common functionality for all weapon types.
 /// </summary>
-public class WeaponBehavior : MonoBehaviour
+public class WeaponBehavior : NetworkBehaviour
 {
     protected Animator animator;
     protected GameObject owner;
     protected Transform defaultTarget;
     protected WeaponData weaponData;
     protected bool isOnCooldown = false;
+
+    public override void Spawned()
+    {
+        animator = GetComponent<Animator>();
+    }
 
     /// <summary>
     /// Executes the weapon's attack action if not on cooldown.
@@ -24,12 +30,19 @@ public class WeaponBehavior : MonoBehaviour
         StartCoroutine(StartCooldown(1/(CharacterDataManager.Instance.GetCurrentPlayerCharacter().attackSpeed)));
     }
 
+    [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
+    public void RPC_PlayAttackAnim()
+    {
+        animator?.SetTrigger("Attack");
+    }
+
     /// <summary>
     /// Called at the impact frame of an attack animation.
     /// Override this method to apply effects (damage, knockback, etc.) at the right time.
     /// </summary>
     public virtual void ImpactFrame()
     {
+        if(!HasStateAuthority) return;
     }
 
     /// <summary>

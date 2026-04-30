@@ -14,7 +14,7 @@ public class PlayersBar : MonoBehaviour
     /// </summary>
     /// <param name="character">The character data to create a card for</param>
     /// <param name="healthComp">The health component of the character</param>
-    public void Initialize(CharacterData character, Health healthComp)
+    public void Initialize(CharacterData character, PlayerHealth healthComp)
     {
         GameObject newCard = Instantiate(playerCardPrefab);
         newCard.transform.SetParent(transform);

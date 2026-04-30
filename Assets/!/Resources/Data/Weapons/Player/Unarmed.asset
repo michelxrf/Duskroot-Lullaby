@@ -12,12 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fda383b106b17804c88baad2149ec8ee, type: 3}
   m_Name: Unarmed
   m_EditorClassIdentifier: Assembly-CSharp::WeaponData
-  baseDamage: 25
-  knockbackForce: 10
-  animationController: {fileID: 9100000, guid: 8b073340a3fefa2468b60b0bbe2326d2, type: 2}
+  baseDamage: 5
+  knockbackForce: 5
+  animationController: {fileID: 9100000, guid: b5c10586a04e4f84fbe965991bd3d603, type: 2}
   weaponModel: {fileID: 0}
   hitboxRadius: 0.5
   vfxPrefab: {fileID: 0}
   rigthHanded: 1
   behavior: Melee
+  projectilePrefab: {fileID: 0}
+  weaponModelName: 
   weaponAudioType: Unarmed

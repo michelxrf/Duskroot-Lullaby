@@ -155,4 +155,20 @@ public class CharacterDataManager : MonoBehaviour
         int index = Array.FindIndex(_charactersTemplates, template => template.CharacterId == character);
         return _charactersTemplates[index].characterPortrait;
     }
+
+    public GameObject GetCharacterModel(string character)
+    {
+        int index = Array.FindIndex(_charactersTemplates, template => template.CharacterId == character);
+        return _charactersTemplates[index].characterModel;
+    }
+
+    public CharacterTemplate GetCharacterTemplate(string characterId)
+    {
+        return Array.Find(_charactersTemplates, template => template.CharacterId == characterId);
+    }
+
+    public Avatar GetCharacterAvatar(string characterId)
+    {
+        return GetCharacterTemplate(characterId).characterAvatar;
+    }
 }

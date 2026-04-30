@@ -17,7 +17,9 @@ public static class WeaponBehaviorFactory
         return behaviorName switch
         {
             "Melee" => target.AddComponent<Melee>(),
+            "Ranged" => target.AddComponent<Ranged>(),
             _ => null
         };
+
     }
 }

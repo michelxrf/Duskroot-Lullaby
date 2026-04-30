@@ -22,7 +22,7 @@ namespace CombatSystem
 
 
             if (caster.layer == LayerMask.NameToLayer("Player"))
-                layerMask = LayerMask.GetMask("Monster", "Player"); // Player damage both monsters and other players (friendly fire)
+                layerMask = LayerMask.GetMask("Monster", "Player", "DestructableProp"); // Player damage both monsters and other players (friendly fire)
             else
                 layerMask = LayerMask.GetMask("Player"); // Monsters only damage players
 
@@ -43,9 +43,14 @@ namespace CombatSystem
                     totalDamage = weapon.baseDamage + CharacterDataManager.Instance.GetCurrentPlayerCharacter().damage;
                     healthComponent.RPC_TakeDamage(totalDamage, weapon.weaponAudioType);
                 }
-                else
+                else if(caster.GetComponent<EnemySetup>() != null)
                 {
-                    totalDamage = caster.GetComponent<EnemySetup>().GetEnemyData().damage;
+                    totalDamage = caster.GetComponent<EnemySetup>().GetEnemyData().damage + weapon.baseDamage;
+                    healthComponent.RPC_TakeDamage(totalDamage, weapon.weaponAudioType);
+                }
+                else if (caster.GetComponent<Projectile>() != null)
+                {
+                    totalDamage = weapon.baseDamage;
                     healthComponent.RPC_TakeDamage(totalDamage, weapon.weaponAudioType);
                 }
 

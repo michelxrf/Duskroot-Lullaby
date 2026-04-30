@@ -17,6 +17,7 @@ public class LobbyManager : NetworkBehaviour
     [SerializeField] int countdownSeconds = 5;
 
     [Networked] public int CurrentCountdown { get; private set; }
+    private bool countdownInProgress = false;
 
     private void Start()
     {
@@ -85,13 +86,46 @@ public class LobbyManager : NetworkBehaviour
     /// </summary>
     public void AllowGameStart()
     {
-        if(AreAllPlayersReady())
+        if (AreAllPlayersReady())
         {
-            StartCoroutine(StartGameCountdown(countdownSeconds));
+            if (Runner.IsSharedModeMasterClient)
+            {
+                RPC_StartCountdown();
+            }
         }
         else
         {
-            StopGameStartCountdown();
+            if (Runner.IsSharedModeMasterClient)
+            {
+                RPC_StopCountdown();
+            }
+        }
+    }
+
+    [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
+    private void RPC_StartCountdown()
+    {
+        if (!countdownInProgress)
+        {
+            countdownInProgress = true;
+            countDownUi.Show();
+
+            if (Runner.IsSharedModeMasterClient)
+            {
+                StartCoroutine(StartGameCountdown(countdownSeconds));
+            }
+        }
+    }
+
+    [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
+    private void RPC_StopCountdown()
+    {
+        if (countdownInProgress)
+        {
+            countdownInProgress = false;
+            countDownUi.Hide();
+            StopAllCoroutines();
+            Debug.Log("Game start countdown stopped.");
         }
     }
 
@@ -115,6 +149,7 @@ public class LobbyManager : NetworkBehaviour
     private void StartGame()
     {
         if (!Runner.IsSharedModeMasterClient) return;
+        
         // Prevent player from joining after game has started
         Runner.SessionInfo.IsVisible = false;
         Runner.SessionInfo.IsOpen = false;
@@ -125,9 +160,10 @@ public class LobbyManager : NetworkBehaviour
 
     public void StopGameStartCountdown()
     {
-        countDownUi.Hide();
-        StopAllCoroutines();
-        Debug.Log("Game start countdown stopped.");
+        if (Runner.IsSharedModeMasterClient)
+        {
+            RPC_StopCountdown();
+        }
     }
 
     private void OnDestroy()
