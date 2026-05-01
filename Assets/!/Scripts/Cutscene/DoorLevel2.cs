@@ -1,10 +1,14 @@
 using UnityEngine;
+using FMODUnity;
+using FMOD.Studio;
+
 
 public class DoorLevel2 : MonoBehaviour
 {
     [SerializeField] GameObject cameraDoor;
     [SerializeField] Animator animationDoor;
     [SerializeField] float cameraTime=2.5f;
+
     private bool open = false;
 
     private void OnTriggerEnter(Collider other)

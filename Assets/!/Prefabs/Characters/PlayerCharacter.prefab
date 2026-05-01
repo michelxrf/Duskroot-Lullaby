@@ -3686,6 +3686,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PunchPlayer
   gender: 3
+  weapon: 0
   punchEvent:
     Guid:
       Data1: 1645193081
@@ -3693,6 +3694,20 @@ MonoBehaviour:
       Data3: 249112717
       Data4: 1609586748
     Path: event:/SFX/Punch_swoosh
+  swordEvent:
+    Guid:
+      Data1: -1968988401
+      Data2: 1212539470
+      Data3: -1463567487
+      Data4: 198825177
+    Path: event:/SFX/Sword_attack
+  slingEvent:
+    Guid:
+      Data1: -1377496865
+      Data2: 1268919653
+      Data3: 1982461837
+      Data4: -1422709040
+    Path: event:/SFX/Sling_attack
 --- !u!114 &8991936484886639542
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3766,6 +3781,7 @@ MonoBehaviour:
   destroyCorpseAfterSeconds: 20
   _CurrentHealth: 0
   characterType: 
+  playerVisual: {fileID: 0}
 --- !u!1001 &2514444594620711829
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -1,5 +1,33 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9005024409735018961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Sling_attack/Gen
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorParamRef
+  Name: Gen
+  StudioPath: 
+  Min: 0
+  Max: 3
+  Default: 0
+  ID:
+    data1: 1012620162
+    data2: 4030543169
+  Type: 2
+  IsGlobal: 0
+  Labels:
+  - Woman
+  - Man
+  - Girl
+  - Boy
+  Exists: 1
 --- !u!114 &-8736607560796876607
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42,7 +70,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/UI.bank
   Name: UI
   StudioPath: bank:/UI
-  lastModified: 639129885148982314
+  lastModified: 639131783709982912
   FileSizes: []
   Exists: 1
 --- !u!114 &-8367727226860854883
@@ -182,6 +210,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 160
+--- !u!114 &-7012834414300349521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Ambiences/AmbienceHouseSunset
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/Ambiences/AmbienceHouseSunset
+  Guid:
+    Data1: 147140388
+    Data2: 1231226879
+    Data3: -1183126643
+    Data4: 1831570129
+  Banks:
+  - {fileID: -1224393567957252801}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 39500
 --- !u!114 &-6595885757678924360
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -223,10 +278,10 @@ MonoBehaviour:
   Path: Assets/BuildFmod/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639129885144291950
+  lastModified: 639131783706229488
   FileSizes:
   - Name: 
-    Value: 3062
+    Value: 3258
   Exists: 1
 --- !u!114 &-5771800213713298668
 MonoBehaviour:
@@ -360,6 +415,34 @@ MonoBehaviour:
   IsGlobal: 0
   Labels: []
   Exists: 1
+--- !u!114 &-3391607836027720645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Sword_attack
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/Sword_attack
+  Guid:
+    Data1: -1968988401
+    Data2: 1212539470
+    Data3: -1463567487
+    Data4: 198825177
+  Banks:
+  - {fileID: 1021075846966187511}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters:
+  - {fileID: 908433461440058784}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-3110766018347598689
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -484,7 +567,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639129885144266873
+  lastModified: 639131783706219497
   FileSizes: []
   Exists: 1
 --- !u!114 &-1951550172158635668
@@ -514,6 +597,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 28500
+--- !u!114 &-1910347137194425546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/CutSceneLevel1/DoorDoubleOpen
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/CutSceneLevel1/DoorDoubleOpen
+  Guid:
+    Data1: 1303399963
+    Data2: 1165219828
+    Data3: -1518592845
+    Data4: -1879287892
+  Banks:
+  - {fileID: 1021075846966187511}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2000
 --- !u!114 &-1224393567957252801
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -529,7 +639,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/Ambiences.bank
   Name: Ambiences
   StudioPath: bank:/Ambiences
-  lastModified: 639129885143711287
+  lastModified: 639131783705761866
   FileSizes: []
   Exists: 1
 --- !u!114 &-889159557125566879
@@ -574,7 +684,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/MUS.bank
   Name: MUS
   StudioPath: bank:/MUS
-  lastModified: 639129885145926501
+  lastModified: 639131783707039202
   FileSizes: []
   Exists: 1
 --- !u!114 &11400000
@@ -630,13 +740,45 @@ MonoBehaviour:
   - {fileID: 6831220569246899536}
   - {fileID: -5771800213713298668}
   - {fileID: -7196233678857358803}
+  - {fileID: -7012834414300349521}
+  - {fileID: -3391607836027720645}
+  - {fileID: -1910347137194425546}
+  - {fileID: 8854833156198229525}
   EditorParameters: []
   MasterBanks:
   - {fileID: -2002388166983340450}
   StringsBanks:
   - {fileID: -6222608089242677881}
-  cacheTime: 639129885148982314
+  cacheTime: 639131783709982912
   cacheVersion: 131635
+--- !u!114 &908433461440058784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Sword_attack/Gen
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorParamRef
+  Name: Gen
+  StudioPath: 
+  Min: 0
+  Max: 3
+  Default: 0
+  ID:
+    data1: 1012620162
+    data2: 4030543169
+  Type: 2
+  IsGlobal: 0
+  Labels:
+  - Woman
+  - Man
+  - Girl
+  - Boy
+  Exists: 1
 --- !u!114 &1021075846966187511
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -652,7 +794,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 639129885148641594
+  lastModified: 639131783709762317
   FileSizes: []
   Exists: 1
 --- !u!114 &1236411300488214019
@@ -1068,7 +1210,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/Interactions.bank
   Name: Interactions
   StudioPath: bank:/Interactions
-  lastModified: 639129885144006666
+  lastModified: 639131783705957148
   FileSizes: []
   Exists: 1
 --- !u!114 &6267172118088883810
@@ -1318,6 +1460,34 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 810
+--- !u!114 &8854833156198229525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/Sling_attack
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/Sling_attack
+  Guid:
+    Data1: -1377496865
+    Data2: 1268919653
+    Data3: 1982461837
+    Data4: -1422709040
+  Banks:
+  - {fileID: 1021075846966187511}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters:
+  - {fileID: -9005024409735018961}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &8916736406095576479
 MonoBehaviour:
   m_ObjectHideFlags: 0
