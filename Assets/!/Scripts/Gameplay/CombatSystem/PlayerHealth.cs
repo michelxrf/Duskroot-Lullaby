@@ -33,10 +33,9 @@ namespace CombatSystem
 
         protected override void Die()
         {
-            PlayerState(false);
             SetVisualVisible(false);
 
-            animator?.SetTrigger("Die");
+            //animator?.SetTrigger("Die");
             Knockback knockback = GetComponent<Knockback>();
             if (knockback != null)
                 knockback.enabled = false;
@@ -67,17 +66,12 @@ namespace CombatSystem
             if (knockback != null)
                 knockback.enabled = true;
 
-            PlayerState(true);
             SetVisualVisible(true);
         }
 
         public override void Render()
         {
             base.Render();
-
-            // Keep character visual state in sync for every client.
-            bool isDead = IsDead();
-            SetVisualVisible(!isDead);
         }
 
         public PlayerRef GetPlayerRef()
@@ -104,19 +98,9 @@ namespace CombatSystem
             }
         }
 
-        private void PlayerState(bool value)
-        {
-            GetComponent<PlayerAttack>().enabled = value;
-            GetComponent<PlayerMovement>().enabled = value;
-            GetComponent<CharacterLook>().enabled = value;
-        }
-
         void SetVisualVisible(bool value)
         {
-            if (playerVisual == null)
-                return;
-
-            playerVisual.SetActive(value);
+            GetComponent<PlayerSetup>().EnablePlayerControls(value);
         }
     }
 
