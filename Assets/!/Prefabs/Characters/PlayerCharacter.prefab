@@ -2552,18 +2552,18 @@ MonoBehaviour:
     Path: event:/SFX/Punch_swoosh
   swordEvent:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -1968988401
+      Data2: 1212539470
+      Data3: -1463567487
+      Data4: 198825177
+    Path: event:/SFX/Sword_attack
   slingEvent:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -1377496865
+      Data2: 1268919653
+      Data3: 1982461837
+      Data4: -1422709040
+    Path: event:/SFX/Sling_attack
 --- !u!114 &8991936484886639542
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,15 +1,15 @@
-using UnityEngine;
-using FMODUnity;
 using FMOD.Studio;
+using FMODUnity;
+using UnityEngine;
+using UnityEngine.Analytics;
+using static AudioCharacterGender;
 
 
 public class AudioPunchPlayer : MonoBehaviour
 {
-    public enum Gender { Woman, Man, Girl, Boy }
     public enum Weapon { Melee, Sword, Slingshot }
 
     [Header("Person")]
-    public Gender gender;
     public Weapon weapon;
 
     [Header("FMOD")]
@@ -18,14 +18,16 @@ public class AudioPunchPlayer : MonoBehaviour
     [SerializeField] private EventReference slingEvent;
 
     private PlayerSetup playerSetup;
-
+    private CharacterGender gender;
     private void Start()
     {
         playerSetup = GetComponent<PlayerSetup>();
+        gender = playerSetup.GetGender();
     }
     public void PlayPunch()
     {
         GetWeapon();
+        gender = playerSetup.GetGender();
         EventReference selectedEvent = punchEvent;
         switch (weapon)
         {
