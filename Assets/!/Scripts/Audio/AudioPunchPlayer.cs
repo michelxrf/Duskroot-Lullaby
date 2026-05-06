@@ -22,6 +22,8 @@ public class AudioPunchPlayer : MonoBehaviour
     private void Start()
     {
         playerSetup = GetComponent<PlayerSetup>();
+        GetGender();
+
     }
     public void PlayPunch()
     {
@@ -74,5 +76,31 @@ public class AudioPunchPlayer : MonoBehaviour
 
         }
     }
+
+    private void GetGender()
+    {
+        if (playerSetup == null) return;
+        switch (playerSetup.characterId)
+        {
+            case "Mage":
+                gender = Gender.Boy;
+                break;
+            case "Ranger":
+                gender = Gender.Girl;
+                break;
+            case "Tank":
+                gender = Gender.Boy;
+                break;
+            case "Warrior":
+                gender = Gender.Boy;
+                break;
+
+            default:
+                gender = Gender.Boy;
+                break;
+
+        }
+    }
+
 
 }
