@@ -1,5 +1,6 @@
 using CombatSystem;
 using Fusion;
+using TMPro;
 using UnityEngine;
 
 /// <summary>
@@ -11,7 +12,14 @@ public class PickableWeapon : NetworkBehaviour
 {
     [Header("References")]
     [SerializeField] GameObject interactionTooltip;
+    [SerializeField] GameObject weaponStats;
     [SerializeField] WeaponData weaponData;
+
+    [SerializeField] TMP_Text tooltipWeaponName;
+    [SerializeField] TMP_Text tooltipWeaponDamage;
+    [SerializeField] TMP_Text tooltipWeaponForce;
+
+    [SerializeField] GameObject[] weaponModels;
 
     int playersInRange;
     bool hasSpawned = false;
@@ -23,6 +31,51 @@ public class PickableWeapon : NetworkBehaviour
 
         playersInRange = 0;
         interactionTooltip.SetActive(false);
+
+        if(weaponData != null)
+        {
+            InitializeWeaponModel();
+            SetupStatsTooltip();
+        }
+    }
+
+    public void Initialize(WeaponData newWeaponData)
+    {
+        weaponData = newWeaponData;
+        if (HasInputAuthority)
+        {
+            RPC_InitializeWeapon(newWeaponData.name);
+        }
+    }
+    
+    [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
+    void RPC_InitializeWeapon(string weaponName)
+    {
+        weaponData = Resources.Load<WeaponData>($"Data/Weapons/Player/{weaponName}");
+        InitializeWeaponModel();
+        SetupStatsTooltip();
+    }
+    
+    void SetupStatsTooltip()
+    {
+        tooltipWeaponName.text = weaponData.name;
+        tooltipWeaponDamage.text = $"Damage: {weaponData.baseDamage}";
+        tooltipWeaponForce.text = $"Force: {weaponData.knockbackForce}";
+    }
+
+    /// <summary>
+    /// Initializes the weapon model display based on the weapon data.
+    /// Activates the correct weapon model and deactivates others.
+    /// </summary>
+    void InitializeWeaponModel()
+    {
+        if (weaponData == null || weaponModels.Length == 0)
+            return;
+
+        foreach (var model in weaponModels)
+        {
+            model.SetActive(model.name == weaponData.weaponModelName);
+        }
     }
 
     /// <summary>
@@ -35,7 +88,7 @@ public class PickableWeapon : NetworkBehaviour
             return;
 
         playersInRange++;
-        // TOOD: conect with player interactor to show interaction prompt
+        other.GetComponent<PlayerInteractor>()?.EnteredPickableWeaponArea(this);
     }
 
     /// <summary>
@@ -48,8 +101,7 @@ public class PickableWeapon : NetworkBehaviour
             return;
 
         playersInRange--;
-        // TODO: conect with player interactor to hide interaction prompt
-        //other.GetComponent<PlayerInteractor>()?.LeftInteractionArea();
+        other.GetComponent<PlayerInteractor>()?.LeftPickableWeaponArea(this);
     }
 
     /// <summary>
@@ -81,7 +133,13 @@ public class PickableWeapon : NetworkBehaviour
 
     public WeaponData PickupWeapon()
     { 
-        Runner.Despawn(Object); // TODO: test if this will not despawn item before returning
+        RPC_DespawnWeapon();
         return weaponData;
+    }
+
+    [Rpc(RpcSources.All, RpcTargets.StateAuthority)]
+    void RPC_DespawnWeapon()
+    {
+        Runner.Despawn(Object);
     }
 }

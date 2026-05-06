@@ -103,11 +103,15 @@ public class PlayerSetup : NetworkBehaviour
         GetComponent<CharacterLook>().enabled = newState;
         GetComponent<PlayerInteractor>().enabled = newState;
         GetComponent<Knockback>().enabled = newState;
-        GetComponent<Animator>().enabled = newState;
+    }
 
+    [Rpc(RpcSources.All, RpcTargets.All)]
+    public void RPC_EnablePlayerVisuals(bool newState)
+    {
         if (newState)
             RestorePlayerVisuals();
-        else HidePlayerVisuals();
+        else
+            HidePlayerVisuals();
     }
 
     void HidePlayerVisuals()

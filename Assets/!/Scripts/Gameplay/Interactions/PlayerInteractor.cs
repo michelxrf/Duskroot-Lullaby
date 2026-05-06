@@ -1,10 +1,12 @@
 using UnityEngine;
 using Fusion;
+using CombatSystem;
 
 public class PlayerInteractor : NetworkBehaviour
 {
     Interactions interactionInRange;
     ReviveTombstone reviveTombstoneInRange;
+    PickableWeapon pickableWeaponInRange;
 
     public void EnteredInteractionArea(Interactions interaction)
     {
@@ -32,6 +34,12 @@ public class PlayerInteractor : NetworkBehaviour
                     return;
                 }
 
+                if (pickableWeaponInRange != null)
+                {
+                    EquipPickedUpWeapon();
+                    return;
+                }
+
                 if (interactionInRange != null)
                 {
                     Debug.Log("Interacted with " + interactionInRange.name);
@@ -39,6 +47,15 @@ public class PlayerInteractor : NetworkBehaviour
                 }
             }
         }
+    }
+
+    private void EquipPickedUpWeapon()
+    {
+        if (pickableWeaponInRange == null)
+            return;
+
+        var weaponData = pickableWeaponInRange.PickupWeapon();
+        GetComponent<PlayerAttack>()?.EquipWeapon(weaponData);
     }
 
     public void EnteredReviveArea(ReviveTombstone reviveTombstone)
@@ -50,5 +67,16 @@ public class PlayerInteractor : NetworkBehaviour
     {
         if (reviveTombstoneInRange == reviveTombstone)
             reviveTombstoneInRange = null;
+    }
+
+    public void EnteredPickableWeaponArea(PickableWeapon pickableWeapon)
+    {
+        pickableWeaponInRange = pickableWeapon;
+    }
+
+    public void LeftPickableWeaponArea(PickableWeapon pickableWeapon)
+    {
+        if (pickableWeaponInRange == pickableWeapon)
+            pickableWeaponInRange = null;
     }
 }

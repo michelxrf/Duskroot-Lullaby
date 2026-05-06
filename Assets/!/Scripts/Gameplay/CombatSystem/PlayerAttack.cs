@@ -89,7 +89,7 @@ namespace CombatSystem
         /// Handles instantiating the weapon model, setting up animations, and initializing weapon behavior.
         /// </summary>
         /// <param name="newWeapon">The weapon data to equip</param>
-        void EquipWeapon(WeaponData newWeapon)
+        public void EquipWeapon(WeaponData newWeapon)
         {
             if (newWeapon == null)
             {

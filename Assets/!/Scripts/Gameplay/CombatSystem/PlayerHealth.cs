@@ -33,19 +33,12 @@ namespace CombatSystem
 
         protected override void Die()
         {
-            SetVisualVisible(false);
-
-            //animator?.SetTrigger("Die");
+            animator?.SetTrigger("Die");
             Knockback knockback = GetComponent<Knockback>();
             if (knockback != null)
                 knockback.enabled = false;
 
-            if (matchStateManager == null)
-                matchStateManager = FindFirstObjectByType<MatchStateManager>();
-
-            if (HasStateAuthority && matchStateManager != null)
-                matchStateManager.NotifyPlayerDeath(this, transform.position);
-
+            GetComponent<PlayerSetup>().EnablePlayerControls(false);
             OnDied?.Invoke();
         }
 
@@ -62,11 +55,8 @@ namespace CombatSystem
             animator?.ResetTrigger("Die");
             animator?.SetTrigger("Revive");
 
-            Knockback knockback = GetComponent<Knockback>();
-            if (knockback != null)
-                knockback.enabled = true;
-
-            SetVisualVisible(true);
+            GetComponent<PlayerSetup>().EnablePlayerControls(true);
+            GetComponent<PlayerSetup>().RPC_EnablePlayerVisuals(true);
         }
 
         public override void Render()
@@ -98,9 +88,17 @@ namespace CombatSystem
             }
         }
 
-        void SetVisualVisible(bool value)
+        public void FinishedDeathAnimation()
         {
-            GetComponent<PlayerSetup>().EnablePlayerControls(value);
+            if (HasStateAuthority)
+            {
+                GetComponent<PlayerSetup>().RPC_EnablePlayerVisuals(false);
+                if (matchStateManager == null)
+                    matchStateManager = FindFirstObjectByType<MatchStateManager>();
+
+                if (HasStateAuthority && matchStateManager != null)
+                    matchStateManager.NotifyPlayerDeath(this, transform.position);
+            }
         }
     }
 
