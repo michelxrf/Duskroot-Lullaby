@@ -22,4 +22,5 @@ MonoBehaviour:
   behavior: Ranged
   projectilePrefab: {fileID: 7150761404812699573, guid: d99204c4c624e5c4c9d6a9f87df2e59c, type: 3}
   weaponModelName: Slingshot_bronze
+  weaponPortrait: {fileID: 21300000, guid: 8693be76b35939143990f1fb153f6653, type: 3}
   weaponAudioType: unarmed

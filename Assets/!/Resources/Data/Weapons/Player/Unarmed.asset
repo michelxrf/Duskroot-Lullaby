@@ -22,4 +22,5 @@ MonoBehaviour:
   behavior: Melee
   projectilePrefab: {fileID: 0}
   weaponModelName: 
+  weaponPortrait: {fileID: 21300000, guid: 1dec3ce702d13d14191284935fc14410, type: 3}
   weaponAudioType: Unarmed

@@ -22,4 +22,5 @@ MonoBehaviour:
   behavior: Melee
   projectilePrefab: {fileID: 0}
   weaponModelName: Longsword_noPaint
+  weaponPortrait: {fileID: 21300000, guid: 294b36d872715a54bb47887dc6f2937e, type: 3}
   weaponAudioType: unarmed

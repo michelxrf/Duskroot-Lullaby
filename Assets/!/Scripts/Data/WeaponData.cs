@@ -17,6 +17,7 @@ public class WeaponData : ScriptableObject
     public string behavior;
     public GameObject projectilePrefab;
     public string weaponModelName;
+    public Sprite weaponPortrait;
 
     public string weaponAudioType = "unarmed";
 }

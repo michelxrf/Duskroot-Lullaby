@@ -47,6 +47,7 @@ namespace CombatSystem
         {
             RPC_PlayReviveVisuals();
             CurrentHealth = maxHealth / 4;
+            OnHealthChanged?.Invoke(CurrentHealth);
         }
 
         [Rpc(RpcSources.StateAuthority, RpcTargets.All)]

@@ -118,7 +118,9 @@ namespace CombatSystem
                 RPC_PlayEquipAnimation();
             }
 
+            FindFirstObjectByType<WeaponCard>().UpdateWeapon(currentWeapon);
             GetComponent<PlayerSetup>().SetCurrentWeapon(currentWeapon.name);
+            
         }
 
         /// <summary>
