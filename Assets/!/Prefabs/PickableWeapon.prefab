@@ -5339,6 +5339,7 @@ MonoBehaviour:
   - {fileID: 8379185732954082609}
   - {fileID: 8214191921653413067}
   - {fileID: 533552094568909941}
+  pickableWeaponPrefab: {fileID: 0}
 --- !u!114 &1704696739168313676
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5386,7 +5387,7 @@ RectTransform:
   m_GameObject: {fileID: 7548978089487154053}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: -1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8274872844259548499}
