@@ -77,19 +77,6 @@ public class PlayerInteractor : NetworkBehaviour
             pickableWeaponInRange.Initialize(dropWeapon);
     }
 
-    void DropWeapon(WeaponData weaponData)
-    {
-        if (!Runner.IsSharedModeMasterClient)
-            return;
-
-        if (weaponData == null)
-            return;
-
-        Vector3 dropPosition = transform.position;
-        NetworkObject obj = Runner.Spawn(weaponDropPrefab, dropPosition, Quaternion.identity);
-        obj.GetComponent<PickableWeapon>().Initialize(weaponData);
-    }
-
     public void EnteredReviveArea(ReviveTombstone reviveTombstone)
     {
         reviveTombstoneInRange = reviveTombstone;
