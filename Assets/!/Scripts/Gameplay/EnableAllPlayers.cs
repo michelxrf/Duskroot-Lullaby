@@ -8,6 +8,7 @@ public class EnableAllPlayers : MonoBehaviour
         foreach (PlayerSetup player in allPlayers)
         {
             player.EnablePlayerControls(newState);
+            player.RPC_EnablePlayerVisuals(newState);
         }
     }
 }

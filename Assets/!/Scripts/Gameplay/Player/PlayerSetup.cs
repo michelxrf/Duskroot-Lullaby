@@ -131,6 +131,8 @@ public class PlayerSetup : NetworkBehaviour
             rendererStates[renderer] = renderer.enabled;
             renderer.enabled = false;
         }
+
+        animator.SetFloat("Speed", 0f);
     }
 
     void RestorePlayerVisuals()
