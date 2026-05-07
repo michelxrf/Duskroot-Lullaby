@@ -3,6 +3,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 namespace CombatSystem
 {
@@ -100,7 +101,7 @@ namespace CombatSystem
 
             currentWeapon = newWeapon;
 
-            if(HasStateAuthority)
+            if (HasStateAuthority)
             {
                 // disbable existing weapon behavior if any before initializing the new one
                 WeaponBehavior[] existingBehaviors = GetComponents<WeaponBehavior>();
@@ -136,7 +137,7 @@ namespace CombatSystem
         void RPC_EquipWeaponSync(string weaponName)
         {
             WeaponData syncedWeapon = currentWeapon;
-            
+
             // Non-authority clients need to load the weapon data by name
             if (!HasStateAuthority)
             {
@@ -169,6 +170,20 @@ namespace CombatSystem
         public void RPC_PlayAttackAnim()
         {
             animator?.SetTrigger("Attack");
+        }
+
+        public string GetCurrentWeaponName()
+        {
+            return currentWeapon != null ? currentWeapon.name : "No Weapon";
+        }
+
+        public WeaponData GetCurrentWeaponData()
+        {
+            if(currentWeapon.name == "Unarmed")
+            {
+                return null;
+            }
+            return currentWeapon;
         }
     }
 }

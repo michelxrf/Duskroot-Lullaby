@@ -8,6 +8,9 @@ public class PlayerInteractor : NetworkBehaviour
     ReviveTombstone reviveTombstoneInRange;
     PickableWeapon pickableWeaponInRange;
 
+    [SerializeField] GameObject weaponDropPrefab;
+    bool interactionButtonPressed = false; 
+
     public void EnteredInteractionArea(Interactions interaction)
     {
         interactionInRange = interaction;
@@ -28,6 +31,11 @@ public class PlayerInteractor : NetworkBehaviour
         {
             if (data.Interact)
             {
+                if (interactionButtonPressed)
+                    return;
+
+                interactionButtonPressed = true;
+
                 if (reviveTombstoneInRange != null)
                 {
                     reviveTombstoneInRange.TryInteract();
@@ -46,7 +54,12 @@ public class PlayerInteractor : NetworkBehaviour
                     interactionInRange.RPC_ActivateBark();
                 }
             }
+            else
+            {
+                interactionButtonPressed = false;
+            }
         }
+        
     }
 
     private void EquipPickedUpWeapon()
@@ -54,8 +67,27 @@ public class PlayerInteractor : NetworkBehaviour
         if (pickableWeaponInRange == null)
             return;
 
+        WeaponData dropWeapon = GetComponent<PlayerAttack>().GetCurrentWeaponData();
         var weaponData = pickableWeaponInRange.PickupWeapon();
         GetComponent<PlayerAttack>()?.EquipWeapon(weaponData);
+        
+        if(dropWeapon == null)
+            pickableWeaponInRange.RPC_DespawnWeapon();
+        else
+            pickableWeaponInRange.Initialize(dropWeapon);
+    }
+
+    void DropWeapon(WeaponData weaponData)
+    {
+        if (!Runner.IsSharedModeMasterClient)
+            return;
+
+        if (weaponData == null)
+            return;
+
+        Vector3 dropPosition = transform.position;
+        NetworkObject obj = Runner.Spawn(weaponDropPrefab, dropPosition, Quaternion.identity);
+        obj.GetComponent<PickableWeapon>().Initialize(weaponData);
     }
 
     public void EnteredReviveArea(ReviveTombstone reviveTombstone)

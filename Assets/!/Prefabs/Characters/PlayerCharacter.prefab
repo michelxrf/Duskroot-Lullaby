@@ -2541,7 +2541,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8a869be09f507b46b265aa9572a5c88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PunchPlayer
-  gender: 3
   weapon: 0
   punchEvent:
     Guid:
@@ -2615,6 +2614,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6aaada1004db1b047be050655ad918d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInteractor
+  weaponDropPrefab: {fileID: 6525151285774368790, guid: 63adc52a79326314182ff8cc1f2506be, type: 3}
 --- !u!114 &-3158198725332826894
 MonoBehaviour:
   m_ObjectHideFlags: 0

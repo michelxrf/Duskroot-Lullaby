@@ -20,6 +20,7 @@ public class PickableWeapon : NetworkBehaviour
     [SerializeField] TMP_Text tooltipWeaponForce;
 
     [SerializeField] GameObject[] weaponModels;
+    [SerializeField] GameObject pickableWeaponPrefab;
 
     int playersInRange;
     bool hasSpawned = false;
@@ -42,13 +43,10 @@ public class PickableWeapon : NetworkBehaviour
     public void Initialize(WeaponData newWeaponData)
     {
         weaponData = newWeaponData;
-        if (HasInputAuthority)
-        {
-            RPC_InitializeWeapon(newWeaponData.name);
-        }
+        RPC_InitializeWeapon(newWeaponData.name);
     }
     
-    [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
+    [Rpc(RpcSources.All, RpcTargets.All)]
     void RPC_InitializeWeapon(string weaponName)
     {
         weaponData = Resources.Load<WeaponData>($"Data/Weapons/Player/{weaponName}");
@@ -133,12 +131,11 @@ public class PickableWeapon : NetworkBehaviour
 
     public WeaponData PickupWeapon()
     { 
-        RPC_DespawnWeapon();
         return weaponData;
     }
 
     [Rpc(RpcSources.All, RpcTargets.StateAuthority)]
-    void RPC_DespawnWeapon()
+    public void RPC_DespawnWeapon()
     {
         Runner.Despawn(Object);
     }
