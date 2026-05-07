@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2469009171229945580}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: wall_with_small_door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 6691213772250013998}
   - component: {fileID: 2455347574247845732}
   - component: {fileID: 6276128453573867872}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -159,7 +159,7 @@ GameObject:
   - component: {fileID: 8726838448381889527}
   - component: {fileID: 5168681110719376518}
   - component: {fileID: 619679838168608181}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: small_door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -271,7 +271,7 @@ GameObject:
   - component: {fileID: 1197058377075944023}
   - component: {fileID: 267979257948731317}
   - component: {fileID: 76672923939315560}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: small_door_frame
   m_TagString: Untagged
   m_Icon: {fileID: 0}

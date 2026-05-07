@@ -130,7 +130,8 @@ public class PickableWeapon : NetworkBehaviour
     }
 
     public WeaponData PickupWeapon()
-    { 
+    {
+        AudioUI.instance.PlayUIWeapon();
         return weaponData;
     }
 

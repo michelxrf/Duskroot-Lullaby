@@ -70,7 +70,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/UI.bank
   Name: UI
   StudioPath: bank:/UI
-  lastModified: 639136641606183141
+  lastModified: 639137007566891090
   FileSizes: []
   Exists: 1
 --- !u!114 &-8367727226860854883
@@ -278,10 +278,10 @@ MonoBehaviour:
   Path: Assets/BuildFmod/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639136641602267582
+  lastModified: 639137007560823434
   FileSizes:
   - Name: 
-    Value: 3258
+    Value: 3384
   Exists: 1
 --- !u!114 &-5771800213713298668
 MonoBehaviour:
@@ -336,6 +336,33 @@ MonoBehaviour:
   - Melee
   - Fly
   Exists: 1
+--- !u!114 &-5553515824323257283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI/UI_Collect
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/UI/UI_Collect
+  Guid:
+    Data1: -1397679886
+    Data2: 1160065742
+    Data3: 259708851
+    Data4: 1739502026
+  Banks:
+  - {fileID: -8556611719093545025}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1500
 --- !u!114 &-5183009822149162905
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -567,7 +594,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639136641602247700
+  lastModified: 639137007560813428
   FileSizes: []
   Exists: 1
 --- !u!114 &-1951550172158635668
@@ -639,7 +666,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/Ambiences.bank
   Name: Ambiences
   StudioPath: bank:/Ambiences
-  lastModified: 639136641601731797
+  lastModified: 639137007560259358
   FileSizes: []
   Exists: 1
 --- !u!114 &-889159557125566879
@@ -684,7 +711,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/MUS.bank
   Name: MUS
   StudioPath: bank:/MUS
-  lastModified: 639136641603041359
+  lastModified: 639137007561879484
   FileSizes: []
   Exists: 1
 --- !u!114 &11400000
@@ -744,12 +771,15 @@ MonoBehaviour:
   - {fileID: -3391607836027720645}
   - {fileID: -1910347137194425546}
   - {fileID: 8854833156198229525}
+  - {fileID: 8614453577102940331}
+  - {fileID: 2690502577782275382}
+  - {fileID: -5553515824323257283}
   EditorParameters: []
   MasterBanks:
   - {fileID: -2002388166983340450}
   StringsBanks:
   - {fileID: -6222608089242677881}
-  cacheTime: 639136641606183141
+  cacheTime: 639137007566891090
   cacheVersion: 131635
 --- !u!114 &908433461440058784
 MonoBehaviour:
@@ -794,7 +824,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 639136641605881087
+  lastModified: 639137007566324845
   FileSizes: []
   Exists: 1
 --- !u!114 &1236411300488214019
@@ -877,6 +907,33 @@ MonoBehaviour:
   IsGlobal: 0
   Labels: []
   Exists: 1
+--- !u!114 &2690502577782275382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI/UI_Plop
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/UI/UI_Plop
+  Guid:
+    Data1: 731621861
+    Data2: 1109881254
+    Data3: -1041442668
+    Data4: 583218672
+  Banks:
+  - {fileID: -8556611719093545025}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1895
 --- !u!114 &2941361990646585875
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1210,7 +1267,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/Interactions.bank
   Name: Interactions
   StudioPath: bank:/Interactions
-  lastModified: 639136641601992055
+  lastModified: 639137007560563238
   FileSizes: []
   Exists: 1
 --- !u!114 &6267172118088883810
@@ -1433,6 +1490,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 2000
+--- !u!114 &8614453577102940331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/SFX_Eating
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/SFX_Eating
+  Guid:
+    Data1: 335500820
+    Data2: 1092588437
+    Data3: 563342732
+    Data4: 1847677183
+  Banks:
+  - {fileID: 1021075846966187511}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 630
 --- !u!114 &8768538206319130929
 MonoBehaviour:
   m_ObjectHideFlags: 0
