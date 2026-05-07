@@ -66,6 +66,9 @@ public class AudioPunchPlayer : MonoBehaviour
             case "Sling":
                 weapon = Weapon.Slingshot;
                 break;
+            case "LongSword":
+                weapon = Weapon.Sword;
+                break;
             case "Sword":
                 weapon = Weapon.Sword;
                 break;

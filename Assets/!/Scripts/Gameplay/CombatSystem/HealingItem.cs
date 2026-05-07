@@ -25,6 +25,7 @@ public class HealingItem : NetworkBehaviour
 
         if(health.CurrentHealth < CharacterDataManager.Instance.GetCurrentPlayerCharacter().health)
         {
+            AudioUI.instance.PlayUIFood();
             health.RPC_Heal(healAmount);
             Runner.Despawn(Object);
         }
