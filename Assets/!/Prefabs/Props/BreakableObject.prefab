@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 8297944737987503343}
   - component: {fileID: 6295510851315040327}
   - component: {fileID: 1629443252500957793}
+  - component: {fileID: 66307121273472796}
   m_Layer: 15
   m_Name: BreakableObject
   m_TagString: Untagged
@@ -96,6 +97,7 @@ MonoBehaviour:
   NetworkedBehaviours:
   - {fileID: 2734450246996849584}
   - {fileID: 1629443252500957793}
+  - {fileID: 66307121273472796}
   ForceRemoteRenderTimeframe: 0
 --- !u!198 &8493617189641300653
 ParticleSystem:
@@ -4989,6 +4991,28 @@ MonoBehaviour:
   destroyCorpseAfterSeconds: 20
   _CurrentHealth: 0
   characterType: prop
+--- !u!114 &66307121273472796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8365882783246484931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: daa3013d3817e824b89b519b755cbf8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ProgressionSystem.Reward
+  experienceAmount: 0
+  pickableWeaponPrefab: {fileID: 6525151285774368790, guid: 63adc52a79326314182ff8cc1f2506be, type: 3}
+  healingDropChance: 0.2
+  healingItemPrefabs:
+  - {fileID: 4135373091219071777, guid: 1653f5471e4eb8141a3d3de76845f09c, type: 3}
+  weaponDropChance: 0.1
+  weapons:
+  - {fileID: 11400000, guid: dc791d731ca693144a922d7cba8a1569, type: 2}
+  - {fileID: 11400000, guid: ee4740f827f7a4843a82043d6ea6dfb0, type: 2}
+  - {fileID: 11400000, guid: e117e20cb07fa2748bc8b989fa00aa6f, type: 2}
 --- !u!1001 &2741156979878825553
 PrefabInstance:
   m_ObjectHideFlags: 0

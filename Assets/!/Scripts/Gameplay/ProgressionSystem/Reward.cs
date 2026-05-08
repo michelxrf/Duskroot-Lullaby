@@ -11,10 +11,21 @@ namespace ProgressionSystem
     public class Reward : NetworkBehaviour
     {
         [SerializeField] int experienceAmount = 0;
-        [SerializeField] GameObject[] dropItens;
+
+        [Header("Item Drops")]
+        [SerializeField] GameObject pickableWeaponPrefab;
+
+        [Header("Healing Items")]
         [Range(0f, 1f)]
-        [SerializeField] float[] dropRates;
-        [SerializeField] float chanceToDropItem = 0.1f;
+        [SerializeField] float healingDropChance = 0.2f;
+        [Tooltip("List of healing items to drop.")]
+        [SerializeField] GameObject[] healingItemPrefabs;
+
+        [Header("Weapons")]
+        [Range(0f, 1f)]
+        [SerializeField] float weaponDropChance = 0.3f;
+        [Tooltip("Weapon Scriptable Objects to drop")]
+        [SerializeField] WeaponData[] weapons;
 
         /// <summary>
         /// Applies the reward by adding experience to the player's current character.
@@ -48,26 +59,35 @@ namespace ProgressionSystem
 
         void DropRandomItem()
         {
-            if (dropItens.Length == 0 || dropRates.Length == 0 || dropItens.Length != dropRates.Length)
-                return;
+            if (weapons.Length == 0 && healingItemPrefabs.Length == 0)
+                return; // Nothing to drop
             
             float randomValue = UnityEngine.Random.value;
-            if (randomValue > chanceToDropItem)
-                return;
-            foreach (var item in dropItens)
+
+            // Try weapon drop first
+            if (randomValue < weaponDropChance && weapons.Length > 0)
             {
-                float dropChance = dropRates[Array.IndexOf(dropItens, item)];
-                if (UnityEngine.Random.value <= dropChance)
-                {
-                    DropItem(item);
-                }
+                DropWeapon();
+                return;
+            }
+
+            // Try healing item drop
+            if (randomValue < weaponDropChance + healingDropChance && healingItemPrefabs.Length > 0)
+            {
+                DropHealing();
             }
         }
 
-        void DropItem(GameObject item)
+        void DropWeapon()
         {
-            // Instantiate the item in the game world at the reward's position
-            Instantiate(item, transform.position, Quaternion.identity);
+            WeaponData weaponSO = weapons[UnityEngine.Random.Range(0, weapons.Length)];
+            Runner.Spawn(pickableWeaponPrefab, transform.position, Quaternion.identity).GetComponent<PickableWeapon>().Initialize(weaponSO);
+        }
+
+        void DropHealing()
+        {
+            GameObject healingItem = healingItemPrefabs[UnityEngine.Random.Range(0, healingItemPrefabs.Length)];
+            Runner.Spawn(healingItem, transform.position, Quaternion.identity);
         }
     }
 }
