@@ -54,7 +54,6 @@ public class Interactions : NetworkBehaviour
         playersInRange = 0;
         isInteracting = false;
 
-        //audioSource = GetComponent<AudioSource>();
         GetComponent<SphereCollider>().radius = interactionRange;
 
         BarkBalloon.SetActive(false);
@@ -67,6 +66,9 @@ public class Interactions : NetworkBehaviour
     /// </summary>
     private void OnTriggerEnter(Collider other)
     {
+        if (other.GetComponent<PlayerSetup>() == null)
+            return;
+
         playersInRange++;
         other.GetComponent<PlayerInteractor>()?.EnteredInteractionArea(this);
     }
@@ -77,6 +79,9 @@ public class Interactions : NetworkBehaviour
     /// </summary>
     private void OnTriggerExit(Collider other)
     {
+        if (other.GetComponent<PlayerSetup>() == null)
+            return;
+
         playersInRange--;
         other.GetComponent<PlayerInteractor>()?.LeftInteractionArea();
     }
@@ -111,9 +116,9 @@ public class Interactions : NetworkBehaviour
     /// <summary>
     /// RPC method to initiate a bark dialogue sequence.
     /// Validates that a player is present, no sequence is already playing, and barks exist.
-    /// Synchronizes the bark sequence across all clients.
+    /// Called by all clients and executed on all clients to synchronize the bark sequence.
     /// </summary>
-    [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
+    [Rpc(RpcSources.All, RpcTargets.All)]
     public void RPC_ActivateBark()
     {
         Debug.Log("RPC_ActivateBark called");
