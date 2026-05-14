@@ -111,6 +111,14 @@ public class CharacterDataManager : MonoBehaviour
         _isDirty = true;
     }
 
+    public void SaveWeaponData(CharacterData character, WeaponDataInstance weaponData)
+    {
+        character.weapon = weaponData.weaponData;
+        character.weaponLevel = weaponData.weaponLevel;
+        character.weaponSeed = weaponData.weaponSeed;
+        UpdateCharacter(character);
+    }
+
     void UpdateCharacter(CharacterData newCharacter)
     {
         for (int i = 0; i < Data.Characters.Length; i++)
@@ -121,6 +129,8 @@ public class CharacterDataManager : MonoBehaviour
                 return;
             }
         }
+        
+        _isDirty = true;
     }
 
     public void AddItem(int index, string itemId)

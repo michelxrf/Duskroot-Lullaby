@@ -67,14 +67,16 @@ public class PlayerInteractor : NetworkBehaviour
         if (pickableWeaponInRange == null)
             return;
 
-        WeaponData dropWeapon = GetComponent<PlayerAttack>().GetCurrentWeaponData();
-        var weaponData = pickableWeaponInRange.PickupWeapon();
-        GetComponent<PlayerAttack>()?.EquipWeapon(weaponData);
+        WeaponDataInstance dropWeapon = GetComponent<PlayerAttack>().GetCurrentWeaponData();
+
+        WeaponDataInstance pickedWeaponData = pickableWeaponInRange.PickupWeapon();
+
+        GetComponent<PlayerAttack>()?.EquipWeapon(pickedWeaponData.weaponData, pickedWeaponData.weaponLevel, pickedWeaponData.weaponSeed);
         
         if(dropWeapon == null)
             pickableWeaponInRange.RPC_DespawnWeapon();
         else
-            pickableWeaponInRange.Initialize(dropWeapon);
+            pickableWeaponInRange.Initialize(dropWeapon.weaponData, dropWeapon.weaponLevel, dropWeapon.weaponSeed);
     }
 
     public void EnteredReviveArea(ReviveTombstone reviveTombstone)

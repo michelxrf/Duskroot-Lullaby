@@ -12,7 +12,7 @@ public class Ranged : WeaponBehavior
         base.ImpactFrame();
 
         Debug.Log($"{gameObject.name} impact frame executed, spawning projectile. Authority: {HasStateAuthority} ");
-        var projectile = RunnerBootstrap.Instance.Runner.Spawn(weaponData.projectilePrefab, defaultTarget.position, transform.rotation);
+        var projectile = RunnerBootstrap.Instance.Runner.Spawn(weaponData.projectilePrefab[weaponDataInstance.weaponLevel], defaultTarget.position, transform.rotation);
         projectile.GetBehaviour<Projectile>().SetUp(new Vector3(transform.forward.x, 0, transform.forward.z), weaponData, gameObject);
     }
 }

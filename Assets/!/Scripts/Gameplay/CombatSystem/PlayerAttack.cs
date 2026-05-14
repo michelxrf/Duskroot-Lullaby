@@ -33,7 +33,7 @@ namespace CombatSystem
 
         [SerializeField] GameObject[] weaponModels;
 
-        WeaponData currentWeapon;
+        WeaponDataInstance currentWeapon;
         WeaponBehavior weaponBehavior;
         CharacterLook characterLook;
         Animator animator;
@@ -82,7 +82,8 @@ namespace CombatSystem
             animator = GetComponentInChildren<Animator>();
             characterLook = GetComponent<CharacterLook>();
 
-            EquipWeapon(CharacterDataManager.Instance.GetCurrentPlayerCharacter().weapon);
+            CharacterData playerCharacter = CharacterDataManager.Instance.GetCurrentPlayerCharacter();
+            EquipWeapon(playerCharacter.weapon, playerCharacter.weaponLevel, playerCharacter.weaponSeed);
         }
 
         /// <summary>
@@ -90,19 +91,24 @@ namespace CombatSystem
         /// Handles instantiating the weapon model, setting up animations, and initializing weapon behavior.
         /// </summary>
         /// <param name="newWeapon">The weapon data to equip</param>
-        public void EquipWeapon(WeaponData newWeapon)
+        public void EquipWeapon(WeaponData newWeapon, int weaponLevel, string weaponSeed)
         {
             if (newWeapon == null)
             {
                 Debug.LogWarning("No weapon assigned, equipping default weapon.");
-                EquipWeapon(defaultWeapon);
+                EquipWeapon(defaultWeapon, 0, "1");
                 return;
             }
 
-            currentWeapon = newWeapon;
+            Debug.Log("Equipping weapon: " + newWeapon.name + " at level " + weaponLevel);
+
+            currentWeapon = new WeaponDataInstance(newWeapon, weaponLevel, weaponSeed);
 
             if (HasStateAuthority)
             {
+                if(weaponLevel < 0)
+                    Log.Error("Weapon level cannot be negative");
+
                 // disbable existing weapon behavior if any before initializing the new one
                 WeaponBehavior[] existingBehaviors = GetComponents<WeaponBehavior>();
                 foreach (var behavior in existingBehaviors)
@@ -110,16 +116,19 @@ namespace CombatSystem
                     Destroy(behavior);
                 }
 
+                // save player data
+                CharacterDataManager.Instance.SaveWeaponData(CharacterDataManager.Instance.GetCurrentPlayerCharacter(), currentWeapon);
+
                 // Initialize weapon behavior on state authority
-                weaponBehavior = WeaponBehaviorFactory.CreateBehavior(currentWeapon.behavior, gameObject);
+                weaponBehavior = WeaponBehaviorFactory.CreateBehavior(currentWeapon.weaponData.behavior[weaponLevel], gameObject);
                 weaponBehavior.Initialize(hitboxCenter, animator, gameObject, currentWeapon);
 
-                RPC_EquipWeaponSync(currentWeapon.name);
+                RPC_EquipWeaponSync(currentWeapon.weaponData.name, weaponLevel);
                 RPC_PlayEquipAnimation();
             }
 
-            FindFirstObjectByType<WeaponCard>().UpdateWeapon(currentWeapon);
-            GetComponent<PlayerSetup>().SetCurrentWeapon(currentWeapon.name);
+            FindFirstObjectByType<WeaponCard>().UpdateWeapon(currentWeapon.weaponData, weaponLevel);
+            GetComponent<PlayerSetup>().SetCurrentWeapon(currentWeapon.weaponData.name);
             
         }
 
@@ -136,14 +145,15 @@ namespace CombatSystem
         /// RPC to synchronize weapon equipping across all network clients.
         /// </summary>
         [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
-        void RPC_EquipWeaponSync(string weaponName)
+        void RPC_EquipWeaponSync(string weaponName, int weaponLevel)
         {
-            WeaponData syncedWeapon = currentWeapon;
+            WeaponDataInstance syncedWeapon = currentWeapon;
 
             // Non-authority clients need to load the weapon data by name
             if (!HasStateAuthority)
             {
-                syncedWeapon = Resources.Load<WeaponData>($"Data/Weapons/Player/{weaponName}");
+                WeaponData weaponSO = Resources.Load<WeaponData>($"Data/Weapons/Player/{weaponName}");
+                syncedWeapon = new WeaponDataInstance(weaponSO, weaponLevel, System.Guid.NewGuid().ToString());
                 if (syncedWeapon == null)
                 {
                     return;
@@ -151,11 +161,11 @@ namespace CombatSystem
                 currentWeapon = syncedWeapon;
             }
 
-            animator.runtimeAnimatorController = syncedWeapon.animationController;
+            animator.runtimeAnimatorController = syncedWeapon.weaponData.animationController;
 
             foreach (var model in weaponModels)
             {
-                model.SetActive(model.name == syncedWeapon.weaponModelName);
+                model.SetActive(model.name == syncedWeapon.weaponData.weaponModelName[syncedWeapon.weaponLevel]);
             }
         }
 
@@ -176,12 +186,12 @@ namespace CombatSystem
 
         public string GetCurrentWeaponName()
         {
-            return currentWeapon != null ? currentWeapon.name : "No Weapon";
+            return currentWeapon != null ? currentWeapon.weaponData.name : "No Weapon";
         }
 
-        public WeaponData GetCurrentWeaponData()
+        public WeaponDataInstance GetCurrentWeaponData()
         {
-            if(currentWeapon.name == "Unarmed")
+            if(currentWeapon.weaponData.name == "Unarmed")
             {
                 return null;
             }

@@ -13,7 +13,7 @@ public class PickableWeapon : NetworkBehaviour
     [Header("References")]
     [SerializeField] GameObject interactionTooltip;
     [SerializeField] GameObject weaponStats;
-    [SerializeField] WeaponData weaponData;
+    [SerializeField] WeaponDataInstance weaponData;
 
     [SerializeField] TMP_Text tooltipWeaponName;
     [SerializeField] TMP_Text tooltipWeaponDamage;
@@ -40,24 +40,24 @@ public class PickableWeapon : NetworkBehaviour
         }
     }
 
-    public void Initialize(WeaponData newWeaponData)
+    public void Initialize(WeaponData newWeaponData, int weaponLevel, string weaponSeed)
     {
-        weaponData = newWeaponData;
-        RPC_InitializeWeapon(newWeaponData.name);
+        weaponData = new WeaponDataInstance(newWeaponData, weaponLevel, weaponSeed);
+        RPC_InitializeWeapon(newWeaponData.name, weaponLevel, weaponSeed);
     }
     
     [Rpc(RpcSources.All, RpcTargets.All)]
-    void RPC_InitializeWeapon(string weaponName)
+    void RPC_InitializeWeapon(string weaponName, int weaponLevel, string weaponSeed)
     {
-        weaponData = Resources.Load<WeaponData>($"Data/Weapons/Player/{weaponName}");
+        weaponData = new WeaponDataInstance(Resources.Load<WeaponData>($"Data/Weapons/Player/{weaponName}"), weaponLevel, weaponSeed);
         InitializeWeaponModel();
         SetupStatsTooltip();
     }
     
     void SetupStatsTooltip()
-    {
-        tooltipWeaponName.text = weaponData.name;
-        tooltipWeaponDamage.text = $"Damage: {weaponData.baseDamage}";
+    {   
+        tooltipWeaponName.text = weaponData.weaponData.name;
+        tooltipWeaponDamage.text = $"Damage: {weaponData.damage}";
         tooltipWeaponForce.text = $"Force: {weaponData.knockbackForce}";
     }
 
@@ -72,7 +72,7 @@ public class PickableWeapon : NetworkBehaviour
 
         foreach (var model in weaponModels)
         {
-            model.SetActive(model.name == weaponData.weaponModelName);
+            model.SetActive(model.name == weaponData.weaponData.weaponModelName[weaponData.weaponLevel]);
         }
     }
 
@@ -129,7 +129,7 @@ public class PickableWeapon : NetworkBehaviour
         UpdateTooltip();
     }
 
-    public WeaponData PickupWeapon()
+    public WeaponDataInstance PickupWeapon()
     {
         AudioUI.instance.PlayUIWeapon();
         return weaponData;

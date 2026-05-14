@@ -19,19 +19,19 @@ public class WeaponCard : MonoBehaviour
     /// <param name="character">The character data containing weapon information</param>
     public void Initialize(CharacterData character)
     {
-        UpdateWeapon(character.weapon);
+        UpdateWeapon(character.weapon, character.weaponLevel);
     }
 
     /// <summary>
     /// Updates the weapon card display with the current weapon data.
     /// </summary>
     /// <param name="weapon">The weapon data to display</param>
-    public void UpdateWeapon(WeaponData weapon)
+    public void UpdateWeapon(WeaponData weapon, int weaponLevel)
     {
         if (weapon == null)
             return;
 
-        weaponIcon.sprite = weapon.weaponPortrait;
+        weaponIcon.sprite = weapon.weaponPortrait[weaponLevel];
         weaponName.text = weapon.name;
         damageLabel.text = $"DMG: {weapon.baseDamage}";
         knockbackLabel.text = $"KB: {weapon.knockbackForce}";
