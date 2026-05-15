@@ -71,6 +71,8 @@ public class PlayerInteractor : NetworkBehaviour
 
         WeaponDataInstance pickedWeaponData = pickableWeaponInRange.PickupWeapon();
 
+        Debug.Log($"{pickedWeaponData.weaponData.name}");
+
         GetComponent<PlayerAttack>()?.EquipWeapon(pickedWeaponData.weaponData, pickedWeaponData.weaponLevel, pickedWeaponData.weaponSeed);
         
         if(dropWeapon == null)

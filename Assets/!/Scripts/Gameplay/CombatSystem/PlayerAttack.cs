@@ -117,7 +117,7 @@ namespace CombatSystem
                 }
 
                 // save player data
-                CharacterDataManager.Instance.SaveWeaponData(CharacterDataManager.Instance.GetCurrentPlayerCharacter(), currentWeapon);
+                CharacterDataManager.Instance.SaveWeaponData(currentWeapon);
 
                 // Initialize weapon behavior on state authority
                 weaponBehavior = WeaponBehaviorFactory.CreateBehavior(currentWeapon.weaponData.behavior[weaponLevel], gameObject);
@@ -127,7 +127,7 @@ namespace CombatSystem
                 RPC_PlayEquipAnimation();
             }
 
-            FindFirstObjectByType<WeaponCard>().UpdateWeapon(currentWeapon.weaponData, weaponLevel);
+            FindFirstObjectByType<WeaponCard>().UpdateWeapon(currentWeapon);
             GetComponent<PlayerSetup>().SetCurrentWeapon(currentWeapon.weaponData.name);
             
         }
@@ -163,9 +163,13 @@ namespace CombatSystem
 
             animator.runtimeAnimatorController = syncedWeapon.weaponData.animationController;
 
+            string newWeaponModelName = "";
+            if (syncedWeapon.weaponData.weaponModelName.Length > 0)
+                newWeaponModelName = syncedWeapon.weaponData.weaponModelName[syncedWeapon.weaponLevel];
+
             foreach (var model in weaponModels)
             {
-                model.SetActive(model.name == syncedWeapon.weaponData.weaponModelName[syncedWeapon.weaponLevel]);
+                model.SetActive(model.name == newWeaponModelName);
             }
         }
 

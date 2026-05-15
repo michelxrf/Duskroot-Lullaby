@@ -10,10 +10,17 @@ using UnityEngine;
 /// </summary>
 public class PickableWeapon : NetworkBehaviour
 {
+    [Header("Setup")]
+    [Tooltip("Will ignore set weapon and randomly select any weapon from all weapons SOs. Will ignore weaponDataSO if ticked.")]
+    [SerializeField] bool randomizeWeapon = false;
+    [Tooltip("Will randomly set the weapon's level, rarity is the default. Will ignore level var if ticked.")]
+    [SerializeField] bool randomizeLevel = false;
+    [SerializeField] WeaponData weaponDataSO;
+    [SerializeField] int level = 0;
+    
     [Header("References")]
     [SerializeField] GameObject interactionTooltip;
     [SerializeField] GameObject weaponStats;
-    [SerializeField] WeaponDataInstance weaponData;
 
     [SerializeField] TMP_Text tooltipWeaponName;
     [SerializeField] TMP_Text tooltipWeaponDamage;
@@ -22,6 +29,7 @@ public class PickableWeapon : NetworkBehaviour
     [SerializeField] GameObject[] weaponModels;
     [SerializeField] GameObject pickableWeaponPrefab;
 
+    WeaponDataInstance weaponData;
     int playersInRange;
     bool hasSpawned = false;
 
@@ -33,8 +41,15 @@ public class PickableWeapon : NetworkBehaviour
         playersInRange = 0;
         interactionTooltip.SetActive(false);
 
-        if(weaponData != null)
+        if(weaponDataSO != null)
         {
+            if (randomizeWeapon)
+                Debug.Log("Not implemented yet");
+
+            if (randomizeLevel)
+                Debug.Log("Not implemented yet");
+
+            Initialize(weaponDataSO, level, "1");
             InitializeWeaponModel();
             SetupStatsTooltip();
         }

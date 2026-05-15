@@ -14,26 +14,20 @@ public class WeaponCard : MonoBehaviour
     [SerializeField] Image weaponIcon;
 
     /// <summary>
-    /// Initializes the weapon card with character and weapon data.
-    /// </summary>
-    /// <param name="character">The character data containing weapon information</param>
-    public void Initialize(CharacterData character)
-    {
-        UpdateWeapon(character.weapon, character.weaponLevel);
-    }
-
-    /// <summary>
     /// Updates the weapon card display with the current weapon data.
     /// </summary>
     /// <param name="weapon">The weapon data to display</param>
-    public void UpdateWeapon(WeaponData weapon, int weaponLevel)
+    public void UpdateWeapon(WeaponDataInstance weapon)
     {
         if (weapon == null)
             return;
 
-        weaponIcon.sprite = weapon.weaponPortrait[weaponLevel];
-        weaponName.text = weapon.name;
-        damageLabel.text = $"DMG: {weapon.baseDamage}";
+        int weaponLevel = weapon.weaponLevel;
+        WeaponData weaponSO = weapon.weaponData;
+
+        weaponIcon.sprite = weaponSO.weaponPortrait[weaponLevel];
+        weaponName.text = weaponSO.name;
+        damageLabel.text = $"DMG: {weapon.damage}";
         knockbackLabel.text = $"KB: {weapon.knockbackForce}";
     }
 }
