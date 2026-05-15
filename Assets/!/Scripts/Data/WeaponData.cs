@@ -10,14 +10,67 @@ public class WeaponData : ScriptableObject
     public int baseDamage = 25;
     public int knockbackForce = 10;
     public RuntimeAnimatorController animationController;
-    public GameObject weaponModel;
     public float hitboxRadius = 0.5f;
-    public GameObject vfxPrefab;
-    public bool rigthHanded = true;
-    public string behavior;
-    public GameObject projectilePrefab;
-    public string weaponModelName;
-    public Sprite weaponPortrait;
+    public GameObject[] vfxPrefab;
+    public string[] behavior;
+    public GameObject[] projectilePrefab;
+    public string[] weaponModelName;
+    public Sprite[] weaponPortrait;
 
     public string weaponAudioType = "unarmed";
+}
+
+public class WeaponDataInstance
+{
+    public WeaponData weaponData;
+    public int weaponLevel;
+    public string weaponSeed;
+
+    public int damage;
+    public int knockbackForce;
+    public float hitboxRadius;
+
+    public WeaponDataInstance(WeaponData data, int level, string seed)
+    {
+        weaponData = data;
+        weaponLevel = level;
+        weaponSeed = seed;
+
+        LevelWeapon();
+    }
+
+    void LevelWeapon()
+    {
+        int damagePoints = 0;
+        int knockbackPoints = 0;
+        int hitboxPoints = 0;
+
+        Debug.Log($"Leveling weapon {weaponData.name} with seed {weaponSeed} at level {weaponLevel}");
+
+        Random.InitState(weaponSeed.GetHashCode());
+
+        for (int i = 0; i < weaponLevel; i++)
+        {
+            int coinToss = Random.Range(0, 3);
+            
+            switch (coinToss)
+            {
+                case 0:
+                    damagePoints++;
+                    break;
+                case 1:
+                    knockbackPoints++;
+                    break;
+                case 2:
+                    hitboxPoints++;
+                    break;
+                default:
+                    throw new System.Exception("Invalid random value for weapon leveling");
+            };
+        }
+
+        damage = weaponData.baseDamage + (damagePoints * 5);
+        knockbackForce = weaponData.knockbackForce + (knockbackPoints * 2);
+        hitboxRadius = weaponData.hitboxRadius + (hitboxPoints * 0.1f);
+    }
 }

@@ -10,10 +10,17 @@ using UnityEngine;
 /// </summary>
 public class PickableWeapon : NetworkBehaviour
 {
+    [Header("Setup")]
+    [Tooltip("Will ignore set weapon and randomly select any weapon from all weapons SOs. Will ignore weaponDataSO if ticked.")]
+    [SerializeField] bool randomizeWeapon = false;
+    [Tooltip("Will randomly set the weapon's level, rarity is the default. Will ignore level var if ticked.")]
+    [SerializeField] bool randomizeLevel = false;
+    [SerializeField] WeaponData weaponDataSO;
+    [SerializeField] int level = 0;
+    
     [Header("References")]
     [SerializeField] GameObject interactionTooltip;
     [SerializeField] GameObject weaponStats;
-    [SerializeField] WeaponData weaponData;
 
     [SerializeField] TMP_Text tooltipWeaponName;
     [SerializeField] TMP_Text tooltipWeaponDamage;
@@ -22,6 +29,7 @@ public class PickableWeapon : NetworkBehaviour
     [SerializeField] GameObject[] weaponModels;
     [SerializeField] GameObject pickableWeaponPrefab;
 
+    WeaponDataInstance weaponData;
     int playersInRange;
     bool hasSpawned = false;
 
@@ -33,31 +41,38 @@ public class PickableWeapon : NetworkBehaviour
         playersInRange = 0;
         interactionTooltip.SetActive(false);
 
-        if(weaponData != null)
+        if(weaponDataSO != null)
         {
+            if (randomizeWeapon)
+                Debug.Log("Not implemented yet");
+
+            if (randomizeLevel)
+                Debug.Log("Not implemented yet");
+
+            Initialize(weaponDataSO, level, "1");
             InitializeWeaponModel();
             SetupStatsTooltip();
         }
     }
 
-    public void Initialize(WeaponData newWeaponData)
+    public void Initialize(WeaponData newWeaponData, int weaponLevel, string weaponSeed)
     {
-        weaponData = newWeaponData;
-        RPC_InitializeWeapon(newWeaponData.name);
+        weaponData = new WeaponDataInstance(newWeaponData, weaponLevel, weaponSeed);
+        RPC_InitializeWeapon(newWeaponData.name, weaponLevel, weaponSeed);
     }
     
     [Rpc(RpcSources.All, RpcTargets.All)]
-    void RPC_InitializeWeapon(string weaponName)
+    void RPC_InitializeWeapon(string weaponName, int weaponLevel, string weaponSeed)
     {
-        weaponData = Resources.Load<WeaponData>($"Data/Weapons/Player/{weaponName}");
+        weaponData = new WeaponDataInstance(Resources.Load<WeaponData>($"Data/Weapons/Player/{weaponName}"), weaponLevel, weaponSeed);
         InitializeWeaponModel();
         SetupStatsTooltip();
     }
     
     void SetupStatsTooltip()
-    {
-        tooltipWeaponName.text = weaponData.name;
-        tooltipWeaponDamage.text = $"Damage: {weaponData.baseDamage}";
+    {   
+        tooltipWeaponName.text = weaponData.weaponData.name;
+        tooltipWeaponDamage.text = $"Damage: {weaponData.damage}";
         tooltipWeaponForce.text = $"Force: {weaponData.knockbackForce}";
     }
 
@@ -72,7 +87,7 @@ public class PickableWeapon : NetworkBehaviour
 
         foreach (var model in weaponModels)
         {
-            model.SetActive(model.name == weaponData.weaponModelName);
+            model.SetActive(model.name == weaponData.weaponData.weaponModelName[weaponData.weaponLevel]);
         }
     }
 
@@ -129,7 +144,7 @@ public class PickableWeapon : NetworkBehaviour
         UpdateTooltip();
     }
 
-    public WeaponData PickupWeapon()
+    public WeaponDataInstance PickupWeapon()
     {
         AudioUI.instance.PlayUIWeapon();
         return weaponData;

@@ -12,6 +12,7 @@ public class WeaponBehavior : NetworkBehaviour
     protected GameObject owner;
     protected Transform defaultTarget;
     protected WeaponData weaponData;
+    protected WeaponDataInstance weaponDataInstance;
     protected bool isOnCooldown = false;
 
     public override void Spawned()
@@ -51,11 +52,12 @@ public class WeaponBehavior : NetworkBehaviour
     /// <param name="defaultTarget">The default target position (e.g., character's hitbox)</param>
     /// <param name="anim">The animator component for playing attack animations</param>
     /// <param name="owner">The game object that owns this weapon</param>
-    /// <param name="weaponData">The data defining this weapon's properties</param>
-    public virtual void Initialize(Transform defaultTarget, Animator anim, GameObject owner, WeaponData weaponData)
+    /// <param name="weaponDataInstance">The data defining this weapon's properties</param>
+    public virtual void Initialize(Transform defaultTarget, Animator anim, GameObject owner, WeaponDataInstance weaponDataInstance)
     {
         animator = anim;
-        this.weaponData = weaponData;
+        this.weaponData = weaponDataInstance.weaponData;
+        this.weaponDataInstance = weaponDataInstance;
         this.owner = owner;
         this.defaultTarget = defaultTarget;
     }
