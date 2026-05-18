@@ -32,6 +32,10 @@ PrefabInstance:
       propertyPath: deathEvent.Guid.Data4
       value: -1111894341
       objectReference: {fileID: 0}
+    - target: {fileID: 822270101518877923, guid: 0cc26b293f5af75489e15d8df5c36eaf, type: 3}
+      propertyPath: reticlePrefab
+      value: 
+      objectReference: {fileID: 5401595559872557922, guid: de6acd6c60b41574594e9283de5f0602, type: 3}
     - target: {fileID: 4600318904223632839, guid: 0cc26b293f5af75489e15d8df5c36eaf, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -356,7 +360,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8a869be09f507b46b265aa9572a5c88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PunchPlayer
-  gender: 3
+  weapon: 0
   punchEvent:
     Guid:
       Data1: 1645193081
@@ -364,6 +368,20 @@ MonoBehaviour:
       Data3: 249112717
       Data4: 1609586748
     Path: event:/SFX/Punch_swoosh
+  swordEvent:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  slingEvent:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!114 &8991936484886639542
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -404,6 +422,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6aaada1004db1b047be050655ad918d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInteractor
+  weaponDropPrefab: {fileID: 0}
 --- !u!114 &-3158198725332826894
 MonoBehaviour:
   m_ObjectHideFlags: 0

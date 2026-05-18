@@ -51,10 +51,11 @@ namespace CombatSystem
                 {
                     weaponBehavior.Execute();
                     RPC_PlayAttackAnim();
+                    characterLook.OnAttackTriggered();
                 }
 
                 lastAttack = isButtonPressed;
-            }
+}
         }
 
         /// <summary>
