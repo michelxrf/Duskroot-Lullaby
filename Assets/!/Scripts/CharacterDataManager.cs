@@ -111,6 +111,16 @@ public class CharacterDataManager : MonoBehaviour
         _isDirty = true;
     }
 
+    public void SaveWeaponData(WeaponDataInstance weaponData)
+    {
+        CharacterData character = GetCurrentPlayerCharacter();
+
+        character.weapon = weaponData.weaponData;
+        character.weaponLevel = weaponData.weaponLevel;
+        character.weaponSeed = weaponData.weaponSeed;
+        UpdateCharacter(character);
+    }
+
     void UpdateCharacter(CharacterData newCharacter)
     {
         for (int i = 0; i < Data.Characters.Length; i++)
@@ -121,21 +131,7 @@ public class CharacterDataManager : MonoBehaviour
                 return;
             }
         }
-    }
-
-    public void AddItem(int index, string itemId)
-    {
-        // TODO:
-        // verify if item already exists then increment
-
-        _isDirty = true;
-    }
-
-    public void RemoveItem(int index, string itemId)
-    {
-        // TODO:
-        // verify if item exists then decrement or remove
-
+        
         _isDirty = true;
     }
 

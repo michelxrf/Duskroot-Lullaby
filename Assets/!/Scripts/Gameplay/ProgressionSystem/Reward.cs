@@ -81,7 +81,22 @@ namespace ProgressionSystem
         void DropWeapon()
         {
             WeaponData weaponSO = weapons[UnityEngine.Random.Range(0, weapons.Length)];
-            Runner.Spawn(pickableWeaponPrefab, transform.position, Quaternion.identity).GetComponent<PickableWeapon>().Initialize(weaponSO);
+            int weaponLevel = GetRandomWeaponLevel();
+            string weaponSeed = System.Guid.NewGuid().ToString();
+            Runner.Spawn(pickableWeaponPrefab, transform.position, Quaternion.identity).GetComponent<PickableWeapon>().Initialize(weaponSO, weaponLevel, weaponSeed);
+        }
+
+        int GetRandomWeaponLevel()
+        {
+            float randomValue = UnityEngine.Random.value;
+
+            if (randomValue < 0.05f)
+                return 3; // Lendária: 5%
+            if (randomValue < 0.20f)
+                return 2; // Rara: 15%
+            if (randomValue < 0.50f)
+                return 1; // Incomum: 30%
+            return 0; // Comum: 50%
         }
 
         void DropHealing()

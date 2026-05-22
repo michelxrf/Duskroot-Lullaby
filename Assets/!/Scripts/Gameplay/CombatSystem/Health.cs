@@ -24,6 +24,9 @@ namespace CombatSystem
         [HideInInspector] public int CurrentHealth { get; protected set; }
         protected int oldHealth { get; set; }
 
+        [Networked]
+        public bool IsInvulnerable { get; set; }
+
         [Header("Audio")]
         protected AudioHitNotifier audioHit;
         [SerializeField] protected string characterType;
@@ -51,6 +54,9 @@ namespace CombatSystem
         [Rpc(RpcSources.All, RpcTargets.StateAuthority)]
         public void RPC_TakeDamage(int damage, string weaponType)
         {
+            if (IsInvulnerable)
+                return;
+
             if (damage < 0)
             {
                 damage = 0;

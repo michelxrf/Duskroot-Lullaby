@@ -176,6 +176,7 @@ Transform:
   - {fileID: 4276037889405527009}
   - {fileID: 933761180754742160}
   - {fileID: 9152169501634041739}
+  - {fileID: 6501188728682220440}
   - {fileID: 8842110490142879345}
   - {fileID: 877179798189921999}
   m_Father: {fileID: 8389942071417710471}
@@ -5321,9 +5322,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54f6c3a32c7b00842896ee9ee8997b63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PickableWeapon
+  randomizeWeapon: 0
+  randomizeLevel: 0
+  weaponDataSO: {fileID: 0}
+  level: 0
   interactionTooltip: {fileID: 7548978089487154053}
   weaponStats: {fileID: 7548978089487154053}
-  weaponData: {fileID: 11400000, guid: dc791d731ca693144a922d7cba8a1569, type: 2}
   tooltipWeaponName: {fileID: 1062866920017112091}
   tooltipWeaponDamage: {fileID: 7734030628469061566}
   tooltipWeaponForce: {fileID: 7858134684410991159}
@@ -5339,6 +5343,7 @@ MonoBehaviour:
   - {fileID: 8379185732954082609}
   - {fileID: 8214191921653413067}
   - {fileID: 533552094568909941}
+  - {fileID: 5869048039503614242}
   pickableWeaponPrefab: {fileID: 6525151285774368790}
 --- !u!114 &1704696739168313676
 MonoBehaviour:
@@ -5651,7 +5656,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4079969459091404592, guid: 876a6ab14bab76c418912bd2d2f17075, type: 3}
       propertyPath: m_Name
-      value: Shortsword_painted
+      value: Shortsword_2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5668,6 +5673,73 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3734933486409461130, guid: 876a6ab14bab76c418912bd2d2f17075, type: 3}
   m_PrefabInstance: {fileID: 639570045442092875}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1487609660133769207
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 5895141583727091693}
+    m_Modifications:
+    - target: {fileID: 5032210741749788373, guid: 9d330b7f88b18af4a9d373bcda581c3c, type: 3}
+      propertyPath: m_Name
+      value: Slingshot_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5664914454145856623, guid: 9d330b7f88b18af4a9d373bcda581c3c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5664914454145856623, guid: 9d330b7f88b18af4a9d373bcda581c3c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5664914454145856623, guid: 9d330b7f88b18af4a9d373bcda581c3c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5664914454145856623, guid: 9d330b7f88b18af4a9d373bcda581c3c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5664914454145856623, guid: 9d330b7f88b18af4a9d373bcda581c3c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5664914454145856623, guid: 9d330b7f88b18af4a9d373bcda581c3c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5664914454145856623, guid: 9d330b7f88b18af4a9d373bcda581c3c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5664914454145856623, guid: 9d330b7f88b18af4a9d373bcda581c3c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5664914454145856623, guid: 9d330b7f88b18af4a9d373bcda581c3c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5664914454145856623, guid: 9d330b7f88b18af4a9d373bcda581c3c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9d330b7f88b18af4a9d373bcda581c3c, type: 3}
+--- !u!1 &5869048039503614242 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5032210741749788373, guid: 9d330b7f88b18af4a9d373bcda581c3c, type: 3}
+  m_PrefabInstance: {fileID: 1487609660133769207}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6501188728682220440 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5664914454145856623, guid: 9d330b7f88b18af4a9d373bcda581c3c, type: 3}
+  m_PrefabInstance: {fileID: 1487609660133769207}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1678185812363534250
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5678,7 +5750,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7400734782470990689, guid: 5c09f4fdd70a15146a4f1666a7f1e13c, type: 3}
       propertyPath: m_Name
-      value: Slingshot_golden
+      value: Slingshot_3
       objectReference: {fileID: 0}
     - target: {fileID: 7926161339758670299, guid: 5c09f4fdd70a15146a4f1666a7f1e13c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5785,7 +5857,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2159867663145164926, guid: bbb76306551add144b222524308d2873, type: 3}
       propertyPath: m_Name
-      value: Slingshot_steel
+      value: Slingshot_2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5812,7 +5884,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6930804075411693637, guid: a86b152cfb6769e4f97d79454e6101e3, type: 3}
       propertyPath: m_Name
-      value: Longsword_painted
+      value: Longsword_2
       objectReference: {fileID: 0}
     - target: {fileID: 7738584084817787647, guid: a86b152cfb6769e4f97d79454e6101e3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5879,7 +5951,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5032210741749788373, guid: 9d330b7f88b18af4a9d373bcda581c3c, type: 3}
       propertyPath: m_Name
-      value: Slingshot_bronze
+      value: Slingshot_0
       objectReference: {fileID: 0}
     - target: {fileID: 5664914454145856623, guid: 9d330b7f88b18af4a9d373bcda581c3c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5986,7 +6058,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7943377480992639841, guid: 7588d437bba5c7546b759e22db8de0e8, type: 3}
       propertyPath: m_Name
-      value: Shortsword_noPaint
+      value: Shortsword_0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6013,7 +6085,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3482760715992098484, guid: e4c63ff0c1e8718498d2fbb11c821860, type: 3}
       propertyPath: m_Name
-      value: Shortsword_wellPainted
+      value: Shortsword_3
       objectReference: {fileID: 0}
     - target: {fileID: 4260001484744473614, guid: e4c63ff0c1e8718498d2fbb11c821860, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6120,7 +6192,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 887072738567454141, guid: ce1fe613fadee444fb3a4c9872a05ae5, type: 3}
       propertyPath: m_Name
-      value: Shortsword_poorPaint
+      value: Shortsword_1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6187,7 +6259,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5452004783360685898, guid: 1af4142a010e1fb4e8305972f7d17c42, type: 3}
       propertyPath: m_Name
-      value: Longsword_noPaint
+      value: Longsword_0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6214,7 +6286,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7165215554571496880, guid: 0966b15a8d64d8d4e9f41d831dddd899, type: 3}
       propertyPath: m_Name
-      value: Longsword_poorPaint
+      value: Longsword_1
       objectReference: {fileID: 0}
     - target: {fileID: 7504163809740076810, guid: 0966b15a8d64d8d4e9f41d831dddd899, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6321,7 +6393,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7858587550525886574, guid: 69a7032ef560ceb4084f75591af811d4, type: 3}
       propertyPath: m_Name
-      value: Longsword_wellPainted
+      value: Longsword_3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

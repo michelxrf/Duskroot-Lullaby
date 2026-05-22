@@ -7,6 +7,7 @@ public class PlayerInteractor : NetworkBehaviour
     Interactions interactionInRange;
     ReviveTombstone reviveTombstoneInRange;
     PickableWeapon pickableWeaponInRange;
+    HealingItem healingItemInRange;
 
     [SerializeField] GameObject weaponDropPrefab;
     bool interactionButtonPressed = false; 
@@ -19,6 +20,17 @@ public class PlayerInteractor : NetworkBehaviour
     public void LeftInteractionArea()
     {
         interactionInRange = null;
+    }
+
+    public void EnteredHealingItemArea(HealingItem item)
+    {
+        healingItemInRange = item;
+    }
+
+    public void LeftHealingItemArea(HealingItem item)
+    {
+        if (healingItemInRange == item)
+            healingItemInRange = null;
     }
 
     public override void FixedUpdateNetwork()
@@ -48,6 +60,12 @@ public class PlayerInteractor : NetworkBehaviour
                     return;
                 }
 
+                if (healingItemInRange != null)
+                {
+                    healingItemInRange.Consume(GetComponent<PlayerHealth>());
+                    return;
+                }
+
                 if (interactionInRange != null)
                 {
                     Debug.Log("Interacted with " + interactionInRange.name);
@@ -67,14 +85,18 @@ public class PlayerInteractor : NetworkBehaviour
         if (pickableWeaponInRange == null)
             return;
 
-        WeaponData dropWeapon = GetComponent<PlayerAttack>().GetCurrentWeaponData();
-        var weaponData = pickableWeaponInRange.PickupWeapon();
-        GetComponent<PlayerAttack>()?.EquipWeapon(weaponData);
+        WeaponDataInstance dropWeapon = GetComponent<PlayerAttack>().GetCurrentWeaponData();
+
+        WeaponDataInstance pickedWeaponData = pickableWeaponInRange.PickupWeapon();
+
+        Debug.Log($"{pickedWeaponData.weaponData.name}");
+
+        GetComponent<PlayerAttack>()?.EquipWeapon(pickedWeaponData.weaponData, pickedWeaponData.weaponLevel, pickedWeaponData.weaponSeed);
         
         if(dropWeapon == null)
             pickableWeaponInRange.RPC_DespawnWeapon();
         else
-            pickableWeaponInRange.Initialize(dropWeapon);
+            pickableWeaponInRange.Initialize(dropWeapon.weaponData, dropWeapon.weaponLevel, dropWeapon.weaponSeed);
     }
 
     public void EnteredReviveArea(ReviveTombstone reviveTombstone)

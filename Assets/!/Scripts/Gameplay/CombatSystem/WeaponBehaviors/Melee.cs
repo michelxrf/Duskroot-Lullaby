@@ -32,9 +32,9 @@ public class Melee : WeaponBehavior
     /// <param name="defaultTarget">The target position for the hitbox</param>
     /// <param name="anim">The animator component</param>
     /// <param name="owner">The character wielding this weapon</param>
-    /// <param name="weaponData">The weapon configuration data</param>
-    public override void Initialize(Transform defaultTarget, Animator anim, GameObject owner, WeaponData weaponData)
+    /// <param name="weaponDataInstance">The weapon configuration data instance</param>
+    public override void Initialize(Transform defaultTarget, Animator anim, GameObject owner, WeaponDataInstance weaponDataInstance)
     {
-        base.Initialize(defaultTarget, anim, owner, weaponData);
+        base.Initialize(defaultTarget, anim, owner, weaponDataInstance);
     }
 }

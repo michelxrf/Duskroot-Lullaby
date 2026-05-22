@@ -13,5 +13,6 @@ public struct NetworkInputData : INetworkInput
     public bool Skill1;
     public bool Skill2;
     public bool Interact;
+    public bool Dash;
     public bool DebugRevive;
 }
