@@ -74,6 +74,7 @@ namespace Gameplay
                 else
                 {
                     animator.SetTrigger("Open");
+                    physicalCollider.enabled = false;
                     OpenProgress = 1f;
                 }
             }
