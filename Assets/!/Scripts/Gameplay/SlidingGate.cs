@@ -13,6 +13,9 @@ namespace Gameplay
         [SerializeField] private float slideDistance = 3.5f;
         [Tooltip("How long the sliding animation takes.")]
         [SerializeField] private float slideDuration = 2.0f;
+        [Tooltip("Will slide into ground if null")]
+        [SerializeField] private Animator animator;
+
 
         [Header("Physics")]
         [Tooltip("The collider that blocks the path.")]
@@ -59,11 +62,19 @@ namespace Gameplay
         {
             if (IsOpen && OpenProgress < 1f)
             {
-                OpenProgress = Mathf.MoveTowards(OpenProgress, 1f, Runner.DeltaTime / slideDuration);
-
-                if (OpenProgress >= 1f && physicalCollider != null)
+                if (animator == null)
                 {
-                    physicalCollider.enabled = false;
+                    OpenProgress = Mathf.MoveTowards(OpenProgress, 1f, Runner.DeltaTime / slideDuration);
+
+                    if (OpenProgress >= 1f && physicalCollider != null)
+                    {
+                        physicalCollider.enabled = false;
+                    }
+                }
+                else
+                {
+                    animator.SetTrigger("Open");
+                    OpenProgress = 1f;
                 }
             }
         }

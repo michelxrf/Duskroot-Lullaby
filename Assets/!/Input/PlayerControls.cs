@@ -145,6 +145,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Dash"",
+                    ""type"": ""Button"",
+                    ""id"": ""d1dbfe6a-707c-4b68-9aee-c56be1c85fde"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -323,6 +332,28 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""DebugRevive"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""87cb053f-c6f4-4140-8d2f-4936670110dd"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Dash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f745835c-d355-4463-9bd7-687f9c93878d"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Dash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -337,6 +368,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_InGame_Attack = m_InGame.FindAction("Attack", throwIfNotFound: true);
         m_InGame_Interact = m_InGame.FindAction("Interact", throwIfNotFound: true);
         m_InGame_DebugRevive = m_InGame.FindAction("DebugRevive", throwIfNotFound: true);
+        m_InGame_Dash = m_InGame.FindAction("Dash", throwIfNotFound: true);
     }
 
     ~@PlayerControls()
@@ -423,6 +455,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_InGame_Attack;
     private readonly InputAction m_InGame_Interact;
     private readonly InputAction m_InGame_DebugRevive;
+    private readonly InputAction m_InGame_Dash;
     /// <summary>
     /// Provides access to input actions defined in input action map "InGame".
     /// </summary>
@@ -458,6 +491,10 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "InGame/DebugRevive".
         /// </summary>
         public InputAction @DebugRevive => m_Wrapper.m_InGame_DebugRevive;
+        /// <summary>
+        /// Provides access to the underlying input action "InGame/Dash".
+        /// </summary>
+        public InputAction @Dash => m_Wrapper.m_InGame_Dash;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -502,6 +539,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @DebugRevive.started += instance.OnDebugRevive;
             @DebugRevive.performed += instance.OnDebugRevive;
             @DebugRevive.canceled += instance.OnDebugRevive;
+            @Dash.started += instance.OnDash;
+            @Dash.performed += instance.OnDash;
+            @Dash.canceled += instance.OnDash;
         }
 
         /// <summary>
@@ -531,6 +571,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @DebugRevive.started -= instance.OnDebugRevive;
             @DebugRevive.performed -= instance.OnDebugRevive;
             @DebugRevive.canceled -= instance.OnDebugRevive;
+            @Dash.started -= instance.OnDash;
+            @Dash.performed -= instance.OnDash;
+            @Dash.canceled -= instance.OnDash;
         }
 
         /// <summary>
@@ -613,5 +656,12 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnDebugRevive(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Dash" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnDash(InputAction.CallbackContext context);
     }
 }

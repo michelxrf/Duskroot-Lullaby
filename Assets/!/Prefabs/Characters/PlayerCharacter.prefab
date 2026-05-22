@@ -2315,12 +2315,24 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6023994505563687755, guid: 0cc26b293f5af75489e15d8df5c36eaf, type: 3}
+      propertyPath: TotalWords
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023994505563687755, guid: 0cc26b293f5af75489e15d8df5c36eaf, type: 3}
       propertyPath: StateHashes.Array.size
       value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 6023994505563687755, guid: 0cc26b293f5af75489e15d8df5c36eaf, type: 3}
       propertyPath: TriggerHashes.Array.size
-      value: 4
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023994505563687755, guid: 0cc26b293f5af75489e15d8df5c36eaf, type: 3}
+      propertyPath: 'StateHashes.Array.data[3]'
+      value: 1080829965
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023994505563687755, guid: 0cc26b293f5af75489e15d8df5c36eaf, type: 3}
+      propertyPath: 'StateHashes.Array.data[4]'
+      value: 1130333774
       objectReference: {fileID: 0}
     - target: {fileID: 6023994505563687755, guid: 0cc26b293f5af75489e15d8df5c36eaf, type: 3}
       propertyPath: 'StateHashes.Array.data[7]'
@@ -2333,6 +2345,10 @@ PrefabInstance:
     - target: {fileID: 6023994505563687755, guid: 0cc26b293f5af75489e15d8df5c36eaf, type: 3}
       propertyPath: 'TriggerHashes.Array.data[3]'
       value: 20298039
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023994505563687755, guid: 0cc26b293f5af75489e15d8df5c36eaf, type: 3}
+      propertyPath: 'TriggerHashes.Array.data[4]'
+      value: -323374038
       objectReference: {fileID: 0}
     - target: {fileID: 7033562567166124364, guid: 0cc26b293f5af75489e15d8df5c36eaf, type: 3}
       propertyPath: m_Name
@@ -2458,6 +2474,9 @@ MonoBehaviour:
   walkSpeedPercentage: 0.4
   acceleration: 1
   deceleration: 1
+  dashSpeedMultiplier: 2
+  dashDuration: 0.01
+  dashCooldown: 5
 --- !u!114 &8002121663655751717
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2658,6 +2677,7 @@ MonoBehaviour:
   maxHealth: 100
   destroyCorpseAfterSeconds: 20
   _CurrentHealth: 0
+  _IsInvulnerable: 0
   characterType: 
   playerVisual: {fileID: 0}
 --- !u!114 &3005029205936290177

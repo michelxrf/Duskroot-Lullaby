@@ -163,6 +163,8 @@ namespace CombatSystem
             }
 
             animator.runtimeAnimatorController = syncedWeapon.weaponData.animationController;
+            float characterAttackSpeed = CharacterDataManager.Instance.GetCurrentPlayerCharacter().attackSpeed;
+            animator.SetFloat("AttackSpeed", characterAttackSpeed + syncedWeapon.attackSpeed);
 
             string newWeaponModelName = "";
             if (syncedWeapon.weaponData.weaponModelName.Length > 0)
