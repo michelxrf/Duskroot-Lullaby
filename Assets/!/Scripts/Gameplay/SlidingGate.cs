@@ -32,6 +32,8 @@ namespace Gameplay
 
         public override void Spawned()
         {
+            if (animator != null) return;
+
             if (slidingPart != null)
             {
                 _closedLocalPosition = slidingPart.localPosition;
@@ -74,8 +76,8 @@ namespace Gameplay
                 else
                 {
                     animator.SetTrigger("Open");
-                    physicalCollider.enabled = false;
-                    OpenProgress = 1f;
+                   // physicalCollider.enabled = false;
+                   // OpenProgress = 1f;
                 }
             }
         }
