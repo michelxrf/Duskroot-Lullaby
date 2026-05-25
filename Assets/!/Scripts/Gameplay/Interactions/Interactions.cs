@@ -19,6 +19,7 @@ public class Interactions : NetworkBehaviour
     [SerializeField] TMP_Text barkTextField;
     [SerializeField] Bark[] barks;
     [SerializeField] private FMODUnity.EventReference barkEvent;
+    [SerializeField] private string audioBarkParam = "BarkNumber";
 
     [Header("Settings")]
     [SerializeField] float interactionRange = 3f;
@@ -141,11 +142,12 @@ public class Interactions : NetworkBehaviour
 
             if(!barkEvent.IsNull)
 {
-                Debug.Log($"Playing FMOD audio for bark {i}");
+                Debug.Log($"Playing FMOD audio for bark {i} param"+ audioBarkParam);
 
                 var instance = FMODUnity.RuntimeManager.CreateInstance(barkEvent);
-                instance.setParameterByName("BarkNumber", bark.barkNumber); // escolhe qual fala (1 a 3 para esse teste)
-                instance.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(transform)); //Usado para setar o local onde o som ser� emitido (3D)
+                //instance.setParameterByName(audioBarkParam, bark.barkNumber);
+                instance.setParameterByName(audioBarkParam,i+1);
+                instance.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(transform)); 
                 instance.start();
                 FMOD.Studio.PLAYBACK_STATE state;
                 do
