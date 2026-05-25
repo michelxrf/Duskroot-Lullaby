@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Myko_A 1
   m_EditorClassIdentifier: Assembly-CSharp::Bark
   text: "Oi... eu conhe\xE7o voc\xEAs?"
-  barkNumber: 3
+  barkNumber: 1

@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Myko_B 2
   m_EditorClassIdentifier: Assembly-CSharp::Bark
   text: "Eu gosto de voc\xEAs."
-  barkNumber: 3
+  barkNumber: 4

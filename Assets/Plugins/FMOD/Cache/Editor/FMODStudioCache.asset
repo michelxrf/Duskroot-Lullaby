@@ -70,7 +70,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/UI.bank
   Name: UI
   StudioPath: bank:/UI
-  lastModified: 639153050168013079
+  lastModified: 639153172639044822
   FileSizes: []
   Exists: 1
 --- !u!114 &-8367727226860854883
@@ -278,10 +278,10 @@ MonoBehaviour:
   Path: Assets/BuildFmod/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639153050166228780
+  lastModified: 639153172634594878
   FileSizes:
   - Name: 
-    Value: 3476
+    Value: 3552
   Exists: 1
 --- !u!114 &-5771800213713298668
 MonoBehaviour:
@@ -646,7 +646,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639153050166213692
+  lastModified: 639153172634584882
   FileSizes: []
   Exists: 1
 --- !u!114 &-1951550172158635668
@@ -718,7 +718,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/Ambiences.bank
   Name: Ambiences
   StudioPath: bank:/Ambiences
-  lastModified: 639153050165766580
+  lastModified: 639153172633154024
   FileSizes: []
   Exists: 1
 --- !u!114 &-889159557125566879
@@ -748,6 +748,34 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 933
+--- !u!114 &-734393256991782319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Interactions/NPC_Patrick
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/Interactions/NPC_Patrick
+  Guid:
+    Data1: 1279507540
+    Data2: 1121231026
+    Data3: -1312853313
+    Data4: 239124641
+  Banks:
+  - {fileID: 6036602874811187708}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters:
+  - {fileID: 473338939052951993}
+  MinDistance: 1
+  MaxDistance: 30
+  Length: 0
 --- !u!114 &-616154530178873512
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -763,7 +791,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/MUS.bank
   Name: MUS
   StudioPath: bank:/MUS
-  lastModified: 639153050166800624
+  lastModified: 639153172635608961
   FileSizes: []
   Exists: 1
 --- !u!114 &11400000
@@ -827,13 +855,38 @@ MonoBehaviour:
   - {fileID: 2690502577782275382}
   - {fileID: -5553515824323257283}
   - {fileID: -2916236719985361199}
+  - {fileID: -734393256991782319}
   EditorParameters: []
   MasterBanks:
   - {fileID: -2002388166983340450}
   StringsBanks:
   - {fileID: -6222608089242677881}
-  cacheTime: 639153050168013079
+  cacheTime: 639153172639044822
   cacheVersion: 131635
+--- !u!114 &473338939052951993
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/NPC_Patrick/Patrick
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorParamRef
+  Name: Patrick
+  StudioPath: 
+  Min: 1
+  Max: 7
+  Default: 7
+  ID:
+    data1: 1094503664
+    data2: 2378756413
+  Type: 1
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
 --- !u!114 &908433461440058784
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -877,7 +930,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 639153050167771369
+  lastModified: 639153172638626091
   FileSizes: []
   Exists: 1
 --- !u!114 &1236411300488214019
@@ -1320,7 +1373,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/Interactions.bank
   Name: Interactions
   StudioPath: bank:/Interactions
-  lastModified: 639153050165967731
+  lastModified: 639153172634339210
   FileSizes: []
   Exists: 1
 --- !u!114 &6267172118088883810

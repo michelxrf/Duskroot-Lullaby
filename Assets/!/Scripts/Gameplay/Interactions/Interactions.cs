@@ -145,8 +145,7 @@ public class Interactions : NetworkBehaviour
                 Debug.Log($"Playing FMOD audio for bark {i} param"+ audioBarkParam);
 
                 var instance = FMODUnity.RuntimeManager.CreateInstance(barkEvent);
-                //instance.setParameterByName(audioBarkParam, bark.barkNumber);
-                instance.setParameterByName(audioBarkParam,i+1);
+                instance.setParameterByName(audioBarkParam, bark.barkNumber);
                 instance.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(transform)); 
                 instance.start();
                 FMOD.Studio.PLAYBACK_STATE state;

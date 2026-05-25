@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Myko_B 3
   m_EditorClassIdentifier: Assembly-CSharp::Bark
   text: Se quiserem brincar depois, eu fico aqui.
-  barkNumber: 3
+  barkNumber: 5
