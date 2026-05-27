@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4562359124339067338}
   - component: {fileID: 7574902509295474247}
   - component: {fileID: 5372948552097942093}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: big_door_left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -121,7 +121,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3869100370868187269}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: wall_with_big_door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -159,7 +159,7 @@ GameObject:
   - component: {fileID: 7316399156022981230}
   - component: {fileID: 5690044807840685750}
   - component: {fileID: 5328935022791031540}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: big_door_frame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -272,7 +272,7 @@ GameObject:
   - component: {fileID: 659075070768633206}
   - component: {fileID: 3573724159610944244}
   - component: {fileID: 7116947081263173515}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: wall.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -385,7 +385,7 @@ GameObject:
   - component: {fileID: 2722933332591191138}
   - component: {fileID: 5113191560395883975}
   - component: {fileID: 5849978656353090402}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: big_door_right
   m_TagString: Untagged
   m_Icon: {fileID: 0}

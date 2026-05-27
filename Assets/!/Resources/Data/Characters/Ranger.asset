@@ -18,7 +18,7 @@ MonoBehaviour:
   armor: 0
   damage: 10
   speed: 10
-  attackSpeed: 8
+  attackSpeed: 1
   cure: 1
   weapon: {fileID: 11400000, guid: e117e20cb07fa2748bc8b989fa00aa6f, type: 2}
   healthUpgradePerLevel: 2

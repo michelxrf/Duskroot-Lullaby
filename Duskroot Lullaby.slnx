@@ -11,4 +11,5 @@
   <Project Path="FMODUnityResonance.csproj" />
   <Project Path="PlayFabSDKEditor.csproj" />
   <Project Path="Unity.Fusion.CodeGen.csproj" />
+  <Project Path="sc.utilities.screenshot.editor.csproj" />
 </Solution>

@@ -15,11 +15,26 @@ MonoBehaviour:
   baseDamage: 5
   knockbackForce: 5
   animationController: {fileID: 9100000, guid: c6cfe7c5d74e5f74fa9badf7c5fe3477, type: 2}
-  weaponModel: {fileID: 0}
   hitboxRadius: 0.1
-  vfxPrefab: {fileID: 0}
-  rigthHanded: 0
-  behavior: Ranged
-  projectilePrefab: {fileID: 7150761404812699573, guid: d99204c4c624e5c4c9d6a9f87df2e59c, type: 3}
-  weaponModelName: Slingshot
+  vfxPrefab: []
+  behavior:
+  - Ranged
+  - Ranged
+  - Ranged
+  - Ranged
+  projectilePrefab:
+  - {fileID: 7150761404812699573, guid: d99204c4c624e5c4c9d6a9f87df2e59c, type: 3}
+  - {fileID: 7150761404812699573, guid: d99204c4c624e5c4c9d6a9f87df2e59c, type: 3}
+  - {fileID: 7150761404812699573, guid: d99204c4c624e5c4c9d6a9f87df2e59c, type: 3}
+  - {fileID: 7150761404812699573, guid: d99204c4c624e5c4c9d6a9f87df2e59c, type: 3}
+  weaponModelName:
+  - Slingshot_0
+  - Slingshot_1
+  - Slingshot_2
+  - Slingshot_3
+  weaponPortrait:
+  - {fileID: 21300000, guid: 8693be76b35939143990f1fb153f6653, type: 3}
+  - {fileID: 21300000, guid: 8693be76b35939143990f1fb153f6653, type: 3}
+  - {fileID: 21300000, guid: 8693be76b35939143990f1fb153f6653, type: 3}
+  - {fileID: 21300000, guid: 8693be76b35939143990f1fb153f6653, type: 3}
   weaponAudioType: unarmed

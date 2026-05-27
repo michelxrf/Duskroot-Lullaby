@@ -14,6 +14,7 @@ public class PlayerInputBridge : MonoBehaviour
     InputAction attackAction;
     InputAction aimAction;
     InputAction interactAciton;
+    InputAction dashAction;
     InputAction debugReviveAction;
 
     private void Awake()
@@ -24,6 +25,7 @@ public class PlayerInputBridge : MonoBehaviour
         attackAction = playerInput.actions["Attack"];
         aimAction = playerInput.actions["Aim"];
         interactAciton = playerInput.actions["Interact"];
+        dashAction = playerInput.actions["Dash"];
         debugReviveAction = playerInput.actions["DebugRevive"];
     }
 
@@ -40,6 +42,7 @@ public class PlayerInputBridge : MonoBehaviour
         attackAction.Enable();
         aimAction.Enable();
         interactAciton.Enable();
+        dashAction.Enable();
         debugReviveAction.Enable();
     }
 
@@ -50,6 +53,7 @@ public class PlayerInputBridge : MonoBehaviour
         attackAction.Disable();
         aimAction.Disable();
         interactAciton.Disable();
+        dashAction.Disable();
         debugReviveAction.Disable();
     }
 
@@ -62,6 +66,7 @@ public class PlayerInputBridge : MonoBehaviour
             Attack = attackAction.IsPressed(),
             Aim = aimAction.IsPressed(),
             Interact = interactAciton.IsPressed(),
+            Dash = dashAction.IsPressed(),
             DebugRevive = debugReviveAction.IsPressed()
         };
 

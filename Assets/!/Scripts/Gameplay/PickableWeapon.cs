@@ -1,5 +1,6 @@
 using CombatSystem;
 using Fusion;
+using TMPro;
 using UnityEngine;
 
 /// <summary>
@@ -9,10 +10,26 @@ using UnityEngine;
 /// </summary>
 public class PickableWeapon : NetworkBehaviour
 {
+    [Header("Setup")]
+    [Tooltip("Will ignore set weapon and randomly select any weapon from all weapons SOs. Will ignore weaponDataSO if ticked.")]
+    [SerializeField] bool randomizeWeapon = false;
+    [Tooltip("Will randomly set the weapon's level, rarity is the default. Will ignore level var if ticked.")]
+    [SerializeField] bool randomizeLevel = false;
+    [SerializeField] WeaponData weaponDataSO;
+    [SerializeField] int level = 0;
+    
     [Header("References")]
     [SerializeField] GameObject interactionTooltip;
-    [SerializeField] WeaponData weaponData;
+    [SerializeField] GameObject weaponStats;
 
+    [SerializeField] TMP_Text tooltipWeaponName;
+    [SerializeField] TMP_Text tooltipWeaponDamage;
+    [SerializeField] TMP_Text tooltipWeaponForce;
+
+    [SerializeField] GameObject[] weaponModels;
+    [SerializeField] GameObject pickableWeaponPrefab;
+
+    WeaponDataInstance weaponData;
     int playersInRange;
     bool hasSpawned = false;
 
@@ -23,6 +40,55 @@ public class PickableWeapon : NetworkBehaviour
 
         playersInRange = 0;
         interactionTooltip.SetActive(false);
+
+        if(weaponDataSO != null)
+        {
+            if (randomizeWeapon)
+                Debug.Log("Not implemented yet");
+
+            if (randomizeLevel)
+                Debug.Log("Not implemented yet");
+
+            Initialize(weaponDataSO, level, "1");
+            InitializeWeaponModel();
+            SetupStatsTooltip();
+        }
+    }
+
+    public void Initialize(WeaponData newWeaponData, int weaponLevel, string weaponSeed)
+    {
+        weaponData = new WeaponDataInstance(newWeaponData, weaponLevel, weaponSeed);
+        RPC_InitializeWeapon(newWeaponData.name, weaponLevel, weaponSeed);
+    }
+    
+    [Rpc(RpcSources.All, RpcTargets.All)]
+    void RPC_InitializeWeapon(string weaponName, int weaponLevel, string weaponSeed)
+    {
+        weaponData = new WeaponDataInstance(Resources.Load<WeaponData>($"Data/Weapons/Player/{weaponName}"), weaponLevel, weaponSeed);
+        InitializeWeaponModel();
+        SetupStatsTooltip();
+    }
+    
+    void SetupStatsTooltip()
+    {   
+        tooltipWeaponName.text = weaponData.weaponData.name;
+        tooltipWeaponDamage.text = $"Damage: {weaponData.damage}";
+        tooltipWeaponForce.text = $"Force: {weaponData.knockbackForce}";
+    }
+
+    /// <summary>
+    /// Initializes the weapon model display based on the weapon data.
+    /// Activates the correct weapon model and deactivates others.
+    /// </summary>
+    void InitializeWeaponModel()
+    {
+        if (weaponData == null || weaponModels.Length == 0)
+            return;
+
+        foreach (var model in weaponModels)
+        {
+            model.SetActive(model.name == weaponData.weaponData.weaponModelName[weaponData.weaponLevel]);
+        }
     }
 
     /// <summary>
@@ -35,7 +101,7 @@ public class PickableWeapon : NetworkBehaviour
             return;
 
         playersInRange++;
-        // TOOD: conect with player interactor to show interaction prompt
+        other.GetComponent<PlayerInteractor>()?.EnteredPickableWeaponArea(this);
     }
 
     /// <summary>
@@ -48,8 +114,7 @@ public class PickableWeapon : NetworkBehaviour
             return;
 
         playersInRange--;
-        // TODO: conect with player interactor to hide interaction prompt
-        //other.GetComponent<PlayerInteractor>()?.LeftInteractionArea();
+        other.GetComponent<PlayerInteractor>()?.LeftPickableWeaponArea(this);
     }
 
     /// <summary>
@@ -79,9 +144,15 @@ public class PickableWeapon : NetworkBehaviour
         UpdateTooltip();
     }
 
-    public WeaponData PickupWeapon()
-    { 
-        Runner.Despawn(Object); // TODO: test if this will not despawn item before returning
+    public WeaponDataInstance PickupWeapon()
+    {
+        AudioUI.instance.PlayUIWeapon();
         return weaponData;
+    }
+
+    [Rpc(RpcSources.All, RpcTargets.StateAuthority)]
+    public void RPC_DespawnWeapon()
+    {
+        Runner.Despawn(Object);
     }
 }

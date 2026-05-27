@@ -1,10 +1,16 @@
 using UnityEngine;
 using Fusion;
+using CombatSystem;
 
 public class PlayerInteractor : NetworkBehaviour
 {
     Interactions interactionInRange;
     ReviveTombstone reviveTombstoneInRange;
+    PickableWeapon pickableWeaponInRange;
+    HealingItem healingItemInRange;
+
+    [SerializeField] GameObject weaponDropPrefab;
+    bool interactionButtonPressed = false; 
 
     public void EnteredInteractionArea(Interactions interaction)
     {
@@ -14,6 +20,17 @@ public class PlayerInteractor : NetworkBehaviour
     public void LeftInteractionArea()
     {
         interactionInRange = null;
+    }
+
+    public void EnteredHealingItemArea(HealingItem item)
+    {
+        healingItemInRange = item;
+    }
+
+    public void LeftHealingItemArea(HealingItem item)
+    {
+        if (healingItemInRange == item)
+            healingItemInRange = null;
     }
 
     public override void FixedUpdateNetwork()
@@ -26,9 +43,26 @@ public class PlayerInteractor : NetworkBehaviour
         {
             if (data.Interact)
             {
+                if (interactionButtonPressed)
+                    return;
+
+                interactionButtonPressed = true;
+
                 if (reviveTombstoneInRange != null)
                 {
                     reviveTombstoneInRange.TryInteract();
+                    return;
+                }
+
+                if (pickableWeaponInRange != null)
+                {
+                    EquipPickedUpWeapon();
+                    return;
+                }
+
+                if (healingItemInRange != null)
+                {
+                    healingItemInRange.Consume(GetComponent<PlayerHealth>());
                     return;
                 }
 
@@ -38,7 +72,31 @@ public class PlayerInteractor : NetworkBehaviour
                     interactionInRange.RPC_ActivateBark();
                 }
             }
+            else
+            {
+                interactionButtonPressed = false;
+            }
         }
+        
+    }
+
+    private void EquipPickedUpWeapon()
+    {
+        if (pickableWeaponInRange == null)
+            return;
+
+        WeaponDataInstance dropWeapon = GetComponent<PlayerAttack>().GetCurrentWeaponData();
+
+        WeaponDataInstance pickedWeaponData = pickableWeaponInRange.PickupWeapon();
+
+        Debug.Log($"{pickedWeaponData.weaponData.name}");
+
+        GetComponent<PlayerAttack>()?.EquipWeapon(pickedWeaponData.weaponData, pickedWeaponData.weaponLevel, pickedWeaponData.weaponSeed);
+        
+        if(dropWeapon == null)
+            pickableWeaponInRange.RPC_DespawnWeapon();
+        else
+            pickableWeaponInRange.Initialize(dropWeapon.weaponData, dropWeapon.weaponLevel, dropWeapon.weaponSeed);
     }
 
     public void EnteredReviveArea(ReviveTombstone reviveTombstone)
@@ -50,5 +108,16 @@ public class PlayerInteractor : NetworkBehaviour
     {
         if (reviveTombstoneInRange == reviveTombstone)
             reviveTombstoneInRange = null;
+    }
+
+    public void EnteredPickableWeaponArea(PickableWeapon pickableWeapon)
+    {
+        pickableWeaponInRange = pickableWeapon;
+    }
+
+    public void LeftPickableWeaponArea(PickableWeapon pickableWeapon)
+    {
+        if (pickableWeaponInRange == pickableWeapon)
+            pickableWeaponInRange = null;
     }
 }

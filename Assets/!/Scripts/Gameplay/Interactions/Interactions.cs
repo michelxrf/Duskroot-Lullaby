@@ -1,7 +1,8 @@
-using System.Collections;
 using Fusion;
+using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 
 /// <summary>
 /// Manages NPC interactions and dialogue (bark) sequences in a networked environment.
@@ -13,34 +14,27 @@ using UnityEngine;
 public class Interactions : NetworkBehaviour
 {
     [Header("References")]
-    /// <summary>Tooltip UI element displayed when a player is in interaction range.</summary>
     [SerializeField] GameObject interactionTooltip;
-    /// <summary>UI balloon/panel that displays dialogue text during bark sequences.</summary>
     [SerializeField] GameObject BarkBalloon;
-    /// <summary>TextMeshPro text component for displaying bark dialogue text.</summary>
     [SerializeField] TMP_Text barkTextField;
-    /// <summary>Array of bark dialogue sequences to play when activated.</summary>
     [SerializeField] Bark[] barks;
     [SerializeField] private FMODUnity.EventReference barkEvent;
+    [SerializeField] private string audioBarkParam = "BarkNumber";
 
     [Header("Settings")]
-    /// <summary>Radius of the sphere collider for detecting nearby players.</summary>
     [SerializeField] float interactionRange = 3f;
-    /// <summary>If true, the interaction disables itself after playing once.</summary>
+    [SerializeField] bool canInteract = true;
     [SerializeField] bool singleActivation = false;
-    /// <summary>Reference to an alternative Interactions component to switch to after interaction.</summary>
     [SerializeField] Interactions changeToAfterInteraction;
-    /// <summary>Delay in seconds between successive barks in a sequence.</summary>
     [SerializeField] float delayBetweenBarks = 1f;
 
-    /// <summary>Networked flag indicating whether a bark sequence is currently playing.</summary>
     [Networked] bool isInteracting { get; set; }
-    /// <summary>Number of players currently within the interaction range.</summary>
     int playersInRange;
-    /// <summary>Audio source component for playing bark audio clips.</summary>
     AudioSource audioSource;
-    /// <summary>Flag to ensure initialization only occurs after the object has spawned on the network.</summary>
     bool hasSpawned = false;
+
+    [SerializeField] private UnityEvent OnSequenceEnded;
+    [SerializeField] private UnityEvent OnSequenceStarted;
 
     /// <summary>
     /// Called when the object spawns on the network. Initializes interaction range,
@@ -54,7 +48,6 @@ public class Interactions : NetworkBehaviour
         playersInRange = 0;
         isInteracting = false;
 
-        //audioSource = GetComponent<AudioSource>();
         GetComponent<SphereCollider>().radius = interactionRange;
 
         BarkBalloon.SetActive(false);
@@ -67,6 +60,9 @@ public class Interactions : NetworkBehaviour
     /// </summary>
     private void OnTriggerEnter(Collider other)
     {
+        if (other.GetComponent<PlayerSetup>() == null)
+            return;
+
         playersInRange++;
         other.GetComponent<PlayerInteractor>()?.EnteredInteractionArea(this);
     }
@@ -77,6 +73,9 @@ public class Interactions : NetworkBehaviour
     /// </summary>
     private void OnTriggerExit(Collider other)
     {
+        if (other.GetComponent<PlayerSetup>() == null)
+            return;
+
         playersInRange--;
         other.GetComponent<PlayerInteractor>()?.LeftInteractionArea();
     }
@@ -90,7 +89,7 @@ public class Interactions : NetworkBehaviour
         if (!hasSpawned)
             return;
 
-        if (!isInteracting && playersInRange >= 1)
+        if (canInteract && !isInteracting && playersInRange >= 1)
         {
             interactionTooltip.SetActive(true);
         }
@@ -111,17 +110,15 @@ public class Interactions : NetworkBehaviour
     /// <summary>
     /// RPC method to initiate a bark dialogue sequence.
     /// Validates that a player is present, no sequence is already playing, and barks exist.
-    /// Synchronizes the bark sequence across all clients.
+    /// Called by all clients and executed on all clients to synchronize the bark sequence.
     /// </summary>
-    [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
+    [Rpc(RpcSources.All, RpcTargets.All)]
     public void RPC_ActivateBark()
     {
         Debug.Log("RPC_ActivateBark called");
 
-        if (playersInRange < 1 || isInteracting || barks.Length == 0)
+        if (!canInteract || playersInRange < 1 || isInteracting || barks.Length == 0)
             return;
-
-        Debug.Log("Activating Bark Sequence");
 
         isInteracting = true;
         interactionTooltip.SetActive(false);
@@ -136,6 +133,8 @@ public class Interactions : NetworkBehaviour
     /// </summary>
     IEnumerator PlayBarkSequence()
     {
+        OnSequenceStarted?.Invoke();
+
         for (int i = 0; i < barks.Length; i++)
         {
             Bark bark = barks[i];
@@ -143,11 +142,11 @@ public class Interactions : NetworkBehaviour
 
             if(!barkEvent.IsNull)
 {
-                Debug.Log($"Playing FMOD audio for bark {i}");
+                Debug.Log($"Playing FMOD audio for bark {i} param"+ audioBarkParam);
 
                 var instance = FMODUnity.RuntimeManager.CreateInstance(barkEvent);
-                instance.setParameterByName("BarkNumber", bark.barkNumber); // escolhe qual fala (1 a 3 para esse teste)
-                instance.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(transform)); //Usado para setar o local onde o som será emitido (3D)
+                instance.setParameterByName(audioBarkParam, bark.barkNumber);
+                instance.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(transform)); 
                 instance.start();
                 FMOD.Studio.PLAYBACK_STATE state;
                 do
@@ -170,6 +169,7 @@ public class Interactions : NetworkBehaviour
             enabled = false;
         }
 
+        OnSequenceEnded?.Invoke();
         Debug.Log("Bark Sequence Completed");
     }
 }

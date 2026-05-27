@@ -38,5 +38,11 @@ public class MusLevel1 : MonoBehaviour
         musicInstance.release();
     }
 
+    private void OnDestroy()
+    {
+        StopMusic();
+    }
+
+
 
 }

@@ -22,7 +22,10 @@ public class CharacterData
     public int attackSpeed;
     public int cure;
 
+    // weapon
     public WeaponData weapon;
+    public int weaponLevel;
+    public string weaponSeed;
 
     public CharacterData(CharacterDataDTO dataDTO)
     {
@@ -37,6 +40,8 @@ public class CharacterData
         cure = dataDTO.cure;
         experienceToNextLevel = dataDTO.experienceToNextLevel;
         weapon = Resources.Load<WeaponData>($"Data/Weapons/Player/{dataDTO.weapon}");
+        weaponLevel = dataDTO.weaponLevel;
+        weaponSeed = dataDTO.weaponSeed;
     }
 
     public CharacterData() { }
@@ -60,6 +65,8 @@ public class CharacterDataDTO
     public int hurt;
 
     public string weapon;
+    public int weaponLevel;
+    public string weaponSeed;
 
     public CharacterDataDTO(CharacterData characterData)
     {
@@ -74,6 +81,8 @@ public class CharacterDataDTO
         cure = characterData.cure;
         weapon = characterData.weapon.name;
         experienceToNextLevel = characterData.experienceToNextLevel;
+        weaponLevel = characterData.weaponLevel;
+        weaponSeed = characterData.weaponSeed;
     }
 }
 
@@ -102,6 +111,8 @@ public class PlayerCharactersData
                 attackSpeed = defaultCharacterTemplates[i].attackSpeed,
                 cure = defaultCharacterTemplates[i].cure,
                 weapon = defaultCharacterTemplates[i].weapon,
+                weaponLevel = 0,
+                weaponSeed = "1",
                 experienceToNextLevel = 100
                 // TODO: initialize startingItens based from the defaultCharacterTemplates
             };
