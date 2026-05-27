@@ -46,6 +46,12 @@ namespace CombatSystem
 
             if (GetInput(out NetworkInputData data))
             {
+                if (weaponBehavior == null) // prevent input befor proper init
+                {
+                    Debug.LogWarning("Got input before weapon correctly initialized, skiping");
+                    return;
+                }
+
                 bool isButtonPressed = GetButtonInput(data, assignedButton);
                 if (isButtonPressed && !lastAttack)
                 {
@@ -163,6 +169,8 @@ namespace CombatSystem
             }
 
             animator.runtimeAnimatorController = syncedWeapon.weaponData.animationController;
+            float characterAttackSpeed = CharacterDataManager.Instance.GetCurrentPlayerCharacter().attackSpeed;
+            animator.SetFloat("AttackSpeed", characterAttackSpeed + syncedWeapon.attackSpeed);
 
             string newWeaponModelName = "";
             if (syncedWeapon.weaponData.weaponModelName.Length > 0)

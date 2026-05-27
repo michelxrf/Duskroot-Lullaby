@@ -2,6 +2,7 @@ using UnityEngine;
 using Fusion;
 using Fusion.Addons.SimpleKCC;
 using UnityEngine.InputSystem;
+using CombatSystem;
 
 /// <summary>
 /// Allow the player character to look/aim toward the mouse position
@@ -108,8 +109,13 @@ public class CharacterLook : NetworkBehaviour
             if (enemy != null || breakable != null)
             {
                 Transform target = enemy != null ? enemy.transform : breakable.transform;
+
+                // Ignore dead targets
+                var health = target.GetComponent<Health>();
+                if (health != null && health.IsDead()) continue;
+
                 Vector3 dirToTarget = (target.position - transform.position).normalized;
-                float angle = Vector3.Angle(transform.forward, dirToTarget);
+float angle = Vector3.Angle(transform.forward, dirToTarget);
 
                 if (angle <= aimConeAngle * 0.5f)
                 {

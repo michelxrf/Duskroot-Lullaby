@@ -7,6 +7,7 @@ public class PlayerInteractor : NetworkBehaviour
     Interactions interactionInRange;
     ReviveTombstone reviveTombstoneInRange;
     PickableWeapon pickableWeaponInRange;
+    HealingItem healingItemInRange;
 
     [SerializeField] GameObject weaponDropPrefab;
     bool interactionButtonPressed = false; 
@@ -19,6 +20,17 @@ public class PlayerInteractor : NetworkBehaviour
     public void LeftInteractionArea()
     {
         interactionInRange = null;
+    }
+
+    public void EnteredHealingItemArea(HealingItem item)
+    {
+        healingItemInRange = item;
+    }
+
+    public void LeftHealingItemArea(HealingItem item)
+    {
+        if (healingItemInRange == item)
+            healingItemInRange = null;
     }
 
     public override void FixedUpdateNetwork()
@@ -45,6 +57,12 @@ public class PlayerInteractor : NetworkBehaviour
                 if (pickableWeaponInRange != null)
                 {
                     EquipPickedUpWeapon();
+                    return;
+                }
+
+                if (healingItemInRange != null)
+                {
+                    healingItemInRange.Consume(GetComponent<PlayerHealth>());
                     return;
                 }
 
