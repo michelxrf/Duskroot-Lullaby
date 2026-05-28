@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2175041a0d608904283e94ea2fb8f384, type: 3}
-  m_Name: Warrior
+  m_Name: Davi
   m_EditorClassIdentifier: Assembly-CSharp::CharacterTemplate
   CharacterId: Davi
   Level: 1
