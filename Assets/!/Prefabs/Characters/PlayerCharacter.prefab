@@ -3212,7 +3212,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: cb168a191fd8b5b489f47987b4a72601, type: 3}
       propertyPath: m_Name
-      value: Warrior
+      value: Davi
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: cb168a191fd8b5b489f47987b4a72601, type: 3}
       propertyPath: m_IsActive
@@ -3288,7 +3288,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: cb168a191fd8b5b489f47987b4a72601, type: 3}
       propertyPath: m_Name
-      value: Mage
+      value: Alice
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: cb168a191fd8b5b489f47987b4a72601, type: 3}
       propertyPath: m_IsActive
@@ -3439,7 +3439,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 0a85961c520920f44a7da943ebe40d77, type: 3}
       propertyPath: m_Name
-      value: Ranger
+      value: Zoe
       objectReference: {fileID: 0}
     - target: {fileID: 1082271958561512970, guid: 0a85961c520920f44a7da943ebe40d77, type: 3}
       propertyPath: m_IsActive
@@ -3644,7 +3644,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: cb168a191fd8b5b489f47987b4a72601, type: 3}
       propertyPath: m_Name
-      value: Tank
+      value: "Ant\xF4nio"
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: cb168a191fd8b5b489f47987b4a72601, type: 3}
       propertyPath: m_IsActive

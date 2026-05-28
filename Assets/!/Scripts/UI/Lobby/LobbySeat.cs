@@ -15,11 +15,12 @@ public class LobbySeat : NetworkBehaviour
 
     LobbyManager lobbyManager;
 
-    [Header("References")]
+    [Header("UI References")]
     [SerializeField] TMP_Text playerName;
     [SerializeField] TMP_Text characterName;
     [SerializeField] TMP_Text characterLevel;
     [SerializeField] Image readyIndicator;
+    [SerializeField] GameObject normalBackground;
     [SerializeField] Button readyButton;
     [SerializeField] Button leaveSeatButton;
     [SerializeField] Button selectButton;

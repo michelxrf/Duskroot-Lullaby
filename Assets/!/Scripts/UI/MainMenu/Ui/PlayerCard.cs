@@ -12,11 +12,12 @@ public class PlayerCard : MonoBehaviour
 {
     [SerializeField] Image healthBarFill;
     [SerializeField] TMP_Text healthBarLabel;
+
     [SerializeField] Image expBarFill;
     [SerializeField] TMP_Text expBarLabel;
+
     [SerializeField] Image characterPortrait;
     [SerializeField] Image deadIcon;
-    [SerializeField] Image highlight;
     [SerializeField] TMP_Text characterName;
     [SerializeField] TMP_Text level;
 
@@ -36,8 +37,6 @@ public class PlayerCard : MonoBehaviour
         health = healthComp;
 
         characterId = character.characterId;
-
-        highlight.gameObject.SetActive(character.characterId == CharacterDataManager.Instance.localPlayerCharacterId);
 
         health.OnHealthChanged += (int value) => UpdateHealth(value);
         CharacterDataManager.Instance.OnExpChanged += UpdateExperience;
