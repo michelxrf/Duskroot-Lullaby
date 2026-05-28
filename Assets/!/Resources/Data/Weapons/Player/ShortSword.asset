@@ -29,8 +29,8 @@ MonoBehaviour:
   - Shortsword_2
   - Shortsword_3
   weaponPortrait:
-  - {fileID: 21300000, guid: 6e6f1d5c321c1b043bb3d0b0383730b7, type: 3}
-  - {fileID: 21300000, guid: 6e6f1d5c321c1b043bb3d0b0383730b7, type: 3}
-  - {fileID: 21300000, guid: 6e6f1d5c321c1b043bb3d0b0383730b7, type: 3}
-  - {fileID: 21300000, guid: 6e6f1d5c321c1b043bb3d0b0383730b7, type: 3}
+  - {fileID: 21300000, guid: f50a6438d2c87334a85269db49b9ac90, type: 3}
+  - {fileID: 21300000, guid: f50a6438d2c87334a85269db49b9ac90, type: 3}
+  - {fileID: 21300000, guid: f50a6438d2c87334a85269db49b9ac90, type: 3}
+  - {fileID: 21300000, guid: f50a6438d2c87334a85269db49b9ac90, type: 3}
   weaponAudioType: unarmed
