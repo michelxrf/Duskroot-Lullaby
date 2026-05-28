@@ -8,6 +8,7 @@ using UnityEngine;
 public class WeaponData : ScriptableObject
 {
     public int baseDamage = 25;
+    public float attackSpeed = 1.0f;
     public int knockbackForce = 10;
     public RuntimeAnimatorController animationController;
     public float hitboxRadius = 0.5f;
@@ -29,6 +30,7 @@ public class WeaponDataInstance
     public int damage;
     public int knockbackForce;
     public float hitboxRadius;
+    public float attackSpeed;
 
     public WeaponDataInstance(WeaponData data, int level, string seed)
     {
@@ -72,5 +74,6 @@ public class WeaponDataInstance
         damage = weaponData.baseDamage + (damagePoints * 5);
         knockbackForce = weaponData.knockbackForce + (knockbackPoints * 2);
         hitboxRadius = weaponData.hitboxRadius + (hitboxPoints * 0.1f);
+        attackSpeed = weaponData.attackSpeed;
     }
 }

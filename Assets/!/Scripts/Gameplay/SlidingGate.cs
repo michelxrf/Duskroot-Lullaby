@@ -13,6 +13,9 @@ namespace Gameplay
         [SerializeField] private float slideDistance = 3.5f;
         [Tooltip("How long the sliding animation takes.")]
         [SerializeField] private float slideDuration = 2.0f;
+        [Tooltip("Will slide into ground if null")]
+        [SerializeField] private Animator animator;
+
 
         [Header("Physics")]
         [Tooltip("The collider that blocks the path.")]
@@ -27,8 +30,12 @@ namespace Gameplay
         private Vector3 _closedLocalPosition;
         private Vector3 _openLocalPosition;
 
+        private ChangeDetector _changeDetector;
+
         public override void Spawned()
         {
+            _changeDetector = GetChangeDetector(ChangeDetector.Source.SimulationState);
+
             if (slidingPart != null)
             {
                 _closedLocalPosition = slidingPart.localPosition;
@@ -36,6 +43,14 @@ namespace Gameplay
             }
 
             // Ensure correct state if joining late
+            if (IsOpen && animator != null)
+            {
+                // Note: Triggers are fire-and-forget. For late joiners, 
+                // we just fire it again. If the animator is already in the 'Open' state
+                // it should handle it or we can check the state.
+                animator.SetTrigger("Open");
+            }
+
             if (IsOpen && OpenProgress >= 1f)
             {
                 if (physicalCollider != null) physicalCollider.enabled = false;
@@ -59,19 +74,40 @@ namespace Gameplay
         {
             if (IsOpen && OpenProgress < 1f)
             {
-                OpenProgress = Mathf.MoveTowards(OpenProgress, 1f, Runner.DeltaTime / slideDuration);
-
-                if (OpenProgress >= 1f && physicalCollider != null)
+                if (animator == null)
                 {
-                    physicalCollider.enabled = false;
+                    OpenProgress = Mathf.MoveTowards(OpenProgress, 1f, Runner.DeltaTime / slideDuration);
+
+                    if (OpenProgress >= 1f && physicalCollider != null)
+                    {
+                        physicalCollider.enabled = false;
+                    }
+                }
+                else
+                {
+                    // Logic is handled by animator visuals, but we still need to 
+                    // finish the logical "opening" state.
+                    OpenProgress = 1f;
+                    if (physicalCollider != null) physicalCollider.enabled = false;
                 }
             }
         }
 
         public override void Render()
         {
-            if (slidingPart == null) return;
+            foreach (var change in _changeDetector.DetectChanges(this))
+            {
+                if (change == nameof(IsOpen))
+                {
+                    if (IsOpen && animator != null)
+                    {
+                        animator.SetTrigger("Open");
+                    }
+                }
+            }
+
+            if (slidingPart == null || animator != null) return;
             slidingPart.localPosition = Vector3.Lerp(_closedLocalPosition, _openLocalPosition, OpenProgress);
         }
-    }
-}
+        }
+        }

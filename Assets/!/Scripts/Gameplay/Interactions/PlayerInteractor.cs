@@ -7,6 +7,8 @@ public class PlayerInteractor : NetworkBehaviour
     Interactions interactionInRange;
     ReviveTombstone reviveTombstoneInRange;
     PickableWeapon pickableWeaponInRange;
+    HealingItem healingItemInRange;
+    ReadableCard readableCardInRange;
 
     [SerializeField] GameObject weaponDropPrefab;
     bool interactionButtonPressed = false; 
@@ -19,6 +21,28 @@ public class PlayerInteractor : NetworkBehaviour
     public void LeftInteractionArea()
     {
         interactionInRange = null;
+    }
+
+    public void EnteredHealingItemArea(HealingItem item)
+    {
+        healingItemInRange = item;
+    }
+
+    public void LeftHealingItemArea(HealingItem item)
+    {
+        if (healingItemInRange == item)
+            healingItemInRange = null;
+    }
+
+    public void EnteredReadableCardArea(ReadableCard card)
+    {
+        readableCardInRange = card;
+    }
+
+    public void LeftReadableCardArea(ReadableCard card)
+    {
+        if (readableCardInRange == card)
+            readableCardInRange = null;
     }
 
     public override void FixedUpdateNetwork()
@@ -48,8 +72,20 @@ public class PlayerInteractor : NetworkBehaviour
                     return;
                 }
 
-                if (interactionInRange != null)
+                if (healingItemInRange != null)
                 {
+                    healingItemInRange.Consume(GetComponent<PlayerHealth>());
+                    return;
+                }
+
+                if (readableCardInRange != null)
+                {
+                    readableCardInRange.OpenCard();
+                    return;
+                }
+
+                if (interactionInRange != null)
+{
                     Debug.Log("Interacted with " + interactionInRange.name);
                     interactionInRange.RPC_ActivateBark();
                 }
