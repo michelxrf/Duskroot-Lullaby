@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2175041a0d608904283e94ea2fb8f384, type: 3}
   m_Name: Tank
   m_EditorClassIdentifier: Assembly-CSharp::CharacterTemplate
-  CharacterId: Tank
+  CharacterId: "Ant\xF4nio"
   Level: 1
   health: 40
   armor: 0
@@ -29,5 +29,5 @@ MonoBehaviour:
   cureUpgradePerLevel: 0
   characterAvatar: {fileID: 9000000, guid: 64c545c6e2bcd1e48991c7160038c7a2, type: 3}
   Experience: 0
-  characterPortrait: {fileID: 21300000, guid: 4e3843d67b856e346871705d4e87b126, type: 3}
+  characterPortrait: {fileID: 21300000, guid: 56324b4e5bd3ffa4894dda1ec3faf17d, type: 3}
   characterModel: {fileID: 0}

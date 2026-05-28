@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2175041a0d608904283e94ea2fb8f384, type: 3}
   m_Name: Mage
   m_EditorClassIdentifier: Assembly-CSharp::CharacterTemplate
-  CharacterId: Mage
+  CharacterId: Alice
   Level: 1
   health: 20
   armor: 0
@@ -29,5 +29,5 @@ MonoBehaviour:
   cureUpgradePerLevel: 0
   characterAvatar: {fileID: 9000000, guid: 64c545c6e2bcd1e48991c7160038c7a2, type: 3}
   Experience: 0
-  characterPortrait: {fileID: 21300000, guid: 25eb9d13a7015374ead62776505fa31f, type: 3}
+  characterPortrait: {fileID: 21300000, guid: abe76d0a291587541a65b7b7416c7c37, type: 3}
   characterModel: {fileID: 0}

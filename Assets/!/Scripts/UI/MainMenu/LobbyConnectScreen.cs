@@ -15,6 +15,8 @@ public class LobbyConnectScreen : UiScreen
 
     [Header("Other Screens")]
     [SerializeField] UiScreen loginScreen;
+    [SerializeField] string lobby = "Lobby";
+
 
     protected override void Start()
     {
@@ -35,7 +37,7 @@ public class LobbyConnectScreen : UiScreen
     void OnConnectClicked()
     {
         RunnerBootstrap.Instance.SetSessionName(lobbyCodeInput.text);
-        SceneManager.LoadScene("Lobby");
+        SceneManager.LoadScene(lobby);
     }
 
     void OnLobbyCodeFieldChanged(string value)
