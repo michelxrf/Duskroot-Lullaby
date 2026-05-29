@@ -240,7 +240,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LobbyManager
   countDownUi: {fileID: 1024721411}
-  gameplaySceneName: RefugioPirralhos1
+  gameplaySceneName: RefugioPirralhos
   lobbySeats:
   - {fileID: 400100846}
   - {fileID: 705638969}
@@ -587,6 +587,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1609677606}
+    - target: {fileID: 4508021634477468670, guid: a73bf7f381c87d44691c444bc183f382, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 167.037
+      objectReference: {fileID: 0}
+    - target: {fileID: 4508021634477468670, guid: a73bf7f381c87d44691c444bc183f382, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -765.756
+      objectReference: {fileID: 0}
     - target: {fileID: 5308546448224824787, guid: a73bf7f381c87d44691c444bc183f382, type: 3}
       propertyPath: m_Name
       value: LobbySeat
@@ -957,6 +965,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1609677606}
+    - target: {fileID: 4508021634477468670, guid: a73bf7f381c87d44691c444bc183f382, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 167.037
+      objectReference: {fileID: 0}
+    - target: {fileID: 4508021634477468670, guid: a73bf7f381c87d44691c444bc183f382, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -764.4
+      objectReference: {fileID: 0}
     - target: {fileID: 5308546448224824787, guid: a73bf7f381c87d44691c444bc183f382, type: 3}
       propertyPath: m_Name
       value: LobbySeat (1)
@@ -2320,6 +2336,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1609677606}
+    - target: {fileID: 4508021634477468670, guid: a73bf7f381c87d44691c444bc183f382, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 167.037
+      objectReference: {fileID: 0}
+    - target: {fileID: 4508021634477468670, guid: a73bf7f381c87d44691c444bc183f382, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -760.5
+      objectReference: {fileID: 0}
     - target: {fileID: 5308546448224824787, guid: a73bf7f381c87d44691c444bc183f382, type: 3}
       propertyPath: m_Name
       value: LobbySeat (3)
@@ -2626,6 +2650,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1609677606}
+    - target: {fileID: 4508021634477468670, guid: a73bf7f381c87d44691c444bc183f382, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 167.037
+      objectReference: {fileID: 0}
+    - target: {fileID: 4508021634477468670, guid: a73bf7f381c87d44691c444bc183f382, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -762.6
+      objectReference: {fileID: 0}
     - target: {fileID: 5308546448224824787, guid: a73bf7f381c87d44691c444bc183f382, type: 3}
       propertyPath: m_Name
       value: LobbySeat (2)

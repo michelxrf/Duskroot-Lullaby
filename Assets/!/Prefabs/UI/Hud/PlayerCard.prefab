@@ -576,7 +576,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5843438918865461886
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1043,8 +1043,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 300, y: 150}
+  m_AnchoredPosition: {x: 68.02869, y: 49.768677}
+  m_SizeDelta: {x: 436.0573, y: 249.5374}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3272534825927992156
 MonoBehaviour:
@@ -1064,7 +1064,6 @@ MonoBehaviour:
   expBarLabel: {fileID: 2923824738751632866}
   characterPortrait: {fileID: 8996434774386053669}
   deadIcon: {fileID: 5557194751829225386}
-  highlight: {fileID: 2006377806667075056}
   characterName: {fileID: 5366619411541863368}
   level: {fileID: 3408006145445596219}
 --- !u!1 &3299104749832475608
@@ -1127,7 +1126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 0
@@ -1151,7 +1150,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3299104749832475608}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 31a19414c41e5ae4aae2af33fee712f6, type: 3}
   m_Name: 
