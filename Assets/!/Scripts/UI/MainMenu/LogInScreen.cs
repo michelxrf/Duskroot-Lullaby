@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 
@@ -98,6 +99,8 @@ public class LogInScreen : UiScreen
     void LoginFailCallback()
     {
         AllowInteractions(true);
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(loginButton.gameObject);
     }
 
     void OnRegisterButtonClicked()

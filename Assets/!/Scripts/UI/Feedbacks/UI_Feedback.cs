@@ -1,7 +1,11 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class UI_Feedback : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class UI_Feedback : MonoBehaviour,
+    IPointerEnterHandler,
+    IPointerExitHandler,
+    ISelectHandler,
+    IDeselectHandler
 {
     [Header("HOVER CONFIG")]
     [SerializeField] private float hoverScale = 1.1f;
@@ -42,15 +46,37 @@ public class UI_Feedback : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         );
     }
 
-    public void OnPointerEnter(PointerEventData eventData)
+    private void ApplyHover()
     {
         targetScale = originalScale * hoverScale;
         targetPosition = originalPosition + Vector2.right * moveRightAmount;
     }
 
-    public void OnPointerExit(PointerEventData eventData)
+    private void RemoveHover()
     {
         targetScale = originalScale;
         targetPosition = originalPosition;
+    }
+
+    // Mouse
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        ApplyHover();
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        RemoveHover();
+    }
+
+    // Keyboard / Controller
+    public void OnSelect(BaseEventData eventData)
+    {
+        ApplyHover();
+    }
+
+    public void OnDeselect(BaseEventData eventData)
+    {
+        RemoveHover();
     }
 }
