@@ -3,6 +3,7 @@ using Fusion.Addons.SimpleKCC;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using CombatSystem;
+using System;
 
 
 /// <summary>
@@ -28,6 +29,8 @@ public class PlayerMovement : NetworkBehaviour
     float maxSpeed = 5f;
     Vector3 moveDirection;
     Vector3 velocity;
+
+    Action<float> OnDashCooldownChanged; // Action to notify listeners about dash cooldown changes in percentage (0 to 1)
 
     [Networked] Vector3 NetworkVelocity { get; set; }
     [Networked] TickTimer dashTimer { get; set; }
@@ -79,6 +82,10 @@ public class PlayerMovement : NetworkBehaviour
         {
             dashTimer = TickTimer.CreateFromSeconds(Runner, dashDuration);
             dashCooldownTimer = TickTimer.CreateFromSeconds(Runner, dashDuration + dashCooldown);
+
+            // Notify listeners about dash cooldown change in percentage (0 to 1)
+            OnDashCooldownChanged?.Invoke((float)dashCooldownTimer.RemainingTime(Runner)/dashCooldown);
+
             dashDirection = transform.forward;
         }
 

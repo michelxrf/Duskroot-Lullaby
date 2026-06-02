@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using CombatSystem;
 using Fusion;
 using UnityEngine;
@@ -7,9 +8,9 @@ using UnityEngine.SceneManagement;
 /// <summary>
 /// Controls match-critical state transitions (player death, revive and team wipe restart).
 /// </summary>
-public class MatchStateManager : NetworkBehaviour
+public class MatchStateManager : NetworkBehaviour, IPlayerLeft
 {
-    [Header("Revive")]
+[Header("Revive")]
     [Tooltip("Network prefab spawned at the dead player's position and used as the revive point.")]
     [SerializeField] NetworkObject reviveTombstonePrefab;
     [Tooltip("Delay before restarting the stage after everyone is dead.")]
@@ -212,5 +213,36 @@ public class MatchStateManager : NetworkBehaviour
             Runner.Despawn(tombstoneObject);
 
         tombstonesByPlayer.Remove(deadPlayer);
+    }
+
+    public void PlayerLeft(PlayerRef player)
+    {
+        if (!HasStateAuthority)
+            return;
+
+        if (TryGetPlayerKeyInventory(player, out var inventory))
+        {
+            var keys = inventory.GetKeys();
+            if (keys.Count > 0 && Runner.ActivePlayers.Count() > 0)
+            {
+                inventory.SpawnKeyPickup(keys);
+            }
+        }
+    }
+
+    bool TryGetPlayerKeyInventory(PlayerRef playerRef, out PlayerKeyInventory inventory)
+    {
+        inventory = null;
+        var inventories = FindObjectsByType<PlayerKeyInventory>(FindObjectsSortMode.None);
+        foreach (var inv in inventories)
+        {
+            if (inv.Object.InputAuthority == playerRef)
+            {
+                inventory = inv;
+                return true;
+            }
+        }
+
+        return false;
     }
 }
