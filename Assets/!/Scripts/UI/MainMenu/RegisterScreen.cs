@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 /// <summary>
@@ -99,6 +100,8 @@ public class RegisterScreen : UiScreen
     void RegisterFailCallback()
     {
         AllowInteractions(true);
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(registerButton.gameObject);
     }
 
     /// <summary>

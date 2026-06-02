@@ -1,0 +1,1653 @@
+fileFormatVersion: 2
+guid: 33d99d086089bcc4f908ec0640d5d0bb
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: UI_InputsKeyboard_0
+      rect:
+        serializedVersion: 2
+        x: 3593
+        y: 3206
+        width: 451
+        height: 342
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 156e23d386b766a4f82069fd09123ad8
+      internalID: -129361418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_InputsKeyboard_1
+      rect:
+        serializedVersion: 2
+        x: 4219
+        y: 3195
+        width: 2602
+        height: 353
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a818a78a14968b4aa5a9e1191b8ed87
+      internalID: -304565579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_InputsKeyboard_2
+      rect:
+        serializedVersion: 2
+        x: 8002
+        y: 3544
+        width: 448
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2248cf7a651bde24ab776885bbf10658
+      internalID: 56242741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_InputsKeyboard_3
+      rect:
+        serializedVersion: 2
+        x: 8586
+        y: 3543
+        width: 481
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2fc0328e1c285aa4ca03ed86cb075bba
+      internalID: -1641768197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_InputsKeyboard_4
+      rect:
+        serializedVersion: 2
+        x: 9181
+        y: 3543
+        width: 502
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da9e0dd3b940eac499de042db6fb159c
+      internalID: 821027196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_InputsKeyboard_5
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 3010
+        width: 451
+        height: 338
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b342df997457434da5c6e432e22d41d
+      internalID: -682479280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_InputsKeyboard_6
+      rect:
+        serializedVersion: 2
+        x: 1758
+        y: 3205
+        width: 451
+        height: 338
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd85179c7c7e03e4982e22aaf0ac2e67
+      internalID: -423613791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_InputsKeyboard_7
+      rect:
+        serializedVersion: 2
+        x: 2384
+        y: 3195
+        width: 451
+        height: 348
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97d68a1d0e16d4449b62153396902227
+      internalID: 733771313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_InputsKeyboard_8
+      rect:
+        serializedVersion: 2
+        x: 2999
+        y: 3194
+        width: 451
+        height: 339
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46c57fd69f964514e9d060a2a615ddbf
+      internalID: -1621943615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_InputsKeyboard_9
+      rect:
+        serializedVersion: 2
+        x: 6013
+        y: 3194
+        width: 451
+        height: 348
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff5e009db0a5e4942a5ca3e463036ca4
+      internalID: -1247983292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_InputsKeyboard_10
+      rect:
+        serializedVersion: 2
+        x: 6628
+        y: 3184
+        width: 451
+        height: 349
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67088e912f95e7f45bd5f8f9262f8105
+      internalID: 1482126839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_InputsKeyboard_11
+      rect:
+        serializedVersion: 2
+        x: 7243
+        y: 3174
+        width: 451
+        height: 348
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2887cd29f7bb0584694bd4fc13fa2bfd
+      internalID: 1819428858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_InputsKeyboard_12
+      rect:
+        serializedVersion: 2
+        x: 7797
+        y: 3194
+        width: 460
+        height: 339
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a094a23b3b829cc44ad93473ceb1d4bf
+      internalID: -1007482903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_InputsKeyboard_13
+      rect:
+        serializedVersion: 2
+        x: 8412
+        y: 3174
+        width: 460
+        height: 348
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d48d1bf70e81434c97aaaa778316fcc
+      internalID: -278345093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_InputsKeyboard_14
+      rect:
+        serializedVersion: 2
+        x: 1728
+        y: 2589
+        width: 553
+        height: 554
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5070bc89780f22a47be26b0eca11186b
+      internalID: -1077780023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_InputsKeyboard_15
+      rect:
+        serializedVersion: 2
+        x: 2343
+        y: 2579
+        width: 553
+        height: 554
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 489db6ac9679bad479ade281c99e4e13
+      internalID: 1361773770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_InputsKeyboard_16
+      rect:
+        serializedVersion: 2
+        x: 2958
+        y: 2569
+        width: 553
+        height: 553
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eaa00f9d71fd4094da62262088cff9e7
+      internalID: 2109384936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_InputsKeyboard_17
+      rect:
+        serializedVersion: 2
+        x: 3563
+        y: 2559
+        width: 553
+        height: 553
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa9e9aadc91b1f8469cfc97692ec815d
+      internalID: -2069991463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_InputsKeyboard_18
+      rect:
+        serializedVersion: 2
+        x: 4167
+        y: 2559
+        width: 554
+        height: 553
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f07769100d0d35b468870dcf8cbb09e5
+      internalID: 1796586485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_InputsKeyboard_19
+      rect:
+        serializedVersion: 2
+        x: 4783
+        y: 2548
+        width: 553
+        height: 554
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9590981da4934794092dbdec1e7ddfb8
+      internalID: 1222965398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_InputsKeyboard_20
+      rect:
+        serializedVersion: 2
+        x: 5388
+        y: 2538
+        width: 553
+        height: 554
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b77688b8d5e0f74f81ca2c3c492d3ec
+      internalID: -956980774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_InputsKeyboard_21
+      rect:
+        serializedVersion: 2
+        x: 5992
+        y: 2528
+        width: 554
+        height: 553
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a07c98d3f906c434b96c63a058de1439
+      internalID: -1329532289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_InputsKeyboard_22
+      rect:
+        serializedVersion: 2
+        x: 6597
+        y: 2528
+        width: 553
+        height: 553
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ad2b6725bf0f7a48b0319b02177e063
+      internalID: 523475858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_InputsKeyboard_23
+      rect:
+        serializedVersion: 2
+        x: 7202
+        y: 2518
+        width: 553
+        height: 553
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50032a0d5aa4af043a47b40b8f8a709b
+      internalID: 798880563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_InputsKeyboard_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1913
+        width: 989
+        height: 573
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6269167e6095c94428475c8a925a64ed
+      internalID: 1505351659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_InputsKeyboard_25
+      rect:
+        serializedVersion: 2
+        x: 1738
+        y: 1943
+        width: 553
+        height: 554
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c458371472fa0624ba813367f8e808c7
+      internalID: 1129480459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_InputsKeyboard_26
+      rect:
+        serializedVersion: 2
+        x: 2353
+        y: 1933
+        width: 553
+        height: 554
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbbaedc04b24b2e4aa1c2d7e4cae24b3
+      internalID: -1683088155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_InputsKeyboard_27
+      rect:
+        serializedVersion: 2
+        x: 2958
+        y: 1923
+        width: 553
+        height: 553
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9df6c5a581c34344f8d8dfcf1494f5e2
+      internalID: -713755329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_InputsKeyboard_28
+      rect:
+        serializedVersion: 2
+        x: 3563
+        y: 1913
+        width: 553
+        height: 553
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10572fd2958c89b4383f987835985195
+      internalID: -715707832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_InputsKeyboard_29
+      rect:
+        serializedVersion: 2
+        x: 4168
+        y: 1913
+        width: 553
+        height: 553
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa3a4e73a19c84b47b3b6a710d5cdc01
+      internalID: 1677013306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_InputsKeyboard_30
+      rect:
+        serializedVersion: 2
+        x: 4783
+        y: 1902
+        width: 553
+        height: 554
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd43efff80f95f94192186385ef7a5f7
+      internalID: -1423435949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_InputsKeyboard_31
+      rect:
+        serializedVersion: 2
+        x: 5388
+        y: 1892
+        width: 553
+        height: 554
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e29766d90f3b77c46b78f474777d8443
+      internalID: 919687823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_InputsKeyboard_32
+      rect:
+        serializedVersion: 2
+        x: 5994
+        y: 1882
+        width: 552
+        height: 553
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d04a36def9525d42902c8d10cdb7c38
+      internalID: 912991468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_InputsKeyboard_33
+      rect:
+        serializedVersion: 2
+        x: 6597
+        y: 1882
+        width: 554
+        height: 553
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac2286636c8ba3f4083dcb91a90bb8da
+      internalID: 1845086270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_InputsKeyboard_34
+      rect:
+        serializedVersion: 2
+        x: 7202
+        y: 1871
+        width: 554
+        height: 554
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a90576a4316ac44ab0d09c61a7e56bf
+      internalID: -1484061133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_InputsKeyboard_35
+      rect:
+        serializedVersion: 2
+        x: 10493
+        y: 1943
+        width: 5
+        height: 511
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0e20f7d93a37864b823866a3ecdf4a7
+      internalID: 1009896267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_InputsKeyboard_36
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1318
+        width: 753
+        height: 553
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3c039b6dcfdb9545b43e4e00b0dc919
+      internalID: 927674381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_InputsKeyboard_37
+      rect:
+        serializedVersion: 2
+        x: 1717
+        y: 1307
+        width: 554
+        height: 554
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e5bdfe054b356a46963ce15fed0b650
+      internalID: -1308351265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_InputsKeyboard_38
+      rect:
+        serializedVersion: 2
+        x: 2333
+        y: 1287
+        width: 553
+        height: 561
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3203e0120cd68394f8cfdf54736c6355
+      internalID: 1368601331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_InputsKeyboard_39
+      rect:
+        serializedVersion: 2
+        x: 2947
+        y: 1278
+        width: 553
+        height: 562
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f90bb325069fe84a99c5019e1820afd
+      internalID: 309390572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_InputsKeyboard_40
+      rect:
+        serializedVersion: 2
+        x: 3552
+        y: 1277
+        width: 553
+        height: 553
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0dff3a3ec0573184fa93cf56180fc36d
+      internalID: -1488076954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_InputsKeyboard_41
+      rect:
+        serializedVersion: 2
+        x: 4157
+        y: 1277
+        width: 553
+        height: 553
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9176e388b6f36d94892be7e02a3cc006
+      internalID: -1874876844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_InputsKeyboard_42
+      rect:
+        serializedVersion: 2
+        x: 4772
+        y: 1256
+        width: 553
+        height: 554
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f1767b776575b84cac83e625d25dfdb
+      internalID: -1383791701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_InputsKeyboard_43
+      rect:
+        serializedVersion: 2
+        x: 5377
+        y: 1246
+        width: 554
+        height: 561
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce62b715a68bd5846981e7ba797f7f44
+      internalID: -124198657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_InputsKeyboard_44
+      rect:
+        serializedVersion: 2
+        x: 5982
+        y: 1246
+        width: 554
+        height: 553
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2ddc20950adbe845ad0f90af9a160fa
+      internalID: -2013437510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_InputsKeyboard_45
+      rect:
+        serializedVersion: 2
+        x: 6587
+        y: 1236
+        width: 552
+        height: 553
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6fe79b138781417408fe0549bff940a7
+      internalID: 662611341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_InputsKeyboard_46
+      rect:
+        serializedVersion: 2
+        x: 7192
+        y: 1231
+        width: 552
+        height: 558
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d58e8c754c47e9a499926550d5ed46de
+      internalID: 1759341725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_InputsKeyboard_47
+      rect:
+        serializedVersion: 2
+        x: 10493
+        y: 1339
+        width: 5
+        height: 512
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97087e145253faa45a3c5e586a30d343
+      internalID: 413626311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_InputsKeyboard_48
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 67
+        width: 774
+        height: 1157
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7af34dc099549a64e9b76d059ca4cfe0
+      internalID: -756191779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_InputsKeyboard_49
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 705
+        width: 768
+        height: 561
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37f33c6467d304f42963c9e6a52a9f68
+      internalID: -1634204823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_InputsKeyboard_50
+      rect:
+        serializedVersion: 2
+        x: 1697
+        y: 662
+        width: 553
+        height: 561
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d5f8cdb047ee4e438e47fedf17f00f1
+      internalID: 876803668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_InputsKeyboard_51
+      rect:
+        serializedVersion: 2
+        x: 2312
+        y: 651
+        width: 553
+        height: 554
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb88e6b9fac6a48489864622545ef800
+      internalID: -557162079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_InputsKeyboard_52
+      rect:
+        serializedVersion: 2
+        x: 2927
+        y: 641
+        width: 553
+        height: 554
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3230f2e4149e10c4292b1c16e6c7924d
+      internalID: 818746434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_InputsKeyboard_53
+      rect:
+        serializedVersion: 2
+        x: 3563
+        y: 641
+        width: 553
+        height: 554
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 782a2048dea9d5f4ca8516becd3e0f01
+      internalID: 2103289526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_InputsKeyboard_54
+      rect:
+        serializedVersion: 2
+        x: 4178
+        y: 631
+        width: 553
+        height: 553
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09ee3e4c675acf541bd43e502725a638
+      internalID: 2083011617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_InputsKeyboard_55
+      rect:
+        serializedVersion: 2
+        x: 4783
+        y: 620
+        width: 553
+        height: 554
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 802960189b958734483d5436d817bb4b
+      internalID: 436019400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_InputsKeyboard_56
+      rect:
+        serializedVersion: 2
+        x: 6987
+        y: 46
+        width: 789
+        height: 984
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abd7576a745f2334f97fada487fd1f61
+      internalID: -2552402
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_InputsKeyboard_57
+      rect:
+        serializedVersion: 2
+        x: 8566
+        y: 631
+        width: 553
+        height: 559
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 805afd4535ea37347bb4aa7d105ad811
+      internalID: 768577065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_InputsKeyboard_58
+      rect:
+        serializedVersion: 2
+        x: 9858
+        y: 46
+        width: 640
+        height: 1208
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e233565b005ef343a841e685cd0c044
+      internalID: 1925636767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_InputsKeyboard_59
+      rect:
+        serializedVersion: 2
+        x: 938
+        y: 97
+        width: 553
+        height: 554
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85913645308a0974aac8179e91478e90
+      internalID: -1695505528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_InputsKeyboard_60
+      rect:
+        serializedVersion: 2
+        x: 4240
+        y: 0
+        width: 2613
+        height: 549
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f924d11c406429849ab0e2d9ba4f20e2
+      internalID: 2112783409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_InputsKeyboard_61
+      rect:
+        serializedVersion: 2
+        x: 7950
+        y: 0
+        width: 554
+        height: 558
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73207a24039ed18409db853cadad1c91
+      internalID: -1060200647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_InputsKeyboard_62
+      rect:
+        serializedVersion: 2
+        x: 8550
+        y: 0
+        width: 554
+        height: 549
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a99ff6f8ccfe4344b96a3ce660d566d0
+      internalID: -1446803969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_InputsKeyboard_63
+      rect:
+        serializedVersion: 2
+        x: 9155
+        y: 0
+        width: 554
+        height: 538
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c116c90b98b40f44b7dd65a5463bd1b
+      internalID: -1181988259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_InputsKeyboard_64
+      rect:
+        serializedVersion: 2
+        x: 3605
+        y: 0
+        width: 419
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fbac57537a46ace4bba00c031f4efbc8
+      internalID: 1266145858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 1594cf0e7c963144583ff39d040f1d68
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      UI_InputsKeyboard_0: -129361418
+      UI_InputsKeyboard_1: -304565579
+      UI_InputsKeyboard_10: 1482126839
+      UI_InputsKeyboard_11: 1819428858
+      UI_InputsKeyboard_12: -1007482903
+      UI_InputsKeyboard_13: -278345093
+      UI_InputsKeyboard_14: -1077780023
+      UI_InputsKeyboard_15: 1361773770
+      UI_InputsKeyboard_16: 2109384936
+      UI_InputsKeyboard_17: -2069991463
+      UI_InputsKeyboard_18: 1796586485
+      UI_InputsKeyboard_19: 1222965398
+      UI_InputsKeyboard_2: 56242741
+      UI_InputsKeyboard_20: -956980774
+      UI_InputsKeyboard_21: -1329532289
+      UI_InputsKeyboard_22: 523475858
+      UI_InputsKeyboard_23: 798880563
+      UI_InputsKeyboard_24: 1505351659
+      UI_InputsKeyboard_25: 1129480459
+      UI_InputsKeyboard_26: -1683088155
+      UI_InputsKeyboard_27: -713755329
+      UI_InputsKeyboard_28: -715707832
+      UI_InputsKeyboard_29: 1677013306
+      UI_InputsKeyboard_3: -1641768197
+      UI_InputsKeyboard_30: -1423435949
+      UI_InputsKeyboard_31: 919687823
+      UI_InputsKeyboard_32: 912991468
+      UI_InputsKeyboard_33: 1845086270
+      UI_InputsKeyboard_34: -1484061133
+      UI_InputsKeyboard_35: 1009896267
+      UI_InputsKeyboard_36: 927674381
+      UI_InputsKeyboard_37: -1308351265
+      UI_InputsKeyboard_38: 1368601331
+      UI_InputsKeyboard_39: 309390572
+      UI_InputsKeyboard_4: 821027196
+      UI_InputsKeyboard_40: -1488076954
+      UI_InputsKeyboard_41: -1874876844
+      UI_InputsKeyboard_42: -1383791701
+      UI_InputsKeyboard_43: -124198657
+      UI_InputsKeyboard_44: -2013437510
+      UI_InputsKeyboard_45: 662611341
+      UI_InputsKeyboard_46: 1759341725
+      UI_InputsKeyboard_47: 413626311
+      UI_InputsKeyboard_48: -756191779
+      UI_InputsKeyboard_49: -1634204823
+      UI_InputsKeyboard_5: -682479280
+      UI_InputsKeyboard_50: 876803668
+      UI_InputsKeyboard_51: -557162079
+      UI_InputsKeyboard_52: 818746434
+      UI_InputsKeyboard_53: 2103289526
+      UI_InputsKeyboard_54: 2083011617
+      UI_InputsKeyboard_55: 436019400
+      UI_InputsKeyboard_56: -2552402
+      UI_InputsKeyboard_57: 768577065
+      UI_InputsKeyboard_58: 1925636767
+      UI_InputsKeyboard_59: -1695505528
+      UI_InputsKeyboard_6: -423613791
+      UI_InputsKeyboard_60: 2112783409
+      UI_InputsKeyboard_61: -1060200647
+      UI_InputsKeyboard_62: -1446803969
+      UI_InputsKeyboard_63: -1181988259
+      UI_InputsKeyboard_64: 1266145858
+      UI_InputsKeyboard_7: 733771313
+      UI_InputsKeyboard_8: -1621943615
+      UI_InputsKeyboard_9: -1247983292
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

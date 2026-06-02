@@ -1,7 +1,9 @@
 using CombatSystem;
 using Fusion;
+using PlayFab.EconomyModels;
 using TMPro;
 using UnityEngine;
+using static AudioPunchPlayer;
 
 /// <summary>
 /// Manages pickable weapons in the world that players can interact with.
@@ -23,12 +25,16 @@ public class PickableWeapon : NetworkBehaviour
     [SerializeField] GameObject weaponStats;
 
     [SerializeField] TMP_Text tooltipWeaponName;
+    [SerializeField] TMP_Text tooltipWeaponRarity;
     [SerializeField] TMP_Text tooltipWeaponDamage;
-    [SerializeField] TMP_Text tooltipWeaponForce;
+    [SerializeField] TMP_Text tooltipWeaponKnockback;
+    [SerializeField] UnityEngine.UI.Image tooltipWeaponImage;
+
 
     [SerializeField] GameObject[] weaponModels;
     [SerializeField] GameObject pickableWeaponPrefab;
 
+    string rarityTextColor;
     WeaponDataInstance weaponData;
     int playersInRange;
     bool hasSpawned = false;
@@ -72,8 +78,42 @@ public class PickableWeapon : NetworkBehaviour
     void SetupStatsTooltip()
     {   
         tooltipWeaponName.text = weaponData.weaponData.name;
-        tooltipWeaponDamage.text = $"Damage: {weaponData.damage}";
-        tooltipWeaponForce.text = $"Force: {weaponData.knockbackForce}";
+        tooltipWeaponDamage.text = $"+ {weaponData.damage}";
+        tooltipWeaponKnockback.text = $"+ {weaponData.knockbackForce}";
+        //tooltipWeaponImage;
+        switch (weaponData.weaponLevel)
+        {
+            case 0:
+                tooltipWeaponRarity.text = "Comum";
+                rarityTextColor = "20872D"; 
+                break;
+            case 1:
+                tooltipWeaponRarity.text = "Incomun";
+                rarityTextColor = "326BC8";
+                break;
+            case 2:
+                tooltipWeaponRarity.text = "Rara";
+                rarityTextColor = "C232C8";
+                break;
+            case 3:
+                tooltipWeaponRarity.text = "Lendária";
+                rarityTextColor = "C19C10";
+                break;
+            default:
+                tooltipWeaponRarity.text = "Irreconhcível";
+
+                break;
+
+        }
+        // Converte HEX em Color
+        if (ColorUtility.TryParseHtmlString("#" + rarityTextColor, out Color rarityColor))
+        {
+            tooltipWeaponRarity.color = rarityColor;
+        }
+
+        // Define portrait da arma
+        tooltipWeaponImage.sprite = weaponData.weaponData.weaponPortrait[weaponData.weaponLevel];
+
     }
 
     /// <summary>

@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 
@@ -13,12 +14,13 @@ public class LogInScreen : UiScreen
     [Header("UI Elements")]
     [SerializeField] Button loginButton;
     [SerializeField] Button registerButton;
+    [SerializeField] Toggle keepLoggedToggle;
     [SerializeField] TMP_InputField usernameInput;
     [SerializeField] TMP_InputField passwordInput;
 
     [Header("Other Screens")]
     [SerializeField] UiScreen registerScreen;
-    [SerializeField] UiScreen lobbyScreen;
+    [SerializeField] UiScreen mainMenuScreen;
 
 
     protected override void Start()
@@ -36,16 +38,60 @@ public class LogInScreen : UiScreen
     /// <summary>
     /// Shows the login screen
     /// </summary>
+    //public override void Show()
+    //{
+    //    base.Show();
+    //    
+    //    passwordInput.text = "";
+
+    // Load saved credentials if they exist
+    //    if (PlayerPrefs.HasKey("username"))
+    //    {
+    //        usernameInput.text = PlayerPrefs.GetString("username");
+    //        CanLogin();
+    //    }
+    //}
+
     public override void Show()
     {
         base.Show();
-        
+
         passwordInput.text = "";
 
-        // Load saved credentials if they exist
+        if (SessionManager.Instance
+            .ShouldAutoLogin())
+        {
+            string username =
+                SessionManager.Instance
+                .GetUsername();
+
+            string password =
+                SessionManager.Instance
+                .GetPassword();
+
+            usernameInput.text =
+                username;
+
+            passwordInput.text =
+                password;
+
+            playFabAuth.Login(
+                username,
+                password,
+                LoginSucessCallback,
+                LoginFailCallback
+            );
+
+            return;
+        }
+
         if (PlayerPrefs.HasKey("username"))
         {
-            usernameInput.text = PlayerPrefs.GetString("username");
+            usernameInput.text =
+                PlayerPrefs.GetString(
+                    "username"
+                );
+
             CanLogin();
         }
     }
@@ -73,11 +119,17 @@ public class LogInScreen : UiScreen
     void LoginSucessCallback()
     {
         // Transition to the lobby screen on successful login
-        uiManager.ShowScreen(lobbyScreen);
+        uiManager.ShowScreen(mainMenuScreen);
 
         // Save the username for future sessions
-        PlayerPrefs.SetString("username", usernameInput.text);
-        PlayerPrefs.Save();
+        //PlayerPrefs.SetString("username", usernameInput.text);
+        //PlayerPrefs.Save();
+
+        SessionManager.Instance.SaveSession(
+            usernameInput.text,
+            passwordInput.text,
+            keepLoggedToggle.isOn
+        );
 
         // wait for character data from PlayFab to load before allowing player to continue to lobby
         PlayFabCharacterSave.Load((data) =>
@@ -98,6 +150,8 @@ public class LogInScreen : UiScreen
     void LoginFailCallback()
     {
         AllowInteractions(true);
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(loginButton.gameObject);
     }
 
     void OnRegisterButtonClicked()
