@@ -1414,7 +1414,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Conecting to Servers ...
+  m_text: Connecting to Servers ...
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cd7ba057344a79141872c148005adfac, type: 2}
   m_sharedMaterial: {fileID: 4816791037525497068, guid: cd7ba057344a79141872c148005adfac, type: 2}

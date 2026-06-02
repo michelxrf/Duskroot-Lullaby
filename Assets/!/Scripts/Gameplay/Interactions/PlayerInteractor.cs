@@ -7,6 +7,7 @@ public class PlayerInteractor : NetworkBehaviour
     Interactions interactionInRange;
     ReviveTombstone reviveTombstoneInRange;
     PickableWeapon pickableWeaponInRange;
+    PickableKey pickableKeyInRange;
     HealingItem healingItemInRange;
     ReadableCard readableCardInRange;
 
@@ -72,6 +73,12 @@ public class PlayerInteractor : NetworkBehaviour
                     return;
                 }
 
+                if (pickableKeyInRange != null)
+                {
+                    PickUpKey();
+                    return;
+                }
+
                 if (healingItemInRange != null)
                 {
                     healingItemInRange.Consume(GetComponent<PlayerHealth>());
@@ -117,6 +124,19 @@ public class PlayerInteractor : NetworkBehaviour
             pickableWeaponInRange.Initialize(dropWeapon.weaponData, dropWeapon.weaponLevel, dropWeapon.weaponSeed);
     }
 
+    private void PickUpKey()
+    {
+        if (pickableKeyInRange == null)
+            return;
+
+        PlayerKeyInventory inventory = GetComponent<PlayerKeyInventory>();
+        if (inventory != null)
+        {
+            inventory.AddKeys(pickableKeyInRange.GetKeys());
+            pickableKeyInRange.RPC_Despawn();
+        }
+    }
+
     public void EnteredReviveArea(ReviveTombstone reviveTombstone)
     {
         reviveTombstoneInRange = reviveTombstone;
@@ -137,5 +157,16 @@ public class PlayerInteractor : NetworkBehaviour
     {
         if (pickableWeaponInRange == pickableWeapon)
             pickableWeaponInRange = null;
+    }
+
+    public void EnteredPickableKeyArea(PickableKey pickableKey)
+    {
+        pickableKeyInRange = pickableKey;
+    }
+
+    public void LeftPickableKeyArea(PickableKey pickableKey)
+    {
+        if (pickableKeyInRange == pickableKey)
+            pickableKeyInRange = null;
     }
 }

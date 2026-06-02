@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Linq;
 using Fusion;
 using UnityEngine;
@@ -7,32 +8,78 @@ using UnityEngine.Events;
 public class PlayersInPlace : NetworkBehaviour
 {
     [SerializeField] private UnityEvent onAllPlayersInPlace = new UnityEvent();
+    [SerializeField] private string[] requiredKeys;
 
-    private int playersInTrigger = 0;
+    private List<PlayerKeyInventory> inventoriesInTrigger = new List<PlayerKeyInventory>();
 
     private void OnTriggerEnter(Collider collision)
     {
-        if (collision.GetComponent<PlayerSetup>() == null)
+        PlayerKeyInventory inventory = collision.GetComponent<PlayerKeyInventory>();
+        if (inventory == null)
             return;
         
-        playersInTrigger++;
+        if (!inventoriesInTrigger.Contains(inventory))
+            inventoriesInTrigger.Add(inventory);
+
         CheckAllPlayersInPlace();
     }
 
     private void OnTriggerExit(Collider collision)
     {
-        if (collision.GetComponent<PlayerSetup>() == null)
+        PlayerKeyInventory inventory = collision.GetComponent<PlayerKeyInventory>();
+        if (inventory == null)
             return;
 
-        playersInTrigger--;
+        inventoriesInTrigger.Remove(inventory);
         CheckAllPlayersInPlace();
     }
 
     private void CheckAllPlayersInPlace()
     {
-        if (playersInTrigger == Runner.ActivePlayers.Count())
+        // 1. Check if all active players are in the trigger
+        if (inventoriesInTrigger.Count != Runner.ActivePlayers.Count())
+            return;
+
+        // 2. Check keys if any are required
+        if (requiredKeys != null && requiredKeys.Length > 0)
         {
-            onAllPlayersInPlace?.Invoke();
+            // Collect all keys currently held by all players in the trigger
+            HashSet<string> collectiveKeys = new HashSet<string>();
+            foreach (var inv in inventoriesInTrigger)
+            {
+                List<string> playerKeys = inv.GetKeys();
+                if (playerKeys != null)
+                {
+                    foreach (var key in playerKeys)
+                    {
+                        collectiveKeys.Add(key);
+                    }
+                }
+            }
+
+            // Verify each required key is present in the collective set
+            foreach (var req in requiredKeys)
+            {
+                if (string.IsNullOrEmpty(req)) continue;
+                
+                if (!collectiveKeys.Contains(req))
+                {
+                    return; // Requirement not met
+                }
+            }
+        }
+
+        // All conditions met: all players present and group has all required keys
+        onAllPlayersInPlace?.Invoke();
+        RPC_RemoveKeysFromPlayers(requiredKeys);
+    }
+
+    [Rpc(RpcSources.All, RpcTargets.StateAuthority)]
+    void RPC_RemoveKeysFromPlayers(string[] keysToRemove)
+    {
+        foreach (PlayerKeyInventory inv in inventoriesInTrigger)
+        {
+            inv.RemoveKeys(keysToRemove);
         }
     }
 }
