@@ -48,7 +48,13 @@ public class CharacterLook : NetworkBehaviour
 
             if (data.Aim)
             {
-                Vector2 mousePos = Mouse.current.position.ReadValue();
+                Vector2 mousePos = Vector2.zero;
+
+                if (InputDeviceManager.Instance.CurrentDevice is InputDeviceType.KeyboardMouse)
+                    mousePos = Mouse.current.position.ReadValue();
+                else
+                    mousePos = Camera.main.WorldToScreenPoint(transform.position + transform.forward * 5f);
+
                 Ray ray = Camera.main.ScreenPointToRay(mousePos);
                 LayerMask layerMask = LayerMask.GetMask("Ground");
                 if (Physics.Raycast(ray, out RaycastHit hitInfo, Mathf.Infinity, layerMask, QueryTriggerInteraction.Ignore))
@@ -115,7 +121,7 @@ public class CharacterLook : NetworkBehaviour
                 if (health != null && health.IsDead()) continue;
 
                 Vector3 dirToTarget = (target.position - transform.position).normalized;
-float angle = Vector3.Angle(transform.forward, dirToTarget);
+                float angle = Vector3.Angle(transform.forward, dirToTarget);
 
                 if (angle <= aimConeAngle * 0.5f)
                 {
