@@ -2192,7 +2192,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 822270101518877923, guid: 0cc26b293f5af75489e15d8df5c36eaf, type: 3}
       propertyPath: aimRange
-      value: 7.5
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 822270101518877923, guid: 0cc26b293f5af75489e15d8df5c36eaf, type: 3}
       propertyPath: aimConeAngle
@@ -2713,6 +2713,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerKeyInventory
   pickableKeyPrefab: {fileID: 926114791004072899, guid: ea2f6c347fefe8e4cb8344a047ac0df0, type: 3}
+  collectedKeys: []
 --- !u!1001 &2036789094837730520
 PrefabInstance:
   m_ObjectHideFlags: 0

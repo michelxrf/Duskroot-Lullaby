@@ -11,7 +11,7 @@ public class CharacterLook : NetworkBehaviour
 {
     [SerializeField] GameObject reticlePrefab;
     [SerializeField] float aimConeAngle = 90f;
-    [SerializeField] float aimRange = 15f;
+    [SerializeField] float aimRange = 7f;
     [SerializeField] float attackRotationDuration = 0.5f;
     [SerializeField] float reticleVerticalOffset = .5f;
 
@@ -46,20 +46,24 @@ public class CharacterLook : NetworkBehaviour
             Vector3 mouseGroundPos = lookingAt;
             bool groundHit = false;
 
-            if (data.Aim)
+            if (data.Aim || data.Look != Vector2.zero)
             {
-                Vector2 mousePos = Vector2.zero;
-
-                if (InputDeviceManager.Instance.CurrentDevice is InputDeviceType.KeyboardMouse)
-                    mousePos = Mouse.current.position.ReadValue();
-                else
-                    mousePos = Camera.main.WorldToScreenPoint(transform.position + transform.forward * 5f);
-
-                Ray ray = Camera.main.ScreenPointToRay(mousePos);
-                LayerMask layerMask = LayerMask.GetMask("Ground");
-                if (Physics.Raycast(ray, out RaycastHit hitInfo, Mathf.Infinity, layerMask, QueryTriggerInteraction.Ignore))
+                if (InputDeviceManager.Instance.CurrentDevice == InputDeviceType.KeyboardMouse)
                 {
-                    mouseGroundPos = hitInfo.point;
+                    Vector2 mousePos = Mouse.current.position.ReadValue();
+                
+
+                    Ray ray = Camera.main.ScreenPointToRay(mousePos);
+                    LayerMask layerMask = LayerMask.GetMask("Ground");
+                    if (Physics.Raycast(ray, out RaycastHit hitInfo, Mathf.Infinity, layerMask, QueryTriggerInteraction.Ignore))
+                    {
+                        mouseGroundPos = hitInfo.point;
+                        groundHit = true;
+                    }
+                }
+                else
+                {
+                    mouseGroundPos = new Vector3(data.Look.x, 0f, data.Look.y) * aimRange + transform.position;
                     groundHit = true;
                 }
 
@@ -80,22 +84,14 @@ public class CharacterLook : NetworkBehaviour
                     reticleInstance.SetActive(true);
                     reticleInstance.transform.position = lookingAt + Vector3.up * reticleVerticalOffset;
                 }
+
+                RotateTo(lookingAt - transform.position, this);
             }
             else
             {
                 ReleaseControl();
                 lockedTarget = null;
                 if (reticleInstance != null) reticleInstance.SetActive(false);
-            }
-
-            // Handle Rotation
-            if (Runner.Tick < attackEndTick && lockedTarget != null)
-            {
-                RotateTo(lockedTarget.position - transform.position, this);
-            }
-            else if (data.Aim && groundHit)
-            {
-                RotateTo(mouseGroundPos - transform.position, this);
             }
         }
     }
