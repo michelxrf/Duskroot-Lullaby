@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Sling
   m_EditorClassIdentifier: Assembly-CSharp::WeaponData
   baseDamage: 5
+  attackSpeed: 1
   knockbackForce: 5
   animationController: {fileID: 9100000, guid: c6cfe7c5d74e5f74fa9badf7c5fe3477, type: 2}
   hitboxRadius: 0.1
@@ -23,10 +24,10 @@ MonoBehaviour:
   - Ranged
   - Ranged
   projectilePrefab:
-  - {fileID: 7150761404812699573, guid: d99204c4c624e5c4c9d6a9f87df2e59c, type: 3}
-  - {fileID: 7150761404812699573, guid: d99204c4c624e5c4c9d6a9f87df2e59c, type: 3}
-  - {fileID: 7150761404812699573, guid: d99204c4c624e5c4c9d6a9f87df2e59c, type: 3}
-  - {fileID: 7150761404812699573, guid: d99204c4c624e5c4c9d6a9f87df2e59c, type: 3}
+  - {fileID: 6128452677333090605, guid: 5fc3f073e94520c4e929c12210e76b18, type: 3}
+  - {fileID: 6128452677333090605, guid: 5fc3f073e94520c4e929c12210e76b18, type: 3}
+  - {fileID: 6128452677333090605, guid: 5fc3f073e94520c4e929c12210e76b18, type: 3}
+  - {fileID: 6128452677333090605, guid: 5fc3f073e94520c4e929c12210e76b18, type: 3}
   weaponModelName:
   - Slingshot_0
   - Slingshot_1

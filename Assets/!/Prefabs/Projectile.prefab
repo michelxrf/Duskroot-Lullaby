@@ -203,7 +203,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c89ec06f0da89e4381e06081ca4f5c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Projectile
-  speed: 10
+  speed: 13
   range: 10
   explosionVfx: {fileID: 0}
 --- !u!114 &4758363564646245862
