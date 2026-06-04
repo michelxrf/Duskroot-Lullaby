@@ -7,15 +7,15 @@ public class EntityTemplate : ScriptableObject
     public int health;
     public int armor;
     public int damage;
-    public int speed;
-    public int attackSpeed;
+    public float speed;
+    public float attackSpeed;
     public int cure;
     public WeaponData weapon;
 
     public int healthUpgradePerLevel;
     public int armorUpgradePerLevel;
     public int damageUpgradePerLevel;
-    public int speedUpgradePerLevel;
-    public int attackSpeedUpgradePerLevel;
+    public float speedUpgradePerLevel;
+    public float attackSpeedUpgradePerLevel;
     public int cureUpgradePerLevel;
 }

@@ -62,7 +62,6 @@ public class PlayerSetup : NetworkBehaviour
         {
             cinemachineVirtualCamera.Follow = transform;
             cinemachineVirtualCamera.LookAt = transform;
-            cinemachineVirtualCamera.GetComponent<CinemachineFollow>().FollowOffset = new Vector3(0f, 10f, -10f);
         }
         camera.transform.parent.transform.rotation = cameraRotation;
     }

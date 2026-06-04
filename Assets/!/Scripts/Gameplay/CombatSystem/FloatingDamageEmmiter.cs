@@ -5,6 +5,7 @@ using UnityEngine;
 /// <summary>
 /// Automatically emits a floating damage bubble above the character whenever the health changes (e.g., when taking damage).
 /// </summary>
+[RequireComponent(typeof(Health))]
 public class FloatingDamageEmmiter : NetworkBehaviour
 {
     Health healthComponent;

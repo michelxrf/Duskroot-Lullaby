@@ -7,8 +7,8 @@ public class EnemyData
     public int health;
     public float armor;
     public int damage;
-    public int speed;
-    public int attackSpeed;
+    public float speed;
+    public float attackSpeed;
     public int cure;
     public WeaponData weapon;
     

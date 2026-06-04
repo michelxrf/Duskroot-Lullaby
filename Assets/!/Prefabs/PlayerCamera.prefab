@@ -140,7 +140,7 @@ MonoBehaviour:
     AngularDampingMode: 0
     RotationDamping: {x: 1, y: 1, z: 1}
     QuaternionDamping: 1
-  FollowOffset: {x: 0, y: 10, z: -10}
+  FollowOffset: {x: 0, y: 7, z: -7}
 --- !u!1 &3853309998190684275
 GameObject:
   m_ObjectHideFlags: 0
