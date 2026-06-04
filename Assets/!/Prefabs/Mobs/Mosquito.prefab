@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: -5734590776713396921}
   - component: {fileID: 8732259594142312251}
   - component: {fileID: 8808748160931648966}
+  - component: {fileID: 6088483748080634682}
   m_Layer: 9
   m_Name: Mosquito
   m_TagString: Untagged
@@ -74,6 +75,7 @@ MonoBehaviour:
   - {fileID: 5870140261930592508}
   - {fileID: 8732259594142312251}
   - {fileID: 8808748160931648966}
+  - {fileID: 6088483748080634682}
   - {fileID: 5089315297502495701}
   ForceRemoteRenderTimeframe: 0
 --- !u!136 &2426909115120015145
@@ -148,9 +150,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Reward
   experienceAmount: 0
-  dropItens: []
-  dropRates: []
-  chanceToDropItem: 0.1
+  pickableWeaponPrefab: {fileID: 0}
+  healingDropChance: 0.2
+  healingItemPrefabs: []
+  weaponDropChance: 0.3
+  weapons: []
 --- !u!114 &6794254922064648346
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -284,6 +288,7 @@ MonoBehaviour:
   maxHealth: 100
   destroyCorpseAfterSeconds: 20
   _CurrentHealth: 0
+  _IsInvulnerable: 0
   characterType: 
 --- !u!114 &8808748160931648966
 MonoBehaviour:
@@ -302,6 +307,19 @@ MonoBehaviour:
   SyncParent: 0
   _autoAOIOverride: 1
   DisableSharedModeInterpolation: 0
+--- !u!114 &6088483748080634682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3635576507670607524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d30f37e2ce125c949a274ebe4be845f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FloatingDamageEmmiter
+  damageBubblePrefab: {fileID: 165462156057144889, guid: 8862c1ec5b62fd34192e7e62995b42d5, type: 3}
 --- !u!1 &7942009079716714325
 GameObject:
   m_ObjectHideFlags: 0

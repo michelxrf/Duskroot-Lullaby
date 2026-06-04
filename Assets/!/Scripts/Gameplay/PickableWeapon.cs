@@ -55,7 +55,7 @@ public class PickableWeapon : NetworkBehaviour
             if (randomizeLevel)
                 Debug.Log("Not implemented yet");
 
-            Initialize(weaponDataSO, level, "1");
+            Initialize(weaponDataSO, level, Random.Range(1000000, 9999999).ToString());
             InitializeWeaponModel();
             SetupStatsTooltip();
         }

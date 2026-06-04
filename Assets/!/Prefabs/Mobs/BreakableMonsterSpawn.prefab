@@ -329,7 +329,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1196455558431762893, guid: 30e716afb78275a4ab264dfb386ba94a, type: 3}
       propertyPath: NetworkedBehaviours.Array.size
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1196455558431762893, guid: 30e716afb78275a4ab264dfb386ba94a, type: 3}
       propertyPath: 'NetworkedBehaviours.Array.data[2]'
@@ -338,9 +338,13 @@ PrefabInstance:
     - target: {fileID: 1196455558431762893, guid: 30e716afb78275a4ab264dfb386ba94a, type: 3}
       propertyPath: 'NetworkedBehaviours.Array.data[3]'
       value: 
-      objectReference: {fileID: 7903567054710264901}
+      objectReference: {fileID: 4924305918918924317}
     - target: {fileID: 1196455558431762893, guid: 30e716afb78275a4ab264dfb386ba94a, type: 3}
       propertyPath: 'NetworkedBehaviours.Array.data[4]'
+      value: 
+      objectReference: {fileID: 7903567054710264901}
+    - target: {fileID: 1196455558431762893, guid: 30e716afb78275a4ab264dfb386ba94a, type: 3}
+      propertyPath: 'NetworkedBehaviours.Array.data[5]'
       value: 
       objectReference: {fileID: 5490094435292628561}
     - target: {fileID: 4127657055245548848, guid: 30e716afb78275a4ab264dfb386ba94a, type: 3}
@@ -436,8 +440,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProgressionSystem.Reward
   experienceAmount: 0
-  dropItens: []
-  dropChance: 0
+  pickableWeaponPrefab: {fileID: 0}
+  healingDropChance: 0.2
+  healingItemPrefabs: []
+  weaponDropChance: 0.3
+  weapons: []
 --- !u!114 &5490094435292628561
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -455,6 +462,17 @@ MonoBehaviour:
   rallypoint: {fileID: 0}
   spawnCooldown: 15
   maxPopulation: 3
+--- !u!114 &4924305918918924317 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2870093960027838735, guid: 30e716afb78275a4ab264dfb386ba94a, type: 3}
+  m_PrefabInstance: {fileID: 7170356661237842194}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1701146203691320529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d30f37e2ce125c949a274ebe4be845f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FloatingDamageEmmiter
 --- !u!4 &6542141860972575778 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4127657055245548848, guid: 30e716afb78275a4ab264dfb386ba94a, type: 3}

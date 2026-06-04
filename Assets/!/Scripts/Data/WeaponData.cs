@@ -47,8 +47,6 @@ public class WeaponDataInstance
         int knockbackPoints = 0;
         int hitboxPoints = 0;
 
-        Debug.Log($"Leveling weapon {weaponData.name} with seed {weaponSeed} at level {weaponLevel}");
-
         Random.InitState(weaponSeed.GetHashCode());
 
         for (int i = 0; i < weaponLevel; i++)

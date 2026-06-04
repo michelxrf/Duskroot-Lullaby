@@ -160,7 +160,7 @@ namespace CombatSystem
             if (!HasStateAuthority)
             {
                 WeaponData weaponSO = Resources.Load<WeaponData>($"Data/Weapons/Player/{weaponName}");
-                syncedWeapon = new WeaponDataInstance(weaponSO, weaponLevel, System.Guid.NewGuid().ToString());
+                syncedWeapon = new WeaponDataInstance(weaponSO, weaponLevel, "1");
                 if (syncedWeapon == null)
                 {
                     return;

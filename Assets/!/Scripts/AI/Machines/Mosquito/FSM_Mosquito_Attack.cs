@@ -24,7 +24,7 @@ public class FSM_Mosquito_Attack : State
         visionCollider = GetComponentInChildren<VisionCollider>();
         stateMachine = GetComponent<StateMachine>();
 
-        weaponDataInstance = new WeaponDataInstance(weaponData, 0, "");
+        weaponDataInstance = new WeaponDataInstance(weaponData, 0, "1");
     }
 
     public override void Enter()

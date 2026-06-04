@@ -27,7 +27,7 @@ public class ContactHitbox : NetworkBehaviour
 
     public void Setup(WeaponData weaponData, GameObject owner)
     {
-        this.weaponDataInstance = new WeaponDataInstance(weaponData, 0, "");
+        this.weaponDataInstance = new WeaponDataInstance(weaponData, 0, "1");
         this.owner = owner;
         hitboxCollider = GetComponent<Collider>();
         hitboxCollider.enabled = true;

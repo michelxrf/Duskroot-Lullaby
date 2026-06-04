@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 6295510851315040327}
   - component: {fileID: 1629443252500957793}
   - component: {fileID: 66307121273472796}
+  - component: {fileID: 2870093960027838735}
   m_Layer: 15
   m_Name: BreakableObject
   m_TagString: Untagged
@@ -98,6 +99,7 @@ MonoBehaviour:
   - {fileID: 2734450246996849584}
   - {fileID: 1629443252500957793}
   - {fileID: 66307121273472796}
+  - {fileID: 2870093960027838735}
   ForceRemoteRenderTimeframe: 0
 --- !u!198 &8493617189641300653
 ParticleSystem:
@@ -4990,6 +4992,7 @@ MonoBehaviour:
   maxHealth: 1
   destroyCorpseAfterSeconds: 20
   _CurrentHealth: 0
+  _IsInvulnerable: 0
   characterType: prop
 --- !u!114 &66307121273472796
 MonoBehaviour:
@@ -5013,6 +5016,19 @@ MonoBehaviour:
   - {fileID: 11400000, guid: dc791d731ca693144a922d7cba8a1569, type: 2}
   - {fileID: 11400000, guid: ee4740f827f7a4843a82043d6ea6dfb0, type: 2}
   - {fileID: 11400000, guid: e117e20cb07fa2748bc8b989fa00aa6f, type: 2}
+--- !u!114 &2870093960027838735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8365882783246484931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d30f37e2ce125c949a274ebe4be845f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FloatingDamageEmmiter
+  damageBubblePrefab: {fileID: 165462156057144889, guid: 8862c1ec5b62fd34192e7e62995b42d5, type: 3}
 --- !u!1001 &2741156979878825553
 PrefabInstance:
   m_ObjectHideFlags: 0

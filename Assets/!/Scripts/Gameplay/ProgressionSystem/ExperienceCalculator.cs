@@ -31,7 +31,10 @@ namespace ProgressionSystem
             {
                 characterId = characterData.characterId,
                 experience = 0,
+                
                 weapon = characterData.weapon,
+                weaponLevel = characterData.weaponLevel,
+                weaponSeed = characterData.weaponSeed,
 
                 experienceToNextLevel = Mathf.FloorToInt(100 * Mathf.Pow(2, (characterData.level))),
                 health = characterTemplate.health + (characterTemplate.healthUpgradePerLevel * (characterData.level)),
@@ -40,6 +43,7 @@ namespace ProgressionSystem
                 speed = characterTemplate.speed + (characterTemplate.speedUpgradePerLevel * (characterData.level)),
                 attackSpeed = characterTemplate.attackSpeed + (characterTemplate.attackSpeedUpgradePerLevel * (characterData.level)),
                 cure = characterTemplate.cure + (characterTemplate.cureUpgradePerLevel * (characterData.level)),
+
                 
                 level = newLevel
             };
