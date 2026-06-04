@@ -47,7 +47,10 @@ public class WeaponDataInstance
         int knockbackPoints = 0;
         int hitboxPoints = 0;
 
-        Random.InitState(weaponSeed.GetHashCode());
+        // Fallback if seed is missing
+        string seedToUse = string.IsNullOrEmpty(weaponSeed) ? "1" : weaponSeed;
+        Random.InitState(seedToUse.GetHashCode());
+        // ...
 
         for (int i = 0; i < weaponLevel; i++)
         {

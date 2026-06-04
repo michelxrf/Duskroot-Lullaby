@@ -128,11 +128,10 @@ public class CharacterDataManager : MonoBehaviour
             if (Data.Characters[i].characterId == newCharacter.characterId)
             {
                 Data.Characters[i] = newCharacter;
+                _isDirty = true;
                 return;
             }
         }
-        
-        _isDirty = true;
     }
 
     public void SaveIfDirty()

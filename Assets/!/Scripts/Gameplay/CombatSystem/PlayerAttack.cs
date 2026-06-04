@@ -132,6 +132,9 @@ namespace CombatSystem
 
                 RPC_EquipWeaponSync(currentWeapon.weaponData.name, weaponLevel);
                 RPC_PlayEquipAnimation();
+
+                // saves character weapon in the backend
+                CharacterDataManager.Instance.SaveWeaponData(currentWeapon);
             }
 
             FindFirstObjectByType<WeaponCard>().UpdateWeapon(currentWeapon);
