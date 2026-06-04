@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 2622150652882736760}
   - component: {fileID: 8753956134751657804}
   - component: {fileID: 7305390873412795657}
-  - component: {fileID: -6490329896804748338}
   m_Layer: 0
   m_Name: TombStone
   m_TagString: Untagged
@@ -94,20 +93,6 @@ MonoBehaviour:
   NetworkedBehaviours:
   - {fileID: 8753956134751657804}
   ForceRemoteRenderTimeframe: 0
---- !u!114 &-6490329896804748338
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5160402139164518313}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1541381998, guid: e725a070cec140c4caffb81624c8c787, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Fusion.Runtime.dll::Fusion.NetworkObjectPrefabData
-  Guid:
-    RawGuidValue: ac7ae2ebd7ad3564bab3a6ca892adcd7
 --- !u!1 &5690025884982058523
 GameObject:
   m_ObjectHideFlags: 0
@@ -272,7 +257,7 @@ PrefabInstance:
     - target: {fileID: 4089698677916135354, guid: 1dced19f0c67afb4ea0583df8825c834, type: 3}
       propertyPath: sliderBackground
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2644499991095973526}
     - target: {fileID: 6072391775435397083, guid: 1dced19f0c67afb4ea0583df8825c834, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -374,8 +359,7 @@ PrefabInstance:
       value: Interaction
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 400019571523178012, guid: 1dced19f0c67afb4ea0583df8825c834, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 951052825920167605, guid: 1dced19f0c67afb4ea0583df8825c834, type: 3}
       insertIndex: -1
@@ -387,6 +371,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 951052825920167605, guid: 1dced19f0c67afb4ea0583df8825c834, type: 3}
   m_PrefabInstance: {fileID: 212658912517895860}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2644499991095973526 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2756381764648673314, guid: 1dced19f0c67afb4ea0583df8825c834, type: 3}
+  m_PrefabInstance: {fileID: 212658912517895860}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
 --- !u!224 &6248458622522073455 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6072391775435397083, guid: 1dced19f0c67afb4ea0583df8825c834, type: 3}

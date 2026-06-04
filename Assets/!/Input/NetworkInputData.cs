@@ -7,6 +7,7 @@ using UnityEngine;
 public struct NetworkInputData : INetworkInput
 {
     public Vector2 Move;
+    public Vector2 Look;
     public bool Aim;
     public bool Walk;
     public bool Attack;
