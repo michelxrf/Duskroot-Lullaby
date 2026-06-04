@@ -33,6 +33,7 @@ namespace CombatSystem
 
         public Action<int> OnHealthChanged;
         public Action OnHit;
+        public Action<int> OnReceivedDamage;
         public Action OnDied;
 
         protected Animator animator;
@@ -66,6 +67,7 @@ namespace CombatSystem
             CurrentHealth = Mathf.Clamp(CurrentHealth - (damage * (100 - armor)/100), 0, maxHealth);
             audioHit.NotifyHit(weaponType);
             OnHit?.Invoke();
+            OnReceivedDamage?.Invoke(damage);
             OnHealthChanged?.Invoke(CurrentHealth);
         }
 
@@ -125,6 +127,8 @@ namespace CombatSystem
 
             maxHealth = CharacterDataManager.Instance.GetCurrentPlayerCharacter().health;
             CurrentHealth = Mathf.Clamp(CurrentHealth + amount, 0, maxHealth);
+
+            OnReceivedDamage?.Invoke(-amount); // negative damage to indicate healing
             OnHealthChanged?.Invoke(CurrentHealth);
         }
 

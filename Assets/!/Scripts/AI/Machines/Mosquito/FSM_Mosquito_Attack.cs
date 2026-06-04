@@ -13,6 +13,7 @@ public class FSM_Mosquito_Attack : State
     Animator animator;
     NavMeshAgent navAgent;
     VisionCollider visionCollider;
+    WeaponDataInstance weaponDataInstance;
 
     Transform target;
 
@@ -22,6 +23,8 @@ public class FSM_Mosquito_Attack : State
         animator = GetComponentInChildren<Animator>();
         visionCollider = GetComponentInChildren<VisionCollider>();
         stateMachine = GetComponent<StateMachine>();
+
+        weaponDataInstance = new WeaponDataInstance(weaponData, 0, "");
     }
 
     public override void Enter()
@@ -50,7 +53,7 @@ public class FSM_Mosquito_Attack : State
 
     void ImpactFrame()
     {
-        CombatFuncs.CastHitBox(hitboxCenter, gameObject, weaponData);
+        CombatFuncs.CastHitBox(hitboxCenter, gameObject, weaponDataInstance);
         stateMachine.ChangeState(stateAfterAttack);
     }
 

@@ -1,11 +1,7 @@
 fileFormatVersion: 2
 guid: 53405847abfaac84cb45cd7eb52dce90
-NativeFormatImporter:
-  externalObjects: {}
-  mainObjectFileID: 0
-  userData: 
-  assetBundleName: 
-  assetBundleVariant: 
+labels:
+- UnityAI
 AssetOrigin:
   serializedVersion: 1
   productId: 202311
@@ -13,3 +9,9 @@ AssetOrigin:
   packageVersion: 1.0
   assetPath: Assets/Training_dummy/Material/training_dummy.mat
   uploadId: 450959
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

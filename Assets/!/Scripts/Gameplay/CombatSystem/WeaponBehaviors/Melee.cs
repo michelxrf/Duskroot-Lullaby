@@ -23,7 +23,7 @@ public class Melee : WeaponBehavior
     public override void ImpactFrame()
     {
         base.ImpactFrame();
-        CombatFuncs.CastHitBox(defaultTarget, owner, weaponData);
+        CombatFuncs.CastHitBox(defaultTarget, owner, weaponDataInstance);
     }
 
     /// <summary>

@@ -16,7 +16,7 @@ namespace CombatSystem
         /// <param name="hitboxCenter">The center position of the attack hitbox</param>
         /// <param name="caster">The character performing the attack (to ignore self)</param>
         /// <param name="weapon">The weapon data containing damage and hitbox radius information</param>
-        static public void CastHitBox(Transform hitboxCenter, GameObject caster, WeaponData weapon)
+        static public void CastHitBox(Transform hitboxCenter, GameObject caster, WeaponDataInstance weapon)
         {
             int layerMask;
 
@@ -40,19 +40,19 @@ namespace CombatSystem
 
                 if (caster.GetComponent<PlayerSetup>() != null)
                 {
-                    totalDamage = weapon.baseDamage + CharacterDataManager.Instance.GetCurrentPlayerCharacter().damage;
-                    healthComponent.RPC_TakeDamage(totalDamage, weapon.weaponAudioType);
+                    totalDamage = weapon.damage + CharacterDataManager.Instance.GetCurrentPlayerCharacter().damage;
+                    healthComponent.RPC_TakeDamage(totalDamage, weapon.weaponData.weaponAudioType);
                 }
                 else if(caster.GetComponent<EnemySetup>() != null)
                 {
-                    totalDamage = caster.GetComponent<EnemySetup>().GetEnemyData().damage + weapon.baseDamage;
-                    healthComponent.RPC_TakeDamage(totalDamage, weapon.weaponAudioType);
+                    totalDamage = caster.GetComponent<EnemySetup>().GetEnemyData().damage + weapon.damage;
+                    healthComponent.RPC_TakeDamage(totalDamage, weapon.weaponData.weaponAudioType);
                 }
                 else if (caster.GetComponent<Projectile>() != null)
                 {
-                    totalDamage = weapon.baseDamage;
-                    healthComponent.RPC_TakeDamage(totalDamage, weapon.weaponAudioType);
-                }
+                    totalDamage = weapon.damage;
+                    healthComponent.RPC_TakeDamage(totalDamage, weapon.weaponData.weaponAudioType);
+                }   
 
                 // apply knockback if the hit object has a Knockback component
                 if(!healthComponent.IsDead())

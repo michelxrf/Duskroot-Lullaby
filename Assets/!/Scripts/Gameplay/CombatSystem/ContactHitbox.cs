@@ -8,7 +8,7 @@ using Fusion;
 [RequireComponent(typeof(Collider))]
 public class ContactHitbox : NetworkBehaviour
 {
-    WeaponData weaponData;
+    WeaponDataInstance weaponDataInstance;
     GameObject owner;
     Collider hitboxCollider;
 
@@ -27,7 +27,7 @@ public class ContactHitbox : NetworkBehaviour
 
     public void Setup(WeaponData weaponData, GameObject owner)
     {
-        this.weaponData = weaponData;
+        this.weaponDataInstance = new WeaponDataInstance(weaponData, 0, "");
         this.owner = owner;
         hitboxCollider = GetComponent<Collider>();
         hitboxCollider.enabled = true;
@@ -43,7 +43,7 @@ public class ContactHitbox : NetworkBehaviour
         PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
         if (playerHealth != null)
         {
-            CombatFuncs.CastHitBox(other.transform, owner, weaponData);
+            CombatFuncs.CastHitBox(other.transform, owner, weaponDataInstance);
         }
     }
 }

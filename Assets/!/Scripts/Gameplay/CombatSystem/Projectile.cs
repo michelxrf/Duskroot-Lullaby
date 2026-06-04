@@ -12,7 +12,7 @@ public class Projectile : NetworkBehaviour
     [SerializeField] GameObject explosionVfx;
     
     GameObject owner;
-    WeaponData weaponData;
+    WeaponDataInstance weaponDataInstance;
     SimpleKCC characterController;
     Collider hitboxCollider;
     Vector3 startingPos;
@@ -33,11 +33,11 @@ public class Projectile : NetworkBehaviour
         startingPos = transform.position;
     }
 
-    public void SetUp(Vector3 direction, WeaponData weaponData, GameObject owner)
+    public void SetUp(Vector3 direction, WeaponDataInstance weaponData, GameObject owner)
     {
         transform.forward = direction;
         hitboxCollider.enabled = true;
-        this.weaponData = weaponData;
+        this.weaponDataInstance = weaponData;
         this.owner = owner;
     }
 
@@ -51,7 +51,7 @@ public class Projectile : NetworkBehaviour
         distanceTraveled = Vector3.Distance(startingPos, transform.position);
         if (distanceTraveled >= range)
         {
-            CombatFuncs.CastHitBox(transform, owner, weaponData);
+            CombatFuncs.CastHitBox(transform, owner, weaponDataInstance);
             // Instantiate explosion effect
             if (explosionVfx != null)
             {
@@ -67,15 +67,13 @@ public class Projectile : NetworkBehaviour
         if (other.gameObject == owner)
             return;
 
-        Debug.Log($"Projectile hit: {other.gameObject.name}");
-
         Health health = other.GetComponent<Health>();
         if (health != null)
         {
             if (health.IsDead())
                 return;
 
-            CombatFuncs.CastHitBox(other.transform, owner, weaponData);
+            CombatFuncs.CastHitBox(other.transform, owner, weaponDataInstance);
         }
         // Instantiate explosion effect
         if (explosionVfx != null)
