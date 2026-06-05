@@ -4,6 +4,8 @@ using PlayFab.MultiplayerModels;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
+using UnityEngine.EventSystems;
 
 /// <summary>
 /// Represents a single seat in the game lobby.
@@ -36,9 +38,12 @@ public class LobbySeat : NetworkBehaviour
     /// Event triggered when the ready state of this seat changes.
     /// </summary>
     public Action OnReadyStateChanged;
+    public Action OnSeatStateChanged;
+    private AutoSelectFirstAvailableButton autoSelect;
 
     private void Start()
     {
+        autoSelect = FindFirstObjectByType<AutoSelectFirstAvailableButton>();
         characterName.text = characterTemplate.CharacterId;
         lobbyManager = FindFirstObjectByType<LobbyManager>();
 
@@ -73,6 +78,7 @@ public class LobbySeat : NetworkBehaviour
             return;
 
         UpdateUI();
+        CheckIfSelectedButtonBecameInvalid();
     }
 
     private void OnPlayerLeft(PlayerRef player)
@@ -137,6 +143,7 @@ public class LobbySeat : NetworkBehaviour
         CharacterLevel = 0;
 
         OnReadyStateChanged?.Invoke();
+        OnSeatStateChanged?.Invoke();
     }
 
     private void AssignPlayer(PlayerRef player, int userCharacterLevel, string userName)
@@ -147,6 +154,7 @@ public class LobbySeat : NetworkBehaviour
         CharacterLevel = userCharacterLevel;
 
         IsReady = false;
+        OnSeatStateChanged?.Invoke();
     }
 
     public void OnReadyClicked()
@@ -161,9 +169,19 @@ public class LobbySeat : NetworkBehaviour
         OnReadyStateChanged?.Invoke();
     }
 
+    //public void OnLeaveSeatClicked()
+    //{
+    //    RPC_OnLeaveSeatClicked();
+    //}
+
     public void OnLeaveSeatClicked()
     {
         RPC_OnLeaveSeatClicked();
+
+        StartCoroutine(
+            SelectButtonWhenAvailable(
+                selectButton
+            ));
     }
 
     [Rpc(RpcSources.All, RpcTargets.StateAuthority)]
@@ -175,20 +193,52 @@ public class LobbySeat : NetworkBehaviour
         }
     }
 
+    //public void OnSelectClicked()
+    //{
+    //    if (!IsEmpty) return; // redundant check, preventing networked issues
+
+    // Check if player already has a seat
+    //    if (HasPlayerAlreadySelectedSeat(Runner.LocalPlayer)) return;
+
+    // Get local player data
+    //    CharacterData localCharacterData = CharacterDataManager.Instance.GetCharacter(characterTemplate.CharacterId);
+    //    string localPlayerName = PlayerPrefs.GetString("username");
+    //    int localCharacterLevel = localCharacterData != null ? localCharacterData.level : 1;
+
+    //    RPC_OnSelectClicked(localPlayerName, localCharacterLevel);
+    //    CharacterDataManager.Instance.SetLocalCharacterId(characterTemplate.CharacterId);
+    //}
+
     public void OnSelectClicked()
     {
-        if (!IsEmpty) return; // redundant check, preventing networked issues
+        if (!IsEmpty) return;
 
-        // Check if player already has a seat
-        if (HasPlayerAlreadySelectedSeat(Runner.LocalPlayer)) return;
+        if (HasPlayerAlreadySelectedSeat(Runner.LocalPlayer))
+            return;
 
-        // Get local player data
-        CharacterData localCharacterData = CharacterDataManager.Instance.GetCharacter(characterTemplate.CharacterId);
-        string localPlayerName = PlayerPrefs.GetString("username");
-        int localCharacterLevel = localCharacterData != null ? localCharacterData.level : 1;
+        CharacterData localCharacterData =
+            CharacterDataManager.Instance.GetCharacter(
+                characterTemplate.CharacterId);
 
-        RPC_OnSelectClicked(localPlayerName, localCharacterLevel);
-        CharacterDataManager.Instance.SetLocalCharacterId(characterTemplate.CharacterId);
+        string localPlayerName =
+            PlayerPrefs.GetString("username");
+
+        int localCharacterLevel =
+            localCharacterData != null ?
+            localCharacterData.level : 1;
+
+        RPC_OnSelectClicked(
+            localPlayerName,
+            localCharacterLevel);
+
+        CharacterDataManager.Instance
+            .SetLocalCharacterId(
+                characterTemplate.CharacterId);
+
+        StartCoroutine(
+            SelectButtonWhenAvailable(
+                readyButton
+            ));
     }
 
     [Rpc(RpcSources.All, RpcTargets.StateAuthority)]
@@ -225,6 +275,34 @@ public class LobbySeat : NetworkBehaviour
         if (HasStateAuthority && RunnerBootstrap.Instance != null)
         {
             RunnerBootstrap.Instance.OnPlayerDisconnected -= OnPlayerLeft;
+        }
+    }
+    //Funções para navegação com controle de gamepad/teclado, garantindo que o botão selecionado seja sempre interagível
+    IEnumerator SelectButtonWhenAvailable(Button button)
+    {
+        while (!button.gameObject.activeInHierarchy)
+        {
+            yield return null;
+        }
+
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(button.gameObject);
+    }
+
+    public Button GetSelectButton()
+    {
+        return selectButton;
+    }
+
+    private void CheckIfSelectedButtonBecameInvalid()
+    {
+        if (
+            EventSystem.current.currentSelectedGameObject ==
+            selectButton.gameObject &&
+            !selectButton.gameObject.activeInHierarchy
+        )
+        {
+            autoSelect.SelectFirstAvailable();
         }
     }
 }
