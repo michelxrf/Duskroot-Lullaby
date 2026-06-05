@@ -6290,6 +6290,13 @@ MonoBehaviour:
       Data3: -1041442668
       Data4: 583218672
     Path: event:/UI/UI_Plop
+  UI_LevelUP:
+    Guid:
+      Data1: -1988141551
+      Data2: 1249092812
+      Data3: 428424080
+      Data4: -870852731
+    Path: event:/UI/UI_LevelIP
 --- !u!1001 &411436543
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27747,7 +27754,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 355151362104461488, guid: 6e0afd1962596c249a5fd0a7a29773b2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -15.16037
+      value: -10.91773
       objectReference: {fileID: 0}
     - target: {fileID: 355151362104461488, guid: 6e0afd1962596c249a5fd0a7a29773b2, type: 3}
       propertyPath: m_LocalRotation.w
@@ -27819,7 +27826,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4561453567997251259, guid: 6e0afd1962596c249a5fd0a7a29773b2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -15.16037
+      value: -10.91773
       objectReference: {fileID: 0}
     - target: {fileID: 9221953293931443334, guid: 6e0afd1962596c249a5fd0a7a29773b2, type: 3}
       propertyPath: m_Name

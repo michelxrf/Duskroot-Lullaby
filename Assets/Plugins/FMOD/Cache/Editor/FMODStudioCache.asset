@@ -70,7 +70,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/UI.bank
   Name: UI
   StudioPath: bank:/UI
-  lastModified: 639155603164577921
+  lastModified: 639161926761066842
   FileSizes: []
   Exists: 1
 --- !u!114 &-8367727226860854883
@@ -278,10 +278,10 @@ MonoBehaviour:
   Path: Assets/BuildFmod/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639155603164547829
+  lastModified: 639161926755688946
   FileSizes:
   - Name: 
-    Value: 3552
+    Value: 3590
   Exists: 1
 --- !u!114 &-5771800213713298668
 MonoBehaviour:
@@ -646,7 +646,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639137016222195895
+  lastModified: 639161926755673903
   FileSizes: []
   Exists: 1
 --- !u!114 &-1951550172158635668
@@ -718,7 +718,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/Ambiences.bank
   Name: Ambiences
   StudioPath: bank:/Ambiences
-  lastModified: 639137016221075251
+  lastModified: 639161926754961701
   FileSizes: []
   Exists: 1
 --- !u!114 &-889159557125566879
@@ -791,7 +791,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/MUS.bank
   Name: MUS
   StudioPath: bank:/MUS
-  lastModified: 639155603164527831
+  lastModified: 639161926756633658
   FileSizes: []
   Exists: 1
 --- !u!114 &11400000
@@ -856,13 +856,41 @@ MonoBehaviour:
   - {fileID: -5553515824323257283}
   - {fileID: -2916236719985361199}
   - {fileID: -734393256991782319}
+  - {fileID: 419380618009459722}
   EditorParameters: []
   MasterBanks:
   - {fileID: -2002388166983340450}
   StringsBanks:
   - {fileID: -6222608089242677881}
-  cacheTime: 639155603164577921
+  cacheTime: 639161926761066842
   cacheVersion: 131635
+--- !u!114 &419380618009459722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI/UI_LevelIP
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/UI/UI_LevelIP
+  Guid:
+    Data1: -1988141551
+    Data2: 1249092812
+    Data3: 428424080
+    Data4: -870852731
+  Banks:
+  - {fileID: -8556611719093545025}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 4850
 --- !u!114 &473338939052951993
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -930,7 +958,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 639137810104549306
+  lastModified: 639161926759776166
   FileSizes: []
   Exists: 1
 --- !u!114 &1236411300488214019
@@ -1373,7 +1401,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/Interactions.bank
   Name: Interactions
   StudioPath: bank:/Interactions
-  lastModified: 639155603163590569
+  lastModified: 639161926755423551
   FileSizes: []
   Exists: 1
 --- !u!114 &6267172118088883810

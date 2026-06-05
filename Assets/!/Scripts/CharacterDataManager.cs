@@ -98,6 +98,7 @@ public class CharacterDataManager : MonoBehaviour
 
         if(character.experience >= character.experienceToNextLevel)
         {
+            AudioUI.instance.PlayLevelUP();
             CharacterData leveledCharacter = ExperienceCalculator.LevelUpCharacter(character, character.level + 1);
             UpdateCharacter(leveledCharacter);
             character = leveledCharacter;
