@@ -91,3 +91,68 @@ MonoBehaviour:
     nintendoSwitch:
       sprite: {fileID: 1305549042, guid: 671679648a876e3468cabd0c76485f58, type: 3}
       size: {x: 80, y: 80}
+  - action: 6
+    keyboard:
+      sprite: {fileID: 939348588, guid: 7d2c113e3c19acf4ab3228b84c212913, type: 3}
+      size: {x: 80, y: 60}
+    xbox:
+      sprite: {fileID: -1299991019, guid: 671679648a876e3468cabd0c76485f58, type: 3}
+      size: {x: 80, y: 80}
+    playstation:
+      sprite: {fileID: -1393379573, guid: ce3cb0ca36bbe0c4ead9107e6b501244, type: 3}
+      size: {x: 80, y: 80}
+    nintendoSwitch:
+      sprite: {fileID: 563637284, guid: 671679648a876e3468cabd0c76485f58, type: 3}
+      size: {x: 80, y: 80}
+  - action: 7
+    keyboard:
+      sprite: {fileID: 1505351659, guid: 33d99d086089bcc4f908ec0640d5d0bb, type: 3}
+      size: {x: 130, y: 80}
+    xbox:
+      sprite: {fileID: -1937126335, guid: 671679648a876e3468cabd0c76485f58, type: 3}
+      size: {x: 110, y: 70}
+    playstation:
+      sprite: {fileID: 896626954, guid: ce3cb0ca36bbe0c4ead9107e6b501244, type: 3}
+      size: {x: 110, y: 70}
+    nintendoSwitch:
+      sprite: {fileID: 896626954, guid: ce3cb0ca36bbe0c4ead9107e6b501244, type: 3}
+      size: {x: 110, y: 70}
+  - action: 8
+    keyboard:
+      sprite: {fileID: 2112783409, guid: 33d99d086089bcc4f908ec0640d5d0bb, type: 3}
+      size: {x: 150, y: 60}
+    xbox:
+      sprite: {fileID: 563637284, guid: 671679648a876e3468cabd0c76485f58, type: 3}
+      size: {x: 80, y: 80}
+    playstation:
+      sprite: {fileID: 1461282425, guid: ce3cb0ca36bbe0c4ead9107e6b501244, type: 3}
+      size: {x: 80, y: 80}
+    nintendoSwitch:
+      sprite: {fileID: -1299991019, guid: 671679648a876e3468cabd0c76485f58, type: 3}
+      size: {x: 80, y: 80}
+  - action: 9
+    keyboard:
+      sprite: {fileID: -2552402, guid: 33d99d086089bcc4f908ec0640d5d0bb, type: 3}
+      size: {x: 65, y: 80}
+    xbox:
+      sprite: {fileID: -643358536, guid: 671679648a876e3468cabd0c76485f58, type: 3}
+      size: {x: 80, y: 90}
+    playstation:
+      sprite: {fileID: -1918956069, guid: ce3cb0ca36bbe0c4ead9107e6b501244, type: 3}
+      size: {x: 80, y: 90}
+    nintendoSwitch:
+      sprite: {fileID: -1918956069, guid: ce3cb0ca36bbe0c4ead9107e6b501244, type: 3}
+      size: {x: 80, y: 90}
+  - action: 10
+    keyboard:
+      sprite: {fileID: -682479280, guid: 33d99d086089bcc4f908ec0640d5d0bb, type: 3}
+      size: {x: 80, y: 60}
+    xbox:
+      sprite: {fileID: -743059451, guid: 671679648a876e3468cabd0c76485f58, type: 3}
+      size: {x: 80, y: 80}
+    playstation:
+      sprite: {fileID: 841575034, guid: ce3cb0ca36bbe0c4ead9107e6b501244, type: 3}
+      size: {x: 80, y: 80}
+    nintendoSwitch:
+      sprite: {fileID: 1305549042, guid: 671679648a876e3468cabd0c76485f58, type: 3}
+      size: {x: 80, y: 80}

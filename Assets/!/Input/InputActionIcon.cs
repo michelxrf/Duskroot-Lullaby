@@ -7,5 +7,12 @@ public enum InputActionIcon
     Attack,
     Pause,
     Select,
-    Out
+    Out,
+    VistualKeyboardDelete,
+    VistualKeyboardCapsLock,
+    VistualKeyboardSpace,
+    VistualKeyboardEnter,
+    VistualKeyboardBack
+    
+
 }

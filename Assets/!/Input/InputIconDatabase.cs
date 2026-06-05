@@ -18,16 +18,12 @@ public class InputIconDatabase : ScriptableObject
     {
         public InputActionIcon action;
 
-        [Header("Keyboard")]
         public IconData keyboard;
 
-        [Header("Xbox")]
         public IconData xbox;
 
-        [Header("PlayStation")]
         public IconData playstation;
 
-        [Header("Nintendo Switch")]
         public IconData nintendoSwitch;
     }
 

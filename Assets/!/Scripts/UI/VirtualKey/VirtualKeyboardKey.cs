@@ -14,27 +14,23 @@ public class VirtualKeyboardKey :
         switch (keyType)
         {
             case VirtualKeyType.Character:
-                VirtualKeyboardManager
-                    .Instance
-                    .AddCharacter(character);
+                VirtualKeyboardManager.Instance.AddCharacter(character);
                 break;
 
             case VirtualKeyType.Space:
-                VirtualKeyboardManager
-                    .Instance
-                    .AddSpace();
+                VirtualKeyboardManager.Instance.AddSpace();
                 break;
 
             case VirtualKeyType.Delete:
-                VirtualKeyboardManager
-                    .Instance
-                    .DeleteLastCharacter();
+                VirtualKeyboardManager.Instance.DeleteLastCharacter();
                 break;
 
             case VirtualKeyType.Enter:
-                VirtualKeyboardManager
-                    .Instance
-                    .Confirm();
+                VirtualKeyboardManager.Instance.Confirm();
+                break;
+
+            case VirtualKeyType.CapsLock:
+                VirtualKeyboardManager.Instance.ToggleCapsLock();
                 break;
         }
     }
