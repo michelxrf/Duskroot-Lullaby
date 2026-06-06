@@ -53,6 +53,17 @@ public class PlayerMovement : NetworkBehaviour
     {
         CharacterDataManager.Instance.OnLevelUp += UpdateSpeed;
         UpdateSpeed();
+        if (HasStateAuthority)
+        {
+            DashCooldownUI dashUI =
+                FindFirstObjectByType<DashCooldownUI>();
+
+            if (dashUI != null)
+            {
+                dashUI.SetPlayer(
+                    GetComponent<PlayerMovement>());
+            }
+        }
     }
 
     // -- Simulation --
@@ -137,5 +148,24 @@ public class PlayerMovement : NetworkBehaviour
     {
         CharacterDataManager.Instance.OnLevelUp -= UpdateSpeed;
     }
+
+    public float GetDashCooldownRemaining()
+    {
+        if (dashCooldownTimer.ExpiredOrNotRunning(Runner))
+            return 0;
+
+        return (float)dashCooldownTimer.RemainingTime(Runner);
+    }
+
+    public float GetDashCooldownNormalized()
+    {
+        if (dashCooldownTimer.ExpiredOrNotRunning(Runner))
+            return 0;
+
+        return (float)
+            dashCooldownTimer.RemainingTime(Runner)
+            / dashCooldown;
+    }
+
 
 }

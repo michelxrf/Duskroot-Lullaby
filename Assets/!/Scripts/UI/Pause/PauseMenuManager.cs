@@ -1,3 +1,4 @@
+using CombatSystem;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -13,6 +14,7 @@ public class PauseMenuManager : MonoBehaviour
     private bool paused;
     private PlayerSetup localPlayer;
     private PlayerControls controls;
+    private PlayerHealth localPlayerHealth;
 
     private void Awake()
     {
@@ -56,7 +58,24 @@ public class PauseMenuManager : MonoBehaviour
         {
             localPlayer.EnablePlayerControlsLocal(false);
         }
-        //pauseMenuScreen.SelectFirstButton();
+
+        //
+
+        localPlayer = FindLocalPlayer();
+
+        if (localPlayer != null)
+        {
+            localPlayer.EnablePlayerControlsLocal(false);
+
+            localPlayerHealth =
+                localPlayer.GetComponent<PlayerHealth>();
+
+            if (localPlayerHealth != null)
+            {
+                localPlayerHealth.IsInvulnerable = true;
+            }
+        }
+
     }
 
     public void Resume()
@@ -73,6 +92,11 @@ public class PauseMenuManager : MonoBehaviour
         if (localPlayer != null)
         {
             localPlayer.EnablePlayerControlsLocal(true);
+        }
+
+        if (localPlayerHealth != null)
+        {
+            localPlayerHealth.IsInvulnerable = false;
         }
 
         yield return new WaitForSeconds(0.4f);
