@@ -5,6 +5,8 @@ public enum InputActionIcon
     Dash,
     Interact,
     Attack,
+    Run,
+    Ain,
     Pause,
     Select,
     Out,

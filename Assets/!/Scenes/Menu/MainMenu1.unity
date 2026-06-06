@@ -2284,7 +2284,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIInputIcon
   iconDatabase: {fileID: 11400000, guid: 0fc9ee3f58e655843aac7ff42c252161, type: 2}
-  action: 0
+  action: 7
 --- !u!1 &229247008
 GameObject:
   m_ObjectHideFlags: 0
@@ -5353,7 +5353,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIInputIcon
   iconDatabase: {fileID: 11400000, guid: 0fc9ee3f58e655843aac7ff42c252161, type: 2}
-  action: 10
+  action: 12
 --- !u!1 &482312059
 GameObject:
   m_ObjectHideFlags: 0
@@ -7945,7 +7945,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIInputIcon
   iconDatabase: {fileID: 11400000, guid: 0fc9ee3f58e655843aac7ff42c252161, type: 2}
-  action: 7
+  action: 9
 --- !u!1 &619878295
 GameObject:
   m_ObjectHideFlags: 0
@@ -7997,7 +7997,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIInputIcon
   iconDatabase: {fileID: 11400000, guid: 0fc9ee3f58e655843aac7ff42c252161, type: 2}
-  action: 0
+  action: 7
 --- !u!114 &619878298
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8054,7 +8054,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIInputIcon
   iconDatabase: {fileID: 11400000, guid: 0fc9ee3f58e655843aac7ff42c252161, type: 2}
-  action: 8
+  action: 10
 --- !u!1001 &642198309
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12635,7 +12635,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIInputIcon
   iconDatabase: {fileID: 11400000, guid: 0fc9ee3f58e655843aac7ff42c252161, type: 2}
-  action: 9
+  action: 11
 --- !u!1 &1062992050
 GameObject:
   m_ObjectHideFlags: 0
@@ -16536,7 +16536,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIInputIcon
   iconDatabase: {fileID: 11400000, guid: 0fc9ee3f58e655843aac7ff42c252161, type: 2}
-  action: 6
+  action: 8
 --- !u!114 &1518442555 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 405861528265909238, guid: 847ec51a78a96554ebb2f12789672855, type: 3}
