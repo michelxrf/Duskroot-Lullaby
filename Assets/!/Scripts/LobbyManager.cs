@@ -1,6 +1,8 @@
 using System.Collections;
 using Fusion;
 using TMPro;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 using UnityEngine;
 
 /// <summary>
@@ -27,6 +29,15 @@ public class LobbyManager : NetworkBehaviour
         foreach (var seat in lobbySeats)
         {
             seat.OnReadyStateChanged += AllowGameStart;
+        }
+
+        // Navegation
+        Invoke(nameof(SelectFirstAvailableSeat),0.5f);
+        ValidateCurrentSelection();
+        foreach (var seat in lobbySeats)
+        {
+            seat.OnReadyStateChanged += AllowGameStart;
+            seat.OnSeatStateChanged += ValidateCurrentSelection;
         }
     }
 
@@ -174,5 +185,72 @@ public class LobbyManager : NetworkBehaviour
                 seat.OnReadyStateChanged -= AllowGameStart;
         }
     }
+
+    //Navagation Functions
+    public void SelectFirstAvailableSeat()
+    {
+        foreach (var seat in lobbySeats)
+        {
+            if (!seat.IsEmpty)
+                continue;
+
+            Button button =
+                seat.GetSelectButton();
+
+            if (button == null)
+                continue;
+
+            if (!button.gameObject.activeInHierarchy)
+                continue;
+
+            if (!button.interactable)
+                continue;
+
+            EventSystem.current.SetSelectedGameObject(null);
+            EventSystem.current.SetSelectedGameObject(button.gameObject);
+
+            return;
+        }
+    }
+    private void ValidateCurrentSelection()
+    {
+        if (EventSystem.current == null)
+            return;
+
+        GameObject current =
+            EventSystem.current.currentSelectedGameObject;
+
+        // Não existe seleção
+        if (current == null)
+        {
+            SelectFirstAvailableSeat();
+            return;
+        }
+
+        Button button =
+            current.GetComponent<Button>();
+
+        // Não é um botão
+        if (button == null)
+        {
+            SelectFirstAvailableSeat();
+            return;
+        }
+
+        // Ficou invisível
+        if (!button.gameObject.activeInHierarchy)
+        {
+            SelectFirstAvailableSeat();
+            return;
+        }
+
+        // Ficou desabilitado
+        if (!button.interactable)
+        {
+            SelectFirstAvailableSeat();
+        }
+    }
+
+
 }
 
