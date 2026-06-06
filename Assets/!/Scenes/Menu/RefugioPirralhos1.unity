@@ -11306,14 +11306,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 155160025269147301, guid: d0294fc00f439fc488b66a636367990b, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 538331280702655618, guid: d0294fc00f439fc488b66a636367990b, type: 3}
-      propertyPath: visualRoot
-      value: 
-      objectReference: {fileID: 881600175}
     - target: {fileID: 3283794861585515305, guid: d0294fc00f439fc488b66a636367990b, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -11406,11 +11398,6 @@ PrefabInstance:
 --- !u!1 &881600174 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4775546527257014489, guid: d0294fc00f439fc488b66a636367990b, type: 3}
-  m_PrefabInstance: {fileID: 881600173}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &881600175 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 155160025269147301, guid: d0294fc00f439fc488b66a636367990b, type: 3}
   m_PrefabInstance: {fileID: 881600173}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &890283201
