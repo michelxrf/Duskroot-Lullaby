@@ -70,7 +70,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/UI.bank
   Name: UI
   StudioPath: bank:/UI
-  lastModified: 639161926761066842
+  lastModified: 639165113025333783
   FileSizes: []
   Exists: 1
 --- !u!114 &-8367727226860854883
@@ -278,10 +278,10 @@ MonoBehaviour:
   Path: Assets/BuildFmod/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639161926755688946
+  lastModified: 639165113020779327
   FileSizes:
   - Name: 
-    Value: 3590
+    Value: 3804
   Exists: 1
 --- !u!114 &-5771800213713298668
 MonoBehaviour:
@@ -390,6 +390,58 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 0
+--- !u!114 &-5052824691700298154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/NPC_Fada/Fada
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorParamRef
+  Name: Fada
+  StudioPath: 
+  Min: 1
+  Max: 5
+  Default: 1
+  ID:
+    data1: 2673750830
+    data2: 656013800
+  Type: 1
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &-4976488488295320742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Interactions/NPC_Mushroom_gate
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/Interactions/NPC_Mushroom_gate
+  Guid:
+    Data1: 924093786
+    Data2: 1275689106
+    Data3: -713303936
+    Data4: -1809618369
+  Banks:
+  - {fileID: 6036602874811187708}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters:
+  - {fileID: -3800183702251575646}
+  MinDistance: 1
+  MaxDistance: 30
+  Length: 0
 --- !u!114 &-4945841372647693218
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -418,6 +470,30 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 352444
+--- !u!114 &-3800183702251575646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/NPC_Mushroom_gate/Mushroom_Gate
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorParamRef
+  Name: Mushroom_Gate
+  StudioPath: 
+  Min: 1
+  Max: 2
+  Default: 1
+  ID:
+    data1: 3957742795
+    data2: 3833881769
+  Type: 1
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
 --- !u!114 &-3422907614288222506
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -646,7 +722,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 639161926755673903
+  lastModified: 639165113020769332
   FileSizes: []
   Exists: 1
 --- !u!114 &-1951550172158635668
@@ -718,7 +794,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/Ambiences.bank
   Name: Ambiences
   StudioPath: bank:/Ambiences
-  lastModified: 639161926754961701
+  lastModified: 639165113019128585
   FileSizes: []
   Exists: 1
 --- !u!114 &-889159557125566879
@@ -791,9 +867,37 @@ MonoBehaviour:
   Path: Assets/BuildFmod/MUS.bank
   Name: MUS
   StudioPath: bank:/MUS
-  lastModified: 639161926756633658
+  lastModified: 639165113021967303
   FileSizes: []
   Exists: 1
+--- !u!114 &-377489476006810702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Interactions/NPC_Fada
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/Interactions/NPC_Fada
+  Guid:
+    Data1: -658224080
+    Data2: 1189450999
+    Data3: -308357233
+    Data4: 10320818
+  Banks:
+  - {fileID: 6036602874811187708}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters:
+  - {fileID: -5052824691700298154}
+  MinDistance: 1
+  MaxDistance: 30
+  Length: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -857,12 +961,14 @@ MonoBehaviour:
   - {fileID: -2916236719985361199}
   - {fileID: -734393256991782319}
   - {fileID: 419380618009459722}
+  - {fileID: -377489476006810702}
+  - {fileID: -4976488488295320742}
   EditorParameters: []
   MasterBanks:
   - {fileID: -2002388166983340450}
   StringsBanks:
   - {fileID: -6222608089242677881}
-  cacheTime: 639161926761066842
+  cacheTime: 639165113025333783
   cacheVersion: 131635
 --- !u!114 &419380618009459722
 MonoBehaviour:
@@ -958,7 +1064,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 639161926759776166
+  lastModified: 639165113024907560
   FileSizes: []
   Exists: 1
 --- !u!114 &1236411300488214019
@@ -1401,7 +1507,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/Interactions.bank
   Name: Interactions
   StudioPath: bank:/Interactions
-  lastModified: 639161926755423551
+  lastModified: 639165113020519007
   FileSizes: []
   Exists: 1
 --- !u!114 &6267172118088883810
