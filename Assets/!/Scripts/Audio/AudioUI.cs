@@ -8,6 +8,7 @@ public class AudioUI : MonoBehaviour
     [Header("FMOD")]
     [SerializeField] private EventReference UI_Weapon;
     [SerializeField] private EventReference UI_Food;
+    [SerializeField] private EventReference UI_LevelUP;
 
     void Awake()
     {
@@ -30,6 +31,13 @@ public class AudioUI : MonoBehaviour
         EventInstance instanceUIFood = RuntimeManager.CreateInstance(UI_Food);
         instanceUIFood.start();
         instanceUIFood.release();
+    }
+
+    public void PlayLevelUP()
+    {
+        EventInstance instanceUILevelUp = RuntimeManager.CreateInstance(UI_LevelUP);
+        instanceUILevelUp.start();
+        instanceUILevelUp.release();
     }
 
 }
