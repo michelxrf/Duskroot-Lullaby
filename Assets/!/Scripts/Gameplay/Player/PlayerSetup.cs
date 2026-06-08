@@ -104,6 +104,18 @@ public class PlayerSetup : NetworkBehaviour
         GetComponent<Knockback>().enabled = newState;
     }
 
+    public void EnablePlayerControlsLocal(bool newState)
+    {
+        if (!HasStateAuthority)
+            return;
+
+        GetComponent<PlayerMovement>().enabled = newState;
+        GetComponent<PlayerAttack>().enabled = newState;
+        GetComponent<CharacterLook>().enabled = newState;
+        GetComponent<PlayerInteractor>().enabled = newState;
+        GetComponent<Knockback>().enabled = newState;
+    }
+
     [Rpc(RpcSources.All, RpcTargets.All)]
     public void RPC_EnablePlayerVisuals(bool newState)
     {

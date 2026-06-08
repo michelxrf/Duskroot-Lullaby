@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5052083291384724925}
   - component: {fileID: 5736642546583563172}
   - component: {fileID: 3055915764085049879}
+  - component: {fileID: 6657741971431048091}
   m_Layer: 12
   m_Name: KeyTooltip
   m_TagString: Untagged
@@ -36,7 +37,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -57.2, y: 50.1}
-  m_SizeDelta: {x: 552, y: 200.2}
+  m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5052083291384724925
 CanvasRenderer:
@@ -102,6 +103,20 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &6657741971431048091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 47415284437231565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77062f01583e0b34389640a896a30717, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIInputIcon
+  iconDatabase: {fileID: 11400000, guid: 0fc9ee3f58e655843aac7ff42c252161, type: 2}
+  action: 1
 --- !u!1 &1631246197888216738
 GameObject:
   m_ObjectHideFlags: 0
@@ -396,4 +411,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PickableKey
   interactionTooltip: {fileID: 47415284437231565}
-  keys: []
+  keys:
+  - 111

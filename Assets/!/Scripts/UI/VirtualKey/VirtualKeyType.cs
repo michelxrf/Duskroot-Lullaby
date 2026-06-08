@@ -3,5 +3,6 @@ public enum VirtualKeyType
     Character,
     Space,
     Delete,
-    Enter
+    Enter,
+    CapsLock
 }
