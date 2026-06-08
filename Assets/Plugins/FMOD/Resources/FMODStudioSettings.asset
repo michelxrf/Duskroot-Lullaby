@@ -559,13 +559,13 @@ MonoBehaviour:
   RealChannelSettings: []
   Plugins: []
   MasterBanks:
-  - Master
+  - Desktop/Master
   Banks:
-  - Ambiences
-  - Interactions
-  - MUS
-  - SFX
-  - UI
+  - Desktop/Ambiences
+  - Desktop/Interactions
+  - Desktop/MUS
+  - Desktop/SFX
+  - Desktop/UI
   BanksToLoad: []
   LiveUpdatePort: 9264
   EnableMemoryTracking: 0
