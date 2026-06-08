@@ -1565,6 +1565,28 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: UI_InputsKeyboard_65
+      rect:
+        serializedVersion: 2
+        x: 7904
+        y: 0
+        width: 1844
+        height: 1215
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53233101914db5f41938a9e01efa6c27
+      internalID: 1597890980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -1643,6 +1665,7 @@ TextureImporter:
       UI_InputsKeyboard_62: -1446803969
       UI_InputsKeyboard_63: -1181988259
       UI_InputsKeyboard_64: 1266145858
+      UI_InputsKeyboard_65: 1597890980
       UI_InputsKeyboard_7: 733771313
       UI_InputsKeyboard_8: -1621943615
       UI_InputsKeyboard_9: -1247983292
