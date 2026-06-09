@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4052485905831964581}
   - component: {fileID: 9108334380843702484}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PT_Generic_Shrub_01_dead
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73,7 +73,7 @@ GameObject:
   - component: {fileID: 7339736720515318629}
   - component: {fileID: 8967353668698701501}
   - component: {fileID: 2861943329907626996}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PT_Generic_Shrub_01_dead_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -120,6 +120,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -141,9 +146,11 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &7518673359190637102
 GameObject:
@@ -156,7 +163,7 @@ GameObject:
   - component: {fileID: 731466135414069251}
   - component: {fileID: 1996264333134240599}
   - component: {fileID: 369132456655940945}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PT_Generic_Shrub_01_dead_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -203,6 +210,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -224,9 +236,11 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &8036543096910822342
 GameObject:
@@ -239,7 +253,7 @@ GameObject:
   - component: {fileID: 1754761355544729570}
   - component: {fileID: 7011813214584680621}
   - component: {fileID: 5498805042805102340}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PT_Generic_Shrub_01_dead_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -286,6 +300,11 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -307,7 +326,9 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}

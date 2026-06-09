@@ -26,6 +26,7 @@ public class FSM_Bear_Idle : State
     public override void Enter()
     {
         navAgent.isStopped = true;
+        navAgent.updateRotation = false;
         navAgent.speed = 0f;
         timeSpent = 0f;
     }

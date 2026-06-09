@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4737108549965960835}
   - component: {fileID: 7124075521409938447}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Treehouse
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -121,6 +121,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 0ddd32bf2fdbd6d47b9d0efd992c9527, type: 3}
       propertyPath: m_Name
       value: base_basic_shaded
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0ddd32bf2fdbd6d47b9d0efd992c9527, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

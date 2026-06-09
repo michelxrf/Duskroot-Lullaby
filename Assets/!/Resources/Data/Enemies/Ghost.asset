@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Ghost
   m_EditorClassIdentifier: Assembly-CSharp::EnemyTemplate
   CharacterId: ghost
-  Level: 0
+  Level: 1
   health: 999999999
   armor: 100
   damage: 500
-  speed: 5
+  speed: 2
   attackSpeed: 1
   cure: 1
   weapon: {fileID: 11400000, guid: 66331709bf4b0734c97ad36fe3b1b64e, type: 2}
