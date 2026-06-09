@@ -16,17 +16,21 @@ PrefabInstance:
       propertyPath: offset
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5316113914214120435, guid: 1526a11282092e04eac7091d2004646c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.558
+      objectReference: {fileID: 0}
     - target: {fileID: 8815883082574497338, guid: 1526a11282092e04eac7091d2004646c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8815883082574497338, guid: 1526a11282092e04eac7091d2004646c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8815883082574497338, guid: 1526a11282092e04eac7091d2004646c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.2
+      value: -0.802
       objectReference: {fileID: 0}
     - target: {fileID: 8815883082574497338, guid: 1526a11282092e04eac7091d2004646c, type: 3}
       propertyPath: m_LocalRotation.w
