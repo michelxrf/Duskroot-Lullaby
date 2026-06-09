@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5651993725251970733}
   - component: {fileID: 8762876279516595342}
   - component: {fileID: 1848920933074918554}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PT_Menhir_Rock_02_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,7 +100,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3287948611943350881}
   - component: {fileID: 7780879296386692368}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PT_Menhir_Rock_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -163,7 +163,7 @@ GameObject:
   - component: {fileID: 4805504076787978420}
   - component: {fileID: 3959558143554038968}
   - component: {fileID: 2656451562331225545}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PT_Menhir_Rock_02_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -253,7 +253,7 @@ GameObject:
   - component: {fileID: 5831670394684494036}
   - component: {fileID: 7004474624027861508}
   - component: {fileID: 8975058473414284020}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PT_Menhir_Rock_02_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}

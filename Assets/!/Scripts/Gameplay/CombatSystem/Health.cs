@@ -68,6 +68,7 @@ namespace CombatSystem
             audioHit.NotifyHit(weaponType);
             OnHit?.Invoke();
             OnReceivedDamage?.Invoke(damage);
+            
             OnHealthChanged?.Invoke(CurrentHealth);
         }
 
@@ -96,6 +97,7 @@ namespace CombatSystem
         protected virtual void Die()
         {
             animator?.SetTrigger("Die");
+            OnReceivedDamage = null; // Unsubscribe all damage listeners to prevent further damage processing after death
             Knockback knockback = GetComponent<Knockback>();
             if (knockback != null)
                 knockback.enabled = false;

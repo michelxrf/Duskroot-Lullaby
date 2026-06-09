@@ -8,6 +8,8 @@ using Fusion;
 [RequireComponent(typeof(Collider))]
 public class ContactHitbox : NetworkBehaviour
 {
+    [SerializeField] WeaponData weaponData;
+    
     WeaponDataInstance weaponDataInstance;
     GameObject owner;
     Collider hitboxCollider;
@@ -17,12 +19,7 @@ public class ContactHitbox : NetworkBehaviour
         hitboxCollider = GetComponent<Collider>();
         hitboxCollider.enabled = false; // Start disabled, will be enabled when Setup is called
 
-        EnemySetup enemySetup = transform.parent.GetComponent<EnemySetup>();
-
-        if (enemySetup.IsInitialized())
-            Setup(enemySetup.GetEnemyData().weapon, transform.parent.gameObject);
-        else
-            enemySetup.OnInit += () => Setup(enemySetup.GetEnemyData().weapon, transform.parent.gameObject);
+        Setup(weaponData, transform.parent.gameObject);
     }
 
     public void Setup(WeaponData weaponData, GameObject owner)
