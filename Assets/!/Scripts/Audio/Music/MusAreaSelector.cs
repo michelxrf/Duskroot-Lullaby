@@ -2,15 +2,16 @@ using UnityEngine;
 
 public class MusAreaSelector : MonoBehaviour
 {
+
     [SerializeField] private int musicParam = 1;
     private bool isPlayerInside = false;
-
+    [SerializeField] private GameObject bossObj;
+    [SerializeField] private bool isBossArea = false;
     private void OnTriggerEnter(Collider other)
     {
         PlayerSetup otherPlayer = other.GetComponent<PlayerSetup>();
         if (otherPlayer == null) return;
-
-        //if (other.CompareTag("Player") && otherPlayer.IsLocalPlayer() && !isPlayerInside)
+        if (isBossArea && bossObj == null) return;
         if (otherPlayer.IsLocalPlayer() && !isPlayerInside)
             {
             isPlayerInside = true;

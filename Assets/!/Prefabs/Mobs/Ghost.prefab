@@ -183,7 +183,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5841954315340747375, guid: 845d49ffa9c4828449dbf83456dfe035, type: 3}
       propertyPath: armor
-      value: 100
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5841954315340747375, guid: 845d49ffa9c4828449dbf83456dfe035, type: 3}
       propertyPath: _IsInvulnerable
@@ -204,6 +204,14 @@ PrefabInstance:
     - target: {fileID: 8328019846896271698, guid: 845d49ffa9c4828449dbf83456dfe035, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0.83
+      objectReference: {fileID: 0}
+    - target: {fileID: 8667621192906398789, guid: 845d49ffa9c4828449dbf83456dfe035, type: 3}
+      propertyPath: level
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8667621192906398789, guid: 845d49ffa9c4828449dbf83456dfe035, type: 3}
+      propertyPath: _characterId
+      value: Ghost
       objectReference: {fileID: 0}
     - target: {fileID: 8667621192906398789, guid: 845d49ffa9c4828449dbf83456dfe035, type: 3}
       propertyPath: enemyTemplate
