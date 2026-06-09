@@ -10,22 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d225f011258c5d446bfde6711a9f6020, type: 3}
-  m_Name: Bear
+  m_Name: Ghost
   m_EditorClassIdentifier: Assembly-CSharp::EnemyTemplate
-  CharacterId: Bear
-  Level: 1
-  health: 500
-  armor: 0
-  damage: 9
+  CharacterId: ghost
+  Level: 0
+  health: 999999999
+  armor: 100
+  damage: 500
   speed: 5
   attackSpeed: 1
   cure: 1
-  weapon: {fileID: 11400000, guid: 85a7210707f0b6c4eaea6fda7481edeb, type: 2}
+  weapon: {fileID: 11400000, guid: 66331709bf4b0734c97ad36fe3b1b64e, type: 2}
   healthUpgradePerLevel: 0
   armorUpgradePerLevel: 0
   damageUpgradePerLevel: 0
   speedUpgradePerLevel: 0
   attackSpeedUpgradePerLevel: 0
   cureUpgradePerLevel: 0
-  experienceReward: 200
+  experienceReward: 0
   experienceRewardUpgradePerLevel: 0
