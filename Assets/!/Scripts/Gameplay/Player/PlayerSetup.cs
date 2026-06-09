@@ -16,6 +16,8 @@ public class PlayerSetup : NetworkBehaviour
     [Networked] public string currentWeapon { get => default; set { } }
     
     [SerializeField] GameObject[] characterModels;
+    [SerializeField] GameObject antonioBox;
+    [SerializeField] Transform rigTransform;
 
     Animator animator;
 
@@ -43,6 +45,9 @@ public class PlayerSetup : NetworkBehaviour
         foreach (var model in characterModels)
         {
             model.SetActive(model.name == characterId);
+            rigTransform.localScale = characterId == "Antônio" ? Vector3.one * 1.27f : Vector3.one;
+            antonioBox.SetActive(characterId == "Antônio" ? true : false);
+
         }
         
         animator.avatar = CharacterDataManager.Instance.GetCharacterAvatar(characterId);

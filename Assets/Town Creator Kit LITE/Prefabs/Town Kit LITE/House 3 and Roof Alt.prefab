@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3325690}
   - component: {fileID: 2338948}
   - component: {fileID: 6472258}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall_015
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -125,7 +125,7 @@ GameObject:
   - component: {fileID: 3370972}
   - component: {fileID: 2366450}
   - component: {fileID: 6462898}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Window_001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -238,7 +238,7 @@ GameObject:
   - component: {fileID: 3307460}
   - component: {fileID: 2366726}
   - component: {fileID: 6433630}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -351,7 +351,7 @@ GameObject:
   - component: {fileID: 3317118}
   - component: {fileID: 2300432}
   - component: {fileID: 6476890}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall_005
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -464,7 +464,7 @@ GameObject:
   - component: {fileID: 3320522}
   - component: {fileID: 2333226}
   - component: {fileID: 6438590}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Doorway
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -577,7 +577,7 @@ GameObject:
   - component: {fileID: 3370918}
   - component: {fileID: 2334298}
   - component: {fileID: 6483346}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Roof
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -690,7 +690,7 @@ GameObject:
   - component: {fileID: 3348496}
   - component: {fileID: 2321234}
   - component: {fileID: 6471192}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall_000
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -803,7 +803,7 @@ GameObject:
   - component: {fileID: 3322326}
   - component: {fileID: 2316318}
   - component: {fileID: 6463052}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall_011
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -916,7 +916,7 @@ GameObject:
   - component: {fileID: 3315884}
   - component: {fileID: 2386568}
   - component: {fileID: 6462478}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wall_006
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1029,7 +1029,7 @@ GameObject:
   - component: {fileID: 3383514}
   - component: {fileID: 2391672}
   - component: {fileID: 6485086}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Window_004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1140,7 +1140,7 @@ GameObject:
   m_Component:
   - component: {fileID: 443350}
   - component: {fileID: 9502428}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: House 3 and Roof Alt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1208,7 +1208,7 @@ GameObject:
   - component: {fileID: 3357910}
   - component: {fileID: 2394392}
   - component: {fileID: 6444074}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1322,7 +1322,7 @@ GameObject:
   - component: {fileID: 3337136}
   - component: {fileID: 2371410}
   - component: {fileID: 6407882}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Window_003
   m_TagString: Untagged
   m_Icon: {fileID: 0}

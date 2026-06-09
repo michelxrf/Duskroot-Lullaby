@@ -47,6 +47,7 @@ public class FSM_Mosquito_Patrol : State
 
         navAgent.stoppingDistance = stoppingDistance;
         navAgent.SetDestination(patrolDestination);
+        navAgent.updateRotation = false;
 
         visionCollider.OnPlayerEntered += PlayerFound;
     }
