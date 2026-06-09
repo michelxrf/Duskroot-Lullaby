@@ -7,7 +7,7 @@ using static AudioCharacterGender;
 
 public class AudioPunchPlayer : MonoBehaviour
 {
-    public enum Weapon { Melee, Sword, Slingshot }
+    public enum Weapon { Melee, Sword, Slingshot, Hammer, Staff }
 
     [Header("Person")]
     public Weapon weapon;
@@ -16,7 +16,8 @@ public class AudioPunchPlayer : MonoBehaviour
     [SerializeField] private EventReference punchEvent;
     [SerializeField] private EventReference swordEvent;
     [SerializeField] private EventReference slingEvent;
-
+    [SerializeField] private EventReference hammerEvent;
+    [SerializeField] private EventReference staffEvent;
     private PlayerSetup playerSetup;
     private CharacterGender gender;
     private void Start()
@@ -41,6 +42,12 @@ public class AudioPunchPlayer : MonoBehaviour
 
             case Weapon.Slingshot:
                 selectedEvent = slingEvent;
+                break;
+            case Weapon.Hammer:
+                selectedEvent = hammerEvent;
+                break;
+            case Weapon.Staff:
+                selectedEvent = staffEvent;
                 break;
 
             default:
@@ -71,6 +78,12 @@ public class AudioPunchPlayer : MonoBehaviour
                 break;
             case "Sword":
                 weapon = Weapon.Sword;
+                break;
+            case "Hammer":
+                weapon = Weapon.Hammer;
+                break;
+            case "Staff":
+                weapon = Weapon.Staff;
                 break;
 
             default:
