@@ -9941,7 +9941,7 @@ MonoBehaviour:
   m_Center: {x: 0, y: 2, z: 0}
   m_LayerMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 131071
   m_UseGeometry: 0
   m_DefaultArea: 0
   m_GenerateLinks: 0
@@ -9950,7 +9950,7 @@ MonoBehaviour:
   m_OverrideTileSize: 0
   m_TileSize: 256
   m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.16666667
+  m_VoxelSize: 0.083333336
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: b3cff0e9d7101ea459604a96094571cd, type: 2}
   m_BuildHeightMesh: 0
@@ -26589,7 +26589,7 @@ GameObject:
   - component: {fileID: 5805681083030157995}
   - component: {fileID: 8100030978905508098}
   - component: {fileID: 5582492194175923976}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: PT_Modular_Gate_Wood_01_left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26851,7 +26851,7 @@ GameObject:
   - component: {fileID: 7756257214804592500}
   - component: {fileID: 498549538738628930}
   - component: {fileID: 4279342083721880982}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: PT_Modular_Gate_Wood_01_right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
