@@ -130,6 +130,7 @@ public class GramophoneController : MonoBehaviour
     
     private void OnDestroy()
     {
+        Debug.Log("Para musica Gramofone onDestroy");
         if (gramophoneOffInstance.isValid())
         {
             gramophoneOffInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);

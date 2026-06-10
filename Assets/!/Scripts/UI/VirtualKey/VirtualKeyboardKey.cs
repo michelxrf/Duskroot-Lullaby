@@ -15,22 +15,27 @@ public class VirtualKeyboardKey :
         {
             case VirtualKeyType.Character:
                 VirtualKeyboardManager.Instance.AddCharacter(character);
+                AudioUI.instance.PressKey();
                 break;
 
             case VirtualKeyType.Space:
                 VirtualKeyboardManager.Instance.AddSpace();
+                AudioUI.instance.PressKey();
                 break;
 
             case VirtualKeyType.Delete:
                 VirtualKeyboardManager.Instance.DeleteLastCharacter();
+                AudioUI.instance.PressKey();
                 break;
 
             case VirtualKeyType.Enter:
                 VirtualKeyboardManager.Instance.Confirm();
+                AudioUI.instance.PressKey();
                 break;
 
             case VirtualKeyType.CapsLock:
                 VirtualKeyboardManager.Instance.ToggleCapsLock();
+                AudioUI.instance.PressKey();
                 break;
         }
     }

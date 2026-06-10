@@ -7059,6 +7059,13 @@ MonoBehaviour:
       Data3: 428424080
       Data4: -870852731
     Path: event:/UI/UI_LevelIP
+  UI_keySound:
+    Guid:
+      Data1: 320602158
+      Data2: 1303227279
+      Data3: 1462748584
+      Data4: 1658989692
+    Path: event:/UI/UI_Keyb
 --- !u!1001 &411436543
 PrefabInstance:
   m_ObjectHideFlags: 0
