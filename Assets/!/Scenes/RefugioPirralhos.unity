@@ -12114,6 +12114,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BreakableBarrel (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 4835565957166561883, guid: 47afe58df720ec841991f683e630c76d, type: 3}
+      propertyPath: healingDropChance
+      value: 0.571
+      objectReference: {fileID: 0}
     - target: {fileID: 6010715171724072074, guid: 47afe58df720ec841991f683e630c76d, type: 3}
       propertyPath: SortKey
       value: 3509948333
@@ -12760,6 +12764,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: BreakableBarrel (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 4835565957166561883, guid: 47afe58df720ec841991f683e630c76d, type: 3}
+      propertyPath: weaponDropChance
+      value: 0.383
+      objectReference: {fileID: 0}
+    - target: {fileID: 4835565957166561883, guid: 47afe58df720ec841991f683e630c76d, type: 3}
+      propertyPath: healingDropChance
+      value: 0.7
+      objectReference: {fileID: 0}
     - target: {fileID: 6010715171724072074, guid: 47afe58df720ec841991f683e630c76d, type: 3}
       propertyPath: SortKey
       value: 3260158277
@@ -13234,6 +13246,10 @@ PrefabInstance:
     - target: {fileID: 4028864001378187396, guid: 47afe58df720ec841991f683e630c76d, type: 3}
       propertyPath: m_Name
       value: BreakableBarrel (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4835565957166561883, guid: 47afe58df720ec841991f683e630c76d, type: 3}
+      propertyPath: weaponDropChance
+      value: 0.577
       objectReference: {fileID: 0}
     - target: {fileID: 6010715171724072074, guid: 47afe58df720ec841991f683e630c76d, type: 3}
       propertyPath: SortKey
