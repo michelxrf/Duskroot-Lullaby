@@ -8325,6 +8325,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MusArea9
   musicParam: 3
+  bossObj: {fileID: 0}
+  isBossArea: 0
 --- !u!1001 &651564223
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9146,7 +9148,7 @@ MonoBehaviour:
   m_OverrideTileSize: 0
   m_TileSize: 256
   m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.16666667
+  m_VoxelSize: 0.083333336
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: b3cff0e9d7101ea459604a96094571cd, type: 2}
   m_BuildHeightMesh: 0
@@ -14572,6 +14574,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MusAreaSelector
   musicParam: 2
+  bossObj: {fileID: 0}
+  isBossArea: 0
 --- !u!1001 &1216153330
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18239,11 +18243,18 @@ MonoBehaviour:
     Path: event:/UI/UI_Plop
   UI_LevelUP:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -1988141551
+      Data2: 1249092812
+      Data3: 428424080
+      Data4: -870852731
+    Path: event:/UI/UI_LevelIP
+  UI_keySound:
+    Guid:
+      Data1: 320602158
+      Data2: 1303227279
+      Data3: 1462748584
+      Data4: 1658989692
+    Path: event:/UI/UI_Keyb
 --- !u!1 &1578947877
 GameObject:
   m_ObjectHideFlags: 0
