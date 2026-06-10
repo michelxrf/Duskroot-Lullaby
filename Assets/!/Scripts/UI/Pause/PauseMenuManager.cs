@@ -15,9 +15,11 @@ public class PauseMenuManager : MonoBehaviour
     private PlayerSetup localPlayer;
     private PlayerControls controls;
     private PlayerHealth localPlayerHealth;
+    protected PlayerVFX playerVFX;
 
     private void Awake()
     {
+        playerVFX = GetComponent<PlayerVFX>();
         controls = new PlayerControls();
     }
 
@@ -67,12 +69,12 @@ public class PauseMenuManager : MonoBehaviour
         {
             localPlayer.EnablePlayerControlsLocal(false);
 
-            localPlayerHealth =
-                localPlayer.GetComponent<PlayerHealth>();
+            localPlayerHealth = localPlayer.GetComponent<PlayerHealth>();
 
             if (localPlayerHealth != null)
             {
                 localPlayerHealth.IsInvulnerable = true;
+                localPlayer.GetComponent<PlayerVFX>()?.Play(PlayerVFXEvent.PauseOpen);
             }
         }
 
@@ -97,6 +99,7 @@ public class PauseMenuManager : MonoBehaviour
         if (localPlayerHealth != null)
         {
             localPlayerHealth.IsInvulnerable = false;
+            localPlayer.GetComponent<PlayerVFX>()?.Play(PlayerVFXEvent.PauseClose);
         }
 
         yield return new WaitForSeconds(0.4f);

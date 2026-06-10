@@ -19,6 +19,7 @@ public class CharacterDataManager : MonoBehaviour
 
     public Action OnLevelUp;
     public Action<int> OnExpChanged;
+    public Action<int> OnExperienceGained;
 
     private void Awake()
     {
@@ -94,16 +95,21 @@ public class CharacterDataManager : MonoBehaviour
 
         CharacterData character = GetCurrentPlayerCharacter();
 
-        character.experience += Mathf.FloorToInt(xp * (RunnerBootstrap.Instance.Runner.SessionInfo.PlayerCount / 4f));
+        //character.experience += Mathf.FloorToInt(xp * (RunnerBootstrap.Instance.Runner.SessionInfo.PlayerCount / 4f));
 
-        if(character.experience >= character.experienceToNextLevel)
+        int finalXp = Mathf.FloorToInt(xp * (RunnerBootstrap.Instance.Runner.SessionInfo.PlayerCount / 4f));
+        character.experience += finalXp;
+        OnExperienceGained?.Invoke(finalXp);
+
+        if (character.experience >= character.experienceToNextLevel)
         {
-            AudioUI.instance.PlayLevelUP();
+            //AudioUI.instance.PlayLevelUP();
             CharacterData leveledCharacter = ExperienceCalculator.LevelUpCharacter(character, character.level + 1);
             UpdateCharacter(leveledCharacter);
             character = leveledCharacter;
 
             OnLevelUp?.Invoke();
+
             Debug.Log($"Leveled up! New level: {character.level}");
         }
 

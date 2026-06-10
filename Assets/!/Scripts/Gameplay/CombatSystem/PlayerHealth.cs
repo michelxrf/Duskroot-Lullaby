@@ -8,12 +8,19 @@ namespace CombatSystem
     {
         [Header("References")]
         [SerializeField] GameObject playerVisual;
+        private PlayerPostProcessController postProcessController;
 
         MatchStateManager matchStateManager;
 
         public override void Spawned()
         {
             base.Spawned();
+            if (Object.HasInputAuthority)
+            {
+                postProcessController = FindFirstObjectByType<PlayerPostProcessController>();
+            }
+            postProcessController?.SetDead(false);
+
             matchStateManager = FindFirstObjectByType<MatchStateManager>();
 
             // player Init
@@ -34,6 +41,7 @@ namespace CombatSystem
         protected override void Die()
         {
             animator?.SetTrigger("Die");
+            postProcessController?.SetDead(true);
             Knockback knockback = GetComponent<Knockback>();
             if (knockback != null)
                 knockback.enabled = false;
@@ -55,6 +63,8 @@ namespace CombatSystem
         {
             animator?.ResetTrigger("Die");
             animator?.SetTrigger("Revive");
+
+            postProcessController?.SetDead(false);
 
             GetComponent<PlayerSetup>().EnablePlayerControls(true);
             GetComponent<PlayerSetup>().RPC_EnablePlayerVisuals(true);
@@ -102,5 +112,4 @@ namespace CombatSystem
             }
         }
     }
-
 }
