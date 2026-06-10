@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8361424448297322951}
   - component: {fileID: 6263346290504951017}
   - component: {fileID: 542486201984967701}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: KillZone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -205,6 +205,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0.83
       objectReference: {fileID: 0}
+    - target: {fileID: 8468126335947015433, guid: 845d49ffa9c4828449dbf83456dfe035, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 8667621192906398789, guid: 845d49ffa9c4828449dbf83456dfe035, type: 3}
       propertyPath: level
       value: 2
@@ -239,6 +243,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4816488431626147740, guid: 845d49ffa9c4828449dbf83456dfe035, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6969924301238673458}
+    - targetCorrespondingSourceObject: {fileID: 4816488431626147740, guid: 845d49ffa9c4828449dbf83456dfe035, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 345362053899921052}
   m_SourcePrefab: {fileID: 100100000, guid: 845d49ffa9c4828449dbf83456dfe035, type: 3}
 --- !u!114 &4246769703394337137 stripped
 MonoBehaviour:
@@ -310,6 +317,37 @@ MonoBehaviour:
   idleDuration: 1
   stateOnPlayerFound: {fileID: 5977124774472387527}
   stateOnEndTimer: {fileID: 8254050809680786472}
+--- !u!114 &345362053899921052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7550902909902573433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioEventEmitter
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -1257008489
+      Data2: 1079231535
+      Data3: -1330225476
+      Data4: 2075538437
+    Path: event:/SFX/SFX_GhostIdle
+  Event: 
+  EventPlayTrigger: 1
+  EventStopTrigger: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 1
+  OverrideMinDistance: 3
+  OverrideMaxDistance: 20
 --- !u!1001 &5646098643694183391
 PrefabInstance:
   m_ObjectHideFlags: 0
