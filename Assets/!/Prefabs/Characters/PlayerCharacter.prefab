@@ -5054,9 +5054,8 @@ MonoBehaviour:
   healFeedback: {fileID: 4837747970645583536}
   deadFeedback: {fileID: 0}
   dashFeedback: {fileID: 6763236407954424917}
-  levelUpCanvas: {fileID: 7495032617308863544, guid: 309cb39fc5a1a5a47a8d6ba98002c1d3, type: 3}
-  rewardPopup: {fileID: 3576679470267027658, guid: 4c5f28b3f0704d04ab096f18a85327d0, type: 3}
-  rewardImage: {fileID: 0}
+  levelUpCanvasPrefab: {fileID: 0}
+  rewardPopupPrefab: {fileID: 0}
 --- !u!1001 &2036789094837730520
 PrefabInstance:
   m_ObjectHideFlags: 0

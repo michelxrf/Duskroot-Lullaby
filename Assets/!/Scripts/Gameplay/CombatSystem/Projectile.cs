@@ -56,7 +56,7 @@ public class Projectile : NetworkBehaviour
             if (explosionVfx != null)
             {
                 // TODO: change to Fusion's way of spawning VFX
-                Instantiate(explosionVfx, transform.position, Quaternion.identity);
+                Runner.Spawn(explosionVfx, transform.position, Quaternion.identity);
             }
             RunnerBootstrap.Instance.Runner.Despawn(Object);
         }
@@ -78,7 +78,7 @@ public class Projectile : NetworkBehaviour
         // Instantiate explosion effect
         if (explosionVfx != null)
         {
-            Instantiate(explosionVfx, transform.position, Quaternion.identity);
+            Runner.Spawn(explosionVfx, transform.position, Quaternion.identity);
         }
 
         RunnerBootstrap.Instance.Runner.Despawn(Object);
