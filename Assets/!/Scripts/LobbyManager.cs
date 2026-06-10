@@ -191,6 +191,9 @@ public class LobbyManager : NetworkBehaviour
     {
         foreach (var seat in lobbySeats)
         {
+            if (seat == null || seat.Object == null || !seat.Object.IsValid)
+                continue;
+
             if (!seat.IsEmpty)
                 continue;
 
@@ -220,7 +223,7 @@ public class LobbyManager : NetworkBehaviour
         GameObject current =
             EventSystem.current.currentSelectedGameObject;
 
-        // Não existe seleção
+        // Nï¿½o existe seleï¿½ï¿½o
         if (current == null)
         {
             SelectFirstAvailableSeat();
@@ -230,14 +233,14 @@ public class LobbyManager : NetworkBehaviour
         Button button =
             current.GetComponent<Button>();
 
-        // Não é um botão
+        // Nï¿½o ï¿½ um botï¿½o
         if (button == null)
         {
             SelectFirstAvailableSeat();
             return;
         }
 
-        // Ficou invisível
+        // Ficou invisï¿½vel
         if (!button.gameObject.activeInHierarchy)
         {
             SelectFirstAvailableSeat();
