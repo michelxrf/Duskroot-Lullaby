@@ -38625,6 +38625,34 @@ PrefabInstance:
       value: InteractionFrog
       objectReference: {fileID: 0}
     - target: {fileID: 7274542431322285929, guid: dd9409abf6813fa4c9d5fe65e3c2b55b, type: 3}
+      propertyPath: 'barks.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 9038bbf272c7ad14a91ff26f860399b6, type: 2}
+    - target: {fileID: 7274542431322285929, guid: dd9409abf6813fa4c9d5fe65e3c2b55b, type: 3}
+      propertyPath: 'barks.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 50b11ff8898a3604d8c0c45247a2beac, type: 2}
+    - target: {fileID: 7274542431322285929, guid: dd9409abf6813fa4c9d5fe65e3c2b55b, type: 3}
+      propertyPath: 'barks.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 2a3997ac74860db4fbba5a9ec80abf7a, type: 2}
+    - target: {fileID: 7274542431322285929, guid: dd9409abf6813fa4c9d5fe65e3c2b55b, type: 3}
+      propertyPath: 'barks.Array.data[3]'
+      value: 
+      objectReference: {fileID: 11400000, guid: fafa5b21a0ff30b40b621b50303ea8b8, type: 2}
+    - target: {fileID: 7274542431322285929, guid: dd9409abf6813fa4c9d5fe65e3c2b55b, type: 3}
+      propertyPath: 'barks.Array.data[4]'
+      value: 
+      objectReference: {fileID: 11400000, guid: ea6fa51e4be0e3e448cc4fd7197909a6, type: 2}
+    - target: {fileID: 7274542431322285929, guid: dd9409abf6813fa4c9d5fe65e3c2b55b, type: 3}
+      propertyPath: 'barks.Array.data[5]'
+      value: 
+      objectReference: {fileID: 11400000, guid: e89c9290bb6b35e4fbb25e23fba745dc, type: 2}
+    - target: {fileID: 7274542431322285929, guid: dd9409abf6813fa4c9d5fe65e3c2b55b, type: 3}
+      propertyPath: 'barks.Array.data[6]'
+      value: 
+      objectReference: {fileID: 11400000, guid: dfcdf2d258a92dc48b50b6486b1513f1, type: 2}
+    - target: {fileID: 7274542431322285929, guid: dd9409abf6813fa4c9d5fe65e3c2b55b, type: 3}
       propertyPath: OnSequenceEnded.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 6725397021833014614}
@@ -38802,8 +38830,8 @@ SceneRoots:
   - {fileID: 1069668024}
   - {fileID: 1987357001}
   - {fileID: 3531496263807761478}
-  - {fileID: 1122677339}
   - {fileID: 171514628}
+  - {fileID: 1122677339}
   - {fileID: 354026924}
   - {fileID: 458869942}
   - {fileID: 1393709270}

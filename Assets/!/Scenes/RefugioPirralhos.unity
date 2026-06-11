@@ -12516,6 +12516,26 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6696838434664942794, guid: 4988d98877646694483fa6fbef3bd2ce, type: 3}
+      propertyPath: 'barks.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 36fe373084cea024f80477f48583d83f, type: 2}
+    - target: {fileID: 6696838434664942794, guid: 4988d98877646694483fa6fbef3bd2ce, type: 3}
+      propertyPath: 'barks.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 1664d84d4d58b7f4e9b80d3ea4f8efef, type: 2}
+    - target: {fileID: 6696838434664942794, guid: 4988d98877646694483fa6fbef3bd2ce, type: 3}
+      propertyPath: 'barks.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 0d4d31560027566458a12fe5cabbcca1, type: 2}
+    - target: {fileID: 6696838434664942794, guid: 4988d98877646694483fa6fbef3bd2ce, type: 3}
+      propertyPath: 'barks.Array.data[3]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 38832247e76eb6244bf95edcabf5efd5, type: 2}
+    - target: {fileID: 6696838434664942794, guid: 4988d98877646694483fa6fbef3bd2ce, type: 3}
+      propertyPath: 'barks.Array.data[4]'
+      value: 
+      objectReference: {fileID: 11400000, guid: be133ff01af6dd141a7000a5b7ea6493, type: 2}
+    - target: {fileID: 6696838434664942794, guid: 4988d98877646694483fa6fbef3bd2ce, type: 3}
       propertyPath: OnSequenceEnded.m_PersistentCalls.m_Calls.Array.size
       value: 0
       objectReference: {fileID: 0}
@@ -13044,23 +13064,23 @@ PrefabInstance:
     - target: {fileID: 885105071364222554, guid: 2a87c82624a9cad40be1772142d51f8e, type: 3}
       propertyPath: 'barks.Array.data[0]'
       value: 
-      objectReference: {fileID: 11400000, guid: eb5513f983923ff4c83655939f8bb7ed, type: 2}
+      objectReference: {fileID: 11400000, guid: 8573c1c2f8dcd4541b6133a847e562a9, type: 2}
     - target: {fileID: 885105071364222554, guid: 2a87c82624a9cad40be1772142d51f8e, type: 3}
       propertyPath: 'barks.Array.data[1]'
       value: 
-      objectReference: {fileID: 11400000, guid: 2d0fee61fb1a4124d89d84b0af4e5dc2, type: 2}
+      objectReference: {fileID: 11400000, guid: 9b06d51170186b44ab4c18aa8b86007e, type: 2}
     - target: {fileID: 885105071364222554, guid: 2a87c82624a9cad40be1772142d51f8e, type: 3}
       propertyPath: 'barks.Array.data[2]'
       value: 
-      objectReference: {fileID: 11400000, guid: 7130704333c93874bb42273381de40b5, type: 2}
+      objectReference: {fileID: 11400000, guid: 375f14ca3f5291140a3c010f78e3d224, type: 2}
     - target: {fileID: 885105071364222554, guid: 2a87c82624a9cad40be1772142d51f8e, type: 3}
       propertyPath: 'barks.Array.data[3]'
       value: 
-      objectReference: {fileID: 11400000, guid: 133a9a1fad757d2478855d5c73b329eb, type: 2}
+      objectReference: {fileID: 11400000, guid: 76eb4614a7a6763419d894b0ca8c638f, type: 2}
     - target: {fileID: 885105071364222554, guid: 2a87c82624a9cad40be1772142d51f8e, type: 3}
       propertyPath: 'barks.Array.data[4]'
       value: 
-      objectReference: {fileID: 11400000, guid: 076f050fb5fc4744eb3d66a73165a9f9, type: 2}
+      objectReference: {fileID: 11400000, guid: 174d5fbb91d74e84c9e7757389a831e7, type: 2}
     - target: {fileID: 885105071364222554, guid: 2a87c82624a9cad40be1772142d51f8e, type: 3}
       propertyPath: barkEvent.Guid.Data1
       value: -658224080
@@ -13876,11 +13896,11 @@ PrefabInstance:
     - target: {fileID: 1378234607598745316, guid: 9b0671aee49aaf3449728103452d837c, type: 3}
       propertyPath: 'barks.Array.data[0]'
       value: 
-      objectReference: {fileID: 11400000, guid: 109a580764c82ed4f91e1702ae6b56b6, type: 2}
+      objectReference: {fileID: 11400000, guid: d5ef87d2a013c7942bbf27685a99436d, type: 2}
     - target: {fileID: 1378234607598745316, guid: 9b0671aee49aaf3449728103452d837c, type: 3}
       propertyPath: 'barks.Array.data[1]'
       value: 
-      objectReference: {fileID: 11400000, guid: 03e4894760b283a4cbe74073c992b934, type: 2}
+      objectReference: {fileID: 11400000, guid: 9d81704e4d7e2e041bbff1fc072f17f3, type: 2}
     - target: {fileID: 1378234607598745316, guid: 9b0671aee49aaf3449728103452d837c, type: 3}
       propertyPath: barkEvent.Guid.Data1
       value: 924093786
