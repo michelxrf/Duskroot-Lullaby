@@ -257,7 +257,7 @@ MonoBehaviour:
           ButtonText: 
         Owner: {fileID: 3761839310115214518}
         DebugActive: 0
-        SquashAndStretchTarget: {fileID: 3174176377592631742}
+        SquashAndStretchTarget: {fileID: 4367061812373005633}
         Mode: 0
         Axis: 3
         AnimateScaleDuration: 0.2
@@ -374,9 +374,9 @@ MonoBehaviour:
           ButtonText: 
         Owner: {fileID: 3761839310115214518}
         DebugActive: 0
-        AnimatePositionTarget: {fileID: 5160402139164518313}
+        AnimatePositionTarget: {fileID: 4367061812373174625}
         Mode: 0
-        Space: 0
+        Space: 1
         RandomizeRemap: 0
         MovementMode: 0
         AnimatePositionDuration: 0.2
@@ -1368,7 +1368,7 @@ MonoBehaviour:
         DebugActive: 0
         AnimatePositionTarget: {fileID: 5160402139164518313}
         Mode: 0
-        Space: 0
+        Space: 1
         RandomizeRemap: 0
         MovementMode: 0
         AnimatePositionDuration: 0.2
@@ -1925,5 +1925,10 @@ PrefabInstance:
 --- !u!4 &4367061812373005633 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: ab49adfe85921a5418d1a2a1e2d2acfa, type: 3}
+  m_PrefabInstance: {fileID: 4367061812373143489}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4367061812373174625 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: ab49adfe85921a5418d1a2a1e2d2acfa, type: 3}
   m_PrefabInstance: {fileID: 4367061812373143489}
   m_PrefabAsset: {fileID: 0}

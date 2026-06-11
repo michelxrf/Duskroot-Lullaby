@@ -64,6 +64,10 @@ PrefabInstance:
       propertyPath: speed
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 7464039963942195324, guid: d99204c4c624e5c4c9d6a9f87df2e59c, type: 3}
+      propertyPath: explosionVfx
+      value: 
+      objectReference: {fileID: 358637981425055526, guid: 8eb503696b886e04faff8fc0f480d473, type: 3}
     - target: {fileID: 7597279718871241190, guid: d99204c4c624e5c4c9d6a9f87df2e59c, type: 3}
       propertyPath: m_CastShadows
       value: 0

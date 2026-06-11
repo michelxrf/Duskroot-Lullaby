@@ -85,6 +85,7 @@ public class ReviveTombstone : NetworkBehaviour
             return;
 
         IsCompleted = true;
+        GetComponent<TombstoneFeedback>()?.DestroyTombstone();
         matchStateManager.TryRevivePlayerFromTombstone(this);
     }
 
