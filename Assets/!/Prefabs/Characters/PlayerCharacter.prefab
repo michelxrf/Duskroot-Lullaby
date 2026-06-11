@@ -6220,6 +6220,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Charge slash red - LegendaryCajadoAtk
       objectReference: {fileID: 0}
+    - target: {fileID: 7706972881455223502, guid: 2538c544d842da2499d392c167d768ba, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
