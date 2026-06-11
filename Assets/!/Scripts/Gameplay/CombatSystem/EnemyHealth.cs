@@ -7,10 +7,14 @@ namespace CombatSystem
 {
     public class EnemyHealth : Health
     {
-
+        EnemyFeedbacks feedbacks;
         public override void Spawned()
         {
             base.Spawned();
+            feedbacks = GetComponent<EnemyFeedbacks>();
+
+            OnHit += HandleHit;
+            OnDied += HandleDeath;
 
             if (GetComponent<EnemySetup>() != null)
             {
@@ -62,6 +66,22 @@ namespace CombatSystem
             }
             
             base.Die();
+        }
+
+        private void HandleHit()
+        {
+            feedbacks?.Play(EnemyFeedbackEvent.Hit);
+        }
+
+        private void HandleDeath()
+        {
+            feedbacks?.Play(EnemyFeedbackEvent.Death);
+        }
+
+        private void OnDestroy()
+        {
+            OnHit -= HandleHit;
+            OnDied -= HandleDeath;
         }
     }
 }
