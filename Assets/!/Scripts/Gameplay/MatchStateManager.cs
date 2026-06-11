@@ -1,7 +1,8 @@
-using System.Collections.Generic;
-using System.Linq;
 using CombatSystem;
 using Fusion;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -107,6 +108,7 @@ public class MatchStateManager : NetworkBehaviour, IPlayerLeft
     /// </summary>
     void SpawnTombstoneIfNeeded(PlayerRef deadPlayer, Vector3 deathPosition)
     {
+        Debug.Log("Attempting to spawn tomb");
         if (!HasStateAuthority)
             return;
 
@@ -206,11 +208,38 @@ public class MatchStateManager : NetworkBehaviour, IPlayerLeft
     /// </summary>
     void RemoveTombstone(PlayerRef deadPlayer)
     {
+        //if (!tombstonesByPlayer.TryGetValue(deadPlayer, out var tombstoneObject))
+        //    return;
+
+        //if (tombstoneObject != null && tombstoneObject.IsValid)
+        //    Runner.Despawn(tombstoneObject);
+
+        //tombstonesByPlayer.Remove(deadPlayer);
+
         if (!tombstonesByPlayer.TryGetValue(deadPlayer, out var tombstoneObject))
             return;
 
+        StartCoroutine(RemoveTombstoneRoutine(deadPlayer, tombstoneObject));
+
+    }
+    IEnumerator RemoveTombstoneRoutine(
+    PlayerRef deadPlayer,
+    NetworkObject tombstoneObject)
+    {
+        TombstoneFeedback feedback =
+            tombstoneObject.GetComponent<TombstoneFeedback>();
+
+        if (feedback != null)
+        {
+            feedback.DestroyTombstone();
+
+            yield return new WaitForSeconds(0.5f);
+        }
+
         if (tombstoneObject != null && tombstoneObject.IsValid)
+        {
             Runner.Despawn(tombstoneObject);
+        }
 
         tombstonesByPlayer.Remove(deadPlayer);
     }

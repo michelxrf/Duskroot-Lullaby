@@ -63,6 +63,8 @@ public class PlayerInputBridge : MonoBehaviour
 
     public void OnFusionInput(NetworkRunner runner, NetworkInput input)
     {
+
+
         NetworkInputData data = new NetworkInputData
         {
             Move = moveAction.ReadValue<Vector2>(),

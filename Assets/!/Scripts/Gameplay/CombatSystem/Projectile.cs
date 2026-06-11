@@ -9,8 +9,12 @@ public class Projectile : NetworkBehaviour
 {
     [SerializeField] float speed = 10f;
     [SerializeField] float range = 10f;
+
+    [Header("VFX")]
     [SerializeField] GameObject explosionVfx;
-    
+    //[SerializeField] private GameObject trailVfxPrefab;
+    //private GameObject spawnedTrail;
+
     GameObject owner;
     WeaponDataInstance weaponDataInstance;
     SimpleKCC characterController;
@@ -39,6 +43,13 @@ public class Projectile : NetworkBehaviour
         hitboxCollider.enabled = true;
         this.weaponDataInstance = weaponData;
         this.owner = owner;
+
+        //if (trailVfxPrefab != null)
+        //{
+        //    spawnedTrail = Instantiate(trailVfxPrefab,transform.position,Quaternion.LookRotation(direction));
+        //    spawnedTrail.transform.SetParent(transform);
+        //}
+
     }
 
     public override void FixedUpdateNetwork()
@@ -56,8 +67,9 @@ public class Projectile : NetworkBehaviour
             if (explosionVfx != null)
             {
                 // TODO: change to Fusion's way of spawning VFX
-                Instantiate(explosionVfx, transform.position, Quaternion.identity);
+                Runner.Spawn(explosionVfx, transform.position, Quaternion.identity);
             }
+            //StopTrail();
             RunnerBootstrap.Instance.Runner.Despawn(Object);
         }
     }
@@ -78,9 +90,29 @@ public class Projectile : NetworkBehaviour
         // Instantiate explosion effect
         if (explosionVfx != null)
         {
-            Instantiate(explosionVfx, transform.position, Quaternion.identity);
+            Runner.Spawn(explosionVfx, transform.position, Quaternion.identity);
         }
-
+        //StopTrail();
         RunnerBootstrap.Instance.Runner.Despawn(Object);
     }
+
+    //private void StopTrail()
+//{
+    //    if (spawnedTrail == null)
+     //       return;
+
+    //    spawnedTrail.transform.SetParent(null);
+
+    //    ParticleSystem[] particles =
+    //        spawnedTrail.GetComponentsInChildren<ParticleSystem>();
+//
+    //    foreach (var particle in particles)
+    //    {
+    //        particle.Stop(
+    //            true,
+    //            ParticleSystemStopBehavior.StopEmitting);
+    //    }
+
+    //    Destroy(spawnedTrail, 3f);
+    //}
 }
