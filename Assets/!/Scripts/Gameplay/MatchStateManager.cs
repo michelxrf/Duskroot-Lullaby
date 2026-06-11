@@ -108,6 +108,7 @@ public class MatchStateManager : NetworkBehaviour, IPlayerLeft
     /// </summary>
     void SpawnTombstoneIfNeeded(PlayerRef deadPlayer, Vector3 deathPosition)
     {
+        Debug.Log("Attempting to spawn tomb");
         if (!HasStateAuthority)
             return;
 

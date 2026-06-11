@@ -108,7 +108,10 @@ namespace CombatSystem
                     matchStateManager = FindFirstObjectByType<MatchStateManager>();
 
                 if (HasStateAuthority && matchStateManager != null)
+                {
+                    Debug.Log("Player health called match state");
                     matchStateManager.NotifyPlayerDeath(this, transform.position);
+                }
             }
         }
     }

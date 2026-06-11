@@ -91,13 +91,9 @@ public class PauseMenuManager : MonoBehaviour
         animator.ResetTrigger("Open");
         animator.SetTrigger("Close");
 
-        if (localPlayer != null)
+        if (localPlayer != null && !localPlayerHealth.IsDead())
         {
             localPlayer.EnablePlayerControlsLocal(true);
-        }
-
-        if (localPlayerHealth != null)
-        {
             localPlayerHealth.IsInvulnerable = false;
             localPlayer.GetComponent<PlayerVFX>()?.Play(PlayerVFXEvent.PauseClose);
         }
