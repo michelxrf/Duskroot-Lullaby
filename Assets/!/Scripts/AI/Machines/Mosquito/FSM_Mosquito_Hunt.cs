@@ -11,6 +11,7 @@ public class FSM_Mosquito_Hunt : State
     Animator animator;
     VisionCollider visionCollider;
     NavMeshAgent navAgent;
+    EnemyFeedbacks feedbacks;
 
     Transform target;
     float distanceToTarget;
@@ -21,11 +22,12 @@ public class FSM_Mosquito_Hunt : State
         visionCollider = GetComponentInChildren<VisionCollider>();
         animator = GetComponentInChildren<Animator>();
         stateMachine = GetComponent<StateMachine>();
+        feedbacks = GetComponent<EnemyFeedbacks>();
     }
 
     public override void Exit()
     {
-
+        
     }
 
     public override void Process()
@@ -42,6 +44,7 @@ public class FSM_Mosquito_Hunt : State
         // if we lost sight of the player, switch back to patrol
         if (target == null)
         {
+            feedbacks.Play(EnemyFeedbackEvent.LostTarget);
             stateMachine.ChangeState(stateOnPlayerLost);
             return;
         }
@@ -71,5 +74,6 @@ public class FSM_Mosquito_Hunt : State
     public override void Enter()
     {
         navAgent.isStopped = false;
+        feedbacks.Play(EnemyFeedbackEvent.Alert);
     }
 }

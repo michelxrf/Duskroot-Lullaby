@@ -115,7 +115,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/Desktop/SFX.bank
   Name: Desktop/SFX
   StudioPath: bank:/SFX
-  lastModified: 639166378386585234
+  lastModified: 639167763963668399
   FileSizes: []
   Exists: 1
 --- !u!114 &-8251974156446050178
@@ -1125,7 +1125,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/Desktop/Master.bank
   Name: Desktop/Master
   StudioPath: bank:/Master
-  lastModified: 639167167548547246
+  lastModified: 639165998509127967
   FileSizes: []
   Exists: 1
 --- !u!114 &11400000
@@ -1201,7 +1201,7 @@ MonoBehaviour:
   - {fileID: -128833856003080583}
   StringsBanks:
   - {fileID: 4893346086622871932}
-  cacheTime: 639167167552562246
+  cacheTime: 639167763963707962
   cacheVersion: 131635
 --- !u!114 &258957276046208807
 MonoBehaviour:
@@ -1373,7 +1373,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/Desktop/UI.bank
   Name: Desktop/UI
   StudioPath: bank:/UI
-  lastModified: 639167167552562246
+  lastModified: 639167763963707962
   FileSizes: []
   Exists: 1
 --- !u!114 &3454179712490857386
@@ -1519,7 +1519,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/Desktop/Master.strings.bank
   Name: Desktop/Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639167167548567298
+  lastModified: 639167763962757562
   FileSizes:
   - Name: 
     Value: 4032
