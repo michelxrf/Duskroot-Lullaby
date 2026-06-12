@@ -1,3 +1,5 @@
+using Fusion;
+using MoreMountains.Feedbacks;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -9,6 +11,7 @@ public class FSM_Bear_Hunt : State
     [SerializeField] float rotationSpeed = 60f;
     [SerializeField] float speedMultiply = 6f;
 
+    EnemyFeedbacks feedbacks;
     Animator animator;
     VisionCollider visionCollider;
     NavMeshAgent navAgent;
@@ -24,6 +27,7 @@ public class FSM_Bear_Hunt : State
         animator = GetComponentInChildren<Animator>();
         stateMachine = GetComponent<StateMachine>();
         enemySetup = GetComponent<EnemySetup>();
+        feedbacks = GetComponent<EnemyFeedbacks>();
     }
 
     public override void Exit()
@@ -38,6 +42,12 @@ public class FSM_Bear_Hunt : State
         RotateTowardPathNode();
     }
 
+    [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
+    public void RPC_PlayLostVFX()
+    {
+        feedbacks.Play(EnemyFeedbackEvent.LostTarget);
+    }
+
     void UpdateTargetLocation()
     {
         target = visionCollider.GetClosestPlayer();
@@ -45,6 +55,7 @@ public class FSM_Bear_Hunt : State
         // if we lost sight of the player, switch back to patrol
         if (target == null)
         {
+            RPC_PlayLostVFX();
             stateMachine.ChangeState(stateOnPlayerLost);
             return;
         }
@@ -75,5 +86,12 @@ public class FSM_Bear_Hunt : State
     {
         navAgent.isStopped = false;
         navAgent.speed = enemySetup.GetEnemyData().speed* speedMultiply;
+        RPC_PlayAlertVFX();
+    }
+
+    [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
+    public void RPC_PlayAlertVFX()
+    {
+        feedbacks.Play(EnemyFeedbackEvent.Alert);
     }
 }

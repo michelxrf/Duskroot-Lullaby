@@ -1,3 +1,4 @@
+using Fusion;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -11,6 +12,7 @@ public class FSM_Ghost_Hunt : State
     VisionCollider visionCollider;
     NavMeshAgent navAgent;
     EnemySetup enemySetup;
+    EnemyFeedbacks feedbacks;
 
     Transform target;
     float distanceToTarget;
@@ -21,6 +23,18 @@ public class FSM_Ghost_Hunt : State
         visionCollider = GetComponentInChildren<VisionCollider>();
         stateMachine = GetComponent<StateMachine>();
         enemySetup = GetComponent<EnemySetup>();
+    }
+
+    [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
+    public void RPC_PlayLostVFX()
+    {
+        feedbacks.Play(EnemyFeedbackEvent.LostTarget);
+    }
+
+    [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
+    public void RPC_PlayAlertVFX()
+    {
+        feedbacks.Play(EnemyFeedbackEvent.Alert);
     }
 
     public override void Exit()
@@ -41,6 +55,7 @@ public class FSM_Ghost_Hunt : State
         // if we lost sight of the player, switch back to patrol
         if (target == null)
         {
+            RPC_PlayLostVFX();
             stateMachine.ChangeState(stateOnPlayerLost);
             return;
         }
@@ -71,5 +86,6 @@ public class FSM_Ghost_Hunt : State
     {
         navAgent.isStopped = false;
         navAgent.speed = enemySetup.GetEnemyData().speed;
+        RPC_PlayAlertVFX();
     }
 }

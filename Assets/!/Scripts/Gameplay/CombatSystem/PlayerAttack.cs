@@ -198,6 +198,13 @@ namespace CombatSystem
         public void RPC_PlayAttackAnim()
         {
             animator?.SetTrigger("Attack");
+
+            if(currentWeapon.weaponData.vfxPrefab.Length > currentWeapon.weaponLevel)
+            {
+                GameObject vfxPrefab = currentWeapon.weaponData.vfxPrefab[currentWeapon.weaponLevel];
+                if(vfxPrefab != null)
+                    Instantiate(vfxPrefab, transform.position, Quaternion.identity);
+            }
         }
 
         public string GetCurrentWeaponName()

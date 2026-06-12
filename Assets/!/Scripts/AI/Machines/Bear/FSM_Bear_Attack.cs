@@ -32,6 +32,11 @@ public class FSM_Bear_Attack : State
         GetComponent<EnemyHealth>().OnHit += AttackInterrupted;
 
         target = visionCollider.GetClosestPlayer();
+        if(target == null)
+        {
+            AttackInterrupted();
+            return;
+        }
 
         // Rotate only around Y axis by keeping target at same height
         Vector3 targetPos = new Vector3(target.position.x, transform.position.y, target.position.z);

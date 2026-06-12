@@ -16,4 +16,8 @@ public struct NetworkInputData : INetworkInput
     public bool Interact;
     public bool Dash;
     public bool DebugRevive;
+    public bool Emote0;
+    public bool Emote1;
+    public bool Emote2;
+    public bool Emote3;
 }

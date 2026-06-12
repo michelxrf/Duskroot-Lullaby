@@ -44,12 +44,6 @@ public class Projectile : NetworkBehaviour
         this.weaponDataInstance = weaponData;
         this.owner = owner;
 
-        //if (trailVfxPrefab != null)
-        //{
-        //    spawnedTrail = Instantiate(trailVfxPrefab,transform.position,Quaternion.LookRotation(direction));
-        //    spawnedTrail.transform.SetParent(transform);
-        //}
-
     }
 
     public override void FixedUpdateNetwork()
@@ -97,23 +91,4 @@ public class Projectile : NetworkBehaviour
         }
     }
 
-    //private void StopTrail()
-//{
-    //    if (spawnedTrail == null)
-     //       return;
-
-    //    spawnedTrail.transform.SetParent(null);
-
-    //    ParticleSystem[] particles =
-    //        spawnedTrail.GetComponentsInChildren<ParticleSystem>();
-//
-    //    foreach (var particle in particles)
-    //    {
-    //        particle.Stop(
-    //            true,
-    //            ParticleSystemStopBehavior.StopEmitting);
-    //    }
-
-    //    Destroy(spawnedTrail, 3f);
-    //}
 }

@@ -25,7 +25,6 @@ public class FSM_Bot_Follow : State
     {
         agent.speed = GetComponent<EnemySetup>().GetEnemyData().speed;
         vision.OnPlayerLeft += LostPlayer;
-        vision.OnPlayerEntered += StartTimer;
     }
 
     void StartTimer(Transform ignore = null)

@@ -21,7 +21,6 @@ public class FSM_Bot_Idle : State
     public override void Enter()
     {
         navAgent.isStopped = true;
-        vision.OnPlayerEntered += PlayerOnVisual;
     }
     public override void Exit()
     {
@@ -31,13 +30,12 @@ public class FSM_Bot_Idle : State
 
     void PlayerOnVisual(Transform playerTransform)
     {
-        vision.OnPlayerEntered -= PlayerOnVisual;
+
         OnSeePlayerState.SetTarget(playerTransform);
         stateMachine.ChangeState(OnSeePlayerState);
     }
 
     private void OnDestroy()
     {
-        vision.OnPlayerEntered -= PlayerOnVisual;
     }
 }

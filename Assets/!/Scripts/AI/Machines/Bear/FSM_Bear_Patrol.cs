@@ -1,3 +1,4 @@
+using CombatSystem;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -112,7 +113,7 @@ public class FSM_Bear_Patrol : State
         return (distanceToDestination < stoppingDistance);
     }
 
-    void PlayerFound(Transform playerTransf)
+    void PlayerFound(PlayerHealth playerTransf)
     {
         stateMachine.ChangeState(stateOnPlayerFound);
     }

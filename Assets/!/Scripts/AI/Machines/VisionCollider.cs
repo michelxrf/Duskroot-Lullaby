@@ -10,10 +10,10 @@ using CombatSystem;
 /// </summary>
 public class VisionCollider : NetworkBehaviour
 {
-    public Action<Transform> OnPlayerEntered;
+    public Action<PlayerHealth> OnPlayerEntered;
     public Action OnPlayerLeft;
 
-    List<Transform> playersInRange = new List<Transform>();
+    List<PlayerHealth> playersInRange = new List<PlayerHealth>();
 
     public void SetRange(float range)
     {
@@ -34,24 +34,16 @@ public class VisionCollider : NetworkBehaviour
         if (health.IsInvulnerable)
             return;
 
-        health.OnDied += TargetDied;
-
-        playersInRange.Add(other.transform);
-        OnPlayerEntered?.Invoke(other.transform);
+        playersInRange.Add(other.GetComponent<PlayerHealth>());
+        OnPlayerEntered?.Invoke(other.GetComponent<PlayerHealth>());
     }
 
     private void OnTriggerExit(Collider other)
     {
         if (!HasStateAuthority) return;
 
-        other.GetComponent<PlayerHealth>().OnDied -= TargetDied;
-        playersInRange.Remove(other.transform);
+        playersInRange.Remove(other.GetComponent<PlayerHealth>());
         OnPlayerLeft?.Invoke();
-    }
-
-    public bool IsPlayerInRange()
-    {
-        return playersInRange.Count > 0;
     }
 
     public Transform GetClosestPlayer()
@@ -60,27 +52,16 @@ public class VisionCollider : NetworkBehaviour
         float closestDistance = float.MaxValue;
         foreach (var player in playersInRange)
         {
-            float distance = (player.position - transform.position).sqrMagnitude;
+            if (player.IsInvulnerable || player.IsDead())
+                continue;
+
+            float distance = (player.transform.position - transform.position).sqrMagnitude;
             if (distance < closestDistance)
             {
                 closestDistance = distance;
-                closestPlayer = player;
+                closestPlayer = player.transform;
             }
         }
         return closestPlayer;
-    }
-
-    void TargetDied()
-    {
-        foreach (var player in playersInRange)
-        {
-            if (player.GetComponent<PlayerHealth>().IsDead())
-            {
-                playersInRange.Remove(player);
-                break;
-            }
-        }
-
-        OnPlayerLeft?.Invoke();
     }
 }

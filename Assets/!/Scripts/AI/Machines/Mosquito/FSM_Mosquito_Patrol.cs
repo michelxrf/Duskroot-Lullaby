@@ -1,3 +1,4 @@
+using CombatSystem;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -111,7 +112,7 @@ void RotateTowardPathNode()
         return (distanceToDestination < stoppingDistance);
     }
 
-    void PlayerFound(Transform playerTransf)
+    void PlayerFound(PlayerHealth playerTransf)
     {
         stateMachine.ChangeState(stateOnPlayerFound);
     }
