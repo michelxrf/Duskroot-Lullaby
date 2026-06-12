@@ -17,13 +17,13 @@ MonoBehaviour:
   health: 500
   armor: 0
   damage: 9
-  speed: 5
+  speed: 5.2
   attackSpeed: 10
   cure: 1
   weapon: {fileID: 11400000, guid: 85a7210707f0b6c4eaea6fda7481edeb, type: 2}
-  healthUpgradePerLevel: 0
-  armorUpgradePerLevel: 0
-  damageUpgradePerLevel: 0
+  healthUpgradePerLevel: 300
+  armorUpgradePerLevel: 3
+  damageUpgradePerLevel: 1
   speedUpgradePerLevel: 0
   attackSpeedUpgradePerLevel: 0
   cureUpgradePerLevel: 0

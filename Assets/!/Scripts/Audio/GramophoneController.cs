@@ -17,7 +17,7 @@ public class GramophoneController : MonoBehaviour
     private EventInstance musicInstance;
     private EventInstance gramophoneOffInstance;
 
-    private bool playerInside = false;
+    //private bool playerInside = false;
 
     private enum State
     {
@@ -41,18 +41,18 @@ public class GramophoneController : MonoBehaviour
         interactionTooltip.SetActive(false);
     }
 
-    private void Update()
-    {
-        if (playerInside && Keyboard.current != null && Keyboard.current.eKey.wasPressedThisFrame)
-        {
-            HandleInteraction();
-        }
-    }
+    //private void Update()
+    //{
+    //    if (playerInside && Keyboard.current != null && Keyboard.current.eKey.wasPressedThisFrame)
+    //    {
+    //        HandleInteraction();
+    //    }
+    //}
 
     private void HandleInteraction()
     {
-        switch (currentState)
-        {
+         switch (currentState)
+       {
             case State.Off:
                 StartGramophoneLoop();
                 break;
@@ -101,33 +101,71 @@ public class GramophoneController : MonoBehaviour
 
     }
 
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //if (!other.CompareTag("Player")) return;
+    //    PlayerSetup otherPlayer = other.GetComponent<PlayerSetup>();
+    //    if (otherPlayer == null) return;
+    //    if (!otherPlayer.IsLocalPlayer()) return;
+    //    if (interactionTooltip != null) interactionTooltip.SetActive(true);
+    //    if (cameraGramophone!=null) cameraGramophone.SetActive(true);
+    //    playerInside = true;
+    //
+
+    //private void OnTriggerExit(Collider other)
+    //{
+    //if (!other.CompareTag("Player")) return;
+    //    PlayerSetup otherPlayer = other.GetComponent<PlayerSetup>();
+    //     if (otherPlayer == null) return;
+    //    if (!otherPlayer.IsLocalPlayer()) return;
+    //    if(interactionTooltip!=null) interactionTooltip.SetActive(false);
+
+    //    playerInside = false;
+    //    if (cameraGramophone != null) cameraGramophone.SetActive(false);
+    //    if (currentState == State.GramophoneLoop)
+    //    {
+    //        StopGramophoneAndStart2D();
+    //    }
+    //}
+
     private void OnTriggerEnter(Collider other)
     {
-        //if (!other.CompareTag("Player")) return;
-        PlayerSetup otherPlayer = other.GetComponent<PlayerSetup>();
-        if (otherPlayer == null) return;
-        if (!otherPlayer.IsLocalPlayer()) return;
-        if (interactionTooltip != null) interactionTooltip.SetActive(true);
-        if (cameraGramophone!=null) cameraGramophone.SetActive(true);
-        playerInside = true;
-    }
+        PlayerSetup player = other.GetComponent<PlayerSetup>();
 
+        if (player == null || !player.IsLocalPlayer())
+            return;
+
+        interactionTooltip?.SetActive(true);
+        cameraGramophone?.SetActive(true);
+
+        other.GetComponent<PlayerInteractor>()
+            ?.EnteredGramophoneArea(this);
+    }
     private void OnTriggerExit(Collider other)
     {
-        //if (!other.CompareTag("Player")) return;
-        PlayerSetup otherPlayer = other.GetComponent<PlayerSetup>();
-        if (otherPlayer == null) return;
-        if (!otherPlayer.IsLocalPlayer()) return;
-        if(interactionTooltip!=null) interactionTooltip.SetActive(false);
+        PlayerSetup player = other.GetComponent<PlayerSetup>();
 
-        playerInside = false;
-        if (cameraGramophone != null) cameraGramophone.SetActive(false);
+        if (player == null || !player.IsLocalPlayer())
+            return;
+
+        interactionTooltip?.SetActive(false);
+        cameraGramophone?.SetActive(false);
+
+        other.GetComponent<PlayerInteractor>()
+            ?.LeftGramophoneArea();
+
         if (currentState == State.GramophoneLoop)
         {
             StopGramophoneAndStart2D();
         }
     }
-    
+
+    public void Interact()
+    {
+        HandleInteraction();
+    }
+
+
     private void OnDestroy()
     {
         Debug.Log("Para musica Gramofone onDestroy");

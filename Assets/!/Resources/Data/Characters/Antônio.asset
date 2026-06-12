@@ -14,15 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CharacterTemplate
   CharacterId: "Ant\xF4nio"
   Level: 1
-  health: 40
-  armor: 0
+  health: 18
+  armor: 1
   damage: 10
-  speed: 5
+  speed: 6
   attackSpeed: 1
   cure: 1
   weapon: {fileID: 11400000, guid: 6ccc8351ce4fd094c837aa2132c04551, type: 2}
-  healthUpgradePerLevel: 2
-  armorUpgradePerLevel: 2
+  healthUpgradePerLevel: 3
+  armorUpgradePerLevel: 1
   damageUpgradePerLevel: 1
   speedUpgradePerLevel: 1
   attackSpeedUpgradePerLevel: 0

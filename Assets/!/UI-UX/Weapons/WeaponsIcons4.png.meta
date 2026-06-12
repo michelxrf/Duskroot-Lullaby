@@ -1,0 +1,767 @@
+fileFormatVersion: 2
+guid: be32c532c9d6d9a4c9ae5b832ce3305d
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: WeaponsIcons4_47
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 760
+        width: 206
+        height: 201
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3051b4a90575ee4f93aa26c9ac31bb5
+      internalID: 1326122666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WeaponsIcons4_48
+      rect:
+        serializedVersion: 2
+        x: 544
+        y: 753
+        width: 209
+        height: 208
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91bdcadd68b6475499d63d0f43422b1f
+      internalID: -1011812526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WeaponsIcons4_49
+      rect:
+        serializedVersion: 2
+        x: 855
+        y: 754
+        width: 239
+        height: 205
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: edc14779bed6860439c95942d37acfdd
+      internalID: -455816145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WeaponsIcons4_51
+      rect:
+        serializedVersion: 2
+        x: 1165
+        y: 748
+        width: 250
+        height: 214
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 275cb29e106254b469b56af6a451ec9d
+      internalID: 849552719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WeaponsIcons4_105
+      rect:
+        serializedVersion: 2
+        x: 860
+        y: 501
+        width: 239
+        height: 186
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52c18a8df72b14a4ca7b6c4238776050
+      internalID: -471883615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WeaponsIcons4_113
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 506
+        width: 208
+        height: 184
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83f98114f17bf3c4d9fe0c3ff13c8ec6
+      internalID: -2081728175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WeaponsIcons4_115
+      rect:
+        serializedVersion: 2
+        x: 539
+        y: 502
+        width: 232
+        height: 184
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25d982a44fc3a8b47a32588113856f8f
+      internalID: 1357522908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WeaponsIcons4_116
+      rect:
+        serializedVersion: 2
+        x: 1183
+        y: 497
+        width: 241
+        height: 191
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f08adb2c63eeef0428621d3b9c99c78c
+      internalID: -797334242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WeaponsIcons4_159
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 283
+        width: 198
+        height: 165
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1134052998561b4e9852af7ab99414e
+      internalID: -515728743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WeaponsIcons4_160
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 292
+        width: 211
+        height: 156
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 832d53a192ca65145bd0e16c5bfb4f4e
+      internalID: 372025309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WeaponsIcons4_162
+      rect:
+        serializedVersion: 2
+        x: 1042
+        y: 448
+        width: 4
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c9b5b54ba398c6409b4425dc178d039
+      internalID: -1002528427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WeaponsIcons4_163
+      rect:
+        serializedVersion: 2
+        x: 1179
+        y: 279
+        width: 230
+        height: 169
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0d9bfe6cb4b40240abbbc1fd644fc63
+      internalID: -1908043482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WeaponsIcons4_179
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 47
+        width: 184
+        height: 193
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87eb337d35bacc24f8e19f4bbccc5de4
+      internalID: 453553675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WeaponsIcons4_231
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 50
+        width: 185
+        height: 187
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24e5e4c9ec984ae4aa12541bf6c577f6
+      internalID: -780345799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WeaponsIcons4_232
+      rect:
+        serializedVersion: 2
+        x: 871
+        y: 46
+        width: 194
+        height: 189
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d10d209aa1f89c4fbd68d927b43f8a7
+      internalID: 1586517470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WeaponsIcons4_234
+      rect:
+        serializedVersion: 2
+        x: 1184
+        y: 45
+        width: 204
+        height: 193
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8690ab94d8d1113409e646b362dca02e
+      internalID: -618644101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WeaponsIcons4_0
+      rect:
+        serializedVersion: 2
+        x: 869
+        y: 282
+        width: 219
+        height: 166
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51a344450f1a6a54491e88c5a360a13e
+      internalID: -402532321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 27a8c2c89d4ff7940bd971b1d9aa5dc2
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      WeaponsIcons4_0: -402532321
+      WeaponsIcons4_1: 2057661591
+      WeaponsIcons4_10: -1502104612
+      WeaponsIcons4_100: -1902122569
+      WeaponsIcons4_101: -1342924949
+      WeaponsIcons4_102: 35771344
+      WeaponsIcons4_103: -733713838
+      WeaponsIcons4_104: -1495750739
+      WeaponsIcons4_105: -471883615
+      WeaponsIcons4_106: -1423541143
+      WeaponsIcons4_107: -1455450942
+      WeaponsIcons4_108: 9852291
+      WeaponsIcons4_109: -794203781
+      WeaponsIcons4_11: -1336015459
+      WeaponsIcons4_110: -735334084
+      WeaponsIcons4_111: 2130001931
+      WeaponsIcons4_112: -992874410
+      WeaponsIcons4_113: -2081728175
+      WeaponsIcons4_114: -2016621555
+      WeaponsIcons4_115: 1357522908
+      WeaponsIcons4_116: -797334242
+      WeaponsIcons4_117: 849342499
+      WeaponsIcons4_118: 1384504778
+      WeaponsIcons4_119: 109491977
+      WeaponsIcons4_12: -266527371
+      WeaponsIcons4_120: 27555320
+      WeaponsIcons4_121: -475342093
+      WeaponsIcons4_122: -778837510
+      WeaponsIcons4_123: -854857053
+      WeaponsIcons4_124: 65132499
+      WeaponsIcons4_125: 721236058
+      WeaponsIcons4_126: -150778786
+      WeaponsIcons4_127: 1051735361
+      WeaponsIcons4_128: 1046807743
+      WeaponsIcons4_129: -1201771094
+      WeaponsIcons4_13: -1151753024
+      WeaponsIcons4_130: -742699193
+      WeaponsIcons4_131: -216657573
+      WeaponsIcons4_132: 402266133
+      WeaponsIcons4_133: -262766351
+      WeaponsIcons4_134: 1448760268
+      WeaponsIcons4_135: 53128232
+      WeaponsIcons4_136: 1683680857
+      WeaponsIcons4_137: -350150436
+      WeaponsIcons4_138: -1300760662
+      WeaponsIcons4_139: 25566952
+      WeaponsIcons4_14: -1995541036
+      WeaponsIcons4_140: 901420101
+      WeaponsIcons4_141: -563615411
+      WeaponsIcons4_142: 811110848
+      WeaponsIcons4_143: -1355288634
+      WeaponsIcons4_144: 1635302480
+      WeaponsIcons4_145: -1544670531
+      WeaponsIcons4_146: 1688021288
+      WeaponsIcons4_147: 253393393
+      WeaponsIcons4_148: 320309360
+      WeaponsIcons4_149: -107744084
+      WeaponsIcons4_15: 1182449080
+      WeaponsIcons4_150: -1158068686
+      WeaponsIcons4_151: -52647835
+      WeaponsIcons4_152: -2066771465
+      WeaponsIcons4_153: 1047887142
+      WeaponsIcons4_154: -837661103
+      WeaponsIcons4_155: -1518968254
+      WeaponsIcons4_156: -996348299
+      WeaponsIcons4_157: 1537348446
+      WeaponsIcons4_158: -1877338732
+      WeaponsIcons4_159: -515728743
+      WeaponsIcons4_16: -1648140147
+      WeaponsIcons4_160: 372025309
+      WeaponsIcons4_161: 719455023
+      WeaponsIcons4_162: -1002528427
+      WeaponsIcons4_163: -1908043482
+      WeaponsIcons4_164: 813250453
+      WeaponsIcons4_165: 839592103
+      WeaponsIcons4_166: 1804303223
+      WeaponsIcons4_167: 1839510491
+      WeaponsIcons4_168: -1491432070
+      WeaponsIcons4_169: 1596411349
+      WeaponsIcons4_17: 1972559008
+      WeaponsIcons4_170: -1136308685
+      WeaponsIcons4_171: 1750045647
+      WeaponsIcons4_172: -2003694032
+      WeaponsIcons4_173: 341375693
+      WeaponsIcons4_174: 1503843149
+      WeaponsIcons4_175: -1883614481
+      WeaponsIcons4_176: -1042820940
+      WeaponsIcons4_177: -691218666
+      WeaponsIcons4_178: -1526121802
+      WeaponsIcons4_179: 453553675
+      WeaponsIcons4_18: 95031828
+      WeaponsIcons4_180: -1646607269
+      WeaponsIcons4_181: -2066303181
+      WeaponsIcons4_182: 657086251
+      WeaponsIcons4_183: 746235215
+      WeaponsIcons4_184: 505947487
+      WeaponsIcons4_185: -480558640
+      WeaponsIcons4_186: -1959013036
+      WeaponsIcons4_187: 1284707094
+      WeaponsIcons4_188: 2635207
+      WeaponsIcons4_189: 2014834553
+      WeaponsIcons4_19: 2061153245
+      WeaponsIcons4_190: 1501706615
+      WeaponsIcons4_191: 1569707186
+      WeaponsIcons4_192: -316539058
+      WeaponsIcons4_193: -799128895
+      WeaponsIcons4_194: -2012379241
+      WeaponsIcons4_195: -2057119883
+      WeaponsIcons4_196: -1392377026
+      WeaponsIcons4_197: 267786174
+      WeaponsIcons4_198: 209861809
+      WeaponsIcons4_199: 1503552845
+      WeaponsIcons4_2: 101534502
+      WeaponsIcons4_20: -1973908441
+      WeaponsIcons4_200: -652834986
+      WeaponsIcons4_201: 404280861
+      WeaponsIcons4_202: 1610117415
+      WeaponsIcons4_203: 770604230
+      WeaponsIcons4_204: -1553037619
+      WeaponsIcons4_205: -1536832642
+      WeaponsIcons4_206: -756104102
+      WeaponsIcons4_207: 1715354132
+      WeaponsIcons4_208: -797714454
+      WeaponsIcons4_209: -1808614296
+      WeaponsIcons4_21: 566051769
+      WeaponsIcons4_210: 1067880777
+      WeaponsIcons4_211: 597459653
+      WeaponsIcons4_212: -1817678037
+      WeaponsIcons4_213: 1576859232
+      WeaponsIcons4_214: 1543401871
+      WeaponsIcons4_215: -1459539287
+      WeaponsIcons4_216: 2047096867
+      WeaponsIcons4_217: -1267356723
+      WeaponsIcons4_218: 1385186837
+      WeaponsIcons4_219: 388673518
+      WeaponsIcons4_22: -2029361285
+      WeaponsIcons4_220: 772094714
+      WeaponsIcons4_221: 578885083
+      WeaponsIcons4_222: -607794108
+      WeaponsIcons4_223: -852398763
+      WeaponsIcons4_224: 1125294365
+      WeaponsIcons4_225: -1002903853
+      WeaponsIcons4_226: 1753586345
+      WeaponsIcons4_227: -106731946
+      WeaponsIcons4_228: 151446021
+      WeaponsIcons4_229: -1810771936
+      WeaponsIcons4_23: -838131487
+      WeaponsIcons4_230: 822816041
+      WeaponsIcons4_231: -780345799
+      WeaponsIcons4_232: 1586517470
+      WeaponsIcons4_233: 30410470
+      WeaponsIcons4_234: -618644101
+      WeaponsIcons4_24: -556088051
+      WeaponsIcons4_25: 754156061
+      WeaponsIcons4_26: 797358349
+      WeaponsIcons4_27: 1430320114
+      WeaponsIcons4_28: -1768465583
+      WeaponsIcons4_29: 243376257
+      WeaponsIcons4_3: 1146549146
+      WeaponsIcons4_30: 2023542739
+      WeaponsIcons4_31: 995761910
+      WeaponsIcons4_32: -1256440783
+      WeaponsIcons4_33: 769540475
+      WeaponsIcons4_34: 1978316474
+      WeaponsIcons4_35: 533460882
+      WeaponsIcons4_36: -1987613760
+      WeaponsIcons4_37: 839242953
+      WeaponsIcons4_38: 264036161
+      WeaponsIcons4_39: -671149575
+      WeaponsIcons4_4: -17019891
+      WeaponsIcons4_40: 1409012340
+      WeaponsIcons4_41: 49384546
+      WeaponsIcons4_42: -746582920
+      WeaponsIcons4_43: -1157039767
+      WeaponsIcons4_44: -334136276
+      WeaponsIcons4_45: -859320632
+      WeaponsIcons4_46: 2128236849
+      WeaponsIcons4_47: 1326122666
+      WeaponsIcons4_48: -1011812526
+      WeaponsIcons4_49: -455816145
+      WeaponsIcons4_5: 79381960
+      WeaponsIcons4_50: 882250363
+      WeaponsIcons4_51: 849552719
+      WeaponsIcons4_52: -1966612358
+      WeaponsIcons4_53: 380754176
+      WeaponsIcons4_54: -1168947183
+      WeaponsIcons4_55: 470321095
+      WeaponsIcons4_56: 440509121
+      WeaponsIcons4_57: -1070446495
+      WeaponsIcons4_58: 1279166571
+      WeaponsIcons4_59: 368504318
+      WeaponsIcons4_6: -1727278696
+      WeaponsIcons4_60: -1267677029
+      WeaponsIcons4_61: -720931859
+      WeaponsIcons4_62: -761662761
+      WeaponsIcons4_63: -877143743
+      WeaponsIcons4_64: 1477179337
+      WeaponsIcons4_65: -1863729094
+      WeaponsIcons4_66: 597104656
+      WeaponsIcons4_67: 1987904762
+      WeaponsIcons4_68: -1056418741
+      WeaponsIcons4_69: 764720430
+      WeaponsIcons4_7: -830040654
+      WeaponsIcons4_70: -1452591290
+      WeaponsIcons4_71: -1366930667
+      WeaponsIcons4_72: -1034276883
+      WeaponsIcons4_73: 2066104805
+      WeaponsIcons4_74: -130935233
+      WeaponsIcons4_75: -1270184007
+      WeaponsIcons4_76: -1140414395
+      WeaponsIcons4_77: 445353231
+      WeaponsIcons4_78: 1239251592
+      WeaponsIcons4_79: -1872670763
+      WeaponsIcons4_8: 830683560
+      WeaponsIcons4_80: 1650668326
+      WeaponsIcons4_81: 385238963
+      WeaponsIcons4_82: -1329824142
+      WeaponsIcons4_83: -808512556
+      WeaponsIcons4_84: -1230175936
+      WeaponsIcons4_85: -1547258894
+      WeaponsIcons4_86: -1363664410
+      WeaponsIcons4_87: -1004316468
+      WeaponsIcons4_88: 1401368403
+      WeaponsIcons4_89: 505582499
+      WeaponsIcons4_9: -1616219209
+      WeaponsIcons4_90: 611304247
+      WeaponsIcons4_91: 985303556
+      WeaponsIcons4_92: -361745291
+      WeaponsIcons4_93: 1175511918
+      WeaponsIcons4_94: -1812749862
+      WeaponsIcons4_95: 1591424224
+      WeaponsIcons4_96: -1434293030
+      WeaponsIcons4_97: -1756292908
+      WeaponsIcons4_98: -1791616749
+      WeaponsIcons4_99: 1446659171
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

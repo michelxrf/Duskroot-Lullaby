@@ -288,6 +288,7 @@ GameObject:
   - component: {fileID: 2813984693561749446}
   - component: {fileID: 263290567527716086}
   - component: {fileID: 7859486647761470789}
+  - component: {fileID: 5192402007685157775}
   m_Layer: 0
   m_Name: CloseButton
   m_TagString: Untagged
@@ -358,7 +359,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 263290567527716086}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3203329074853946593}
+        m_TargetAssemblyTypeName: ReadableCard, Assembly-CSharp
+        m_MethodName: CloseCard
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!222 &2813984693561749446
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -412,6 +425,21 @@ MonoBehaviour:
   hoverScale: 1.15
   moveRightAmount: 0
   animationSpeed: 10
+--- !u!114 &5192402007685157775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4246418823430623775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b64b702391c706439f100ca937098a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UI_Feedback
+  hoverScale: 1.15
+  moveRightAmount: 0
+  animationSpeed: 10
 --- !u!1 &4652481832614383552
 GameObject:
   m_ObjectHideFlags: 0
@@ -438,13 +466,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4652481832614383552}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.45, y: 0.45, z: 0.45}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 7524033480794774773}
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 37, y: 0}
@@ -515,7 +543,6 @@ GameObject:
   - component: {fileID: 3203329074853946593}
   - component: {fileID: 8408965339534533483}
   - component: {fileID: 4870950685503072657}
-  - component: {fileID: 6653782188490883716}
   m_Layer: 0
   m_Name: ReadableCard
   m_TagString: Untagged
@@ -5383,19 +5410,6 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
---- !u!114 &6653782188490883716
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4871209015648558829}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86c575127ff2bb54c8c515834a1e9d0e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MenuScreen
-  firstSelected: {fileID: 4246418823430623775}
 --- !u!1 &6175199758898357037
 GameObject:
   m_ObjectHideFlags: 0
@@ -5485,6 +5499,7 @@ GameObject:
   - component: {fileID: 2007151180601309844}
   - component: {fileID: 4004760767786870985}
   - component: {fileID: 8315371569513651456}
+  - component: {fileID: 1219052962418537884}
   m_Layer: 0
   m_Name: CanvasContent
   m_TagString: Untagged
@@ -5534,7 +5549,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 50
+  m_SortingOrder: 5
   m_TargetDisplay: 0
 --- !u!114 &4004760767786870985
 MonoBehaviour:
@@ -5576,6 +5591,19 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &1219052962418537884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7558505383123687546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c575127ff2bb54c8c515834a1e9d0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MenuScreen
+  firstSelected: {fileID: 4246418823430623775}
 --- !u!1 &7611558256407318325
 GameObject:
   m_ObjectHideFlags: 0
@@ -5676,14 +5704,14 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8125283906365470024}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.0065, y: 0.0065, z: 0.0065}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3392240805984014431}
   m_Father: {fileID: 4687333084816353226}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0.205, y: 1.5}

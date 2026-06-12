@@ -1,4 +1,5 @@
 using Fusion;
+using System.Collections;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -199,13 +200,15 @@ namespace CombatSystem
         {
             animator?.SetTrigger("Attack");
 
-            if(currentWeapon.weaponData.vfxPrefab.Length > currentWeapon.weaponLevel)
+            if (currentWeapon.weaponData.vfxPrefab.Length > currentWeapon.weaponLevel)
             {
                 GameObject vfxPrefab = currentWeapon.weaponData.vfxPrefab[currentWeapon.weaponLevel];
                 if(vfxPrefab != null)
                     Instantiate(vfxPrefab, transform.position, Quaternion.identity);
             }
         }
+
+
 
         public string GetCurrentWeaponName()
         {

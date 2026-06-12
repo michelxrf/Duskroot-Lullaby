@@ -14,18 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CharacterTemplate
   CharacterId: Davi
   Level: 1
-  health: 30
+  health: 20
   armor: 0
   damage: 8
-  speed: 8
+  speed: 8.5
   attackSpeed: 1
   cure: 2
   weapon: {fileID: 11400000, guid: ee4740f827f7a4843a82043d6ea6dfb0, type: 2}
-  healthUpgradePerLevel: 2
-  armorUpgradePerLevel: 2
+  healthUpgradePerLevel: 3
+  armorUpgradePerLevel: 1
   damageUpgradePerLevel: 1
-  speedUpgradePerLevel: 1
-  attackSpeedUpgradePerLevel: 0
+  speedUpgradePerLevel: 0
+  attackSpeedUpgradePerLevel: 1
   cureUpgradePerLevel: 0
   characterAvatar: {fileID: 9000000, guid: 64c545c6e2bcd1e48991c7160038c7a2, type: 3}
   Experience: 0

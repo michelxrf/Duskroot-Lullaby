@@ -10,6 +10,7 @@ public class PlayerInteractor : NetworkBehaviour
     PickableKey pickableKeyInRange;
     HealingItem healingItemInRange;
     ReadableCard readableCardInRange;
+    private GramophoneController currentGramophone;
 
     [SerializeField] GameObject weaponDropPrefab;
     bool interactionButtonPressed = false; 
@@ -44,6 +45,16 @@ public class PlayerInteractor : NetworkBehaviour
     {
         if (readableCardInRange == card)
             readableCardInRange = null;
+    }
+
+    public void EnteredGramophoneArea(
+    GramophoneController gramophone)
+    {
+        currentGramophone = gramophone;
+    }
+    public void LeftGramophoneArea()
+    {
+        currentGramophone = null;
     }
 
     public override void FixedUpdateNetwork()
@@ -89,6 +100,10 @@ public class PlayerInteractor : NetworkBehaviour
                 {
                     readableCardInRange.OpenCard();
                     return;
+                }
+                if (currentGramophone != null)
+                {
+                    currentGramophone.Interact();
                 }
 
                 if (interactionInRange != null)

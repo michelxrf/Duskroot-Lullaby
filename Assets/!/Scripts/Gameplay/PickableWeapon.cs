@@ -30,6 +30,7 @@ public class PickableWeapon : NetworkBehaviour
     [SerializeField] TMP_Text tooltipWeaponKnockback;
     [SerializeField] UnityEngine.UI.Image tooltipWeaponImage;
 
+    private WeaponRarityFeedback rarityFeedback;
 
     [SerializeField] GameObject[] weaponModels;
     [SerializeField] GameObject pickableWeaponPrefab;
@@ -40,6 +41,8 @@ public class PickableWeapon : NetworkBehaviour
 
     public override void Spawned()
     {
+        rarityFeedback = GetComponent<WeaponRarityFeedback>();
+
         base.Spawned();
         hasSpawned = true;
 
@@ -112,6 +115,8 @@ public class PickableWeapon : NetworkBehaviour
         // Define portrait da arma
         tooltipWeaponImage.sprite = weaponData.weaponData.weaponPortrait[weaponData.weaponLevel];
 
+        //Feedback da raridade da arma
+        rarityFeedback?.PlayRarityFeedback(weaponData.weaponLevel);
     }
 
     /// <summary>

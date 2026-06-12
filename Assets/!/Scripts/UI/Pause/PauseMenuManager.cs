@@ -68,11 +68,12 @@ public class PauseMenuManager : MonoBehaviour
         if (localPlayer != null)
         {
             localPlayer.EnablePlayerControlsLocal(false);
-
+            Animator playerAnimator = localPlayer.GetComponentInChildren<Animator>();
             localPlayerHealth = localPlayer.GetComponent<PlayerHealth>();
 
             if (localPlayerHealth != null)
             {
+                playerAnimator.SetFloat("Speed", 0f);
                 localPlayerHealth.IsInvulnerable = true;
                 localPlayer.GetComponent<PlayerVFX>()?.Play(PlayerVFXEvent.PauseOpen);
             }
@@ -86,6 +87,7 @@ public class PauseMenuManager : MonoBehaviour
     }
     private IEnumerator ClosePauseRoutine()
     {
+        ReadableCard.CloseAllCards();
         paused = false;
 
         animator.ResetTrigger("Open");
