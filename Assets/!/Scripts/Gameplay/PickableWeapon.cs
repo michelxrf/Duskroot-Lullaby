@@ -36,7 +36,6 @@ public class PickableWeapon : NetworkBehaviour
 
     string rarityTextColor;
     WeaponDataInstance weaponData;
-    int playersInRange;
     bool hasSpawned = false;
 
     public override void Spawned()
@@ -44,7 +43,6 @@ public class PickableWeapon : NetworkBehaviour
         base.Spawned();
         hasSpawned = true;
 
-        playersInRange = 0;
         interactionTooltip.SetActive(false);
 
         if(weaponDataSO != null)
@@ -137,10 +135,11 @@ public class PickableWeapon : NetworkBehaviour
     /// </summary>
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<PlayerSetup>() == null)
+        PlayerSetup player = other.GetComponent<PlayerSetup>();
+        if (player == null || !player.IsLocalPlayer())
             return;
 
-        playersInRange++;
+        interactionTooltip.SetActive(true);
         other.GetComponent<PlayerInteractor>()?.EnteredPickableWeaponArea(this);
     }
 
@@ -150,38 +149,12 @@ public class PickableWeapon : NetworkBehaviour
     /// </summary>
     private void OnTriggerExit(Collider other)
     {
-        if (other.GetComponent<PlayerSetup>() == null)
+        PlayerSetup player = other.GetComponent<PlayerSetup>();
+        if (player == null || !player.IsLocalPlayer())
             return;
 
-        playersInRange--;
+        interactionTooltip.SetActive(false);
         other.GetComponent<PlayerInteractor>()?.LeftPickableWeaponArea(this);
-    }
-
-    /// <summary>
-    /// Determines whether the pickup tooltip should be visible.
-    /// Shows tooltip if a player is in range.
-    /// </summary>
-    void UpdateTooltip()
-    {
-        if (!hasSpawned)
-            return;
-
-        if (playersInRange >= 1)
-        {
-            interactionTooltip.SetActive(true);
-        }
-        else
-        {
-            interactionTooltip.SetActive(false);
-        }
-    }
-
-    /// <summary>
-    /// Called every frame to update the visibility of the pickup tooltip.
-    /// </summary>
-    private void Update()
-    {
-        UpdateTooltip();
     }
 
     public WeaponDataInstance PickupWeapon()

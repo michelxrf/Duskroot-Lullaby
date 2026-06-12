@@ -1,23 +1,12 @@
 using Fusion;
 using UnityEngine;
 
-public class SelfDespawnAfterSeconds : NetworkBehaviour
+public class SelfDespawnAfterSeconds : MonoBehaviour
 {
     [SerializeField] private float secondsToDespawn = 1f;
 
-    public override void Spawned()
+    private void Start()
     {
-        if (HasStateAuthority)
-        {
-            Invoke(nameof(Despawn), secondsToDespawn);
-        }
-    }
-
-    private void Despawn()
-    {
-        if (Object != null && Runner != null)
-        {
-            Runner.Despawn(Object);
-        }
+        Destroy(gameObject, secondsToDespawn);
     }
 }

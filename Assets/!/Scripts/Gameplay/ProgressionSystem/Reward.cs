@@ -10,7 +10,7 @@ namespace ProgressionSystem
     /// </summary>
     public class Reward : NetworkBehaviour
     {
-        [SerializeField] int experienceAmount = 0;
+        [Networked] public int experienceAmount { get; set; }
 
         [Header("Item Drops")]
         [SerializeField] GameObject pickableWeaponPrefab;
@@ -32,29 +32,38 @@ namespace ProgressionSystem
         /// </summary>
         public void ApplyReward()
         {
+            Debug.Log($"[XP DEBUG] ApplyReward called. experienceAmount={experienceAmount}, HasStateAuthority={HasStateAuthority}");
             CharacterDataManager.Instance.AddExperience(experienceAmount);
-            DropRandomItem();
+            if (HasStateAuthority)
+            {
+                DropRandomItem();
+            }
         }
 
         public override void Spawned()
         {
-            EnemySetup enemySetup = GetComponent<EnemySetup>();
-
-            if (enemySetup != null)
+            Debug.Log($"[XP DEBUG] Reward.Spawned. HasStateAuthority={HasStateAuthority}");
+            if (HasStateAuthority)
             {
-                if (!enemySetup.IsInitialized())
+                EnemySetup enemySetup = GetComponent<EnemySetup>();
+
+                if (enemySetup != null)
                 {
-                    enemySetup.OnInit += () =>
+                    if (!enemySetup.IsInitialized())
+                    {
+                        enemySetup.OnInit += () =>
+                        {
+                            experienceAmount = enemySetup.GetEnemyData().experienceReward;
+                            Debug.Log($"[XP DEBUG] experienceAmount initialized via OnInit to {experienceAmount}");
+                        };
+                    }
+                    else
                     {
                         experienceAmount = enemySetup.GetEnemyData().experienceReward;
-                    };
-                }
-                else
-                {
-                    experienceAmount = enemySetup.GetEnemyData().experienceReward;
+                        Debug.Log($"[XP DEBUG] experienceAmount initialized directly to {experienceAmount}");
+                    }
                 }
             }
-                
         }
 
         void DropRandomItem()

@@ -108,8 +108,7 @@ public class PlayerMovement : NetworkBehaviour
         {
 
             Vector3 dashStartPosition = transform.position;
-            playerVFX?.Play(PlayerVFXEvent.Dash);
-            playerVFX?.SpawnDashTrail(dashStartPosition,transform.forward);
+            RPC_PlayVFXDash(dashStartPosition);
 
             dashTimer = TickTimer.CreateFromSeconds(Runner, dashDuration);
             dashCooldownTimer = TickTimer.CreateFromSeconds(Runner, dashDuration + dashCooldown);
@@ -157,14 +156,27 @@ public class PlayerMovement : NetworkBehaviour
         bool isMoving = velocity.magnitude > 0.1f;
         if (!wasMoving && isMoving)
         {
-            playerVFX?.Play(PlayerVFXEvent.RunStart);
-            playerVFX?.SpawnRunStartDust(transform.position);
+            RPC_PlayVFXDust();
         }
 
         wasMoving = isMoving;
 
         // Update animator parameters based on networked velocity
         animator.SetFloat("Speed", NetworkVelocity.magnitude / maxSpeed);
+    }
+
+    [Rpc(RpcSources.All, RpcTargets.All)]
+    public void RPC_PlayVFXDust()
+    {
+        playerVFX?.Play(PlayerVFXEvent.RunStart);
+        playerVFX?.SpawnRunStartDust(transform.position);
+    }
+
+    [Rpc(RpcSources.All, RpcTargets.All)]
+    public void RPC_PlayVFXDash(Vector3 dashStartPosition)
+    {
+        playerVFX?.Play(PlayerVFXEvent.Dash);
+        playerVFX?.SpawnDashTrail(dashStartPosition, transform.forward);
     }
 
     void UpdateSpeed()

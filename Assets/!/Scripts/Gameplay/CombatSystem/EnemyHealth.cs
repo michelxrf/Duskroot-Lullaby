@@ -13,9 +13,6 @@ namespace CombatSystem
             base.Spawned();
             feedbacks = GetComponent<EnemyFeedbacks>();
 
-            OnHit += HandleHit;
-            OnDied += HandleDeath;
-
             if (GetComponent<EnemySetup>() != null)
             {
                 if (GetComponent<EnemySetup>().IsInitialized())
@@ -68,20 +65,8 @@ namespace CombatSystem
             base.Die();
         }
 
-        private void HandleHit()
-        {
-            feedbacks?.Play(EnemyFeedbackEvent.Hit);
-        }
-
-        private void HandleDeath()
-        {
-            feedbacks?.Play(EnemyFeedbackEvent.Death);
-        }
-
         private void OnDestroy()
         {
-            OnHit -= HandleHit;
-            OnDied -= HandleDeath;
         }
     }
 }

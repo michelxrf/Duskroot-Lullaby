@@ -12,8 +12,6 @@ public class PickableKey : NetworkBehaviour
     [SerializeField] GameObject interactionTooltip;
     [SerializeField] List<string> keys = new List<string>();
 
-    int playersInRange = 0;
-
     /// <summary>
     /// Initializes the key list.
     /// </summary>
@@ -42,28 +40,23 @@ public class PickableKey : NetworkBehaviour
         }
     }
 
-
-    private void Update()
-    {
-        if (interactionTooltip != null)
-            interactionTooltip.SetActive(playersInRange > 0);
-    }
-
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<PlayerSetup>() == null)
+        PlayerSetup player = other.GetComponent<PlayerSetup>();
+        if (player == null || !player.IsLocalPlayer())
             return;
 
-        playersInRange++;
+        interactionTooltip.SetActive(true);
         other.GetComponent<PlayerInteractor>()?.EnteredPickableKeyArea(this);
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.GetComponent<PlayerSetup>() == null)
+        PlayerSetup player = other.GetComponent<PlayerSetup>();
+        if (player == null || !player.IsLocalPlayer())
             return;
 
-        playersInRange--;
+        interactionTooltip.SetActive(false);
         other.GetComponent<PlayerInteractor>()?.LeftPickableKeyArea(this);
     }
 

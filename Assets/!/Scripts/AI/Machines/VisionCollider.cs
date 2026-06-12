@@ -24,12 +24,14 @@ public class VisionCollider : NetworkBehaviour
     {
         if (!HasStateAuthority) return;
 
-        Debug.Log("Player entered vision collider");
-
         // ignore dead players
         PlayerHealth health = other.transform.GetComponent<PlayerHealth>();
         if (health == null) return;
         if (health.IsDead())
+            return;
+
+        // also ignore invunerable ones
+        if (health.IsInvulnerable)
             return;
 
         health.OnDied += TargetDied;

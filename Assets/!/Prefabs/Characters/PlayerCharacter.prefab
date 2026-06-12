@@ -4863,6 +4863,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PunchPlayer
   weapon: 0
+  isBear: 0
   punchEvent:
     Guid:
       Data1: 1645193081
@@ -5054,8 +5055,8 @@ MonoBehaviour:
   healFeedback: {fileID: 4837747970645583536}
   deadFeedback: {fileID: 0}
   dashFeedback: {fileID: 6763236407954424917}
-  levelUpCanvasPrefab: {fileID: 0}
-  rewardPopupPrefab: {fileID: 0}
+  levelUpCanvasPrefab: {fileID: 7495032617308863544, guid: 309cb39fc5a1a5a47a8d6ba98002c1d3, type: 3}
+  rewardPopupPrefab: {fileID: 3576679470267027658, guid: 4c5f28b3f0704d04ab096f18a85327d0, type: 3}
 --- !u!1001 &2036789094837730520
 PrefabInstance:
   m_ObjectHideFlags: 0

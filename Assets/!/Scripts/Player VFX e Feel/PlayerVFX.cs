@@ -50,24 +50,19 @@ public class PlayerVFX : NetworkBehaviour
                 break;
 
             case PlayerVFXEvent.PauseOpen:
-                OnPauseOpen();
+                RPC_PlayPauseVFX();
                 break;
 
             case PlayerVFXEvent.PauseClose:
-                OnPauseClose();
+                RPC_StopPauseVFX();
                 break;
         }
     }
 
     public override void Spawned()
     {
-        Debug.Log(
-            $"PlayerVFX Spawned | HasStateAuthority={HasStateAuthority}");
-
         if (!HasStateAuthority)
             return;
-
-        Debug.Log("INSCREVEU NO ONLEVELUP");
 
         CharacterDataManager.Instance.OnLevelUp += PlayLevelUp;
     }
@@ -116,28 +111,38 @@ public class PlayerVFX : NetworkBehaviour
 
     private void OnHeal()
     {
-        healFeedback?.PlayFeedbacks();
+        if (HasStateAuthority)
+            healFeedback?.PlayFeedbacks();
+
         PlayParticles(healVFX);
     }
     private void OnHit()
     {
-        hitFeedback?.PlayFeedbacks();
+        if (HasStateAuthority)
+            hitFeedback?.PlayFeedbacks();
+
         PlayParticles(hitVFX);
     }
     private void OnDeath()
     {
-        deadFeedback?.PlayFeedbacks();
+        if (HasStateAuthority)
+            deadFeedback?.PlayFeedbacks();
     }
-    private void OnPauseOpen()
+
+    [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
+    public void RPC_PlayPauseVFX()
     {
-        //pauseFeedback?.PlayFeedbacks();
         StartParticles(pauseVFX);
     }
-    private void OnPauseClose()
+
+    [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
+    public void RPC_StopPauseVFX()
     {
-        //pauseFeedback?.StopFeedbacks();
         StopParticles(pauseVFX);
     }
+
+
+
     private void OnRunStart()
     {
         //runStartFeedback?.PlayFeedbacks();
@@ -152,7 +157,8 @@ public class PlayerVFX : NetworkBehaviour
     }
     private void OnDashStart()
     {
-        dashFeedback?.PlayFeedbacks();
+        if (HasStateAuthority)
+            dashFeedback?.PlayFeedbacks();
     }
 
     public void SpawnRunStartDust(Vector3 position)
@@ -165,7 +171,6 @@ public class PlayerVFX : NetworkBehaviour
 
     public void PlayLevelUp()
     {
-        Debug.Log("PLAY LEVEL UP Feedback CHAMADO");
         StartCoroutine(LevelUpFeedbackRoutine());
     }
 

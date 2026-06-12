@@ -89,13 +89,12 @@ public class CharacterDataManager : MonoBehaviour
 
     public void AddExperience(int xp)
     {
-        Debug.Log($"Adding {xp} XP to character {localPlayerCharacterId}");
-        Debug.Log($"Player count: {RunnerBootstrap.Instance.Runner.SessionInfo.PlayerCount}");
-        Debug.Log($"Total XP to add: {Mathf.FloorToInt(xp * (RunnerBootstrap.Instance.Runner.SessionInfo.PlayerCount / 4f))}");
-
+        Debug.Log($"[XP DEBUG] AddExperience called with xp={xp}");
         CharacterData character = GetCurrentPlayerCharacter();
-
-        //character.experience += Mathf.FloorToInt(xp * (RunnerBootstrap.Instance.Runner.SessionInfo.PlayerCount / 4f));
+        if (character == null)
+        {
+            return;
+        }
 
         int finalXp = Mathf.FloorToInt(xp * (RunnerBootstrap.Instance.Runner.SessionInfo.PlayerCount / 4f));
         character.experience += finalXp;
@@ -103,14 +102,11 @@ public class CharacterDataManager : MonoBehaviour
 
         if (character.experience >= character.experienceToNextLevel)
         {
-            //AudioUI.instance.PlayLevelUP();
             CharacterData leveledCharacter = ExperienceCalculator.LevelUpCharacter(character, character.level + 1);
             UpdateCharacter(leveledCharacter);
             character = leveledCharacter;
 
             OnLevelUp?.Invoke();
-
-            Debug.Log($"Leveled up! New level: {character.level}");
         }
 
         OnExpChanged?.Invoke(character.experience);

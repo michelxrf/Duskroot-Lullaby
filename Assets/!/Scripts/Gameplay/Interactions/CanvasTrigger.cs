@@ -6,7 +6,8 @@ public class CanvasTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
-        if (collision.GetComponent<PlayerSetup>() == null)
+        PlayerSetup player = collision.GetComponent<PlayerSetup>();
+        if (player == null || !player.IsLocalPlayer())
             return;
 
         targetCanvas.SetActive(true);
@@ -14,7 +15,8 @@ public class CanvasTrigger : MonoBehaviour
 
     private void OnTriggerExit(Collider collision)
     {
-        if (collision.GetComponent<PlayerSetup>() == null)
+        PlayerSetup player = collision.GetComponent<PlayerSetup>();
+        if (player == null || !player.IsLocalPlayer())
             return;
 
         targetCanvas.SetActive(false);

@@ -11,47 +11,34 @@ public class HealingItem : NetworkBehaviour
     [SerializeField] private int healAmount = 20;
     [SerializeField] private GameObject interactionTooltip;
 
-    private int playersInRange;
     private bool hasSpawned = false;
 
     public override void Spawned()
     {
         base.Spawned();
         hasSpawned = true;
-        playersInRange = 0;
         if (interactionTooltip != null)
             interactionTooltip.SetActive(false);
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<PlayerSetup>() == null)
+        PlayerSetup player = other.GetComponent<PlayerSetup>();
+        if (player == null || !player.IsLocalPlayer())
             return;
 
-        playersInRange++;
+        interactionTooltip.SetActive(true);
         other.GetComponent<PlayerInteractor>()?.EnteredHealingItemArea(this);
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.GetComponent<PlayerSetup>() == null)
+        PlayerSetup player = other.GetComponent<PlayerSetup>();
+        if (player == null || !player.IsLocalPlayer())
             return;
 
-        playersInRange--;
+        interactionTooltip.SetActive(false);
         other.GetComponent<PlayerInteractor>()?.LeftHealingItemArea(this);
-    }
-
-    private void Update()
-    {
-        UpdateTooltip();
-    }
-
-    private void UpdateTooltip()
-    {
-        if (!hasSpawned || interactionTooltip == null)
-            return;
-
-        interactionTooltip.SetActive(playersInRange >= 1);
     }
 
     public void Consume(PlayerHealth health)

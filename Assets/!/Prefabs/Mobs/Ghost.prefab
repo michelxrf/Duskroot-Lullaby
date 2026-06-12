@@ -928,6 +928,7 @@ GameObject:
   - component: {fileID: 21822207025482257}
   - component: {fileID: 7568337578007205535}
   - component: {fileID: 4739054463299199558}
+  - component: {fileID: 1786114168710829297}
   m_Layer: 5
   m_Name: AlertImage
   m_TagString: Untagged
@@ -992,6 +993,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1786114168710829297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3844869444905691498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8ddcc38108eb7542ac2c20a37388e14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RotateTowardCamera
 --- !u!1 &6282981181341394784
 GameObject:
   m_ObjectHideFlags: 0
@@ -1003,6 +1016,7 @@ GameObject:
   - component: {fileID: 7738411503731901667}
   - component: {fileID: 2253997937415868865}
   - component: {fileID: 6479837373618658688}
+  - component: {fileID: 8233703262779364349}
   m_Layer: 5
   m_Name: LostTargetImage
   m_TagString: Untagged
@@ -1067,6 +1081,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &8233703262779364349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6282981181341394784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8ddcc38108eb7542ac2c20a37388e14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RotateTowardCamera
 --- !u!1 &6433553744752999738
 GameObject:
   m_ObjectHideFlags: 0

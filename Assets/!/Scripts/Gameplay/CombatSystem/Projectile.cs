@@ -63,19 +63,15 @@ public class Projectile : NetworkBehaviour
         if (distanceTraveled >= range)
         {
             CombatFuncs.CastHitBox(transform, owner, weaponDataInstance);
-            // Instantiate explosion effect
-            if (explosionVfx != null)
-            {
-                // TODO: change to Fusion's way of spawning VFX
-                Runner.Spawn(explosionVfx, transform.position, Quaternion.identity);
-            }
-            //StopTrail();
             RunnerBootstrap.Instance.Runner.Despawn(Object);
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
+        if (!HasStateAuthority)
+            return;
+
         if (other.gameObject == owner)
             return;
 
@@ -87,13 +83,18 @@ public class Projectile : NetworkBehaviour
 
             CombatFuncs.CastHitBox(other.transform, owner, weaponDataInstance);
         }
-        // Instantiate explosion effect
+
+        RunnerBootstrap.Instance.Runner.Despawn(Object);
+    }
+
+    public override void Despawned(NetworkRunner runner, bool hasGracefulExit)
+    {
+        base.Despawned(runner, hasGracefulExit);
+
         if (explosionVfx != null)
         {
-            Runner.Spawn(explosionVfx, transform.position, Quaternion.identity);
+            Instantiate(explosionVfx, transform.position, Quaternion.identity);
         }
-        //StopTrail();
-        RunnerBootstrap.Instance.Runner.Despawn(Object);
     }
 
     //private void StopTrail()

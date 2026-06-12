@@ -46,6 +46,8 @@ namespace CombatSystem
             audioHit = GetComponent<AudioHitNotifier>();
             playerVFX = GetComponent<PlayerVFX>();
 
+            oldHealth = CurrentHealth;
+
             if (!HasStateAuthority)
                 return;
         }
@@ -68,14 +70,18 @@ namespace CombatSystem
 
             CurrentHealth = Mathf.Clamp(CurrentHealth - (damage * (100 - armor)/100), 0, maxHealth);
             audioHit.NotifyHit(weaponType);
-            OnHit?.Invoke();
-            OnReceivedDamage?.Invoke(damage);
             
             OnHealthChanged?.Invoke(CurrentHealth);
         }
 
         void OnHealthChangedRender()
         {
+            int delta = oldHealth - CurrentHealth;
+            if (delta != 0)
+            {
+                OnReceivedDamage?.Invoke(delta);
+            }
+
             if (CurrentHealth <= 0)
             {
                 Die();
@@ -90,6 +96,7 @@ namespace CombatSystem
                 // Health decreased
                 playerVFX?.Play(PlayerVFXEvent.Hit);
                 animator?.SetTrigger("Hit");
+                OnHit?.Invoke();
             }
 
             oldHealth = CurrentHealth;
@@ -107,9 +114,11 @@ namespace CombatSystem
                 knockback.enabled = false;
 
             if (HasStateAuthority)
+            {
                 StartCoroutine(DestroyAfterDeathAnimation());
+                RPC_ApplyRewards();
+            }
 
-            RPC_ApplyRewards();
             OnDied?.Invoke();
         }
 
@@ -134,17 +143,14 @@ namespace CombatSystem
             maxHealth = CharacterDataManager.Instance.GetCurrentPlayerCharacter().health;
             CurrentHealth = Mathf.Clamp(CurrentHealth + amount, 0, maxHealth);
 
-            OnReceivedDamage?.Invoke(-amount); // negative damage to indicate healing
             OnHealthChanged?.Invoke(CurrentHealth);
         }
 
 
-        /// <summary>
-        /// TODO: move out of health
-        /// </summary>
-        [Rpc(RpcSources.All, RpcTargets.StateAuthority)]
+        [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
         void RPC_ApplyRewards()
         {
+            Debug.Log($"[XP DEBUG] RPC_ApplyRewards executed on local machine. HasStateAuthority={HasStateAuthority}");
             GetComponent<Reward>()?.ApplyReward();
         }
 

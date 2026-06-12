@@ -29,8 +29,8 @@ public class Interactions : NetworkBehaviour
     [SerializeField] float delayBetweenBarks = 1f;
 
     [Networked] bool isInteracting { get; set; }
-    int playersInRange;
     AudioSource audioSource;
+    bool isPlayerClose = false;
     bool hasSpawned = false;
 
     [SerializeField] private UnityEvent OnSequenceEnded;
@@ -44,8 +44,6 @@ public class Interactions : NetworkBehaviour
     {
         base.Spawned();
         hasSpawned = true;
-
-        playersInRange = 0;
         isInteracting = false;
 
         GetComponent<SphereCollider>().radius = interactionRange;
@@ -60,10 +58,11 @@ public class Interactions : NetworkBehaviour
     /// </summary>
     private void OnTriggerEnter(Collider other)
     {
-        if (other.GetComponent<PlayerSetup>() == null)
+        PlayerSetup player = other.GetComponent<PlayerSetup>();
+        if (player == null || !player.IsLocalPlayer())
             return;
 
-        playersInRange++;
+        isPlayerClose = true;
         other.GetComponent<PlayerInteractor>()?.EnteredInteractionArea(this);
     }
 
@@ -73,10 +72,11 @@ public class Interactions : NetworkBehaviour
     /// </summary>
     private void OnTriggerExit(Collider other)
     {
-        if (other.GetComponent<PlayerSetup>() == null)
+        PlayerSetup player = other.GetComponent<PlayerSetup>();
+        if (player == null || !player.IsLocalPlayer())
             return;
 
-        playersInRange--;
+        isPlayerClose = false;
         other.GetComponent<PlayerInteractor>()?.LeftInteractionArea();
     }
 
@@ -89,7 +89,7 @@ public class Interactions : NetworkBehaviour
         if (!hasSpawned)
             return;
 
-        if (canInteract && !isInteracting && playersInRange >= 1)
+        if (canInteract && !isInteracting && isPlayerClose)
         {
             interactionTooltip.SetActive(true);
         }
@@ -117,7 +117,7 @@ public class Interactions : NetworkBehaviour
     {
         Debug.Log("RPC_ActivateBark called");
 
-        if (!canInteract || playersInRange < 1 || isInteracting || barks.Length == 0)
+        if (!canInteract || isInteracting || barks.Length == 0)
             return;
 
         isInteracting = true;

@@ -18,18 +18,17 @@ public class FloatingDamageEmmiter : NetworkBehaviour
     {
         healthComponent = GetComponent<Health>();
         healthComponent.OnReceivedDamage += Emit;
-        CharacterDataManager.Instance.OnExperienceGained += EmitXP;
+
+        if (HasInputAuthority)
+        {
+            CharacterDataManager.Instance.OnExperienceGained += EmitXP;
+        }
     }
 
     //Damage and Healing
     private void Emit(int amount)
     {
-        RPC_Emit(amount);
-    }
-
-    [Rpc(RpcSources.All, RpcTargets.StateAuthority)]
-    void RPC_Emit(int amount)
-    {
+        Debug.Log($"{gameObject.name} is emitting {amount} baloon");
         bool isHeal = amount < 0;
 
         GameObject prefab =
@@ -40,7 +39,7 @@ public class FloatingDamageEmmiter : NetworkBehaviour
         if (prefab == null)
             return;
 
-        var bubble = Runner.Spawn(
+        var bubble = Instantiate(
             prefab,
             transform.position + Vector3.up * 0.5f,
             Quaternion.identity);
@@ -64,13 +63,13 @@ public class FloatingDamageEmmiter : NetworkBehaviour
         RPC_EmitXP(amount);
     }
 
-    [Rpc(RpcSources.All, RpcTargets.StateAuthority)]
+    [Rpc(RpcSources.All, RpcTargets.All)]
     private void RPC_EmitXP(int amount)
     {
         if (xpBubblePrefab == null)
             return;
 
-        var bubble = Runner.Spawn(
+        var bubble = Instantiate(
             xpBubblePrefab,
             transform.position + Vector3.up * 0.5f,
             Quaternion.identity);
@@ -88,7 +87,9 @@ public class FloatingDamageEmmiter : NetworkBehaviour
         if (healthComponent != null)
             healthComponent.OnReceivedDamage -= Emit;
 
-        if (CharacterDataManager.Instance != null)
+        if (CharacterDataManager.Instance != null && HasInputAuthority)
+        {
             CharacterDataManager.Instance.OnExperienceGained -= EmitXP;
+        }
     }
 }

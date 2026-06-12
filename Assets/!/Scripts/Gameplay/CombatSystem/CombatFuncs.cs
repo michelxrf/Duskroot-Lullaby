@@ -55,7 +55,7 @@ namespace CombatSystem
                 }   
 
                 // apply knockback if the hit object has a Knockback component
-                if(!healthComponent.IsDead())
+                if(!healthComponent.IsDead() && !healthComponent.IsInvulnerable)
                 {
                     Vector3 direction = new Vector3(hit.transform.position.x - caster.transform.position.x, 0, hit.transform.position.z - caster.transform.position.z).normalized;
                     hit.GetComponent<Knockback>()?.RPC_ApplyKnockback(direction, weapon.knockbackForce);

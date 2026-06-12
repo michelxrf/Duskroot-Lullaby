@@ -1,3 +1,4 @@
+using Fusion;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -30,6 +31,12 @@ public class FSM_Mosquito_Hunt : State
         
     }
 
+    [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
+    public void RPC_PlayLostVFX()
+    {
+        feedbacks.Play(EnemyFeedbackEvent.LostTarget);
+    }
+
     public override void Process()
     {
         UpdateTargetLocation();
@@ -44,7 +51,7 @@ public class FSM_Mosquito_Hunt : State
         // if we lost sight of the player, switch back to patrol
         if (target == null)
         {
-            feedbacks.Play(EnemyFeedbackEvent.LostTarget);
+            RPC_PlayLostVFX();
             stateMachine.ChangeState(stateOnPlayerLost);
             return;
         }
@@ -74,6 +81,12 @@ public class FSM_Mosquito_Hunt : State
     public override void Enter()
     {
         navAgent.isStopped = false;
+        RPC_PlayAlertVFX();
+    }
+
+    [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
+    public void RPC_PlayAlertVFX()
+    {
         feedbacks.Play(EnemyFeedbackEvent.Alert);
     }
 }

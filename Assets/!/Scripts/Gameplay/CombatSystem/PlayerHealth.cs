@@ -15,11 +15,23 @@ namespace CombatSystem
         public override void Spawned()
         {
             base.Spawned();
-            if (Object.HasInputAuthority)
+            if (Object.HasStateAuthority)
             {
-                postProcessController = FindFirstObjectByType<PlayerPostProcessController>();
+                postProcessController = GetComponentInChildren<PlayerPostProcessController>(true);
+                if (postProcessController != null)
+                {
+                    postProcessController.gameObject.SetActive(true);
+                    postProcessController.SetDead(IsDead());
+                }
             }
-            postProcessController?.SetDead(false);
+            else
+            {
+                var remotePostProcess = GetComponentInChildren<PlayerPostProcessController>(true);
+                if (remotePostProcess != null)
+                {
+                    remotePostProcess.gameObject.SetActive(false);
+                }
+            }
 
             matchStateManager = FindFirstObjectByType<MatchStateManager>();
 
@@ -41,7 +53,7 @@ namespace CombatSystem
         protected override void Die()
         {
             animator?.SetTrigger("Die");
-            postProcessController?.SetDead(true);
+            postProcessController?.SetDead(IsDead());
             Knockback knockback = GetComponent<Knockback>();
             if (knockback != null)
                 knockback.enabled = false;
@@ -53,9 +65,9 @@ namespace CombatSystem
         [Rpc(RpcSources.All, RpcTargets.StateAuthority)]
         public void RPC_Revive()
         {
-            RPC_PlayReviveVisuals();
             CurrentHealth = maxHealth / 4;
             OnHealthChanged?.Invoke(CurrentHealth);
+            RPC_PlayReviveVisuals();
         }
 
         [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
@@ -64,7 +76,7 @@ namespace CombatSystem
             animator?.ResetTrigger("Die");
             animator?.SetTrigger("Revive");
 
-            postProcessController?.SetDead(false);
+            postProcessController?.SetDead(IsDead());
 
             GetComponent<PlayerSetup>().EnablePlayerControls(true);
             GetComponent<PlayerSetup>().RPC_EnablePlayerVisuals(true);

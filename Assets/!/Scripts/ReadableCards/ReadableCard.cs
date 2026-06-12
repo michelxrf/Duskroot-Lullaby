@@ -18,7 +18,6 @@ public class ReadableCard : MonoBehaviour
     [Header("Settings")]
     [SerializeField] [TextArea(3, 10)] private string cardContent;
 
-    private int playersInRange = 0;
     private bool isReading = false;
     private int openFrame = -1;
 
@@ -36,38 +35,27 @@ public class ReadableCard : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        var playerSetup = other.GetComponent<PlayerSetup>();
-        if (playerSetup == null) return;
+        PlayerSetup player = other.GetComponent<PlayerSetup>();
+        if (player == null || !player.IsLocalPlayer())
+            return;
 
-        playersInRange++;
-        
-        if (playerSetup.IsLocalPlayer())
-        {
-            other.GetComponent<PlayerInteractor>()?.EnteredReadableCardArea(this);
-        }
+        interactionTooltip.SetActive(true);
+        other.GetComponent<PlayerInteractor>()?.EnteredReadableCardArea(this);
     }
 
     private void OnTriggerExit(Collider other)
     {
-        var playerSetup = other.GetComponent<PlayerSetup>();
-        if (playerSetup == null) return;
+        PlayerSetup player = other.GetComponent<PlayerSetup>();
+        if (player == null || !player.IsLocalPlayer())
+            return;
 
-        playersInRange--;
-        
-        if (playerSetup.IsLocalPlayer())
-        {
-            other.GetComponent<PlayerInteractor>()?.LeftReadableCardArea(this);
-            if (isReading)
-            {
-                CloseCard();
-            }
-        }
+        interactionTooltip.SetActive(false);
+        other.GetComponent<PlayerInteractor>()?.LeftReadableCardArea(this);    
+        CloseCard();     
     }
 
     private void Update()
     {
-        UpdateTooltip();
-
         if (isReading && Time.frameCount > openFrame)
         {
             // Close on any button press (including movement WASD)
@@ -80,14 +68,6 @@ public class ReadableCard : MonoBehaviour
                 CloseCard();
             }
         }
-    }
-
-    private void UpdateTooltip()
-    {
-        if (interactionTooltip == null) return;
-        
-        // Tooltip is visible if player is in range and NOT reading
-        interactionTooltip.SetActive(playersInRange > 0 && !isReading);
     }
 
     public void OpenCard()
