@@ -142,8 +142,7 @@ public class Interactions : NetworkBehaviour
 
             if(!barkEvent.IsNull)
 {
-                Debug.Log($"Playing FMOD audio for bark {i} param"+ audioBarkParam);
-
+                //Debug.Log($"Playing FMOD audio for bark {i} param"+ audioBarkParam);
                 var instance = FMODUnity.RuntimeManager.CreateInstance(barkEvent);
                 instance.setParameterByName(audioBarkParam, bark.barkNumber);
                 instance.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(transform)); 

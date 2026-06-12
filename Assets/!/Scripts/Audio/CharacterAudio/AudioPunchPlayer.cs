@@ -11,6 +11,7 @@ public class AudioPunchPlayer : MonoBehaviour
 
     [Header("Person")]
     public Weapon weapon;
+    public bool isBear = false;
 
     [Header("FMOD")]
     [SerializeField] private EventReference punchEvent;
@@ -21,14 +22,20 @@ public class AudioPunchPlayer : MonoBehaviour
     private PlayerSetup playerSetup;
     private CharacterGender gender;
     private void Start()
-    {
-        playerSetup = GetComponent<PlayerSetup>();
-        gender = playerSetup.GetGender();
+    {   if (!isBear)
+        {
+            playerSetup = GetComponent<PlayerSetup>();
+            gender = playerSetup.GetGender();
+        } else
+        {
+            gender = CharacterGender.Man;
+        }
     }
     public void PlayPunch()
     {
         GetWeapon();
-        gender = playerSetup.GetGender();
+        if(playerSetup!=null)
+           gender = playerSetup.GetGender();
         EventReference selectedEvent = punchEvent;
         switch (weapon)
         {

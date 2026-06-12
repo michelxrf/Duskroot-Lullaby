@@ -9,6 +9,7 @@ public class AudioUI : MonoBehaviour
     [SerializeField] private EventReference UI_Weapon;
     [SerializeField] private EventReference UI_Food;
     [SerializeField] private EventReference UI_LevelUP;
+    [SerializeField] private EventReference UI_keySound;
 
     void Awake()
     {
@@ -40,4 +41,8 @@ public class AudioUI : MonoBehaviour
         instanceUILevelUp.release();
     }
 
+    public void PressKey()
+    {
+        RuntimeManager.PlayOneShot(UI_keySound);
+    }
 }

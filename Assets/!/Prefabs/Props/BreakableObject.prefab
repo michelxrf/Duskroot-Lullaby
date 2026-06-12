@@ -4994,6 +4994,13 @@ MonoBehaviour:
   _CurrentHealth: 0
   _IsInvulnerable: 0
   characterType: prop
+  damageEvent:
+    Guid:
+      Data1: -1532167857
+      Data2: 1327969752
+      Data3: -543777361
+      Data4: 1771899099
+    Path: event:/SFX/SFX_Wood_Break
 --- !u!114 &66307121273472796
 MonoBehaviour:
   m_ObjectHideFlags: 0

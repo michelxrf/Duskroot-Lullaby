@@ -40,6 +40,7 @@ public class MusLevel1 : MonoBehaviour
 
     private void OnDestroy()
     {
+        Debug.Log("Para musica Level 1");
         StopMusic();
     }
 

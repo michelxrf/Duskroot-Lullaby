@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class AudioDeathPlayer : MonoBehaviour
 {
+    [Header("Enemy")]
+    [SerializeField] private bool isBear=false;
     [Header("FMOD")]
     [SerializeField] private EventReference deathEvent;
 
@@ -12,7 +14,10 @@ public class AudioDeathPlayer : MonoBehaviour
 
     private void Start()
     {
-        gender = playerSetup.GetGender();
+        if (isBear)
+            gender = CharacterGender.Man;
+        else
+            gender = playerSetup.GetGender();
     }
     public void PlayDeath()
     {

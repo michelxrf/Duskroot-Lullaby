@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fda383b106b17804c88baad2149ec8ee, type: 3}
   m_Name: GhostTouch
   m_EditorClassIdentifier: Assembly-CSharp::WeaponData
-  baseDamage: 500
+  baseDamage: 1
   attackSpeed: 1
   knockbackForce: 10
   animationController: {fileID: 0}

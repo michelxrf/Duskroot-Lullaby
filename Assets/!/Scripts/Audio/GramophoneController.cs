@@ -1,7 +1,8 @@
-using UnityEngine;
 using System.Collections;
-using FMODUnity;
 using FMOD.Studio;
+using FMODUnity;
+using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class GramophoneController : MonoBehaviour
@@ -11,6 +12,7 @@ public class GramophoneController : MonoBehaviour
     [SerializeField] private EventReference musicGramophone;    // 2D
     [SerializeField] private GameObject cameraGramophone;
     [SerializeField] GameObject interactionTooltip;
+    [SerializeField] private UnityEvent OnPlayGramo;
 
     private EventInstance musicInstance;
     private EventInstance gramophoneOffInstance;
@@ -71,6 +73,7 @@ public class GramophoneController : MonoBehaviour
         musicInstance.start();
 
         currentState = State.GramophoneLoop;
+        OnPlayGramo?.Invoke();
     }
 
     private void StopGramophoneAndStart2D()
@@ -127,6 +130,7 @@ public class GramophoneController : MonoBehaviour
     
     private void OnDestroy()
     {
+        Debug.Log("Para musica Gramofone onDestroy");
         if (gramophoneOffInstance.isValid())
         {
             gramophoneOffInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);

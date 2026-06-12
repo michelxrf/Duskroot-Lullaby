@@ -1,5 +1,32 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8849565117895328728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI/UI_Keyb
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/UI/UI_Keyb
+  Guid:
+    Data1: 320602158
+    Data2: 1303227279
+    Data3: 1462748584
+    Data4: 1658989692
+  Banks:
+  - {fileID: 2820279495781436384}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 218
 --- !u!114 &-8775816988864486198
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88,9 +115,36 @@ MonoBehaviour:
   Path: Assets/BuildFmod/Desktop/SFX.bank
   Name: Desktop/SFX
   StudioPath: bank:/SFX
-  lastModified: 639165998510247974
+  lastModified: 639166378386585234
   FileSizes: []
   Exists: 1
+--- !u!114 &-8251974156446050178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/SFX_GhostIdle
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/SFX_GhostIdle
+  Guid:
+    Data1: -1257008489
+    Data2: 1079231535
+    Data3: -1330225476
+    Data4: 2075538437
+  Banks:
+  - {fileID: -8501145219405282892}
+  IsStream: 1
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 28000
 --- !u!114 &-7886177131738394657
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1071,7 +1125,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/Desktop/Master.bank
   Name: Desktop/Master
   StudioPath: bank:/Master
-  lastModified: 639165998509127967
+  lastModified: 639167167548547246
   FileSizes: []
   Exists: 1
 --- !u!114 &11400000
@@ -1139,12 +1193,15 @@ MonoBehaviour:
   - {fileID: -1595649045718842082}
   - {fileID: 6327065276423950018}
   - {fileID: -1967241650394562973}
+  - {fileID: 6668780065758455537}
+  - {fileID: -8251974156446050178}
+  - {fileID: -8849565117895328728}
   EditorParameters: []
   MasterBanks:
   - {fileID: -128833856003080583}
   StringsBanks:
   - {fileID: 4893346086622871932}
-  cacheTime: 639165998510437980
+  cacheTime: 639167167552562246
   cacheVersion: 131635
 --- !u!114 &258957276046208807
 MonoBehaviour:
@@ -1316,7 +1373,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/Desktop/UI.bank
   Name: Desktop/UI
   StudioPath: bank:/UI
-  lastModified: 639165998510437980
+  lastModified: 639167167552562246
   FileSizes: []
   Exists: 1
 --- !u!114 &3454179712490857386
@@ -1462,10 +1519,10 @@ MonoBehaviour:
   Path: Assets/BuildFmod/Desktop/Master.strings.bank
   Name: Desktop/Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639165998509293836
+  lastModified: 639167167548567298
   FileSizes:
   - Name: 
-    Value: 3904
+    Value: 4032
   Exists: 1
 --- !u!114 &5116886835950036293
 MonoBehaviour:
@@ -1605,6 +1662,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 1895
+--- !u!114 &6668780065758455537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/SFX_Wood_Break
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/SFX_Wood_Break
+  Guid:
+    Data1: -1532167857
+    Data2: 1327969752
+    Data3: -543777361
+    Data4: 1771899099
+  Banks:
+  - {fileID: -8501145219405282892}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2395
 --- !u!114 &6934620882611938525
 MonoBehaviour:
   m_ObjectHideFlags: 0

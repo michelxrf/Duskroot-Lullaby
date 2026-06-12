@@ -7,6 +7,7 @@ public class FSM_Bear_Hunt : State
     [SerializeField] State stateOnPlayerLost;
     [SerializeField] State stateOnPlayerReached;
     [SerializeField] float rotationSpeed = 60f;
+    [SerializeField] float speedMultiply = 6f;
 
     Animator animator;
     VisionCollider visionCollider;
@@ -73,6 +74,6 @@ public class FSM_Bear_Hunt : State
     public override void Enter()
     {
         navAgent.isStopped = false;
-        navAgent.speed = enemySetup.GetEnemyData().speed;
+        navAgent.speed = enemySetup.GetEnemyData().speed* speedMultiply;
     }
 }
