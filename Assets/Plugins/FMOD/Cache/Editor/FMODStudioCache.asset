@@ -42,7 +42,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/Desktop/Interactions.bank
   Name: Desktop/Interactions
   StudioPath: bank:/Interactions
-  lastModified: 639165221794091894
+  lastModified: 639165998507812651
   FileSizes: []
   Exists: 1
 --- !u!114 &-8701416822779029996
@@ -381,7 +381,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/Desktop/MUS.bank
   Name: Desktop/MUS
   StudioPath: bank:/MUS
-  lastModified: 639165221795154526
+  lastModified: 639165998508782706
   FileSizes: []
   Exists: 1
 --- !u!114 &-5584825869314499098
@@ -1218,7 +1218,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/Desktop/Ambiences.bank
   Name: Desktop/Ambiences
   StudioPath: bank:/Ambiences
-  lastModified: 639165221793721710
+  lastModified: 639165998507602652
   FileSizes: []
   Exists: 1
 --- !u!114 &881238662609916186

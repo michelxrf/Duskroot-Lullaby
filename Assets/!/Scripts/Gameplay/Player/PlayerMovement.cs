@@ -20,11 +20,16 @@ public class PlayerMovement : NetworkBehaviour
     [SerializeField] float dashSpeedMultiplier = 3f;
     [SerializeField] float dashDuration = 1f;
     [SerializeField] float dashCooldown = 2f;
+    private bool hasSpawned;
 
     SimpleKCC characterController;
     Animator animator;
     CharacterLook rotateCharacter;
     PlayerHealth playerHealth;
+
+    private bool wasMoving;
+    bool isWalking = false;
+    private PlayerVFX playerVFX;
 
     float maxSpeed = 5f;
     Vector3 moveDirection;
@@ -37,20 +42,20 @@ public class PlayerMovement : NetworkBehaviour
     [Networked] TickTimer dashCooldownTimer { get; set; }
     [Networked] Vector3 dashDirection { get; set; }
 
-    bool isWalking = false;
+    
 
     // -- Initialization --
 
-    private void Start()
+    public override void Spawned()
     {
+
         characterController = GetComponent<SimpleKCC>();
         animator = GetComponentInChildren<Animator>();
         rotateCharacter = GetComponent<CharacterLook>();
         playerHealth = GetComponent<PlayerHealth>();
-    }
+        playerVFX = GetComponent<PlayerVFX>();
+        wasMoving = velocity.magnitude > 0.1f;
 
-    public override void Spawned()
-    {
         CharacterDataManager.Instance.OnLevelUp += UpdateSpeed;
         UpdateSpeed();
         if (HasStateAuthority)
@@ -64,12 +69,19 @@ public class PlayerMovement : NetworkBehaviour
                     GetComponent<PlayerMovement>());
             }
         }
+        hasSpawned = false;
     }
 
     // -- Simulation --
 
     public override void FixedUpdateNetwork()
     {
+        if (!hasSpawned)
+        {
+            hasSpawned = true;
+            return;
+        }
+
         // Only the State Authority (owner) should handle movement
         if (!HasStateAuthority)
             return;
@@ -83,14 +95,22 @@ public class PlayerMovement : NetworkBehaviour
         // Get input data from the network
         if (GetInput(out NetworkInputData data))
         {
+
+
             moveDirection = new Vector3(data.Move.x, 0, data.Move.y);
             isWalking = data.Walk;
             dashInput = data.Dash;
         }
 
+
         // Start dash if input is received and we're not already dashing or on cooldown
         if (dashInput && dashTimer.ExpiredOrNotRunning(Runner) && dashCooldownTimer.ExpiredOrNotRunning(Runner))
         {
+
+            Vector3 dashStartPosition = transform.position;
+            playerVFX?.Play(PlayerVFXEvent.Dash);
+            playerVFX?.SpawnDashTrail(dashStartPosition,transform.forward);
+
             dashTimer = TickTimer.CreateFromSeconds(Runner, dashDuration);
             dashCooldownTimer = TickTimer.CreateFromSeconds(Runner, dashDuration + dashCooldown);
 
@@ -133,6 +153,15 @@ public class PlayerMovement : NetworkBehaviour
         // Update networked properties
         NetworkVelocity = velocity;
 
+        //Feedbacks
+        bool isMoving = velocity.magnitude > 0.1f;
+        if (!wasMoving && isMoving)
+        {
+            playerVFX?.Play(PlayerVFXEvent.RunStart);
+            playerVFX?.SpawnRunStartDust(transform.position);
+        }
+
+        wasMoving = isMoving;
 
         // Update animator parameters based on networked velocity
         animator.SetFloat("Speed", NetworkVelocity.magnitude / maxSpeed);

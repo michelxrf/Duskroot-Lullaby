@@ -1,5 +1,6 @@
 using CombatSystem;
 using Fusion;
+using MoreMountains.Feedbacks;
 using UnityEngine;
 
 /// <summary>
@@ -21,10 +22,12 @@ public class ReviveTombstone : NetworkBehaviour
     MatchStateManager matchStateManager;
     SphereCollider interactionTrigger;
 
+
     public override void Spawned()
     {
         matchStateManager = FindFirstObjectByType<MatchStateManager>();
         interactionTrigger = GetComponent<SphereCollider>();
+
         if (interactionTrigger != null)
         {
             interactionTrigger.isTrigger = true;
@@ -34,6 +37,7 @@ public class ReviveTombstone : NetworkBehaviour
         // Enforce deterministic position across peers even when the prefab has no network transform component.
         if (NetworkSpawnPosition != Vector3.zero)
             transform.position = NetworkSpawnPosition;
+        GetComponent<TombstoneFeedback>()?.PlaySpawn();
     }
 
     public void Initialize(PlayerRef deadPlayer, Vector3 spawnPosition)
@@ -81,6 +85,7 @@ public class ReviveTombstone : NetworkBehaviour
             return;
 
         IsCompleted = true;
+        GetComponent<TombstoneFeedback>()?.DestroyTombstone();
         matchStateManager.TryRevivePlayerFromTombstone(this);
     }
 

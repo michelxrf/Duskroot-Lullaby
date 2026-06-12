@@ -20,6 +20,7 @@ namespace CombatSystem
         [SerializeField] protected int maxHealth = 100;
         [SerializeField] protected float destroyCorpseAfterSeconds = 20f;
 
+
         [Networked, OnChangedRender(nameof(OnHealthChangedRender))]
         [HideInInspector] public int CurrentHealth { get; protected set; }
         protected int oldHealth { get; set; }
@@ -37,12 +38,13 @@ namespace CombatSystem
         public Action OnDied;
 
         protected Animator animator;
-
+        protected PlayerVFX playerVFX;
 
         public override void Spawned()
         {
             animator = GetComponentInChildren<Animator>();
             audioHit = GetComponent<AudioHitNotifier>();
+            playerVFX = GetComponent<PlayerVFX>();
 
             if (!HasStateAuthority)
                 return;
@@ -81,10 +83,12 @@ namespace CombatSystem
             else if (CurrentHealth > oldHealth)
             {
                 // Health increased 
+                playerVFX?.Play(PlayerVFXEvent.Heal);              
             }
             else if (CurrentHealth < oldHealth)
             {
                 // Health decreased
+                playerVFX?.Play(PlayerVFXEvent.Hit);
                 animator?.SetTrigger("Hit");
             }
 

@@ -1,10 +1,7 @@
 fileFormatVersion: 2
 guid: 8eb503696b886e04faff8fc0f480d473
-PrefabImporter:
-  externalObjects: {}
-  userData: 
-  assetBundleName: 
-  assetBundleVariant: 
+labels:
+- FusionPrefab
 AssetOrigin:
   serializedVersion: 1
   productId: 247933
@@ -12,3 +9,8 @@ AssetOrigin:
   packageVersion: 1.6
   assetPath: Assets/Hovl Studio/Magic effects pack/Prefabs/Hits and explosions/Explosion.prefab
   uploadId: 762116
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -16,5 +16,8 @@ public enum PlayerVFXEvent
     slingshotAttackHit,
 
     StaffStartAtk,
-    StaffAttackHit
+    StaffAttackHit,
+
+    PauseOpen,
+    PauseClose
 }

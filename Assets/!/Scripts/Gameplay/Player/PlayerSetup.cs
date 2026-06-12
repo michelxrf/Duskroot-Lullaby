@@ -22,7 +22,6 @@ public class PlayerSetup : NetworkBehaviour
     Animator animator;
 
     Dictionary<Renderer, bool> rendererStates = new Dictionary<Renderer, bool>();
-
     public override void Spawned()
     {
         animator = GetComponent<Animator>();

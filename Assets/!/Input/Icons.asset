@@ -16,7 +16,7 @@ MonoBehaviour:
   - action: 0
     keyboard:
       sprite: {fileID: 2112783409, guid: 33d99d086089bcc4f908ec0640d5d0bb, type: 3}
-      size: {x: 360, y: 80}
+      size: {x: 100, y: 40}
     xbox:
       sprite: {fileID: -1299991019, guid: 671679648a876e3468cabd0c76485f58, type: 3}
       size: {x: 80, y: 80}
