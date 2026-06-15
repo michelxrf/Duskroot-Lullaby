@@ -1,3 +1,4 @@
+using CombatSystem;
 using Fusion;
 using UnityEngine;
 
@@ -8,18 +9,23 @@ using UnityEngine;
 public class EmoteSystem : NetworkBehaviour
 {
     private Animator animator;
+    private PlayerHealth playerHealth;
     private NetworkInputData lastData;
     private bool isEmotePending;
 
     public override void Spawned()
     {
         animator = GetComponentInChildren<Animator>();
+        playerHealth = GetComponent<PlayerHealth>();
     }
 
     public override void FixedUpdateNetwork()
     {
         // Only the State Authority (owner) should process input and send commands
         if (!HasStateAuthority)
+            return;
+
+        if (playerHealth.IsDead() || playerHealth.IsInvulnerable)
             return;
 
         if (GetInput(out NetworkInputData data))

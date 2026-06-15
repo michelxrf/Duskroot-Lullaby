@@ -105,8 +105,8 @@ public class CharacterLook : NetworkBehaviour
         foreach (var col in colliders)
         {
             // Check for EnemySetup or Breakable
-            var enemy = col.GetComponentInParent<EnemySetup>();
-            var breakable = col.GetComponentInParent<Breakable>();
+            var enemy = col.GetComponent<EnemySetup>();
+            var breakable = col.GetComponent<Breakable>();
 
             if (enemy != null || breakable != null)
             {

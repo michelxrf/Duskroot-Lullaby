@@ -23,6 +23,7 @@ public class FSM_Ghost_Hunt : State
         visionCollider = GetComponentInChildren<VisionCollider>();
         stateMachine = GetComponent<StateMachine>();
         enemySetup = GetComponent<EnemySetup>();
+        feedbacks = GetComponent<EnemyFeedbacks>();
     }
 
     [Rpc(RpcSources.StateAuthority, RpcTargets.All)]

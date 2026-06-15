@@ -1609,6 +1609,14 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -141585246, guid: 3f0e72e1e0d59e64a8bf3912a940f483, type: 3}
+    - target: {fileID: 2484503752251286594, guid: 1dced19f0c67afb4ea0583df8825c834, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 2484503752251286594, guid: 1dced19f0c67afb4ea0583df8825c834, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 150
+      objectReference: {fileID: 0}
     - target: {fileID: 4089698677916135354, guid: 1dced19f0c67afb4ea0583df8825c834, type: 3}
       propertyPath: reviveTombstone
       value: 

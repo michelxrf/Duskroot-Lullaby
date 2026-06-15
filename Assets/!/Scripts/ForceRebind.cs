@@ -1,18 +1,37 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
+using Fusion;
 
-public class ForceRebind : MonoBehaviour
+public class ForceRebind : NetworkBehaviour
 {
     public Transform root;
 
-    void Start()
+    public override void Spawned()
     {
-        var renderers = GetComponentsInChildren<SkinnedMeshRenderer>();
+        Rebind();
+    }
 
-        var boneMap = root
-            .GetComponentsInChildren<Transform>()
-            .ToDictionary(b => b.name, b => b);
+    public void Rebind()
+    {
+        if (root == null)
+        {
+            Debug.LogError("ForceRebind: Root transform is not assigned!");
+            return;
+        }
+
+        // Include inactive renderers so we rebind everything at once
+        var renderers = GetComponentsInChildren<SkinnedMeshRenderer>(true);
+
+        // Build the bone map manually to avoid crashes on duplicate names (like "cajado")
+        var boneMap = new Dictionary<string, Transform>();
+        foreach (var t in root.GetComponentsInChildren<Transform>(true))
+        {
+            if (!boneMap.ContainsKey(t.name))
+            {
+                boneMap.Add(t.name, t);
+            }
+        }
 
         foreach (var smr in renderers)
         {
@@ -20,12 +39,14 @@ public class ForceRebind : MonoBehaviour
 
             for (int i = 0; i < smr.bones.Length; i++)
             {
+                if (smr.bones[i] == null) continue;
+                
                 var boneName = smr.bones[i].name;
 
                 if (boneMap.TryGetValue(boneName, out var bone))
                     newBones[i] = bone;
                 else
-                    Debug.LogError($"Missing bone: {boneName}");
+                    Debug.LogWarning($"Missing bone: {boneName} for renderer {smr.name}");
             }
 
             smr.bones = newBones;
