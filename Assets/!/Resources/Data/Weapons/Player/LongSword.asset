@@ -12,12 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fda383b106b17804c88baad2149ec8ee, type: 3}
   m_Name: LongSword
   m_EditorClassIdentifier: Assembly-CSharp::WeaponData
-  baseDamage: 25
+  baseDamage: 22
+  attackSpeed: 0.9
   knockbackForce: 15
   animationController: {fileID: 9100000, guid: 4a1aed546958c3d43a53515e63c9d62d, type: 2}
   hitboxRadius: 0.9
   vfxPrefab:
-  - {fileID: 0}
+  - {fileID: 1918538739025919037, guid: d7856c07c99376d4e92b77c8a8c6332c, type: 3}
+  - {fileID: 8079666880818711231, guid: 80c98036c3330f94dacdf7121933f2d4, type: 3}
+  - {fileID: 6779711771322402339, guid: dcaee157c548894428eb75ce9730e1a1, type: 3}
+  - {fileID: 8870120312360929448, guid: 2538f7e74c36f47438cc9e174e8a89cd, type: 3}
   behavior:
   - Melee
   - Melee
@@ -30,8 +34,8 @@ MonoBehaviour:
   - Longsword_2
   - Longsword_3
   weaponPortrait:
-  - {fileID: 21300000, guid: f50a6438d2c87334a85269db49b9ac90, type: 3}
-  - {fileID: 21300000, guid: f50a6438d2c87334a85269db49b9ac90, type: 3}
-  - {fileID: 21300000, guid: f50a6438d2c87334a85269db49b9ac90, type: 3}
-  - {fileID: 21300000, guid: f50a6438d2c87334a85269db49b9ac90, type: 3}
+  - {fileID: 832739357, guid: a21290177db9b4f439ce888d4358f747, type: 3}
+  - {fileID: 1509117060, guid: a21290177db9b4f439ce888d4358f747, type: 3}
+  - {fileID: -1483510226, guid: a21290177db9b4f439ce888d4358f747, type: 3}
+  - {fileID: -365550222, guid: a21290177db9b4f439ce888d4358f747, type: 3}
   weaponAudioType: unarmed

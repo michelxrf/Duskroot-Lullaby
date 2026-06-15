@@ -14,19 +14,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CharacterTemplate
   CharacterId: Alice
   Level: 1
-  health: 20
+  health: 10
   armor: 0
   damage: 10
-  speed: 10
+  speed: 6
   attackSpeed: 1
-  cure: 3
+  cure: 5
   weapon: {fileID: 11400000, guid: 40d2a451e4c03844bb8b7a066b63ddf1, type: 2}
   healthUpgradePerLevel: 2
-  armorUpgradePerLevel: 2
+  armorUpgradePerLevel: 0
   damageUpgradePerLevel: 1
   speedUpgradePerLevel: 1
   attackSpeedUpgradePerLevel: 0
-  cureUpgradePerLevel: 0
+  cureUpgradePerLevel: 1
   characterAvatar: {fileID: 9000000, guid: 64c545c6e2bcd1e48991c7160038c7a2, type: 3}
   Experience: 0
   characterPortrait: {fileID: 21300000, guid: abe76d0a291587541a65b7b7416c7c37, type: 3}

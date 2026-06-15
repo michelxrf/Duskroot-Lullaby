@@ -12,16 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fda383b106b17804c88baad2149ec8ee, type: 3}
   m_Name: Staff
   m_EditorClassIdentifier: Assembly-CSharp::WeaponData
-  baseDamage: 10
-  attackSpeed: 0.3
+  baseDamage: 20
+  attackSpeed: 0.5
   knockbackForce: 20
   animationController: {fileID: 9100000, guid: b70ba3c8ea3c03b498e400f7651e4f08, type: 2}
-  hitboxRadius: 1.2
-  vfxPrefab:
-  - {fileID: 358637981425055526, guid: 8eb503696b886e04faff8fc0f480d473, type: 3}
-  - {fileID: 358637981425055526, guid: 8eb503696b886e04faff8fc0f480d473, type: 3}
-  - {fileID: 358637981425055526, guid: 8eb503696b886e04faff8fc0f480d473, type: 3}
-  - {fileID: 358637981425055526, guid: 8eb503696b886e04faff8fc0f480d473, type: 3}
+  hitboxRadius: 1.3
+  vfxPrefab: []
   behavior:
   - Ranged
   - Ranged
@@ -29,17 +25,17 @@ MonoBehaviour:
   - Ranged
   projectilePrefab:
   - {fileID: 9099788449262149435, guid: 8254690db235ee94e96c7cfebd9b0631, type: 3}
-  - {fileID: 9099788449262149435, guid: 8254690db235ee94e96c7cfebd9b0631, type: 3}
-  - {fileID: 9099788449262149435, guid: 8254690db235ee94e96c7cfebd9b0631, type: 3}
-  - {fileID: 9099788449262149435, guid: 8254690db235ee94e96c7cfebd9b0631, type: 3}
+  - {fileID: 9099788449262149435, guid: 378c5b6955ad044458732e4f8c3994fc, type: 3}
+  - {fileID: 9099788449262149435, guid: cdda360533fe2b449ba804b14a9e0c4f, type: 3}
+  - {fileID: 9099788449262149435, guid: 2294b9140a9c9c044a04464ec6ff1326, type: 3}
   weaponModelName:
   - Staff_0
   - Staff_1
   - Staff_2
   - Staff_3
   weaponPortrait:
-  - {fileID: 21300000, guid: 7fb1a72a7cad5ca40b71a3a4b324a738, type: 3}
-  - {fileID: 21300000, guid: 7fb1a72a7cad5ca40b71a3a4b324a738, type: 3}
-  - {fileID: 21300000, guid: 7fb1a72a7cad5ca40b71a3a4b324a738, type: 3}
-  - {fileID: 21300000, guid: 7fb1a72a7cad5ca40b71a3a4b324a738, type: 3}
+  - {fileID: -1628062183, guid: a21290177db9b4f439ce888d4358f747, type: 3}
+  - {fileID: -939110907, guid: a21290177db9b4f439ce888d4358f747, type: 3}
+  - {fileID: -1621797753, guid: a21290177db9b4f439ce888d4358f747, type: 3}
+  - {fileID: -1894092174, guid: a21290177db9b4f439ce888d4358f747, type: 3}
   weaponAudioType: unarmed
