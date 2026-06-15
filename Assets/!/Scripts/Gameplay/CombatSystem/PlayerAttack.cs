@@ -208,7 +208,7 @@ namespace CombatSystem
             {
                 GameObject vfxPrefab = currentWeapon.weaponData.vfxPrefab[currentWeapon.weaponLevel];
                 if (vfxPrefab != null)
-                    Instantiate(vfxPrefab, transform.position, Quaternion.identity);
+                    Instantiate(vfxPrefab, transform.position, transform.rotation);
             }
         }
 

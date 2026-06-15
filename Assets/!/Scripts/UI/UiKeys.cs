@@ -34,7 +34,7 @@ public class UiKeys : MonoBehaviour
 
     void ClearKeys()
     {
-        foreach (Transform child in transform)
+        foreach (Transform child in visualRoot.transform)
         {
             Destroy(child.gameObject);
         }

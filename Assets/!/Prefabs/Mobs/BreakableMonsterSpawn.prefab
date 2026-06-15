@@ -405,6 +405,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: BreakableMonsterSpawn
       objectReference: {fileID: 0}
+    - target: {fileID: 8493617189641300653, guid: 30e716afb78275a4ab264dfb386ba94a, type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8493617189641300653, guid: 30e716afb78275a4ab264dfb386ba94a, type: 3}
+      propertyPath: InitialModule.maxNumParticles
+      value: 250
+      objectReference: {fileID: 0}
+    - target: {fileID: 8493617189641300653, guid: 30e716afb78275a4ab264dfb386ba94a, type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.scalar
+      value: 200
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5519747034607868003, guid: 30e716afb78275a4ab264dfb386ba94a, type: 3}
     m_RemovedGameObjects:

@@ -150,7 +150,6 @@ namespace CombatSystem
         [Rpc(RpcSources.StateAuthority, RpcTargets.All)]
         void RPC_ApplyRewards()
         {
-            Debug.Log($"[XP DEBUG] RPC_ApplyRewards executed on local machine. HasStateAuthority={HasStateAuthority}");
             GetComponent<Reward>()?.ApplyReward();
         }
 

@@ -36,6 +36,8 @@ public class FakeLoadingScreen : MonoBehaviour
     {
         StopAllCoroutines();
         connectionLostScreen.SetActive(true);
+
+        Destroy(RunnerBootstrap.Instance.gameObject);
     }
 
     /// <summary>
@@ -44,6 +46,11 @@ public class FakeLoadingScreen : MonoBehaviour
     void SelfDestroy()
     {
         Destroy(gameObject);
+    }
+
+    public void ReturnToMainMenu()
+    {
+        SceneManager.LoadScene(0);
     }
 
     IEnumerator AnimateDots()
