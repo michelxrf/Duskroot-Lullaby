@@ -10,6 +10,8 @@ public class PlayersInPlace : NetworkBehaviour
     [SerializeField] private UnityEvent onAllPlayersInPlace = new UnityEvent();
     [SerializeField] private string[] requiredKeys;
 
+    public string[] RequiredKeys => requiredKeys;
+
     private List<PlayerKeyInventory> inventoriesInTrigger = new List<PlayerKeyInventory>();
 
     private void OnTriggerEnter(Collider collision)
