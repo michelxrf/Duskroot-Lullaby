@@ -13,8 +13,6 @@ using static AudioPunchPlayer;
 public class PickableWeapon : NetworkBehaviour
 {
     [Header("Setup")]
-    [Tooltip("Will ignore set weapon and randomly select any weapon from all weapons SOs. Will ignore weaponDataSO if ticked.")]
-    [SerializeField] bool randomizeWeapon = false;
     [Tooltip("Will randomly set the weapon's level, rarity is the default. Will ignore level var if ticked.")]
     [SerializeField] bool randomizeLevel = false;
     [SerializeField] WeaponData weaponDataSO;
@@ -23,7 +21,6 @@ public class PickableWeapon : NetworkBehaviour
     [Header("References")]
     [SerializeField] GameObject interactionTooltip;
     [SerializeField] GameObject weaponStats;
-
     [SerializeField] TMP_Text tooltipWeaponName;
     [SerializeField] TMP_Text tooltipWeaponRarity;
     [SerializeField] TMP_Text tooltipWeaponDamage;
@@ -50,16 +47,28 @@ public class PickableWeapon : NetworkBehaviour
 
         if(weaponDataSO != null)
         {
-            if (randomizeWeapon)
-                Debug.Log("Not implemented yet");
-
             if (randomizeLevel)
-                Debug.Log("Not implemented yet");
+            {
+                level = GetRandomWeaponLevel();
+            }
 
             Initialize(weaponDataSO, level, Random.Range(1000000, 9999999).ToString());
             InitializeWeaponModel();
             SetupStatsTooltip();
         }
+    }
+
+    int GetRandomWeaponLevel()
+    {
+        float randomValue = UnityEngine.Random.value;
+
+        if (randomValue < 0.05f)
+            return 3; // Lendária: 5%
+        if (randomValue < 0.20f)
+            return 2; // Rara: 15%
+        if (randomValue < 0.50f)
+            return 1; // Incomum: 30%
+        return 0; // Comum: 50%
     }
 
     public void Initialize(WeaponData newWeaponData, int weaponLevel, string weaponSeed)
