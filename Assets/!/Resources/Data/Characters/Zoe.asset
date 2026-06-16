@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CharacterTemplate
   CharacterId: Zoe
   Level: 1
-  health: 15
+  health: 30
   armor: 0
-  damage: 10
+  damage: 5
   speed: 8
   attackSpeed: 1
   cure: 1
@@ -24,7 +24,7 @@ MonoBehaviour:
   healthUpgradePerLevel: 2
   armorUpgradePerLevel: 0
   damageUpgradePerLevel: 1
-  speedUpgradePerLevel: 1
+  speedUpgradePerLevel: 0
   attackSpeedUpgradePerLevel: 1
   cureUpgradePerLevel: 0
   characterAvatar: {fileID: 9000000, guid: 64c545c6e2bcd1e48991c7160038c7a2, type: 3}
