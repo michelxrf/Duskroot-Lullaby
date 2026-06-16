@@ -9,7 +9,7 @@ public class EnableAllPlayers : MonoBehaviour
         foreach (PlayerSetup player in allPlayers)
         {
             player.EnablePlayerControls(newState);
-            player.GetComponent<PlayerHealth>().IsInvulnerable = newState;
+            player.GetComponent<PlayerHealth>().IsInvulnerable = !newState;
             player.RPC_EnablePlayerVisuals(newState);
         }
     }
