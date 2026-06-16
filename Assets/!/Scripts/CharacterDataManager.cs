@@ -89,7 +89,6 @@ public class CharacterDataManager : MonoBehaviour
 
     public void AddExperience(int xp)
     {
-        Debug.Log($"[XP DEBUG] AddExperience called with xp={xp}");
         CharacterData character = GetCurrentPlayerCharacter();
         if (character == null)
         {

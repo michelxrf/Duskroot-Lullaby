@@ -19,7 +19,7 @@ public class FloatingDamageEmmiter : NetworkBehaviour
         healthComponent = GetComponent<Health>();
         healthComponent.OnReceivedDamage += Emit;
 
-        if (HasStateAuthority)
+        if (HasStateAuthority && GetComponent<PlayerSetup>())
         {
             CharacterDataManager.Instance.OnExperienceGained += EmitXP;
         }
@@ -90,7 +90,7 @@ public class FloatingDamageEmmiter : NetworkBehaviour
         if (healthComponent != null)
             healthComponent.OnReceivedDamage -= Emit;
 
-        if (CharacterDataManager.Instance != null && HasStateAuthority)
+        if (CharacterDataManager.Instance != null && HasStateAuthority && GetComponent<PlayerSetup>())
         {
             CharacterDataManager.Instance.OnExperienceGained -= EmitXP;
         }

@@ -3753,11 +3753,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4835565957166561883, guid: 47afe58df720ec841991f683e630c76d, type: 3}
       propertyPath: weaponDropChance
-      value: 0
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 4835565957166561883, guid: 47afe58df720ec841991f683e630c76d, type: 3}
       propertyPath: healingDropChance
-      value: 0
+      value: 0.35
       objectReference: {fileID: 0}
     - target: {fileID: 6010715171724072074, guid: 47afe58df720ec841991f683e630c76d, type: 3}
       propertyPath: SortKey
@@ -5030,6 +5030,14 @@ PrefabInstance:
     - target: {fileID: 165573108131049530, guid: 5701a1542240e4e419d6d433c604b8a1, type: 3}
       propertyPath: SortKey
       value: 4281005074
+      objectReference: {fileID: 0}
+    - target: {fileID: 1314210897522745067, guid: 5701a1542240e4e419d6d433c604b8a1, type: 3}
+      propertyPath: weaponDropChance
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1314210897522745067, guid: 5701a1542240e4e419d6d433c604b8a1, type: 3}
+      propertyPath: healingDropChance
+      value: 0.35
       objectReference: {fileID: 0}
     - target: {fileID: 3143213577563038919, guid: 5701a1542240e4e419d6d433c604b8a1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6313,11 +6321,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4835565957166561883, guid: 47afe58df720ec841991f683e630c76d, type: 3}
       propertyPath: weaponDropChance
-      value: 0
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 4835565957166561883, guid: 47afe58df720ec841991f683e630c76d, type: 3}
       propertyPath: healingDropChance
-      value: 1
+      value: 0.35
       objectReference: {fileID: 0}
     - target: {fileID: 6010715171724072074, guid: 47afe58df720ec841991f683e630c76d, type: 3}
       propertyPath: SortKey
@@ -9111,11 +9119,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4835565957166561883, guid: 47afe58df720ec841991f683e630c76d, type: 3}
       propertyPath: weaponDropChance
-      value: 0.5
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 4835565957166561883, guid: 47afe58df720ec841991f683e630c76d, type: 3}
       propertyPath: healingDropChance
-      value: 0
+      value: 0.35
       objectReference: {fileID: 0}
     - target: {fileID: 6010715171724072074, guid: 47afe58df720ec841991f683e630c76d, type: 3}
       propertyPath: SortKey
@@ -10632,11 +10640,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4835565957166561883, guid: 47afe58df720ec841991f683e630c76d, type: 3}
       propertyPath: weaponDropChance
-      value: 0
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 4835565957166561883, guid: 47afe58df720ec841991f683e630c76d, type: 3}
       propertyPath: healingDropChance
-      value: 0
+      value: 0.35
       objectReference: {fileID: 0}
     - target: {fileID: 6010715171724072074, guid: 47afe58df720ec841991f683e630c76d, type: 3}
       propertyPath: SortKey
@@ -10717,11 +10725,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4835565957166561883, guid: 47afe58df720ec841991f683e630c76d, type: 3}
       propertyPath: weaponDropChance
-      value: 0.5
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 4835565957166561883, guid: 47afe58df720ec841991f683e630c76d, type: 3}
       propertyPath: healingDropChance
-      value: 0
+      value: 0.35
       objectReference: {fileID: 0}
     - target: {fileID: 6010715171724072074, guid: 47afe58df720ec841991f683e630c76d, type: 3}
       propertyPath: SortKey
@@ -11350,6 +11358,75 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 34.741108, y: 10, z: 3.9717095}
   m_Center: {x: 7.502156, y: 0, z: -3.0681105}
+--- !u!1001 &916108371
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4028864001378187396, guid: 47afe58df720ec841991f683e630c76d, type: 3}
+      propertyPath: m_Name
+      value: BreakableBarrel (18)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4835565957166561883, guid: 47afe58df720ec841991f683e630c76d, type: 3}
+      propertyPath: weaponDropChance
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4835565957166561883, guid: 47afe58df720ec841991f683e630c76d, type: 3}
+      propertyPath: healingDropChance
+      value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 6010715171724072074, guid: 47afe58df720ec841991f683e630c76d, type: 3}
+      propertyPath: SortKey
+      value: 193435175
+      objectReference: {fileID: 0}
+    - target: {fileID: 8842978806973874295, guid: 47afe58df720ec841991f683e630c76d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 71.380005
+      objectReference: {fileID: 0}
+    - target: {fileID: 8842978806973874295, guid: 47afe58df720ec841991f683e630c76d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 6.7899995
+      objectReference: {fileID: 0}
+    - target: {fileID: 8842978806973874295, guid: 47afe58df720ec841991f683e630c76d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 7.239997
+      objectReference: {fileID: 0}
+    - target: {fileID: 8842978806973874295, guid: 47afe58df720ec841991f683e630c76d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8842978806973874295, guid: 47afe58df720ec841991f683e630c76d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8842978806973874295, guid: 47afe58df720ec841991f683e630c76d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8842978806973874295, guid: 47afe58df720ec841991f683e630c76d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8842978806973874295, guid: 47afe58df720ec841991f683e630c76d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8842978806973874295, guid: 47afe58df720ec841991f683e630c76d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8842978806973874295, guid: 47afe58df720ec841991f683e630c76d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 47afe58df720ec841991f683e630c76d, type: 3}
 --- !u!1001 &919595638
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11364,11 +11441,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4835565957166561883, guid: 47afe58df720ec841991f683e630c76d, type: 3}
       propertyPath: weaponDropChance
-      value: 0
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 4835565957166561883, guid: 47afe58df720ec841991f683e630c76d, type: 3}
       propertyPath: healingDropChance
-      value: 1
+      value: 0.35
       objectReference: {fileID: 0}
     - target: {fileID: 6010715171724072074, guid: 47afe58df720ec841991f683e630c76d, type: 3}
       propertyPath: SortKey
@@ -11872,11 +11949,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4835565957166561883, guid: 47afe58df720ec841991f683e630c76d, type: 3}
       propertyPath: weaponDropChance
-      value: 0
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 4835565957166561883, guid: 47afe58df720ec841991f683e630c76d, type: 3}
       propertyPath: healingDropChance
-      value: 0
+      value: 0.35
       objectReference: {fileID: 0}
     - target: {fileID: 6010715171724072074, guid: 47afe58df720ec841991f683e630c76d, type: 3}
       propertyPath: SortKey
@@ -13715,6 +13792,71 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2867666076394792830, guid: 6b03fd5ce97ca2449b3b9a92cfce1ec5, type: 3}
   m_PrefabInstance: {fileID: 1116761317}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1119474080
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4028864001378187396, guid: 47afe58df720ec841991f683e630c76d, type: 3}
+      propertyPath: m_Name
+      value: BreakableBarrel (15)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4835565957166561883, guid: 47afe58df720ec841991f683e630c76d, type: 3}
+      propertyPath: healingDropChance
+      value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 6010715171724072074, guid: 47afe58df720ec841991f683e630c76d, type: 3}
+      propertyPath: SortKey
+      value: 2112233700
+      objectReference: {fileID: 0}
+    - target: {fileID: 8842978806973874295, guid: 47afe58df720ec841991f683e630c76d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 69.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8842978806973874295, guid: 47afe58df720ec841991f683e630c76d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 6.93
+      objectReference: {fileID: 0}
+    - target: {fileID: 8842978806973874295, guid: 47afe58df720ec841991f683e630c76d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 8.68
+      objectReference: {fileID: 0}
+    - target: {fileID: 8842978806973874295, guid: 47afe58df720ec841991f683e630c76d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8842978806973874295, guid: 47afe58df720ec841991f683e630c76d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8842978806973874295, guid: 47afe58df720ec841991f683e630c76d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8842978806973874295, guid: 47afe58df720ec841991f683e630c76d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8842978806973874295, guid: 47afe58df720ec841991f683e630c76d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8842978806973874295, guid: 47afe58df720ec841991f683e630c76d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8842978806973874295, guid: 47afe58df720ec841991f683e630c76d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 47afe58df720ec841991f683e630c76d, type: 3}
 --- !u!1 &1128036812
 GameObject:
   m_ObjectHideFlags: 0
@@ -13754,7 +13896,7 @@ Transform:
   m_GameObject: {fileID: 1128036812}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 29.69, y: 4.94, z: -122.3}
+  m_LocalPosition: {x: 30.47, y: 5.25, z: -125.62}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -14754,11 +14896,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4835565957166561883, guid: 47afe58df720ec841991f683e630c76d, type: 3}
       propertyPath: weaponDropChance
-      value: 0
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 4835565957166561883, guid: 47afe58df720ec841991f683e630c76d, type: 3}
       propertyPath: healingDropChance
-      value: 0.7
+      value: 0.35
       objectReference: {fileID: 0}
     - target: {fileID: 6010715171724072074, guid: 47afe58df720ec841991f683e630c76d, type: 3}
       propertyPath: SortKey
@@ -15191,8 +15333,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7163442074847905294, guid: 1b8156757297ad545a3ff4959160277f, type: 3}
+      propertyPath: weaponDropChance
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7163442074847905294, guid: 1b8156757297ad545a3ff4959160277f, type: 3}
       propertyPath: _experienceAmount
       value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 7163442074847905294, guid: 1b8156757297ad545a3ff4959160277f, type: 3}
+      propertyPath: healingDropChance
+      value: 0.35
       objectReference: {fileID: 0}
     - target: {fileID: 8293537702422112479, guid: 1b8156757297ad545a3ff4959160277f, type: 3}
       propertyPath: SortKey
@@ -15847,7 +15997,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4835565957166561883, guid: 47afe58df720ec841991f683e630c76d, type: 3}
       propertyPath: healingDropChance
-      value: 0.7
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 6010715171724072074, guid: 47afe58df720ec841991f683e630c76d, type: 3}
       propertyPath: SortKey
@@ -16417,8 +16567,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7163442074847905294, guid: 1b8156757297ad545a3ff4959160277f, type: 3}
+      propertyPath: weaponDropChance
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7163442074847905294, guid: 1b8156757297ad545a3ff4959160277f, type: 3}
       propertyPath: _experienceAmount
       value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 7163442074847905294, guid: 1b8156757297ad545a3ff4959160277f, type: 3}
+      propertyPath: healingDropChance
+      value: 0.35
       objectReference: {fileID: 0}
     - target: {fileID: 8293537702422112479, guid: 1b8156757297ad545a3ff4959160277f, type: 3}
       propertyPath: SortKey
@@ -17005,11 +17163,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4835565957166561883, guid: 47afe58df720ec841991f683e630c76d, type: 3}
       propertyPath: weaponDropChance
-      value: 0
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 4835565957166561883, guid: 47afe58df720ec841991f683e630c76d, type: 3}
       propertyPath: healingDropChance
-      value: 0
+      value: 0.35
       objectReference: {fileID: 0}
     - target: {fileID: 6010715171724072074, guid: 47afe58df720ec841991f683e630c76d, type: 3}
       propertyPath: SortKey
@@ -17576,11 +17734,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4835565957166561883, guid: 47afe58df720ec841991f683e630c76d, type: 3}
       propertyPath: weaponDropChance
-      value: 0
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 4835565957166561883, guid: 47afe58df720ec841991f683e630c76d, type: 3}
       propertyPath: healingDropChance
-      value: 0
+      value: 0.35
       objectReference: {fileID: 0}
     - target: {fileID: 6010715171724072074, guid: 47afe58df720ec841991f683e630c76d, type: 3}
       propertyPath: SortKey
@@ -18587,6 +18745,14 @@ PrefabInstance:
       propertyPath: SortKey
       value: 3642590976
       objectReference: {fileID: 0}
+    - target: {fileID: 1314210897522745067, guid: 5701a1542240e4e419d6d433c604b8a1, type: 3}
+      propertyPath: weaponDropChance
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1314210897522745067, guid: 5701a1542240e4e419d6d433c604b8a1, type: 3}
+      propertyPath: healingDropChance
+      value: 0.35
+      objectReference: {fileID: 0}
     - target: {fileID: 3143213577563038919, guid: 5701a1542240e4e419d6d433c604b8a1, type: 3}
       propertyPath: m_LocalPosition.x
       value: -39.082245
@@ -19331,11 +19497,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4835565957166561883, guid: 47afe58df720ec841991f683e630c76d, type: 3}
       propertyPath: weaponDropChance
-      value: 0
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 4835565957166561883, guid: 47afe58df720ec841991f683e630c76d, type: 3}
       propertyPath: healingDropChance
-      value: 0.7
+      value: 0.9
       objectReference: {fileID: 0}
     - target: {fileID: 6010715171724072074, guid: 47afe58df720ec841991f683e630c76d, type: 3}
       propertyPath: SortKey
@@ -19822,6 +19988,14 @@ PrefabInstance:
       propertyPath: SortKey
       value: 2053733193
       objectReference: {fileID: 0}
+    - target: {fileID: 1314210897522745067, guid: 5701a1542240e4e419d6d433c604b8a1, type: 3}
+      propertyPath: weaponDropChance
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1314210897522745067, guid: 5701a1542240e4e419d6d433c604b8a1, type: 3}
+      propertyPath: healingDropChance
+      value: 0.35
+      objectReference: {fileID: 0}
     - target: {fileID: 3143213577563038919, guid: 5701a1542240e4e419d6d433c604b8a1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 79.41942
@@ -19944,6 +20118,10 @@ PrefabInstance:
     - target: {fileID: 4028864001378187396, guid: 47afe58df720ec841991f683e630c76d, type: 3}
       propertyPath: m_Name
       value: BreakableBarrel (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4835565957166561883, guid: 47afe58df720ec841991f683e630c76d, type: 3}
+      propertyPath: healingDropChance
+      value: 0.35
       objectReference: {fileID: 0}
     - target: {fileID: 6010715171724072074, guid: 47afe58df720ec841991f683e630c76d, type: 3}
       propertyPath: SortKey
@@ -20417,11 +20595,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4835565957166561883, guid: 47afe58df720ec841991f683e630c76d, type: 3}
       propertyPath: weaponDropChance
-      value: 0
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 4835565957166561883, guid: 47afe58df720ec841991f683e630c76d, type: 3}
       propertyPath: healingDropChance
-      value: 1
+      value: 0.35
       objectReference: {fileID: 0}
     - target: {fileID: 6010715171724072074, guid: 47afe58df720ec841991f683e630c76d, type: 3}
       propertyPath: SortKey
@@ -20923,11 +21101,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4835565957166561883, guid: 47afe58df720ec841991f683e630c76d, type: 3}
       propertyPath: weaponDropChance
-      value: 0.5
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 4835565957166561883, guid: 47afe58df720ec841991f683e630c76d, type: 3}
       propertyPath: healingDropChance
-      value: 0
+      value: 0.35
       objectReference: {fileID: 0}
     - target: {fileID: 6010715171724072074, guid: 47afe58df720ec841991f683e630c76d, type: 3}
       propertyPath: SortKey
@@ -22364,11 +22542,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6654796858821834893, guid: e964d76377ce3fc44b851291091f6cf1, type: 3}
       propertyPath: onAllPlayersInPlace.m_PersistentCalls.m_Calls.Array.size
-      value: 4
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6654796858821834893, guid: e964d76377ce3fc44b851291091f6cf1, type: 3}
+      propertyPath: onAllPlayersInPlace.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6654796858821834893, guid: e964d76377ce3fc44b851291091f6cf1, type: 3}
       propertyPath: onAllPlayersInPlace.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6654796858821834893, guid: e964d76377ce3fc44b851291091f6cf1, type: 3}
+      propertyPath: onAllPlayersInPlace.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6654796858821834893, guid: e964d76377ce3fc44b851291091f6cf1, type: 3}
       propertyPath: onAllPlayersInPlace.m_PersistentCalls.m_Calls.Array.data[3].m_Mode
@@ -22377,34 +22563,70 @@ PrefabInstance:
     - target: {fileID: 6654796858821834893, guid: e964d76377ce3fc44b851291091f6cf1, type: 3}
       propertyPath: onAllPlayersInPlace.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1044002823}
+      objectReference: {fileID: 2014815034}
     - target: {fileID: 6654796858821834893, guid: e964d76377ce3fc44b851291091f6cf1, type: 3}
       propertyPath: onAllPlayersInPlace.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 2014815034}
     - target: {fileID: 6654796858821834893, guid: e964d76377ce3fc44b851291091f6cf1, type: 3}
+      propertyPath: onAllPlayersInPlace.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 746512499}
+    - target: {fileID: 6654796858821834893, guid: e964d76377ce3fc44b851291091f6cf1, type: 3}
       propertyPath: onAllPlayersInPlace.m_PersistentCalls.m_Calls.Array.data[3].m_Target
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6654796858821834893, guid: e964d76377ce3fc44b851291091f6cf1, type: 3}
+      propertyPath: onAllPlayersInPlace.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6654796858821834893, guid: e964d76377ce3fc44b851291091f6cf1, type: 3}
       propertyPath: onAllPlayersInPlace.m_PersistentCalls.m_Calls.Array.data[3].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6654796858821834893, guid: e964d76377ce3fc44b851291091f6cf1, type: 3}
+      propertyPath: onAllPlayersInPlace.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ActivateOnAllProxies
+      objectReference: {fileID: 0}
+    - target: {fileID: 6654796858821834893, guid: e964d76377ce3fc44b851291091f6cf1, type: 3}
       propertyPath: onAllPlayersInPlace.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: ActivateOnAllProxies
+      objectReference: {fileID: 0}
+    - target: {fileID: 6654796858821834893, guid: e964d76377ce3fc44b851291091f6cf1, type: 3}
+      propertyPath: onAllPlayersInPlace.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: SetActive
       objectReference: {fileID: 0}
     - target: {fileID: 6654796858821834893, guid: e964d76377ce3fc44b851291091f6cf1, type: 3}
       propertyPath: onAllPlayersInPlace.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
       value: SetActive
       objectReference: {fileID: 0}
     - target: {fileID: 6654796858821834893, guid: e964d76377ce3fc44b851291091f6cf1, type: 3}
+      propertyPath: onAllPlayersInPlace.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ActivateObjectOnAllProxies, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6654796858821834893, guid: e964d76377ce3fc44b851291091f6cf1, type: 3}
       propertyPath: onAllPlayersInPlace.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
       value: ActivateObjectOnAllProxies, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 6654796858821834893, guid: e964d76377ce3fc44b851291091f6cf1, type: 3}
+      propertyPath: onAllPlayersInPlace.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6654796858821834893, guid: e964d76377ce3fc44b851291091f6cf1, type: 3}
       propertyPath: onAllPlayersInPlace.m_PersistentCalls.m_Calls.Array.data[3].m_TargetAssemblyTypeName
       value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6654796858821834893, guid: e964d76377ce3fc44b851291091f6cf1, type: 3}
+      propertyPath: onAllPlayersInPlace.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6654796858821834893, guid: e964d76377ce3fc44b851291091f6cf1, type: 3}
+      propertyPath: onAllPlayersInPlace.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6654796858821834893, guid: e964d76377ce3fc44b851291091f6cf1, type: 3}
+      propertyPath: onAllPlayersInPlace.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 6654796858821834893, guid: e964d76377ce3fc44b851291091f6cf1, type: 3}
       propertyPath: onAllPlayersInPlace.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -22773,6 +22995,71 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 95c6a7558500ee44dac7b743a3ec1238, type: 3}
+--- !u!1001 &2051899767
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4028864001378187396, guid: 47afe58df720ec841991f683e630c76d, type: 3}
+      propertyPath: m_Name
+      value: BreakableBarrel (17)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4835565957166561883, guid: 47afe58df720ec841991f683e630c76d, type: 3}
+      propertyPath: healingDropChance
+      value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 6010715171724072074, guid: 47afe58df720ec841991f683e630c76d, type: 3}
+      propertyPath: SortKey
+      value: 2645372417
+      objectReference: {fileID: 0}
+    - target: {fileID: 8842978806973874295, guid: 47afe58df720ec841991f683e630c76d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 68.54
+      objectReference: {fileID: 0}
+    - target: {fileID: 8842978806973874295, guid: 47afe58df720ec841991f683e630c76d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 6.93
+      objectReference: {fileID: 0}
+    - target: {fileID: 8842978806973874295, guid: 47afe58df720ec841991f683e630c76d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 7.550002
+      objectReference: {fileID: 0}
+    - target: {fileID: 8842978806973874295, guid: 47afe58df720ec841991f683e630c76d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8842978806973874295, guid: 47afe58df720ec841991f683e630c76d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8842978806973874295, guid: 47afe58df720ec841991f683e630c76d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8842978806973874295, guid: 47afe58df720ec841991f683e630c76d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8842978806973874295, guid: 47afe58df720ec841991f683e630c76d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8842978806973874295, guid: 47afe58df720ec841991f683e630c76d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8842978806973874295, guid: 47afe58df720ec841991f683e630c76d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 47afe58df720ec841991f683e630c76d, type: 3}
 --- !u!1001 &2054271454
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23272,6 +23559,14 @@ PrefabInstance:
     - target: {fileID: 165573108131049530, guid: 5701a1542240e4e419d6d433c604b8a1, type: 3}
       propertyPath: SortKey
       value: 3121734816
+      objectReference: {fileID: 0}
+    - target: {fileID: 1314210897522745067, guid: 5701a1542240e4e419d6d433c604b8a1, type: 3}
+      propertyPath: weaponDropChance
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1314210897522745067, guid: 5701a1542240e4e419d6d433c604b8a1, type: 3}
+      propertyPath: healingDropChance
+      value: 0.35
       objectReference: {fileID: 0}
     - target: {fileID: 3143213577563038919, guid: 5701a1542240e4e419d6d433c604b8a1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -24960,6 +25255,9 @@ SceneRoots:
   - {fileID: 784209849}
   - {fileID: 715284588}
   - {fileID: 1833238483}
+  - {fileID: 1119474080}
+  - {fileID: 2051899767}
+  - {fileID: 916108371}
   - {fileID: 866488528}
   - {fileID: 1229418948}
   - {fileID: 1617919313}

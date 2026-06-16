@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2886890221537333673}
   - component: {fileID: 3236000305865804064}
   - component: {fileID: 4489853885434474859}
+  - component: {fileID: 5856774924789374656}
   m_Layer: 0
   m_Name: FloatingDamage
   m_TagString: Untagged
@@ -68,7 +69,25 @@ MonoBehaviour:
   NestedObjects: []
   NetworkedBehaviours:
   - {fileID: 3236000305865804064}
+  - {fileID: 5856774924789374656}
   ForceRemoteRenderTimeframe: 0
+--- !u!114 &5856774924789374656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 165462156057144889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 158639473, guid: e725a070cec140c4caffb81624c8c787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Fusion.Runtime.dll::Fusion.NetworkTransform
+  _stateAuthorityChangeErrorCorrectionDelta: 0
+  SyncScale: 0
+  SyncParent: 0
+  _autoAOIOverride: 1
+  DisableSharedModeInterpolation: 0
 --- !u!1 &6630817770887090054
 GameObject:
   m_ObjectHideFlags: 0

@@ -60,7 +60,7 @@ public class PickableWeapon : NetworkBehaviour
 
     int GetRandomWeaponLevel()
     {
-        float randomValue = UnityEngine.Random.value;
+        float randomValue = Random.Range(0f, 1f);
 
         if (randomValue < 0.05f)
             return 3; // Lendária: 5%

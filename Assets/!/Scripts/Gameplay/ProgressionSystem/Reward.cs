@@ -64,20 +64,29 @@ namespace ProgressionSystem
         {
             if (weapons.Length == 0 && healingItemPrefabs.Length == 0)
                 return; // Nothing to drop
-            
-            float randomValue = UnityEngine.Random.value;
+
+            float randomValue = UnityEngine.Random.Range(0f, 1f);
+            float cumulativeChance = 0f;
 
             // Try weapon drop first
-            if (randomValue < weaponDropChance && weapons.Length > 0)
+            if (weapons.Length > 0)
             {
-                DropWeapon();
-                return;
+                cumulativeChance += weaponDropChance;
+                if (randomValue < cumulativeChance)
+                {
+                    DropWeapon();
+                    return;
+                }
             }
 
             // Try healing item drop
-            if (randomValue < weaponDropChance + healingDropChance && healingItemPrefabs.Length > 0)
+            if (healingItemPrefabs.Length > 0)
             {
-                DropHealing();
+                cumulativeChance += healingDropChance;
+                if (randomValue < cumulativeChance)
+                {
+                    DropHealing();
+                }
             }
         }
 
@@ -89,6 +98,7 @@ namespace ProgressionSystem
 
         void DropHealing()
         {
+            Debug.Log("Dropping healing item");
             GameObject healingItem = healingItemPrefabs[UnityEngine.Random.Range(0, healingItemPrefabs.Length)];
             Runner.Spawn(healingItem, transform.position, Quaternion.identity);
         }

@@ -9,6 +9,7 @@ public class PlayersInPlace : NetworkBehaviour
 {
     [SerializeField] private UnityEvent onAllPlayersInPlace = new UnityEvent();
     [SerializeField] private string[] requiredKeys;
+    [SerializeField] private GameObject tooltip;
 
     public string[] RequiredKeys => requiredKeys;
 
@@ -76,12 +77,14 @@ public class PlayersInPlace : NetworkBehaviour
         RPC_RemoveKeysFromPlayers(requiredKeys);
     }
 
-    [Rpc(RpcSources.All, RpcTargets.StateAuthority)]
+    [Rpc(RpcSources.All, RpcTargets.All)]
     void RPC_RemoveKeysFromPlayers(string[] keysToRemove)
     {
         foreach (PlayerKeyInventory inv in inventoriesInTrigger)
         {
             inv.RemoveKeys(keysToRemove);
         }
+
+        Destroy(tooltip);
     }
 }
