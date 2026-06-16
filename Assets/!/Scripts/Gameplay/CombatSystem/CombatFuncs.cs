@@ -36,6 +36,12 @@ namespace CombatSystem
                 Health healthComponent = hit.GetComponent<Health>();
                 if (healthComponent == null) continue;
 
+                // prevent friendly fire
+                if ((healthComponent.GetComponent<PlayerHealth>() != null) && (caster.GetComponent<PlayerSetup>() != null))
+                {
+                    continue;
+                }
+
                 int totalDamage;
 
                 if (caster.GetComponent<PlayerSetup>() != null)
