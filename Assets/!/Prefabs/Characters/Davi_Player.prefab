@@ -142,7 +142,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6023994505563687755, guid: 0cc26b293f5af75489e15d8df5c36eaf, type: 3}
       propertyPath: TotalWords
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6023994505563687755, guid: 0cc26b293f5af75489e15d8df5c36eaf, type: 3}
       propertyPath: StateHashes.Array.size
@@ -150,7 +150,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6023994505563687755, guid: 0cc26b293f5af75489e15d8df5c36eaf, type: 3}
       propertyPath: TriggerHashes.Array.size
-      value: 5
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 6023994505563687755, guid: 0cc26b293f5af75489e15d8df5c36eaf, type: 3}
       propertyPath: 'StateHashes.Array.data[3]'
@@ -175,6 +175,22 @@ PrefabInstance:
     - target: {fileID: 6023994505563687755, guid: 0cc26b293f5af75489e15d8df5c36eaf, type: 3}
       propertyPath: 'TriggerHashes.Array.data[4]'
       value: -323374038
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023994505563687755, guid: 0cc26b293f5af75489e15d8df5c36eaf, type: 3}
+      propertyPath: 'TriggerHashes.Array.data[5]'
+      value: -2128936681
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023994505563687755, guid: 0cc26b293f5af75489e15d8df5c36eaf, type: 3}
+      propertyPath: 'TriggerHashes.Array.data[6]'
+      value: -165924479
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023994505563687755, guid: 0cc26b293f5af75489e15d8df5c36eaf, type: 3}
+      propertyPath: 'TriggerHashes.Array.data[7]'
+      value: 1863671867
+      objectReference: {fileID: 0}
+    - target: {fileID: 6023994505563687755, guid: 0cc26b293f5af75489e15d8df5c36eaf, type: 3}
+      propertyPath: 'TriggerHashes.Array.data[8]'
+      value: 403853485
       objectReference: {fileID: 0}
     - target: {fileID: 6667767756867655756, guid: 0cc26b293f5af75489e15d8df5c36eaf, type: 3}
       propertyPath: gender
@@ -301,6 +317,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraRotation: {x: 0.38268346, y: 0, z: 0, w: 0.9238795}
   characterModels: []
+  antonioBox: {fileID: 0}
+  rigTransform: {fileID: 0}
   _characterId: 
   _currentWeapon: 
 --- !u!54 &2141783221044437243
@@ -380,6 +398,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PunchPlayer
   weapon: 0
+  isBear: 0
   punchEvent:
     Guid:
       Data1: 1645193081
