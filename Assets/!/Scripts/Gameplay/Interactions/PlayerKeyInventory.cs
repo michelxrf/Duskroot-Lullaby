@@ -23,7 +23,7 @@ public class PlayerKeyInventory : NetworkBehaviour
         playerHealth = GetComponent<PlayerHealth>();
         if (playerHealth != null)
         {
-            playerHealth.OnDied += HandleDied;
+            //playerHealth.OnDied += HandleDied;
         }
 
         FindFirstObjectByType<UiKeys>().FillKeys(collectedKeys);
@@ -35,7 +35,7 @@ public class PlayerKeyInventory : NetworkBehaviour
         base.Despawned(runner, hasGracefulExit);
         if (playerHealth != null)
         {
-            playerHealth.OnDied -= HandleDied;
+            //playerHealth.OnDied -= HandleDied;
         }
     }
 

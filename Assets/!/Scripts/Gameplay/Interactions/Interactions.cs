@@ -9,8 +9,6 @@ using UnityEngine.Events;
 /// Handles displaying tooltips when players are in range, activating bark sequences,
 /// and managing audio playback for dialogue.
 /// </summary>
-/// 
-//[RequireComponent(typeof(AudioSource))]
 public class Interactions : NetworkBehaviour
 {
     [Header("References")]
@@ -28,7 +26,11 @@ public class Interactions : NetworkBehaviour
     [SerializeField] Interactions changeToAfterInteraction;
     [SerializeField] float delayBetweenBarks = 1f;
 
-    [Networked] bool isInteracting { get; set; }
+    // Use OnChangedRender to automatically sync and trigger the UI on all clients
+    [Networked, OnChangedRender(nameof(OnInteractingChanged))]
+    bool isInteracting { get; set; }
+
+    private Coroutine barkCoroutine;
     AudioSource audioSource;
     bool isPlayerClose = false;
     bool hasSpawned = false;
@@ -37,14 +39,12 @@ public class Interactions : NetworkBehaviour
     [SerializeField] private UnityEvent OnSequenceStarted;
 
     /// <summary>
-    /// Called when the object spawns on the network. Initializes interaction range,
-    /// audio source, and UI elements.
+    /// Called when the object spawns on the network.
     /// </summary>
     public override void Spawned()
     {
         base.Spawned();
         hasSpawned = true;
-        isInteracting = false;
 
         GetComponent<SphereCollider>().radius = interactionRange;
 
@@ -53,9 +53,17 @@ public class Interactions : NetworkBehaviour
     }
 
     /// <summary>
-    /// Called when a player enters the interaction trigger zone.
-    /// Increments player count and notifies the player of the interaction area.
+    /// Property changed callback triggered on all clients when isInteracting changes.
     /// </summary>
+    public void OnInteractingChanged()
+    {
+        if (isInteracting)
+        {
+            if (barkCoroutine != null) StopCoroutine(barkCoroutine);
+            barkCoroutine = StartCoroutine(PlayBarkSequence());
+        }
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         PlayerSetup player = other.GetComponent<PlayerSetup>();
@@ -66,10 +74,6 @@ public class Interactions : NetworkBehaviour
         other.GetComponent<PlayerInteractor>()?.EnteredInteractionArea(this);
     }
 
-    /// <summary>
-    /// Called when a player exits the interaction trigger zone.
-    /// Decrements player count and notifies the player they've left the interaction area.
-    /// </summary>
     private void OnTriggerExit(Collider other)
     {
         PlayerSetup player = other.GetComponent<PlayerSetup>();
@@ -80,10 +84,6 @@ public class Interactions : NetworkBehaviour
         other.GetComponent<PlayerInteractor>()?.LeftInteractionArea();
     }
 
-    /// <summary>
-    /// Determines whether the interaction tooltip should be visible.
-    /// Shows tooltip if a player is in range and no bark sequence is currently playing.
-    /// </summary>
     void CanInteract()
     {
         if (!hasSpawned)
@@ -99,9 +99,6 @@ public class Interactions : NetworkBehaviour
         }
     }
 
-    /// <summary>
-    /// Called every frame to update the visibility of the interaction tooltip.
-    /// </summary>
     private void Update()
     {
         CanInteract();
@@ -109,43 +106,38 @@ public class Interactions : NetworkBehaviour
 
     /// <summary>
     /// RPC method to initiate a bark dialogue sequence.
-    /// Validates that a player is present, no sequence is already playing, and barks exist.
-    /// Called by all clients and executed on all clients to synchronize the bark sequence.
+    /// Executed ONLY on the State Authority to safely modify the networked state.
     /// </summary>
-    [Rpc(RpcSources.All, RpcTargets.All)]
+    [Rpc(RpcSources.All, RpcTargets.StateAuthority)]
     public void RPC_ActivateBark()
     {
-        Debug.Log("RPC_ActivateBark called");
+        Debug.Log("RPC_ActivateBark called on State Authority");
 
         if (!canInteract || isInteracting || barks.Length == 0)
             return;
 
         isInteracting = true;
-        interactionTooltip.SetActive(false);
-        BarkBalloon.SetActive(true);
-        StartCoroutine(PlayBarkSequence());
     }
 
     /// <summary>
-    /// Coroutine that plays through the bark sequence.
-    /// Displays text and plays audio for each bark, with delays between them.
-    /// Hides the dialogue balloon and marks interaction as complete when finished.
+    /// Coroutine that plays through the bark sequence locally on each client.
     /// </summary>
     IEnumerator PlayBarkSequence()
     {
         OnSequenceStarted?.Invoke();
+        BarkBalloon.SetActive(true);
+        interactionTooltip.SetActive(false);
 
         for (int i = 0; i < barks.Length; i++)
         {
             Bark bark = barks[i];
             barkTextField.text = bark.text;
 
-            if(!barkEvent.IsNull)
-{
-                //Debug.Log($"Playing FMOD audio for bark {i} param"+ audioBarkParam);
+            if (!barkEvent.IsNull)
+            {
                 var instance = FMODUnity.RuntimeManager.CreateInstance(barkEvent);
                 instance.setParameterByName(audioBarkParam, bark.barkNumber);
-                instance.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(transform)); 
+                instance.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(transform));
                 instance.start();
                 FMOD.Studio.PLAYBACK_STATE state;
                 do
@@ -160,9 +152,14 @@ public class Interactions : NetworkBehaviour
         }
 
         BarkBalloon.SetActive(false);
-        isInteracting = false;
 
-        // Disable this interaction if it's configured for single use
+        // Only the state authority resets the networked state to false
+        if (HasStateAuthority)
+        {
+            isInteracting = false;
+        }
+
+        // Disable this interaction locally on each client if configured for single use
         if (singleActivation)
         {
             enabled = false;
