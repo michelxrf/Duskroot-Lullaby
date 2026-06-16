@@ -66,6 +66,7 @@ public class PickableKey : NetworkBehaviour
     [Rpc(RpcSources.All, RpcTargets.StateAuthority)]
     public void RPC_Despawn()
     {
+        AudioUI.instance.PlayLevelUP();
         Runner.Despawn(Object);
     }
 }
