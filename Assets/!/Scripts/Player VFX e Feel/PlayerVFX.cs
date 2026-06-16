@@ -171,6 +171,7 @@ public class PlayerVFX : NetworkBehaviour
 
     public void PlayLevelUp()
     {
+        AudioUI.instance.PlayLevelUP();
         StartCoroutine(LevelUpFeedbackRoutine());
     }
 
