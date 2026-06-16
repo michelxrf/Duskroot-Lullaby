@@ -72,6 +72,9 @@ public class FloatingDamageEmmiter : NetworkBehaviour
         if (xpBubblePrefab == null)
             return;
 
+        if(GetComponent<PlayerSetup>() == null)
+            return;
+
         var bubble = Instantiate(
             xpBubblePrefab,
             transform.position + Vector3.up * 0.5f,
