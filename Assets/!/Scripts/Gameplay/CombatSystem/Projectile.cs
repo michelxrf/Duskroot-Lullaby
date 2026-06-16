@@ -95,6 +95,9 @@ public class Projectile : NetworkBehaviour
             Instantiate(explosionVfx, transform.position, Quaternion.identity);
         }
 
+        if (SFX_Explosion.IsNull)
+            return;
+
         EventInstance audioExplosion = RuntimeManager.CreateInstance(SFX_Explosion);
         audioExplosion.set3DAttributes(RuntimeUtils.To3DAttributes(transform.position));
         audioExplosion.start();

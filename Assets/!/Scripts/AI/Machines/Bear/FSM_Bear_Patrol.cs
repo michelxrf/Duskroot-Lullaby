@@ -31,19 +31,8 @@ public class FSM_Bear_Patrol : State
 
     public override void Enter()
     {
-        if (!enemySetup.IsInitialized())
-        {
-            enemySetup.OnInit += () =>
-            {
-                enemyData = enemySetup.GetEnemyData();
-                navAgent.speed = enemyData.speed / 2f;
-            };
-        }
-        else
-        {
-            enemyData = enemySetup.GetEnemyData();
-            navAgent.speed = enemyData.speed / 2f;
-        }
+        enemyData = enemySetup.GetEnemyData();
+        navAgent.speed = enemyData.speed / 2f;
 
         patrolDestination = GetNewPatrolDestination();
 

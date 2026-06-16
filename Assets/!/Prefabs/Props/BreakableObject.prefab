@@ -5037,8 +5037,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FloatingDamageEmmiter
   damageBubblePrefab: {fileID: 165462156057144889, guid: 8862c1ec5b62fd34192e7e62995b42d5, type: 3}
-  healBubblePrefab: {fileID: 0}
-  xpBubblePrefab: {fileID: 0}
+  healBubblePrefab: {fileID: 165462156057144889, guid: 52d8f56f914e77441a9b2c7a766a57c4, type: 3}
+  xpBubblePrefab: {fileID: 165462156057144889, guid: ff27c6dcde041b34c92fee4367d156cd, type: 3}
 --- !u!1001 &2741156979878825553
 PrefabInstance:
   m_ObjectHideFlags: 0

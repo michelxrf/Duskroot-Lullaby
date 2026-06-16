@@ -66,6 +66,9 @@ public class FloatingDamageEmmiter : NetworkBehaviour
     [Rpc(RpcSources.All, RpcTargets.All)]
     private void RPC_EmitXP(int amount)
     {
+        if (!(amount > 0))
+            return;
+
         if (xpBubblePrefab == null)
             return;
 
@@ -87,7 +90,7 @@ public class FloatingDamageEmmiter : NetworkBehaviour
         if (healthComponent != null)
             healthComponent.OnReceivedDamage -= Emit;
 
-        if (CharacterDataManager.Instance != null && HasInputAuthority)
+        if (CharacterDataManager.Instance != null && HasStateAuthority)
         {
             CharacterDataManager.Instance.OnExperienceGained -= EmitXP;
         }

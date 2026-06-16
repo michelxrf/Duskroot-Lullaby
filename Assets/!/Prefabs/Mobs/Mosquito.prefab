@@ -146,10 +146,10 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3635576507670607524}
-  m_Enabled: 1
+  m_Enabled: 0
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 8
   m_Acceleration: 300
   avoidancePriority: 50
   m_AngularSpeed: 14400
@@ -188,7 +188,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Reward
   _experienceAmount: 0
-  pickableWeaponPrefab: {fileID: 0}
   healingDropChance: 0.2
   healingItemPrefabs: []
   weaponDropChance: 0.3
@@ -200,7 +199,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3635576507670607524}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 845cf58a3ec234a43842cba72e04c64e, type: 3}
   m_Name: 
@@ -214,7 +213,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3635576507670607524}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a820c7446fd3d52488bc966943fcf3bd, type: 3}
   m_Name: 
@@ -229,7 +228,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3635576507670607524}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2b85ef26018a37e4b919621e55cf5fad, type: 3}
   m_Name: 
@@ -245,7 +244,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3635576507670607524}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7a0deb079dc52424da3493a63c9f986c, type: 3}
   m_Name: 
@@ -358,8 +357,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FloatingDamageEmmiter
   damageBubblePrefab: {fileID: 165462156057144889, guid: 8862c1ec5b62fd34192e7e62995b42d5, type: 3}
-  healBubblePrefab: {fileID: 0}
-  xpBubblePrefab: {fileID: 0}
+  healBubblePrefab: {fileID: 165462156057144889, guid: 52d8f56f914e77441a9b2c7a766a57c4, type: 3}
+  xpBubblePrefab: {fileID: 165462156057144889, guid: ff27c6dcde041b34c92fee4367d156cd, type: 3}
 --- !u!114 &2890860689339418021
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1378,7 +1377,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 833854997431449644, guid: dadecae318be19749ac4fbd62bd9a632, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 833854997431449644, guid: dadecae318be19749ac4fbd62bd9a632, type: 3}
       propertyPath: m_LocalPosition.z

@@ -2044,6 +2044,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1135662934130450565, guid: 845d49ffa9c4828449dbf83456dfe035, type: 3}
+      propertyPath: xpBubblePrefab
+      value: 
+      objectReference: {fileID: 165462156057144889, guid: ff27c6dcde041b34c92fee4367d156cd, type: 3}
+    - target: {fileID: 1135662934130450565, guid: 845d49ffa9c4828449dbf83456dfe035, type: 3}
+      propertyPath: healBubblePrefab
+      value: 
+      objectReference: {fileID: 165462156057144889, guid: 52d8f56f914e77441a9b2c7a766a57c4, type: 3}
     - target: {fileID: 1185089889512324915, guid: 845d49ffa9c4828449dbf83456dfe035, type: 3}
       propertyPath: m_Radius
       value: 5
@@ -2130,7 +2138,11 @@ PrefabInstance:
       objectReference: {fileID: 5866439276971123213}
     - target: {fileID: 7817158564896777369, guid: 845d49ffa9c4828449dbf83456dfe035, type: 3}
       propertyPath: m_Speed
-      value: 20
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7817158564896777369, guid: 845d49ffa9c4828449dbf83456dfe035, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8328019846896271698, guid: 845d49ffa9c4828449dbf83456dfe035, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2196,7 +2208,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 180966383989715617}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 654ff66de4f7e2c46b3b5098feae04b4, type: 3}
   m_Name: 
@@ -2211,7 +2223,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 180966383989715617}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 62843dfa8a609844c8dbfc7961c674a0, type: 3}
   m_Name: 
@@ -2228,7 +2240,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 180966383989715617}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a0ceba329b17112469d4647f116fcec3, type: 3}
   m_Name: 
@@ -2243,7 +2255,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 180966383989715617}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a27d91e099b963948a786ef53e7acb23, type: 3}
   m_Name: 

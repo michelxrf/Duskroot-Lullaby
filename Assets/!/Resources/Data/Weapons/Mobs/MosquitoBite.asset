@@ -12,13 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fda383b106b17804c88baad2149ec8ee, type: 3}
   m_Name: MosquitoBite
   m_EditorClassIdentifier: Assembly-CSharp::WeaponData
-  baseDamage: 1
+  baseDamage: 5
+  attackSpeed: 1
   knockbackForce: 5
   animationController: {fileID: 0}
-  weaponModel: {fileID: 0}
   hitboxRadius: 1
-  vfxPrefab: {fileID: 0}
-  rigthHanded: 1
-  behavior: 
-  projectilePrefab: {fileID: 0}
+  vfxPrefab:
+  - {fileID: 0}
+  behavior: []
+  projectilePrefab:
+  - {fileID: 0}
+  weaponModelName: []
+  weaponPortrait: []
   weaponAudioType: Fly

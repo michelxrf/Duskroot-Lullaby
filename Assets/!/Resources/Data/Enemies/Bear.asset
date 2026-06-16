@@ -16,7 +16,7 @@ MonoBehaviour:
   Level: 1
   health: 500
   armor: 0
-  damage: 9
+  damage: 8
   speed: 6
   attackSpeed: 10
   cure: 1

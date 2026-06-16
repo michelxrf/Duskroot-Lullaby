@@ -23,7 +23,16 @@ public class EnemySetup : NetworkBehaviour
 
             enemyData = ExperienceCalculator.LevelUpEnemy(enemyTemplate, level);
             enemyData.CharacterId = enemyTemplate.CharacterId;
+
+            GetComponent<NavMeshAgent>().enabled = true;
             GetComponent<NavMeshAgent>().speed = enemyData.speed;
+
+            foreach(State s in GetComponents<State>())
+            {
+                s.enabled = true;
+            }
+
+            GetComponent<StateMachine>().enabled = true;
 
             isInitialized = true;
             OnInit?.Invoke();
