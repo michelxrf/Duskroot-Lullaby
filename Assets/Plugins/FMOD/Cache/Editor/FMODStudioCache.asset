@@ -42,7 +42,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/Desktop/Interactions.bank
   Name: Desktop/Interactions
   StudioPath: bank:/Interactions
-  lastModified: 639165998507812651
+  lastModified: 639165221794091894
   FileSizes: []
   Exists: 1
 --- !u!114 &-8701416822779029996
@@ -115,7 +115,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/Desktop/SFX.bank
   Name: Desktop/SFX
   StudioPath: bank:/SFX
-  lastModified: 639168165674349524
+  lastModified: 639171501347231461
   FileSizes: []
   Exists: 1
 --- !u!114 &-8251974156446050178
@@ -145,6 +145,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 28000
+--- !u!114 &-8026105385419517708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/SFX_Dash
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/SFX_Dash
+  Guid:
+    Data1: 5805618
+    Data2: 1290200759
+    Data3: -1186622280
+    Data4: 324884077
+  Banks:
+  - {fileID: -8501145219405282892}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1374
 --- !u!114 &-7886177131738394657
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -381,7 +408,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/Desktop/MUS.bank
   Name: Desktop/MUS
   StudioPath: bank:/MUS
-  lastModified: 639165998508782706
+  lastModified: 639165221795154526
   FileSizes: []
   Exists: 1
 --- !u!114 &-5584825869314499098
@@ -1125,7 +1152,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/Desktop/Master.bank
   Name: Desktop/Master
   StudioPath: bank:/Master
-  lastModified: 639165998509127967
+  lastModified: 639171582752999375
   FileSizes: []
   Exists: 1
 --- !u!114 &11400000
@@ -1196,12 +1223,14 @@ MonoBehaviour:
   - {fileID: 6668780065758455537}
   - {fileID: -8251974156446050178}
   - {fileID: -8849565117895328728}
+  - {fileID: -8026105385419517708}
+  - {fileID: 5481425885633953648}
   EditorParameters: []
   MasterBanks:
   - {fileID: -128833856003080583}
   StringsBanks:
   - {fileID: 4893346086622871932}
-  cacheTime: 639168165674389197
+  cacheTime: 639171582753009402
   cacheVersion: 131635
 --- !u!114 &258957276046208807
 MonoBehaviour:
@@ -1218,7 +1247,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/Desktop/Ambiences.bank
   Name: Desktop/Ambiences
   StudioPath: bank:/Ambiences
-  lastModified: 639165998507602652
+  lastModified: 639165221793721710
   FileSizes: []
   Exists: 1
 --- !u!114 &881238662609916186
@@ -1373,7 +1402,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/Desktop/UI.bank
   Name: Desktop/UI
   StudioPath: bank:/UI
-  lastModified: 639168165674389197
+  lastModified: 639167167552562246
   FileSizes: []
   Exists: 1
 --- !u!114 &3454179712490857386
@@ -1519,10 +1548,10 @@ MonoBehaviour:
   Path: Assets/BuildFmod/Desktop/Master.strings.bank
   Name: Desktop/Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639168165673427476
+  lastModified: 639171582753009402
   FileSizes:
   - Name: 
-    Value: 4032
+    Value: 4164
   Exists: 1
 --- !u!114 &5116886835950036293
 MonoBehaviour:
@@ -1579,6 +1608,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 488
+--- !u!114 &5481425885633953648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/SFX_Explosion
+  m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorEventRef
+  Path: event:/SFX/SFX_Explosion
+  Guid:
+    Data1: -57592489
+    Data2: 1150738407
+    Data3: 167272360
+    Data4: -1617305972
+  Banks:
+  - {fileID: -8501145219405282892}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1408
 --- !u!114 &6026387590135772538
 MonoBehaviour:
   m_ObjectHideFlags: 0
