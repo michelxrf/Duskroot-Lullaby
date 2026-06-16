@@ -270,7 +270,7 @@ public class LobbySeat : NetworkBehaviour
         return false;
     }
 
-    private void OnDestroy()
+    public override void Despawned(NetworkRunner runner, bool hasStateAuthority)
     {
         if (HasStateAuthority && RunnerBootstrap.Instance != null)
         {

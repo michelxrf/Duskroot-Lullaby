@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fda383b106b17804c88baad2149ec8ee, type: 3}
   m_Name: Sling
   m_EditorClassIdentifier: Assembly-CSharp::WeaponData
-  baseDamage: 5
+  baseDamage: 0
   attackSpeed: 1
-  knockbackForce: 5
+  knockbackForce: 1
   animationController: {fileID: 9100000, guid: c6cfe7c5d74e5f74fa9badf7c5fe3477, type: 2}
   hitboxRadius: 0.2
   vfxPrefab: []

@@ -186,14 +186,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5519747034607868003, guid: 30e716afb78275a4ab264dfb386ba94a, type: 3}
-      propertyPath: m_Size.y
-      value: 1.6977277
-      objectReference: {fileID: 0}
-    - target: {fileID: 5519747034607868003, guid: 30e716afb78275a4ab264dfb386ba94a, type: 3}
-      propertyPath: m_Center.y
-      value: 0.7488638
-      objectReference: {fileID: 0}
     - target: {fileID: 8365882783246484931, guid: 30e716afb78275a4ab264dfb386ba94a, type: 3}
       propertyPath: m_Name
       value: BreakableBarrel

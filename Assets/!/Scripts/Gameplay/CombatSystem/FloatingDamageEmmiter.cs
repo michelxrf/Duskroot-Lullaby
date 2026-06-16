@@ -85,7 +85,7 @@ public class FloatingDamageEmmiter : NetworkBehaviour
         }
     }
 
-    private void OnDestroy()
+    public override void Despawned(NetworkRunner runner, bool hasStateAuthority)
     {
         if (healthComponent != null)
             healthComponent.OnReceivedDamage -= Emit;
