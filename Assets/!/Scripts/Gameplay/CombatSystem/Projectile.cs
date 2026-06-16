@@ -4,6 +4,9 @@ using Fusion;
 using Fusion.Addons.SimpleKCC;
 using CombatSystem;
 using Unity.VisualScripting;
+using FMOD.Studio;
+using FMODUnity;
+
 
 public class Projectile : NetworkBehaviour
 {
@@ -14,6 +17,8 @@ public class Projectile : NetworkBehaviour
     [SerializeField] GameObject explosionVfx;
     //[SerializeField] private GameObject trailVfxPrefab;
     //private GameObject spawnedTrail;
+    [Header("FMOD")]
+    [SerializeField] private EventReference SFX_Explosion;
 
     GameObject owner;
     WeaponDataInstance weaponDataInstance;
@@ -89,6 +94,11 @@ public class Projectile : NetworkBehaviour
         {
             Instantiate(explosionVfx, transform.position, Quaternion.identity);
         }
+
+        EventInstance audioExplosion = RuntimeManager.CreateInstance(SFX_Explosion);
+        audioExplosion.set3DAttributes(RuntimeUtils.To3DAttributes(transform.position));
+        audioExplosion.start();
+        audioExplosion.release();
     }
 
 }
