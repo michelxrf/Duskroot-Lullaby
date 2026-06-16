@@ -17,7 +17,7 @@ public class BuildVersionGenerator : IPreprocessBuildWithReport
         string gitHash = GetGitCommitHash();
         string version = PlayerSettings.bundleVersion;
         string timestamp = System.DateTime.Now.ToString("yyyy-MM-dd HH:mm");
-        string finalVersion = $"v{version} ({gitHash}) - {timestamp}";
+        string finalVersion = $"{version} ({gitHash}) - {timestamp}";
 
         string path = "Assets/!/Resources/build.txt";
 
