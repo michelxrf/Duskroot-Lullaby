@@ -1272,6 +1272,7 @@ GameObject:
   - component: {fileID: 7943048338375811865}
   - component: {fileID: 1704696739168313676}
   - component: {fileID: 2065632980774991318}
+  - component: {fileID: 5410267390576949487}
   m_Layer: 0
   m_Name: PickableWeapon
   m_TagString: Untagged
@@ -1330,8 +1331,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54f6c3a32c7b00842896ee9ee8997b63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PickableWeapon
-  randomizeWeapon: 0
-  randomizeLevel: 0
+  randomizeLevel: 1
   weaponDataSO: {fileID: 11400000, guid: dc791d731ca693144a922d7cba8a1569, type: 2}
   level: 0
   interactionTooltip: {fileID: 7548978089487154053}
@@ -1373,6 +1373,7 @@ MonoBehaviour:
   NestedObjects: []
   NetworkedBehaviours:
   - {fileID: 7943048338375811865}
+  - {fileID: 5410267390576949487}
   ForceRemoteRenderTimeframe: 0
 --- !u!114 &2065632980774991318
 MonoBehaviour:
@@ -1390,6 +1391,23 @@ MonoBehaviour:
   uncommonFeedback: {fileID: 6511793223181427713}
   rareFeedback: {fileID: 7314207904166956284}
   legendaryFeedback: {fileID: 1667746377600398198}
+--- !u!114 &5410267390576949487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6525151285774368790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 158639473, guid: e725a070cec140c4caffb81624c8c787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Fusion.Runtime.dll::Fusion.NetworkTransform
+  _stateAuthorityChangeErrorCorrectionDelta: 0
+  SyncScale: 0
+  SyncParent: 0
+  _autoAOIOverride: 1
+  DisableSharedModeInterpolation: 0
 --- !u!1 &7548978089487154053
 GameObject:
   m_ObjectHideFlags: 0

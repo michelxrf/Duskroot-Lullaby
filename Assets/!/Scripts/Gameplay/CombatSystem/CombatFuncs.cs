@@ -48,11 +48,6 @@ namespace CombatSystem
                     totalDamage = caster.GetComponent<EnemySetup>().GetEnemyData().damage + weapon.damage;
                     healthComponent.RPC_TakeDamage(totalDamage, weapon.weaponData.weaponAudioType);
                 }
-                else if (caster.GetComponent<Projectile>() != null)
-                {
-                    totalDamage = weapon.damage;
-                    healthComponent.RPC_TakeDamage(totalDamage, weapon.weaponData.weaponAudioType);
-                }   
 
                 // apply knockback if the hit object has a Knockback component
                 if(!healthComponent.IsDead() && !healthComponent.IsInvulnerable)

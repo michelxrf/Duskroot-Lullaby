@@ -5014,15 +5014,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProgressionSystem.Reward
   _experienceAmount: 0
-  pickableWeaponPrefab: {fileID: 6525151285774368790, guid: 63adc52a79326314182ff8cc1f2506be, type: 3}
   healingDropChance: 0.2
   healingItemPrefabs:
   - {fileID: 4135373091219071777, guid: 1653f5471e4eb8141a3d3de76845f09c, type: 3}
-  weaponDropChance: 0.1
+  weaponDropChance: 0.8
   weapons:
-  - {fileID: 11400000, guid: dc791d731ca693144a922d7cba8a1569, type: 2}
-  - {fileID: 11400000, guid: ee4740f827f7a4843a82043d6ea6dfb0, type: 2}
-  - {fileID: 11400000, guid: e117e20cb07fa2748bc8b989fa00aa6f, type: 2}
+  - {fileID: 5193677280250424321, guid: 043a1729f0b57b143b42651d4a427070, type: 3}
+  - {fileID: 6114875647556083430, guid: 805696d67cd349443accadc44b20ad86, type: 3}
+  - {fileID: 3349503419375642021, guid: 6afa1675951ad414f96929cfbb7adaff, type: 3}
+  - {fileID: 5690718761687788043, guid: 47408b7b24d2d4844bbcda78097fef0d, type: 3}
+  - {fileID: 8091371408342391795, guid: 97c8b3b083e9fc14eb0f9edcd2ae2fee, type: 3}
 --- !u!114 &2870093960027838735
 MonoBehaviour:
   m_ObjectHideFlags: 0
