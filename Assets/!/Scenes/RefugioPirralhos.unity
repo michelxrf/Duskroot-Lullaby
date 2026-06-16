@@ -8284,7 +8284,7 @@ Transform:
   m_GameObject: {fileID: 617575156}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 24.55274, y: 11.930003, z: 143.02933}
+  m_LocalPosition: {x: 24.552742, y: 11.954592, z: 143.03026}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -17478,7 +17478,7 @@ Transform:
   m_GameObject: {fileID: 1412940116}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.72296715, z: 0, w: 0.69088244}
-  m_LocalPosition: {x: 23.402887, y: 11.810165, z: 145.94933}
+  m_LocalPosition: {x: 23.402742, y: 11.834592, z: 145.95026}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -18987,6 +18987,18 @@ MonoBehaviour:
         - m_Target: {fileID: 1544782188}
           m_TargetAssemblyTypeName: FMODUnity.StudioEventEmitter, FMODUnity
           m_MethodName: Play
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1044002823}
+          m_TargetAssemblyTypeName: MusLevel1, Assembly-CSharp
+          m_MethodName: StopMusic
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
