@@ -1,3 +1,4 @@
+using CombatSystem;
 using UnityEngine;
 
 public class EnableAllPlayers : MonoBehaviour
@@ -8,6 +9,7 @@ public class EnableAllPlayers : MonoBehaviour
         foreach (PlayerSetup player in allPlayers)
         {
             player.EnablePlayerControls(newState);
+            player.GetComponent<PlayerHealth>().IsInvulnerable = newState;
             player.RPC_EnablePlayerVisuals(newState);
         }
     }
