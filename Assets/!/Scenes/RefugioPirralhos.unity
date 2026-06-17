@@ -8284,7 +8284,7 @@ Transform:
   m_GameObject: {fileID: 617575156}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 24.552742, y: 11.954592, z: 143.03026}
+  m_LocalPosition: {x: 24.55274, y: 11.93, z: 143.0303}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9676,6 +9676,8 @@ PlayableDirector:
     value: {fileID: 1433146775}
   - key: {fileID: 7143533414126720837, guid: b2322d1c4601dd048bc3181544baf37a, type: 2}
     value: {fileID: 293508427}
+  - key: {fileID: -2664387207837377686, guid: b2322d1c4601dd048bc3181544baf37a, type: 2}
+    value: {fileID: 2014815035}
   m_ExposedReferences:
     m_References:
     - 89fdc2d744dcaa1478a21697815190ac: {fileID: 2123118715}
@@ -17478,7 +17480,7 @@ Transform:
   m_GameObject: {fileID: 1412940116}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.72296715, z: 0, w: 0.69088244}
-  m_LocalPosition: {x: 23.402742, y: 11.834592, z: 145.95026}
+  m_LocalPosition: {x: 23.40274, y: 11.810005, z: 145.95026}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -20876,6 +20878,34 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 620527720204974090, guid: bcf32d51e8c39e54cbc3b16a6659a5c0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 620527720204974090, guid: bcf32d51e8c39e54cbc3b16a6659a5c0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 620527720204974090, guid: bcf32d51e8c39e54cbc3b16a6659a5c0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1770098948}
+    - target: {fileID: 620527720204974090, guid: bcf32d51e8c39e54cbc3b16a6659a5c0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 620527720204974090, guid: bcf32d51e8c39e54cbc3b16a6659a5c0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: Play
+      objectReference: {fileID: 0}
+    - target: {fileID: 620527720204974090, guid: bcf32d51e8c39e54cbc3b16a6659a5c0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: FMODUnity.StudioEventEmitter, FMODUnity
+      objectReference: {fileID: 0}
+    - target: {fileID: 620527720204974090, guid: bcf32d51e8c39e54cbc3b16a6659a5c0, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 3203329074853946593, guid: bcf32d51e8c39e54cbc3b16a6659a5c0, type: 3}
       propertyPath: cardContent
       value: The witch will pay!
@@ -23079,6 +23109,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ActivateObjectOnAllProxies
   objectToActivate: {fileID: 746512499}
+--- !u!1 &2014815035 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8270242560709968508, guid: e964d76377ce3fc44b851291091f6cf1, type: 3}
+  m_PrefabInstance: {fileID: 2014815032}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2026686801
 GameObject:
   m_ObjectHideFlags: 0
