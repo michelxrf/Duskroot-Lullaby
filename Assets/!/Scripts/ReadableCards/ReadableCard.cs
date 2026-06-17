@@ -100,7 +100,7 @@ public class ReadableCard : MonoBehaviour
             if (localPlayerHealth != null)
                 localPlayerHealth.IsInvulnerable = true;
         }
-
+        AudioUI.instance.PlayUIFood();
         isReading = true;
         openFrame = Time.frameCount;
 
@@ -133,7 +133,7 @@ public class ReadableCard : MonoBehaviour
                 localPlayer.EnablePlayerControlsLocal(true);
             }
         }
-
+        AudioUI.instance.PressKey();
         isReading = false;
         cardUI.SetActive(false);
     }
