@@ -23,14 +23,14 @@ public class MainMenuScreen :
     private void OnPlayClicked()
     {
         uiManager.ShowScreen(enterRoomScreen);
+        FindFirstObjectByType<MainMenuCameraPositioner>().MoveToLeftAngle();
     }
     private void OnLogoutClicked()
     {
         SessionManager.Instance.Logout();
 
-        uiManager.ShowScreen(
-            loginScreen
-        );
+        uiManager.ShowScreen(loginScreen);
+        FindFirstObjectByType<MainMenuCameraPositioner>().MoveToLeftAngle();
     }
 
     public void QuitGame()

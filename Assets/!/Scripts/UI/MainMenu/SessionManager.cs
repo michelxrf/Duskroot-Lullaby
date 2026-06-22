@@ -16,15 +16,7 @@ public class SessionManager : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance != null)
-        {
-            Destroy(gameObject);
-            return;
-        }
-
         Instance = this;
-
-        DontDestroyOnLoad(gameObject);
     }
 
     private void Start()
@@ -35,10 +27,12 @@ public class SessionManager : MonoBehaviour
         if (ShouldAutoLogin())
         {
             uiManager.ShowScreen(mainMenuScreen);
+            FindFirstObjectByType<MainMenuCameraPositioner>().MoveToRightAngle();
         }
         else
         {
             uiManager.ShowScreen(loginScreen);
+            FindFirstObjectByType<MainMenuCameraPositioner>().MoveToLeftAngle();
         }
     }
 

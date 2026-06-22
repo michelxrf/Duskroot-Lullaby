@@ -42,7 +42,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/Desktop/Interactions.bank
   Name: Desktop/Interactions
   StudioPath: bank:/Interactions
-  lastModified: 639165998507812651
+  lastModified: 639167074214450372
   FileSizes: []
   Exists: 1
 --- !u!114 &-8701416822779029996
@@ -115,7 +115,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/Desktop/SFX.bank
   Name: Desktop/SFX
   StudioPath: bank:/SFX
-  lastModified: 639172081511728829
+  lastModified: 639172188103820653
   FileSizes: []
   Exists: 1
 --- !u!114 &-8251974156446050178
@@ -408,7 +408,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/Desktop/MUS.bank
   Name: Desktop/MUS
   StudioPath: bank:/MUS
-  lastModified: 639165998508782706
+  lastModified: 639167074215400363
   FileSizes: []
   Exists: 1
 --- !u!114 &-5584825869314499098
@@ -1152,7 +1152,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/Desktop/Master.bank
   Name: Desktop/Master
   StudioPath: bank:/Master
-  lastModified: 639172015965607062
+  lastModified: 639172188102860639
   FileSizes: []
   Exists: 1
 --- !u!114 &11400000
@@ -1230,7 +1230,7 @@ MonoBehaviour:
   - {fileID: -128833856003080583}
   StringsBanks:
   - {fileID: 4893346086622871932}
-  cacheTime: 639172081511728829
+  cacheTime: 639172188103820653
   cacheVersion: 131635
 --- !u!114 &258957276046208807
 MonoBehaviour:
@@ -1247,7 +1247,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/Desktop/Ambiences.bank
   Name: Desktop/Ambiences
   StudioPath: bank:/Ambiences
-  lastModified: 639165998507602652
+  lastModified: 639167074214305378
   FileSizes: []
   Exists: 1
 --- !u!114 &881238662609916186
@@ -1402,7 +1402,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/Desktop/UI.bank
   Name: Desktop/UI
   StudioPath: bank:/UI
-  lastModified: 639168165674389197
+  lastModified: 639168094033381080
   FileSizes: []
   Exists: 1
 --- !u!114 &3454179712490857386
@@ -1548,7 +1548,7 @@ MonoBehaviour:
   Path: Assets/BuildFmod/Desktop/Master.strings.bank
   Name: Desktop/Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 639172015965607062
+  lastModified: 639172188102875665
   FileSizes:
   - Name: 
     Value: 4164
