@@ -5024,7 +5024,7 @@ MonoBehaviour:
   connectButton: {fileID: 527020426}
   backButton: {fileID: 360075049}
   lobbyCodeInput: {fileID: 347339225}
-  loginScreen: {fileID: 1083244238}
+  loginScreen: {fileID: 1768264644}
   lobby: Lobby1
 --- !u!225 &353349313
 CanvasGroup:
