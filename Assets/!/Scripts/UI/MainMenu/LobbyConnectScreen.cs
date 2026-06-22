@@ -32,6 +32,7 @@ public class LobbyConnectScreen : UiScreen
     void OnBackClicked()
     {
         uiManager.ShowScreen(loginScreen);
+        FindFirstObjectByType<MainMenuCameraPositioner>().MoveToLeftAngle();
     }
 
     void OnConnectClicked()

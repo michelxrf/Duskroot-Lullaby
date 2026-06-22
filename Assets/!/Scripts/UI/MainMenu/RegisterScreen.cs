@@ -67,6 +67,7 @@ public class RegisterScreen : UiScreen
     void OnBackClicked()
     {
         uiManager.ShowScreen(loginScreen);
+        FindFirstObjectByType<MainMenuCameraPositioner>().MoveToLeftAngle();
     }
 
     /// <summary>
@@ -91,6 +92,7 @@ public class RegisterScreen : UiScreen
         PlayerPrefs.Save();
 
         uiManager.ShowScreen(loginScreen);
+        FindFirstObjectByType<MainMenuCameraPositioner>().MoveToLeftAngle();
     }
 
     /// <summary>

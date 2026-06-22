@@ -120,6 +120,7 @@ public class LogInScreen : UiScreen
     {
         // Transition to the lobby screen on successful login
         uiManager.ShowScreen(mainMenuScreen);
+        FindFirstObjectByType<MainMenuCameraPositioner>().MoveToRightAngle();
 
         // Save the username for future sessions
         //PlayerPrefs.SetString("username", usernameInput.text);
@@ -157,6 +158,7 @@ public class LogInScreen : UiScreen
     void OnRegisterButtonClicked()
     {
         uiManager.ShowScreen(registerScreen);
+        FindFirstObjectByType<MainMenuCameraPositioner>().MoveToLeftAngle();
     }
 
     void OnUsernameFieldChange(string value)
