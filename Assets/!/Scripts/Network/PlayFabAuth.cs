@@ -9,6 +9,8 @@ using UnityEngine;
 /// </summary>
 public class PlayFabAuth : MonoBehaviour
 {
+    bool isLoggedIn = false;
+
     /// <summary>
     /// Registers a new user account with the specified username and password.
     /// </summary>
@@ -25,11 +27,13 @@ public class PlayFabAuth : MonoBehaviour
             result =>
             {
                 success?.Invoke();
+                isLoggedIn = true;
                 Debug.Log("Registered successfully! PlayFabId: " + result.PlayFabId);
             },
             error =>
             {
                 fail?.Invoke();
+                isLoggedIn = false;
                 Debug.LogError("Register error: " + error.GenerateErrorReport());
             });
     }
@@ -39,6 +43,9 @@ public class PlayFabAuth : MonoBehaviour
     /// </summary>
     public void Login(string username, string password, Action success, Action fail)
     {
+        if (isLoggedIn)
+            return;
+
         var request = new LoginWithPlayFabRequest
         {
             Username = username,
@@ -49,13 +56,20 @@ public class PlayFabAuth : MonoBehaviour
             result =>
             {
                 success?.Invoke();
+                isLoggedIn = true;
                 Debug.Log("Logged in! PlayFabId: " + result.PlayFabId);
             },
             error =>
             {
                 fail?.Invoke();
+                isLoggedIn = false;
                 Debug.LogError("Login error: " + error.GenerateErrorReport());
             });
+    }
+
+    public void ResetLoginState()
+    {
+        isLoggedIn = false;
     }
 
 }
