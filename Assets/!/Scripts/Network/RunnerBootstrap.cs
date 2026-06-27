@@ -85,8 +85,10 @@ public class RunnerBootstrap : MonoBehaviour, INetworkRunnerCallbacks
 
     void INetworkRunnerCallbacks.OnPlayerLeft(NetworkRunner runner, PlayerRef player) { OnPlayerDisconnected?.Invoke(player); }
 
-    void INetworkRunnerCallbacks.OnShutdown(NetworkRunner runner, ShutdownReason shutdownReason) { { OnFailedToConnect?.Invoke(); } }
-
+    void INetworkRunnerCallbacks.OnShutdown(NetworkRunner runner, ShutdownReason shutdownReason)
+    {
+        //Debug.Log($"Runner desligado: {shutdownReason}");
+    }
     void INetworkRunnerCallbacks.OnDisconnectedFromServer(NetworkRunner runner, NetDisconnectReason reason) { OnFailedToConnect?.Invoke(); }
 
     void INetworkRunnerCallbacks.OnConnectRequest(NetworkRunner runner, NetworkRunnerCallbackArgs.ConnectRequest request, byte[] token) { }
@@ -105,7 +107,10 @@ public class RunnerBootstrap : MonoBehaviour, INetworkRunnerCallbacks
 
     void INetworkRunnerCallbacks.OnConnectedToServer(NetworkRunner runner) { OnConnected?.Invoke(); }
 
-    void INetworkRunnerCallbacks.OnSessionListUpdated(NetworkRunner runner, List<SessionInfo> sessionList) { }
+    void INetworkRunnerCallbacks.OnSessionListUpdated(NetworkRunner runner, List<SessionInfo> sessionList)
+    {
+        availableSessions = sessionList;
+    }
 
     void INetworkRunnerCallbacks.OnCustomAuthenticationResponse(NetworkRunner runner, Dictionary<string, object> data) { }
 
@@ -114,4 +119,26 @@ public class RunnerBootstrap : MonoBehaviour, INetworkRunnerCallbacks
     void INetworkRunnerCallbacks.OnSceneLoadDone(NetworkRunner runner) { OnSceneLoaded?.Invoke(); }
 
     void INetworkRunnerCallbacks.OnSceneLoadStart(NetworkRunner runner) { }
+    public async void ShutdownSession(Action onComplete = null)
+    {
+        if (Runner != null && Runner.IsRunning)
+        {
+            await Runner.Shutdown();
+        }
+
+        onComplete?.Invoke();
+    }
+
+    private List<SessionInfo> availableSessions = new();
+
+    public bool SessionExists(string sessionName)
+    {
+        foreach (var session in availableSessions)
+        {
+            if (session.Name == sessionName)
+                return true;
+        }
+
+        return false;
+    }
 }

@@ -1,9 +1,13 @@
-using System.Collections;
 using Fusion;
+using System.Collections;
 using TMPro;
-using UnityEngine.EventSystems;
-using UnityEngine.UI;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
 
 /// <summary>
 /// Used by LobbySeats as a reference to find other seats
@@ -14,17 +18,35 @@ public class LobbyManager : NetworkBehaviour
     [SerializeField] CountdownToStart countDownUi;
     [SerializeField] string gameplaySceneName;
     public LobbySeat[] lobbySeats;
+    [SerializeField] private TMP_Text roomNameText;
 
     [Header("Settings")]
     [SerializeField] int countdownSeconds = 5;
+    [SerializeField] private string menuSceneName = "MainMenu";
+    private PlayerControls controls;
 
     [Networked] public int CurrentCountdown { get; private set; }
     private bool countdownInProgress = false;
 
+    private void Awake()
+    {
+        controls = new PlayerControls();
+    }
+    private void OnEnable()
+    {
+        controls.UI.Enable();
+        controls.UI.Cancel.performed += OnCancel;
+    }
+    private void OnDisable()
+    {
+        controls.UI.Cancel.performed -= OnCancel;
+        controls.UI.Disable();
+    }
     private void Start()
     {
         RunnerBootstrap.Instance.SetMaxPlayers(lobbySeats.Length);
         RunnerBootstrap.Instance.StartSession();
+        roomNameText.text = $"Room: {RunnerBootstrap.Instance.SessionName}";
 
         foreach (var seat in lobbySeats)
         {
@@ -254,6 +276,24 @@ public class LobbyManager : NetworkBehaviour
         }
     }
 
+    public void LeaveLobby()
+    {
+        StopGameStartCountdown();
 
+        RunnerBootstrap.Instance.ShutdownSession(() =>
+        {
+            SceneManager.LoadScene(menuSceneName);
+        });
+    }
+
+    private void OnCancel(InputAction.CallbackContext context)
+    {
+        LobbySeat mySeat = GetPlayerSeat(Runner.LocalPlayer);
+
+        if (mySeat == null)
+            return;
+
+        mySeat.OnLeaveSeatClicked();
+    }
 }
 
