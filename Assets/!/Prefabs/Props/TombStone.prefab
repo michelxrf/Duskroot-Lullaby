@@ -1731,7 +1731,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 951052825920167605, guid: 1dced19f0c67afb4ea0583df8825c834, type: 3}
       insertIndex: -1
       addedObject: {fileID: 82876793509821466}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3306805883014857367, guid: 1dced19f0c67afb4ea0583df8825c834, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3822366613784839845}
   m_SourcePrefab: {fileID: 100100000, guid: 1dced19f0c67afb4ea0583df8825c834, type: 3}
 --- !u!224 &1135282756308789249 stripped
 RectTransform:
@@ -1749,6 +1752,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+--- !u!1 &3393363678131057699 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3306805883014857367, guid: 1dced19f0c67afb4ea0583df8825c834, type: 3}
+  m_PrefabInstance: {fileID: 212658912517895860}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3822366613784839845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3393363678131057699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77062f01583e0b34389640a896a30717, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIInputIcon
+  iconDatabase: {fileID: 11400000, guid: 0fc9ee3f58e655843aac7ff42c252161, type: 2}
+  action: 1
 --- !u!224 &6248458622522073455 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6072391775435397083, guid: 1dced19f0c67afb4ea0583df8825c834, type: 3}
