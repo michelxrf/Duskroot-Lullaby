@@ -334,17 +334,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""7664fe91-7848-4191-b329-d591457ea442"",
-                    ""path"": ""<Gamepad>/rightTrigger"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Aim"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""b191b761-6f0c-4957-b7c6-42511391796f"",
                     ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",

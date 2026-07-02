@@ -134,7 +134,7 @@ public class LobbySeat : NetworkBehaviour
         playerName.text = PlayerName.ToString();
         playerName.gameObject.SetActive(true);
 
-        characterLevel.text = CharacterLevel.ToString();
+        characterLevel.text = "Lvl: " + CharacterLevel.ToString();
         characterLevel.gameObject.SetActive(true);
 
         // Only show buttons if this is the local player's seat

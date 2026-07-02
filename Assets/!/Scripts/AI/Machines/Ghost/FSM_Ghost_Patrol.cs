@@ -43,7 +43,6 @@ public class FSM_Ghost_Patrol : State
             navAgent.speed = enemyData.speed / 2f;
         }
 
-        GetComponentInChildren<VisionCollider>().GetComponent<SphereCollider>().radius = 500f; // Make vision collider huge so it can see player from anywhere during patrol
         patrolDestination = GetNewPatrolDestination();
 
         navAgent.isStopped = false;
