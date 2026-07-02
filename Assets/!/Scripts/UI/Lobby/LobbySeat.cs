@@ -27,6 +27,15 @@ public class LobbySeat : NetworkBehaviour
     [SerializeField] Button leaveSeatButton;
     [SerializeField] Button selectButton;
 
+    [Header("Atributes")]
+    private CharacterData characterData;
+    [SerializeField] TMP_Text healthText;
+    [SerializeField] TMP_Text damageText;
+    [SerializeField] TMP_Text armorText;
+    [SerializeField] TMP_Text speedText;
+    [SerializeField] TMP_Text attackSpeedText;
+    [SerializeField] TMP_Text cureText;
+
     // Networked properties to sync state across all clients
     [Networked] public NetworkBool IsReady { get; set; } = false;
     [Networked] public NetworkBool IsEmpty { get; set; }
@@ -45,6 +54,10 @@ public class LobbySeat : NetworkBehaviour
     {
         autoSelect = FindFirstObjectByType<AutoSelectFirstAvailableButton>();
         characterName.text = characterTemplate.CharacterId;
+
+        characterData =CharacterDataManager.Instance.GetCharacter(characterTemplate.CharacterId);
+        UpdateCharacterPanel();
+
         lobbyManager = FindFirstObjectByType<LobbyManager>();
 
         readyIndicator.enabled = false;
@@ -111,7 +124,7 @@ public class LobbySeat : NetworkBehaviour
         readyButton.gameObject.SetActive(false);
         leaveSeatButton.gameObject.SetActive(false);
         playerName.gameObject.SetActive(false);
-        characterLevel.gameObject.SetActive(false);
+        //characterLevel.gameObject.SetActive(false);
         selectButton.gameObject.SetActive(showSelectButton);
         readyIndicator.enabled = false;
     }
@@ -304,6 +317,37 @@ public class LobbySeat : NetworkBehaviour
         {
             autoSelect.SelectFirstAvailable();
         }
+    }
+
+    private void UpdateCharacterPanel()
+    {
+        CharacterData data = CurrentCharacter;
+
+        characterLevel.text = $"Lvl: {data.level}";
+        healthText.text = data.health.ToString();
+        damageText.text = data.damage.ToString();
+        armorText.text = data.armor.ToString("0");
+        speedText.text = data.speed.ToString("0.0");
+        attackSpeedText.text = data.attackSpeed.ToString("0.0");
+        cureText.text = data.cure.ToString();
+    }
+
+    private CharacterData CurrentCharacter
+    {
+        get
+        {
+            return CharacterDataManager.Instance.GetCharacter(
+                characterTemplate.CharacterId);
+        }
+    }
+
+    private void RefreshCharacterData()
+    {
+        characterData =
+            CharacterDataManager.Instance.GetCharacter(
+                characterTemplate.CharacterId);
+
+        UpdateCharacterPanel();
     }
 }
 

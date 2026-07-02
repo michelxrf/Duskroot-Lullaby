@@ -30,6 +30,9 @@ EditorBuildSettings:
     path: Assets/!/Scenes/House.unity
     guid: 114df79ad8500954194f3509d2b56605
   - enabled: 1
+    path: Assets/!/Scenes/FinishDemo.unity
+    guid: 9962a668b0fae4f4cb236ce4550b340e
+  - enabled: 1
     path: Assets/!/Scenes/Menu/Lobby1.unity
     guid: a5ed1b61dffd69b42ad76da1018f9215
   - enabled: 1

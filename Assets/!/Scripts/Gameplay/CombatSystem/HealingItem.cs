@@ -9,16 +9,16 @@ using CombatSystem;
 public class HealingItem : NetworkBehaviour
 {
     [SerializeField] private int healAmount = 20;
-    [SerializeField] private GameObject interactionTooltip;
+    [SerializeField] private Canvas interactionTooltip;
 
     private bool hasSpawned = false;
 
     public override void Spawned()
     {
         base.Spawned();
-        hasSpawned = true;
+
         if (interactionTooltip != null)
-            interactionTooltip.SetActive(false);
+            interactionTooltip.enabled = false;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -27,7 +27,7 @@ public class HealingItem : NetworkBehaviour
         if (player == null || !player.IsLocalPlayer())
             return;
 
-        interactionTooltip.SetActive(true);
+        interactionTooltip.enabled = true;
         other.GetComponent<PlayerInteractor>()?.EnteredHealingItemArea(this);
     }
 
@@ -37,7 +37,7 @@ public class HealingItem : NetworkBehaviour
         if (player == null || !player.IsLocalPlayer())
             return;
 
-        interactionTooltip.SetActive(false);
+        interactionTooltip.enabled = false;
         other.GetComponent<PlayerInteractor>()?.LeftHealingItemArea(this);
     }
 

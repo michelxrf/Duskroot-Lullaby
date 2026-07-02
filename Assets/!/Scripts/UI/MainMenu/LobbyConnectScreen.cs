@@ -12,6 +12,7 @@ public class LobbyConnectScreen : UiScreen
     [SerializeField] Button connectButton;
     [SerializeField] Button backButton;
     [SerializeField] TMP_InputField lobbyCodeInput;
+    [SerializeField] private Button randomLobbyButton;
 
     [Header("Other Screens")]
     [SerializeField] UiScreen loginScreen;
@@ -20,6 +21,7 @@ public class LobbyConnectScreen : UiScreen
 
     protected override void Start()
     {
+        randomLobbyButton.onClick.AddListener(OnCreateRandomLobbyClicked);
         base.Start();
 
         connectButton.onClick.AddListener(OnConnectClicked);
@@ -51,4 +53,17 @@ public class LobbyConnectScreen : UiScreen
         connectButton.interactable = !string.IsNullOrEmpty(lobbyCodeInput.text);
     }
 
+    public void OnCreateRandomLobbyClicked()
+    {
+        string roomName = GenerateRandomLobbyName();
+
+        RunnerBootstrap.Instance.SetSessionName(roomName);
+
+        SceneManager.LoadScene(lobby);
+    }
+
+    private string GenerateRandomLobbyName()
+    {
+        return $"Random{UnityEngine.Random.Range(0, 1000000):D6}";
+    }
 }
