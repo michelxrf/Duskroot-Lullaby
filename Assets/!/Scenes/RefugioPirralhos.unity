@@ -6960,17 +6960,16 @@ PrefabInstance:
       propertyPath: cardContent
       value: 'Today was the best day ever!!
 
-        
 
-        We built a treehouse,
-        found a mushroom named Myko, and played hide-and-seek with him. He loses
-        every time because he forgets he''s hiding :)
 
-        
+        We built a treehouse, found
+        a mushroom named Myko, and played hide-and-seek with him. He loses every
+        time because he forgets he''s hiding :)
 
-        Then we
-        fought some monsters and beat them all!! Being a hero is way cooler than
-        going to school.'
+
+
+        Then we fought some monsters
+        and beat them all!! Being a hero is way cooler than going to school.'
       objectReference: {fileID: 0}
     - target: {fileID: 4687333084816353226, guid: bcf32d51e8c39e54cbc3b16a6659a5c0, type: 3}
       propertyPath: m_LocalPosition.x

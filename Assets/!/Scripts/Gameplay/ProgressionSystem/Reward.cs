@@ -92,13 +92,11 @@ namespace ProgressionSystem
 
         void DropWeapon()
         {
-            string weaponSeed = System.Guid.NewGuid().ToString();
             Runner.Spawn(weapons[UnityEngine.Random.Range(0, weapons.Length)], transform.position, Quaternion.identity);
         }
 
         void DropHealing()
         {
-            Debug.Log("Dropping healing item");
             GameObject healingItem = healingItemPrefabs[UnityEngine.Random.Range(0, healingItemPrefabs.Length)];
             Runner.Spawn(healingItem, transform.position, Quaternion.identity);
         }
